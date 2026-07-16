@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talleres y Retiros · Sergio García</title>
+<meta name="description" content="Talleres vivenciales de un día o fin de semana. Retiros terapéuticos de 4-5 días en entorno natural en Cataluña. Grupos reducidos. Trabajo experiencial real.">
+<meta name="robots" content="index, follow">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --ink: #0D0C0B;
+  --bone: #EDECE6;
+  --bone2: #E4E1D9;
+  --fire: #8F3A1A;
+  --fire-dim: rgba(143,58,26,0.13);
+  --gray: #5A5850;
+  --gray-light: #A09C94;
+  --rule: rgba(13,12,11,0.1);
+  --rule-lt: rgba(13,12,11,0.055);
+  --p: clamp(1.4rem, 4vw, 3rem);
+  --pv: clamp(3rem, 7vw, 6rem);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bone);
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: .9rem var(--p);
+  background: var(--bone);
+  border-bottom: 1px solid var(--rule);
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 500; letter-spacing: .04em;
+  text-decoration: none; color: var(--ink);
+}
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a {
+  font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gray); text-decoration: none; transition: color .18s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+.nav-btn {
+  font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+  padding: .5rem 1.3rem; border: 1px solid var(--ink);
+  color: var(--ink); text-decoration: none;
+  transition: background .18s, color .18s;
+}
+.nav-btn:hover { background: var(--ink); color: var(--bone); }
+.nav-toggle{display:none;background:none;border:none;font-size:1.4rem;line-height:1;color:var(--ink);cursor:pointer;padding:.2rem .3rem;}
+
+/* TIPOGRAFÍA */
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
+
+/* UTILIDADES */
+.sec-label {
+  font-size: .68rem; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--fire);
+  margin-bottom: 1.5rem; display: block;
+}
+.sec-h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 500; line-height: 1.15;
+}
+.sec-head {
+  padding: var(--pv) var(--p) 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+.btn-dark {
+  display: inline-block;
+  background: var(--ink); color: var(--bone);
+  padding: .88rem 2rem;
+  font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  text-decoration: none; transition: opacity .18s;
+}
+.btn-dark:hover { opacity: .82; }
+.btn-fire {
+  display: inline-block;
+  background: var(--fire); color: white;
+  padding: .88rem 2rem;
+  font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  text-decoration: none; transition: opacity .18s;
+}
+.btn-fire:hover { opacity: .85; }
+.btn-outline {
+  display: inline-block;
+  border: 0.5px solid var(--ink); color: var(--ink);
+  padding: .75rem 1.8rem;
+  font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; transition: background .18s, color .18s;
+}
+.btn-outline:hover { background: var(--ink); color: var(--bone); }
+
+/* FOOTER */
+footer {
+  padding: 1.4rem var(--p);
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 0.5px solid var(--rule);
+}
+.footer-copy { font-size: .72rem; color: var(--gray-light); }
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a {
+  font-size: .7rem; color: var(--gray-light);
+  text-decoration: none; transition: color .18s;
+}
+.footer-links a:hover { color: var(--ink); }
+
+/* RESPONSIVE NAV */
+@media (max-width: 768px) {
+  nav { padding: .8rem var(--p); position:relative; }
+  .nav-toggle { display:flex; }
+  .nav-links { display: none; }
+  .nav-links.open { display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:var(--bone); padding:1.5rem var(--p) 1.8rem; gap:1.3rem; border-bottom:1px solid var(--rule); box-shadow:0 12px 24px rgba(0,0,0,.12); z-index:300; }
+  .nav-links.open a { font-size:.85rem; padding:.3rem 0; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+
+.page-hero { padding:var(--pv) var(--p); border-bottom:1px solid var(--rule); display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:end; }
+.page-hero h1 { font-size:clamp(2.2rem,4vw,3.8rem); font-weight:500; line-height:1.08; margin-bottom:1.2rem; }
+.page-hero h1 em { font-style:italic; color:var(--fire); }
+.page-hero p { font-size:1rem; color:var(--gray); line-height:1.9; }
+.page-hero-side { font-family:"Cormorant Garamond",serif; font-size:1.15rem; font-style:italic; color:var(--gray); line-height:1.65; border-left:2px solid var(--fire); padding-left:1.2rem; }
+.tag { font-size:.65rem; letter-spacing:.16em; text-transform:uppercase; color:var(--fire); margin-bottom:1.2rem; display:block; }
+h2.grande { font-size:clamp(1.8rem,3vw,2.6rem); font-weight:500; line-height:1.2; margin-bottom:1.2rem; }
+h3.medio { font-size:1.4rem; font-weight:500; line-height:1.3; margin-bottom:.8rem; }
+p.body { font-size:.95rem; color:var(--gray); line-height:1.9; }
+p.body+p.body { margin-top:1rem; }
+
+.tres { display:grid; grid-template-columns:repeat(3,1fr); border-bottom:1px solid var(--rule); }
+.tres > div { padding:2.5rem 2rem; border-right:0.5px solid var(--rule); display:flex; flex-direction:column; gap:.8rem; }
+.tres > div:last-child { border-right:none; }
+
+.taller-card { display:grid; grid-template-columns:1fr 2fr; border-bottom:1px solid var(--rule); }
+.tc-img { overflow:hidden; border-right:1px solid var(--rule); }
+.tc-img img { width:100%; height:100%; object-fit:cover; display:block; min-height:300px; }
+.tc-body { padding:var(--pv) var(--p); display:flex; flex-direction:column; gap:1.2rem; justify-content:center; }
+.tc-tag { font-size:.65rem; letter-spacing:.16em; text-transform:uppercase; color:var(--fire); }
+.tc-h { font-size:clamp(1.6rem,2.5vw,2.2rem); font-weight:500; line-height:1.2; }
+.tc-p { font-size:.95rem; color:var(--gray); line-height:1.9; }
+.tc-meta { display:flex; gap:1.5rem; flex-wrap:wrap; }
+.tc-meta span { font-size:.78rem; color:var(--gray-light); }
+
+.two-col { display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--rule); }
+.two-col > div { padding:var(--pv) var(--p); }
+.two-col > div:first-child { border-right:1px solid var(--rule); }
+
+@media (max-width:768px) {
+  .page-hero { grid-template-columns:1fr; gap:1.5rem; }
+  .tres { grid-template-columns:1fr; }
+  .tres > div { border-right:none; border-bottom:0.5px solid var(--rule); }
+  .tres > div:last-child { border-bottom:none; }
+  .taller-card { grid-template-columns:1fr; }
+  .tc-img { border-right:none; border-bottom:1px solid var(--rule); }
+  .tc-img img { min-height:220px; }
+  .two-col { grid-template-columns:1fr; }
+  .two-col > div:first-child { border-right:none; border-bottom:1px solid var(--rule); }
+}
+
+.faq-item { border-top:0.5px solid var(--rule); }
+.faq-q { display:flex; justify-content:space-between; align-items:center; padding:.95rem 0; cursor:pointer; gap:1rem; }
+.faq-q span:first-child { font-size:.92rem; color:var(--ink); line-height:1.5; }
+.faq-toggle { font-size:1.1rem; color:var(--gray-light); flex-shrink:0; transition:transform .2s; }
+.faq-a { font-size:.88rem; color:var(--gray); line-height:1.85; padding-bottom:1rem; display:none; }
+.faq-item.open .faq-a { display:block; }
+.faq-item.open .faq-toggle { transform:rotate(45deg); color:var(--fire); }
+
+</style>
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1319169');
+</script>
+<!-- End MailerLite Universal -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y3E0GC5DX6');
+</script>
+<link rel="canonical" href="https://sergiogarciaterapeuta.es/talleres-retiros.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sergiogarciaterapeuta.es/talleres-retiros.html">
+<meta property="og:title" content="Talleres y retiros terapéuticos en Tarragona · Sergio García">
+<meta property="og:description" content="Talleres y retiros de crecimiento personal y desarrollo terapéutico con Sergio García en Tarragona.">
+<meta property="og:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Talleres y retiros terapéuticos en Tarragona · Sergio García">
+<meta name="twitter:description" content="Talleres y retiros de crecimiento personal y desarrollo terapéutico con Sergio García en Tarragona.">
+<meta name="twitter:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Sergio Garc\u00eda - Terapeuta Gestalt y Existencial",
+  "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg",
+  "url": "https://sergiogarciaterapeuta.es/",
+  "telephone": "+34634422827",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Tarragona",
+    "addressRegion": "Catalunya",
+    "addressCountry": "ES"
+  },
+  "sameAs": ["https://www.instagram.com/sergiogarciaterapeuta"],
+  "priceRange": "$$",
+  "founder": {
+    "@type": "Person",
+    "name": "Sergio Garc\u00eda"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
+  "name": "Sergio García",
+  "knowsAbout": ["crisis existencial", "Gestalt", "terapia sistémica", "terapia existencial", "terapia de pareja", "desarrollo personal", "acompañamiento terapéutico"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuándo son los próximos talleres?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Del dolor a la alegría\" el 20 de septiembre de 2026, \"El personaje\" el 17-18 de octubre, y \"Crisis e identidad\" el 14-15 de noviembre. Todos presenciales en Tarragona."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo reservo plaza?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Escríbeme por WhatsApp indicando el taller que te interesa y te confirmo la reserva y los detalles prácticos."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+
+<body>
+<nav>
+  <a href="index.html" class="logo">Sergio García</a>
+  <div class="nav-links" onclick="if(event.target.tagName==='A'){this.classList.remove('open');var t=document.querySelector('.nav-toggle');t.setAttribute('aria-expanded','false');t.innerHTML='\u2630';}">
+    <a href="index.html">Inicio</a>
+    <a href="el-personaje.html">El personaje</a>
+    <a href="sobre-sergio.html">Sobre mí</a>
+    <a href="sesiones.html">Sesiones</a>
+    <a href="talleres-retiros.html" class="active">Talleres y retiros</a>
+    <a href="programas.html">Programas</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#contacto">Contacto</a>
+  </div>
+  <a href="https://wa.me/34634422827" class="nav-btn">Reservar sesión</a>
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="var m=document.querySelector('.nav-links');var open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);this.innerHTML=open?'\u2715':'\u2630';">☰</button>
+</nav>
+<main>
+
+<div class="page-hero">
+  <div>
+    <span class="sec-label">Talleres y retiros</span>
+    <h1>El grupo hace lo que<br>la sesión <em>no puede.</em></h1>
+    <p>Talleres vivenciales de un día o fin de semana. Retiros de 4-5 días en entorno natural. Grupos reducidos. Trabajo experiencial real.</p>
+  </div>
+  <p class="page-hero-side">"En el grupo aparecen cosas que en la sesión individual no tienen espacio. El grupo amplifica, confronta y sostiene de una manera distinta."</p>
+</div>
+
+
+<section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);">
+  <div style="max-width:820px;margin:0 auto;">
+    <span class="sec-label" style="display:block;margin-bottom:1.2rem;">Antes de elegir tu taller</span>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:4px;box-shadow:0 8px 30px rgba(0,0,0,.25);">
+      <iframe src="https://www.youtube-nocookie.com/embed/HlTiVJARFVE" title="Por qué un taller es diferente · Sergio García" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<div class="tres">
+  <div style="position:relative;background:var(--bone2);">
+    <span style="position:absolute;top:0;right:0;background:var(--fire);color:#fff;font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.4rem .8rem;">Próximo taller · 20 sept</span>
+    <span class="tag">Taller · 1 día · 20 septiembre 2026</span>
+    <h3 class="medio">Del dolor a la alegría</h3>
+    <p class="body">Un día de trabajo intensivo con las emociones como herramienta. Ejercicios experienciales, movimiento y trabajo corporal grupal. Para personas que quieren contactar con lo que normalmente evitan.</p>
+    <div class="tc-meta" style="margin-top:auto;">
+      <span>📍 Tarragona</span>
+      <span>🕐 10:00–20:00</span>
+      <span>👥 12 plazas · <strong style="color:var(--fire);">7 disponibles</strong></span>
+    </div>
+    <div style="display:flex;gap:1.5rem;align-self:flex-start;">
+      <a href="del-dolor-a-la-alegria.html" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:0.5px solid rgba(0,0,0,.2);padding-bottom:2px;">Más info →</a>
+      <a href="https://wa.me/34634422827?text=Quiero%20reservar%20plaza%20en%20Del%20dolor%20a%20la%20alegría%2020%20septiembre" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;">Reservar plaza →</a>
+    </div>
+  </div>
+  <div>
+    <span class="tag">Taller · Fin de semana · 17-18 octubre 2026</span>
+    <h3 class="medio">El personaje que te está matando</h3>
+    <p class="body">Versión presencial del trabajo sobre el personaje. Dos días para ver con claridad qué mecanismo lleva años tomando decisiones por ti. Ejercicios de confrontación grupal.</p>
+    <div class="tc-meta" style="margin-top:auto;">
+      <span>📍 Tarragona</span>
+      <span>👥 Máx. 10 personas · <strong style="color:var(--fire);">5 disponibles</strong></span>
+    </div>
+    <a href="https://wa.me/34634422827?text=Quiero%20reservar%20plaza%20en%20El%20personaje%2017-18%20octubre" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;">Reservar plaza →</a>
+  </div>
+  <div>
+    <span class="tag">Taller · Fin de semana · 14-15 noviembre 2026</span>
+    <h3 class="medio">Crisis e identidad</h3>
+    <p class="body">Dos días para trabajar qué pasa cuando la vida que construiste ya no encaja. Para personas en transición o con sensación persistente de estar en el lugar equivocado.</p>
+    <div class="tc-meta" style="margin-top:auto;">
+      <span>📍 Tarragona</span>
+      <span>👥 Grupo reducido</span>
+    </div>
+    <a href="https://wa.me/34634422827?text=Quiero%20información%20sobre%20Crisis%20e%20identidad%2014-15%20noviembre" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;">Más información →</a>
+  </div>
+</div>
+
+<div class="taller-card">
+  <div class="tc-img">
+    <img src="images/talleres-1-c098241f.jpg" alt="Retiro terapéutico junto al mar" loading="lazy">
+  </div>
+  <div class="tc-body">
+    <span class="tc-tag">Retiro · 4-5 días</span>
+    <h2 class="tc-h">Retiro terapéutico en Cataluña</h2>
+    <p class="tc-p">Retiro intensivo en entorno natural. Silencio, trabajo grupal, sesiones individuales y convivencia. Para personas que necesitan un corte real y un espacio de profundidad que el día a día no da.</p>
+    <p class="tc-p">Grupos de máximo 8 personas. El tamaño reducido hace posible un nivel de trabajo que en grupos grandes no existe.</p>
+    <div class="tc-meta">
+      <span>📍 Costa Daurada / Cataluña</span>
+      <span>👥 Máx. 8 personas</span>
+      <span>🕐 4-5 días</span>
+    </div>
+    <a href="https://wa.me/34634422827?text=Me%20interesan%20los%20retiros%20terapéuticos" class="btn-fire" style="align-self:flex-start;">Consultar próximas fechas →</a>
+  </div>
+</div>
+
+<div class="taller-card" style="flex-direction:row-reverse;">
+  <div class="tc-img" style="border-right:none;border-left:1px solid var(--rule);">
+    <img src="images/talleres-2-d387b141.jpg" alt="Grupo en taller vivencial" loading="lazy">
+  </div>
+  <div class="tc-body">
+    <span class="tc-tag">Grupal · Semanal · Tarragona</span>
+    <h2 class="tc-h">Grupos de desarrollo personal</h2>
+    <p class="tc-p">Grupos semanales de trabajo personal continuado. No son clases ni talleres puntuales. Son un proceso grupal a lo largo del tiempo, donde la continuidad y el conocimiento entre los participantes profundiza el trabajo.</p>
+    <p class="tc-p">Actualmente en 4ª promoción. Plazas muy limitadas.</p>
+    <div class="tc-meta">
+      <span>📍 Tarragona</span>
+      <span>👥 Grupo cerrado</span>
+      <span>🔄 Semanal</span>
+    </div>
+    <a href="https://wa.me/34634422827?text=Me%20interesan%20los%20grupos%20de%20desarrollo%20personal" class="btn-dark" style="align-self:flex-start;">Consultar plaza →</a>
+  </div>
+</div>
+
+
+<section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);">
+  <div style="max-width:820px;margin:0 auto;">
+    <span class="sec-label" style="display:block;margin-bottom:1.2rem;">Lo que dicen quienes ya vinieron</span>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:4px;box-shadow:0 8px 30px rgba(0,0,0,.25);">
+      <iframe src="https://www.youtube-nocookie.com/embed/YukbqQRluo8" title="Testimonios de talleres · Sergio García" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<div class="two-col">
+  <div>
+    <span class="tag">¿Para quién son los talleres?</span>
+    <h2 class="grande">No hace falta estar en terapia para venir.</h2>
+    <p class="body">Los talleres y retiros son espacios propios. No requieren haber trabajado antes con Sergio. El grupo tiene su propia dinámica, distinta a la sesión individual.</p>
+    <p class="body">Son para personas que quieren trabajar en profundidad en un contexto grupal. Que quieren ver cómo se relacionan, cómo reaccionan, qué les mueve cuando están con otros.</p>
+  </div>
+  <div style="background:var(--bone2);">
+    <span class="tag">Calendario</span>
+    <h2 class="grande">Próximas fechas.</h2>
+    <p class="body">Las fechas se publican con antelación por WhatsApp y redes sociales.</p>
+    <p class="body" style="margin-top:1.5rem;">Si quieres que te avise cuando haya nuevas fechas, escríbeme directamente.</p>
+    <p class="body" style="margin-top:1rem;font-style:italic;color:var(--fire);">No publico más de 3 talleres al año.</p>
+    <a href="https://wa.me/34634422827?text=Quiero%20que%20me%20avises%20del%20siguiente%20taller" class="btn-dark" style="margin-top:1.5rem;display:inline-block;">Déjame tu WhatsApp →</a>
+  </div>
+</div>
+
+
+<section style="border-bottom:1px solid var(--rule);">
+  <div style="padding:var(--pv) var(--p) 2rem;border-bottom:1px solid var(--rule);">
+    <span class="sec-label">En imágenes</span>
+    <h2 class="sec-h2">Lo que pasa cuando el grupo trabaja de verdad.</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:280px;">
+    <div style="overflow:hidden;border-right:0.5px solid var(--rule);border-bottom:0.5px solid var(--rule);">
+      <img src="images/talleres-3-2bfd2820.jpg" alt="Sergio García facilitando taller" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+    </div>
+    <div style="overflow:hidden;border-right:0.5px solid var(--rule);border-bottom:0.5px solid var(--rule);">
+      <img src="images/talleres-4-c88a0349.jpg" alt="Ejercicio grupal" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    <div style="overflow:hidden;border-bottom:0.5px solid var(--rule);">
+      <img src="images/talleres-5-5ca50706.jpg" alt="Trabajo somático" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    <div style="overflow:hidden;border-right:0.5px solid var(--rule);">
+      <img src="images/talleres-6-3a67aef5.jpg" alt="Grupo con velas" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;">
+    </div>
+    <div style="overflow:hidden;border-right:0.5px solid var(--rule);">
+      <img src="images/talleres-7-2e04fb67.jpg" alt="Trabajo corporal grupal" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    <div style="overflow:hidden;">
+      <img src="images/talleres-8-6a2702ca.jpg" alt="Retiro terapéutico grupal" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+  </div>
+</section>
+
+<div style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);background:var(--bone2);">
+  <span class="sec-label">Preguntas frecuentes</span>
+  <div style="max-width:720px;">
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Cuándo son los próximos talleres?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">"Del dolor a la alegría" el 20 de septiembre de 2026, "El personaje" el 17-18 de octubre, y "Crisis e identidad" el 14-15 de noviembre. Todos presenciales en Tarragona.</div>
+    </div><div class="faq-item">
+      <div class="faq-q"><span>¿Cómo reservo plaza?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Escríbeme por WhatsApp indicando el taller que te interesa y te confirmo la reserva y los detalles prácticos.</div>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer>
+  <span class="footer-copy">© 2026 Sergio García · Tarragona</span>
+  <div class="footer-links">
+    <a href="#">Aviso legal</a>
+    <a href="#">Privacidad</a>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+
+<a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.362.694 4.566 1.885 6.42L4 29l7.77-1.84A11.93 11.93 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm6.982 17.02c-.29.816-1.44 1.5-1.98 1.58-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.68-.63-2.96-1.28-4.89-4.24-5.04-4.44-.15-.2-1.21-1.6-1.21-3.06 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.52.24.6.83 2.06.9 2.21.07.15.12.33.02.53-.09.2-.14.32-.28.5-.14.17-.29.38-.42.51-.14.14-.28.29-.12.57.15.27.68 1.12 1.46 1.82 1 .89 1.85 1.17 2.12 1.3.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.14.45.2.51.32.07.11.07.66-.22 1.48z"/>
+  </svg>
+</a>
+<style>
+.whatsapp-float{position:fixed;bottom:24px;right:24px;background-color:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.3);z-index:99999;transition:transform .2s ease;text-decoration:none;}
+.whatsapp-float:hover{transform:scale(1.08);}
+@media (max-width:480px){.whatsapp-float{width:52px;height:52px;bottom:16px;right:16px;}}
+</style>
+</body>
+</html>

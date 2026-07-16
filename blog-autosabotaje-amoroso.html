@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autosabotaje amoroso: por qué huyes de una relación sana · Sergio García</title>
+<meta name="description" content="¿Sientes autosabotaje amoroso al encontrar a alguien sano? Descubre por qué tu temperatura emocional te hace huir del bien y cómo dejar de sabotear relaciones sanas.">
+<meta name="robots" content="index, follow">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --ink: #0D0C0B;
+  --bone: #EDECE6;
+  --bone2: #E4E1D9;
+  --fire: #8F3A1A;
+  --fire-dim: rgba(143,58,26,0.13);
+  --gray: #5A5850;
+  --gray-light: #A09C94;
+  --rule: rgba(13,12,11,0.1);
+  --rule-lt: rgba(13,12,11,0.055);
+  --p: clamp(1.4rem, 4vw, 3rem);
+  --pv: clamp(3rem, 7vw, 6rem);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bone);
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  position: sticky; top: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: .9rem var(--p);
+  background: var(--bone);
+  border-bottom: 1px solid var(--rule);
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 500; letter-spacing: .04em;
+  text-decoration: none; color: var(--ink);
+}
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a {
+  font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gray); text-decoration: none; transition: color .18s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+.nav-btn {
+  font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+  padding: .5rem 1.3rem; border: 1px solid var(--ink);
+  color: var(--ink); text-decoration: none;
+  transition: background .18s, color .18s;
+}
+.nav-btn:hover { background: var(--ink); color: var(--bone); }
+.nav-toggle{display:none;background:none;border:none;font-size:1.4rem;line-height:1;color:var(--ink);cursor:pointer;padding:.2rem .3rem;}
+
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
+
+.sec-label {
+  font-size: .68rem; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--fire);
+  margin-bottom: 1.5rem; display: block;
+}
+.btn-fire {
+  display: inline-block;
+  background: var(--fire); color: white;
+  padding: .88rem 2rem;
+  font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  text-decoration: none; transition: opacity .18s;
+}
+.btn-fire:hover { opacity: .85; }
+.btn-outline {
+  display: inline-block;
+  border: 0.5px solid var(--ink); color: var(--ink);
+  padding: .75rem 1.8rem;
+  font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; transition: background .18s, color .18s;
+}
+.btn-outline:hover { background: var(--ink); color: var(--bone); }
+
+footer {
+  padding: 1.4rem var(--p);
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 0.5px solid var(--rule);
+}
+.footer-copy { font-size: .72rem; color: var(--gray-light); }
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a {
+  font-size: .7rem; color: var(--gray-light);
+  text-decoration: none; transition: color .18s;
+}
+.footer-links a:hover { color: var(--ink); }
+
+@media (max-width: 768px) {
+  nav { padding: .8rem var(--p); position:relative; }
+  .nav-toggle { display:flex; }
+  .nav-links { display: none; }
+  .nav-links.open { display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:var(--bone); padding:1.5rem var(--p) 1.8rem; gap:1.3rem; border-bottom:1px solid var(--rule); box-shadow:0 12px 24px rgba(0,0,0,.12); z-index:300; }
+  .nav-links.open a { font-size:.85rem; padding:.3rem 0; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+/* POST */
+.post-head {
+  padding: var(--pv) var(--p) 2rem;
+  border-bottom: 1px solid var(--rule);
+  max-width: 780px;
+}
+.post-head h1 {
+  font-size: clamp(2rem, 3.6vw, 2.8rem);
+  line-height: 1.15;
+  margin-top: 1rem;
+}
+.post-meta {
+  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--gray-light);
+  margin-top: 1.2rem;
+}
+.post-video {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem var(--p) 0;
+}
+.video-wrap {
+  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+  background: #111;
+}
+.video-wrap iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
+}
+.post-body {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2.5rem var(--p) var(--pv);
+}
+.post-body p {
+  font-size: .98rem;
+  color: var(--gray);
+  line-height: 1.9;
+  margin-bottom: 1.3rem;
+}
+.post-body p.lead {
+  font-size: 1.05rem;
+  color: var(--ink);
+  border-left: 2px solid var(--fire);
+  padding-left: 1rem;
+}
+.post-cta {
+  background: var(--ink);
+  padding: var(--pv) var(--p);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 1.2rem;
+}
+.post-cta h2 { color: var(--bone); font-size: clamp(1.5rem,2.5vw,2rem); max-width: 560px; }
+.post-cta p { color: rgba(255,255,255,.5); font-size: .92rem; max-width: 520px; }
+</style>
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1319169');
+</script>
+<!-- End MailerLite Universal -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y3E0GC5DX6');
+</script>
+<link rel="canonical" href="https://sergiogarciaterapeuta.es/blog-autosabotaje-amoroso.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sergiogarciaterapeuta.es/blog-autosabotaje-amoroso.html">
+<meta property="og:title" content="Autosabotaje amoroso: por qué huyes de una relación sana">
+<meta property="og:description" content="¿Sientes autosabotaje amoroso al encontrar a alguien sano? Descubre por qué tu temperatura emocional te hace huir del bien.">
+<meta property="og:image" content="https://img.youtube.com/vi/Rtf_z6uaSK8/hqdefault.jpg">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Autosabotaje amoroso: por qué huyes de una relación sana">
+<meta name="twitter:description" content="¿Sientes autosabotaje amoroso al encontrar a alguien sano? Descubre por qué tu temperatura emocional te hace huir del bien.">
+<meta name="twitter:image" content="https://img.youtube.com/vi/Rtf_z6uaSK8/hqdefault.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Autosabotaje amoroso: por qué huyes de quien te trata bien",
+  "description": "¿Sientes autosabotaje amoroso al encontrar a alguien sano? Descubre por qué tu temperatura emocional te hace huir del bien.",
+  "thumbnailUrl": "https://img.youtube.com/vi/Rtf_z6uaSK8/hqdefault.jpg",
+  "uploadDate": "2026-07-13",
+  "embedUrl": "https://www.youtube.com/embed/Rtf_z6uaSK8",
+  "publisher": {
+    "@type": "Person",
+    "name": "Sergio García"
+  }
+}
+</script>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Sergio García</a>
+  <div class="nav-links" onclick="if(event.target.tagName==='A'){this.classList.remove('open');var t=document.querySelector('.nav-toggle');t.setAttribute('aria-expanded','false');t.innerHTML='\u2630';}">
+    <a href="index.html">Inicio</a>
+    <a href="el-personaje.html">El personaje</a>
+    <a href="sobre-sergio.html">Sobre mí</a>
+    <a href="sesiones.html">Sesiones</a>
+    <a href="talleres-retiros.html">Talleres y retiros</a>
+    <a href="programas.html">Programas</a>
+    <a href="blog.html" class="active">Blog</a>
+    <a href="index.html#contacto">Contacto</a>
+  </div>
+  <a href="https://wa.me/34634422827" class="nav-btn">Reservar sesión</a>
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="var m=document.querySelector('.nav-links');var open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);this.innerHTML=open?'\u2715':'\u2630';">☰</button>
+</nav>
+<main>
+
+<section class="post-head">
+  <span class="sec-label">Relaciones de pareja</span>
+  <h1>Autosabotaje amoroso: por qué huyes de quien te trata bien</h1>
+  <p class="post-meta">Vídeo · Sergio García</p>
+</section>
+
+<section class="post-video">
+  <div class="video-wrap">
+    <iframe src="https://www.youtube-nocookie.com/embed/Rtf_z6uaSK8" title="Autosabotaje amoroso: por qué huyes de quien te trata bien" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
+
+<section class="post-body">
+  <p class="lead">¿Sientes autosabotaje amoroso al encontrar a alguien sano? En este vídeo hablo de por qué tu temperatura emocional puede hacerte huir del bien, justo cuando parece que todo va como debería.</p>
+
+  <p>Muchas personas pasan años buscando pareja, pero cuando finalmente encuentran a alguien que las trata bien, sienten la necesidad de alejarse. Este fenómeno no significa que tengas un problema con el amor, sino que quizás no sabes cómo gestionar una dinámica saludable. Si te preguntas por qué sueles sabotear relaciones cuando todo va bien, este vídeo te ayudará a entender la raíz de tu miedo al amor.</p>
+
+  <p>Analizamos cómo nuestra temperatura emocional condiciona nuestras elecciones sentimentales. A menudo, estamos acostumbrados a dinámicas caóticas y, al enfrentarnos a una persona disponible que nos cuida, nuestro sistema de alerta se activa innecesariamente. Aprenderás a identificar si estás saboteando una conexión genuina simplemente porque no estás habituado a la estabilidad.</p>
+
+  <p>Entender este mecanismo es el primer paso para construir relaciones sanas y dejar de huir de quien realmente te valora.</p>
+
+  <a href="talleres-retiros.html" class="btn-outline">Ver talleres y retiros →</a>
+</section>
+
+<section class="post-cta">
+  <span class="sec-label" style="color:#E8956A;">¿Te sientes identificado?</span>
+  <h2>Si reconoces este patrón en ti, no tienes por qué resolverlo solo.</h2>
+  <p>En sesión individual trabajamos el personaje que sostiene este miedo, no solo la relación concreta que lo dispara.</p>
+  <a href="https://wa.me/34634422827" class="btn-fire">Escribir por WhatsApp →</a>
+</section>
+
+</main>
+<footer>
+  <span class="footer-copy">© 2026 Sergio García · Tarragona</span>
+  <div class="footer-links">
+    <a href="#">Aviso legal</a>
+    <a href="#">Privacidad</a>
+  </div>
+</footer>
+
+<a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.362.694 4.566 1.885 6.42L4 29l7.77-1.84A11.93 11.93 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm6.982 17.02c-.29.816-1.44 1.5-1.98 1.58-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.68-.63-2.96-1.28-4.89-4.24-5.04-4.44-.15-.2-1.21-1.6-1.21-3.06 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.52.24.6.83 2.06.9 2.21.07.15.12.33.02.53-.09.2-.14.32-.28.5-.14.17-.29.38-.42.51-.14.14-.28.29-.12.57.15.27.68 1.12 1.46 1.82 1 .89 1.85 1.17 2.12 1.3.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.14.45.2.51.32.07.11.07.66-.22 1.48z"/>
+  </svg>
+</a>
+<style>
+.whatsapp-float{position:fixed;bottom:24px;right:24px;background-color:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.3);z-index:99999;transition:transform .2s ease;text-decoration:none;}
+.whatsapp-float:hover{transform:scale(1.08);}
+@media (max-width:480px){.whatsapp-float{width:52px;height:52px;bottom:16px;right:16px;}}
+</style>
+</body>
+</html>

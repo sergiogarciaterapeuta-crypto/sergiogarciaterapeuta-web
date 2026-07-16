@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programas · Sergio García</title>
+<meta name="description" content="El personaje que te está matando (97€), El Punto de Inflexión (mentoría intensiva), El Juicio y La Segunda Vida. Programas de transformación personal.">
+<meta name="robots" content="index, follow">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --ink: #0D0C0B;
+  --bone: #EDECE6;
+  --bone2: #E4E1D9;
+  --fire: #8F3A1A;
+  --fire-dim: rgba(143,58,26,0.13);
+  --gray: #5A5850;
+  --gray-light: #A09C94;
+  --rule: rgba(13,12,11,0.1);
+  --rule-lt: rgba(13,12,11,0.055);
+  --p: clamp(1.4rem, 4vw, 3rem);
+  --pv: clamp(3rem, 7vw, 6rem);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bone);
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: .9rem var(--p);
+  background: var(--bone);
+  border-bottom: 1px solid var(--rule);
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 500; letter-spacing: .04em;
+  text-decoration: none; color: var(--ink);
+}
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a {
+  font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gray); text-decoration: none; transition: color .18s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+.nav-btn {
+  font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+  padding: .5rem 1.3rem; border: 1px solid var(--ink);
+  color: var(--ink); text-decoration: none;
+  transition: background .18s, color .18s;
+}
+.nav-btn:hover { background: var(--ink); color: var(--bone); }
+.nav-toggle{display:none;background:none;border:none;font-size:1.4rem;line-height:1;color:var(--ink);cursor:pointer;padding:.2rem .3rem;}
+
+/* TIPOGRAFÍA */
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
+
+/* UTILIDADES */
+.sec-label {
+  font-size: .68rem; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--fire);
+  margin-bottom: 1.5rem; display: block;
+}
+.sec-h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 500; line-height: 1.15;
+}
+.sec-head {
+  padding: var(--pv) var(--p) 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+.btn-dark {
+  display: inline-block;
+  background: var(--ink); color: var(--bone);
+  padding: .88rem 2rem;
+  font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  text-decoration: none; transition: opacity .18s;
+}
+.btn-dark:hover { opacity: .82; }
+.btn-fire {
+  display: inline-block;
+  background: var(--fire); color: white;
+  padding: .88rem 2rem;
+  font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  text-decoration: none; transition: opacity .18s;
+}
+.btn-fire:hover { opacity: .85; }
+.btn-outline {
+  display: inline-block;
+  border: 0.5px solid var(--ink); color: var(--ink);
+  padding: .75rem 1.8rem;
+  font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; transition: background .18s, color .18s;
+}
+.btn-outline:hover { background: var(--ink); color: var(--bone); }
+
+/* FOOTER */
+footer {
+  padding: 1.4rem var(--p);
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 0.5px solid var(--rule);
+}
+.footer-copy { font-size: .72rem; color: var(--gray-light); }
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a {
+  font-size: .7rem; color: var(--gray-light);
+  text-decoration: none; transition: color .18s;
+}
+.footer-links a:hover { color: var(--ink); }
+
+/* RESPONSIVE NAV */
+@media (max-width: 768px) {
+  nav { padding: .8rem var(--p); position:relative; }
+  .nav-toggle { display:flex; }
+  .nav-links { display: none; }
+  .nav-links.open { display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:var(--bone); padding:1.5rem var(--p) 1.8rem; gap:1.3rem; border-bottom:1px solid var(--rule); box-shadow:0 12px 24px rgba(0,0,0,.12); z-index:300; }
+  .nav-links.open a { font-size:.85rem; padding:.3rem 0; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+
+.page-hero { padding:var(--pv) var(--p); border-bottom:1px solid var(--rule); display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:end; }
+.page-hero h1 { font-size:clamp(2.2rem,4vw,3.8rem); font-weight:500; line-height:1.08; margin-bottom:1.2rem; }
+.page-hero h1 em { font-style:italic; color:var(--fire); }
+.page-hero p { font-size:1rem; color:var(--gray); line-height:1.9; }
+.page-hero-side { font-family:"Cormorant Garamond",serif; font-size:1.15rem; font-style:italic; color:var(--gray); line-height:1.65; border-left:2px solid var(--fire); padding-left:1.2rem; }
+.tag { font-size:.65rem; letter-spacing:.16em; text-transform:uppercase; color:var(--fire); margin-bottom:1.2rem; display:block; }
+.tag-light { font-size:.65rem; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.35); margin-bottom:1.2rem; display:block; }
+h2.grande { font-size:clamp(1.8rem,3vw,2.6rem); font-weight:500; line-height:1.2; margin-bottom:1.2rem; }
+h3.medio { font-size:1.4rem; font-weight:500; line-height:1.3; margin-bottom:.8rem; }
+p.body { font-size:.95rem; color:var(--gray); line-height:1.9; }
+p.body+p.body { margin-top:1rem; }
+
+.curso-block { display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--rule); }
+.cb-l { padding:var(--pv) var(--p); border-right:1px solid var(--rule); display:flex; flex-direction:column; gap:1.2rem; }
+.cb-r { padding:var(--pv) var(--p); background:var(--bone2); display:flex; flex-direction:column; justify-content:center; gap:0; }
+.video-item { display:grid; grid-template-columns:60px 1fr; gap:1rem; padding:.9rem 0; border-bottom:0.5px solid var(--rule); align-items:baseline; }
+.video-item:last-child { border-bottom:none; }
+.vi-n { font-size:.65rem; letter-spacing:.1em; color:var(--gray-light); text-transform:uppercase; white-space:nowrap; }
+.vi-t { font-size:.92rem; color:var(--ink); }
+
+.inflexion-header { background:var(--ink); padding:var(--pv) var(--p); border-bottom:1px solid rgba(255,255,255,.06); }
+.inflexion-header h2 { font-size:clamp(2rem,4vw,3.5rem); font-weight:500; line-height:1.05; color:var(--bone); margin-bottom:1.2rem; }
+.inflexion-header h2 em { font-style:italic; color:#E8956A; }
+.inflexion-header p { font-size:1rem; color:rgba(255,255,255,.5); line-height:1.85; max-width:580px; }
+
+.modal-grid { display:grid; grid-template-columns:repeat(3,1fr); border-bottom:1px solid var(--rule); }
+.modal { padding:2.5rem 2rem; border-right:0.5px solid var(--rule); display:flex; flex-direction:column; gap:.9rem; }
+.modal:last-child { border-right:none; }
+.modal.best { background:var(--bone2); }
+.modal-tag { font-size:.65rem; letter-spacing:.14em; text-transform:uppercase; color:var(--fire); }
+.modal-badge { display:inline-block; background:var(--fire-dim); color:var(--fire); font-size:.6rem; letter-spacing:.08em; text-transform:uppercase; padding:.2rem .55rem; margin-left:.5rem; }
+.modal-h { font-size:1.2rem; font-weight:500; }
+.modal-items { list-style:none; display:flex; flex-direction:column; gap:.45rem; flex:1; }
+.modal-items li { font-size:.85rem; color:var(--gray); }
+.modal-items li::before { content:"→ "; color:var(--fire); }
+.modal-items .gift { color:var(--fire); font-style:italic; }
+.modal-price { font-size:2rem; color:var(--fire); }
+.modal-note { font-size:.78rem; color:var(--gray-light); }
+.modal-btn { display:block; text-align:center; padding:.65rem 1rem; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; transition:background .18s,color .18s; }
+.modal-btn.outline { border:0.5px solid var(--ink); color:var(--ink); }
+.modal-btn.outline:hover { background:var(--ink); color:var(--bone); }
+.modal-btn.solid { background:var(--ink); color:var(--bone); }
+.modal-btn.solid:hover { opacity:.8; }
+
+.proximos { display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--rule); }
+.prox { padding:var(--pv) var(--p); border-right:0.5px solid var(--rule); display:flex; flex-direction:column; gap:1rem; }
+.prox:last-child { border-right:none; }
+.prox-tag { font-size:.65rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-light); }
+.prox-h { font-size:clamp(1.5rem,2.5vw,2rem); font-weight:500; line-height:1.15; }
+.prox-p { font-size:.92rem; color:var(--gray); line-height:1.85; flex:1; }
+
+.lead-block { background:var(--ink); color:var(--bone); padding:var(--pv) var(--p); border-bottom:1px solid rgba(255,255,255,.06); }
+.lead-inner { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+.lead-h { font-size:clamp(2rem,3.5vw,3rem); font-weight:500; line-height:1.05; margin-bottom:1.2rem; }
+.lead-h em { font-style:italic; color:#E8956A; }
+.lead-p { font-size:.95rem; color:rgba(255,255,255,.5); line-height:1.9; margin-bottom:1.8rem; }
+.lead-form { display:flex; gap:.7rem; }
+.lead-input { flex:1; background:rgba(255,255,255,.07); border:0.5px solid rgba(255,255,255,.18); color:var(--bone); padding:.82rem 1rem; font-size:.9rem; font-family:inherit; outline:none; }
+.lead-input:focus { border-color:rgba(143,58,26,.7); }
+.lead-submit { background:var(--fire); color:white; border:none; padding:.82rem 1.5rem; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; cursor:pointer; font-family:inherit; white-space:nowrap; }
+.lead-submit:hover { opacity:.85; }
+.lead-nota { font-size:.72rem; color:rgba(255,255,255,.2); margin-top:.8rem; }
+.lead-dias { border-top:0.5px solid rgba(255,255,255,.08); }
+.ld { display:grid; grid-template-columns:60px 1fr; gap:1rem; padding:.9rem 0; border-bottom:0.5px solid rgba(255,255,255,.06); align-items:baseline; }
+.ld:last-child { border-bottom:none; }
+.ld-n { font-size:.65rem; letter-spacing:.1em; color:rgba(255,255,255,.25); text-transform:uppercase; white-space:nowrap; }
+.ld-t { font-size:.9rem; color:rgba(255,255,255,.62); }
+
+@media (max-width:768px) {
+  .page-hero { grid-template-columns:1fr; gap:1.5rem; }
+  .curso-block { grid-template-columns:1fr; }
+  .cb-l { border-right:none; border-bottom:1px solid var(--rule); }
+  .modal-grid { grid-template-columns:1fr; }
+  .modal { border-right:none; border-bottom:0.5px solid var(--rule); }
+  .modal:last-child { border-bottom:none; }
+  .proximos { grid-template-columns:1fr; }
+  .prox { border-right:none; border-bottom:0.5px solid var(--rule); }
+  .prox:last-child { border-bottom:none; }
+  .lead-inner { grid-template-columns:1fr; gap:2rem; }
+  .lead-form { flex-direction:column; }
+}
+
+.faq-item { border-top:0.5px solid var(--rule); }
+.faq-q { display:flex; justify-content:space-between; align-items:center; padding:.95rem 0; cursor:pointer; gap:1rem; }
+.faq-q span:first-child { font-size:.92rem; color:var(--ink); line-height:1.5; }
+.faq-toggle { font-size:1.1rem; color:var(--gray-light); flex-shrink:0; transition:transform .2s; }
+.faq-a { font-size:.88rem; color:var(--gray); line-height:1.85; padding-bottom:1rem; display:none; }
+.faq-item.open .faq-a { display:block; }
+.faq-item.open .faq-toggle { transform:rotate(45deg); color:var(--fire); }
+
+</style>
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1319169');
+</script>
+<!-- End MailerLite Universal -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y3E0GC5DX6');
+</script>
+<link rel="canonical" href="https://sergiogarciaterapeuta.es/programas.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sergiogarciaterapeuta.es/programas.html">
+<meta property="og:title" content="Programas y mentoría · El personaje que te está matando">
+<meta property="og:description" content="Curso, mentoría y programas grupales para dejar de sostener un personaje que ya no te sirve, con Sergio García.">
+<meta property="og:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Programas y mentoría · El personaje que te está matando">
+<meta name="twitter:description" content="Curso, mentoría y programas grupales para dejar de sostener un personaje que ya no te sirve, con Sergio García.">
+<meta name="twitter:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Sergio Garc\u00eda - Terapeuta Gestalt y Existencial",
+  "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg",
+  "url": "https://sergiogarciaterapeuta.es/",
+  "telephone": "+34634422827",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Tarragona",
+    "addressRegion": "Catalunya",
+    "addressCountry": "ES"
+  },
+  "sameAs": ["https://www.instagram.com/sergiogarciaterapeuta"],
+  "priceRange": "$$",
+  "founder": {
+    "@type": "Person",
+    "name": "Sergio Garc\u00eda"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
+  "name": "Sergio García",
+  "knowsAbout": ["crisis existencial", "Gestalt", "terapia sistémica", "terapia existencial", "terapia de pareja", "desarrollo personal", "acompañamiento terapéutico"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo sé qué programa es el más adecuado para mí?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cada programa está pensado para un momento distinto del proceso personal. Si no tienes claro cuál encaja mejor contigo, puedes ponerte en contacto conmigo y valoraremos juntos cuál puede aportarte más en función de tu situación actual."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los programas sustituyen a la terapia individual?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No necesariamente. Algunas personas realizan únicamente un programa y otras lo combinan con sesiones individuales. Todo depende de tus objetivos y del tipo de acompañamiento que necesites en este momento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué diferencia hay entre un programa y un taller?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un taller suele ser una experiencia puntual e intensiva. Un programa, en cambio, permite profundizar durante más tiempo, integrar los aprendizajes y acompañar el proceso de cambio de una manera más continuada."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+
+<body>
+<nav>
+  <a href="index.html" class="logo">Sergio García</a>
+  <div class="nav-links" onclick="if(event.target.tagName==='A'){this.classList.remove('open');var t=document.querySelector('.nav-toggle');t.setAttribute('aria-expanded','false');t.innerHTML='\u2630';}">
+    <a href="index.html">Inicio</a>
+    <a href="el-personaje.html">El personaje</a>
+    <a href="sobre-sergio.html">Sobre mí</a>
+    <a href="sesiones.html">Sesiones</a>
+    <a href="talleres-retiros.html">Talleres y retiros</a>
+    <a href="programas.html" class="active">Programas</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#contacto">Contacto</a>
+  </div>
+  <a href="https://wa.me/34634422827" class="nav-btn">Reservar sesión</a>
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="var m=document.querySelector('.nav-links');var open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);this.innerHTML=open?'\u2715':'\u2630';">☰</button>
+</nav>
+<main>
+
+<!-- LEAD MAGNET: DEJA DE ENTENDERTE -->
+<div class="lead-block" id="deja-de-entenderte">
+  <div class="lead-inner">
+    <div>
+      <span class="tag-light">Gratuito · 7 días · 7 audios</span>
+      <h2 class="lead-h">Deja de<br><em>entenderte.</em></h2>
+      <p class="lead-p">7 audios. Uno al día. Cada uno desmonta una pieza del mecanismo con el que el personaje se mantiene en pie. No te explica nada nuevo. Te quita algo que ya no necesitas.</p>
+      <div id="mlb2-43555796" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-43555796">
+        <div class="row-form">
+          <form class="ml-block-form lead-form" action="https://assets.mailerlite.com/jsonp/1319169/forms/192508129650410538/subscribe" data-code="" method="post" target="_blank">
+            <input aria-label="email" aria-required="true" type="email" class="lead-input" name="fields[email]" placeholder="tu@email.com" autocomplete="email" required>
+            <button type="submit" class="lead-submit">Quiero acceder →</button>
+            <input type="hidden" name="ml-submit" value="1">
+            <input type="hidden" name="anticsrf" value="true">
+          </form>
+        </div>
+        <div class="row-success" style="display:none">
+          <p class="lead-p" style="margin-bottom:0;">✓ Recibido. Revisa tu email en las próximas 24h para el primer audio.</p>
+        </div>
+      </div>
+      <p class="lead-nota">Gratuito. Sin spam. Puedes darte de baja cuando quieras.</p>
+    </div>
+    <div class="lead-dias">
+      <div class="ld"><span class="ld-n">Día 1</span><span class="ld-t">Esto no es para ayudarte</span></div><div class="ld"><span class="ld-n">Día 2</span><span class="ld-t">Entender no es cambiar</span></div><div class="ld"><span class="ld-n">Día 3</span><span class="ld-t">Te entiendes para no perder el control</span></div><div class="ld"><span class="ld-n">Día 4</span><span class="ld-t">Tu historia no manda</span></div><div class="ld"><span class="ld-n">Día 5</span><span class="ld-t">No hagas nada con esto</span></div><div class="ld"><span class="ld-n">Día 6</span><span class="ld-t">Sigues igual porque quieres</span></div><div class="ld"><span class="ld-n">Día 7</span><span class="ld-t">Ahora ya no puedes fingir</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div>
+    <span class="sec-label">Programas</span>
+    <h1>Para cuando una sesión<br>no es <em>suficiente.</em></h1>
+    <p>Cuatro formatos distintos para distintos momentos. Un curso digital de entrada, una mentoría individual intensiva, y dos programas grupales próximamente.</p>
+  </div>
+  <p class="page-hero-side">"El proceso no lo define el formato. Lo defines tú. El formato es solo el contenedor."</p>
+</div>
+
+<!-- SELECTOR POR DÓNDE EMPIEZO -->
+<div style="background:var(--bone2);border-bottom:1px solid var(--rule);">
+  <div style="padding:var(--pv) var(--p) 2rem;border-bottom:1px solid var(--rule);">
+    <span class="sec-label">Orientación</span>
+    <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;line-height:1.2;">¿Por dónde empiezo?</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);">
+    <div style="padding:2.5rem 2rem;border-right:0.5px solid var(--rule);display:flex;flex-direction:column;gap:1rem;">
+      <p style="font-size:.78rem;color:var(--gray-light);line-height:1.6;font-style:italic;">"Nunca he trabajado contigo y quiero ver de qué va esto."</p>
+      <div style="flex:1;">
+        <p style="font-size:1.15rem;font-weight:500;margin-bottom:.5rem;">El personaje que te está matando</p>
+        <p style="font-size:.85rem;color:var(--gray);line-height:1.8;">5 vídeos para entender el mecanismo. La puerta de entrada antes del trabajo individual.</p>
+      </div>
+      <a href="#curso" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;">Ver el curso →</a>
+    </div>
+    <div style="padding:2.5rem 2rem;border-right:0.5px solid var(--rule);background:var(--ink);display:flex;flex-direction:column;gap:1rem;">
+      <p style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.6;font-style:italic;">"Quiero un proceso real, individual y con acompañamiento."</p>
+      <div style="flex:1;">
+        <p style="font-size:1.15rem;font-weight:500;margin-bottom:.5rem;color:var(--bone);">El Punto de Inflexión</p>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.8;">5-6 semanas de trabajo individual intensivo. El proceso más directo al cambio real.</p>
+      </div>
+      <a href="#inflexion" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#E8956A;text-decoration:none;border-bottom:0.5px solid rgba(232,149,106,.25);padding-bottom:2px;align-self:flex-start;">Ver el programa →</a>
+    </div>
+    <div style="padding:2.5rem 2rem;border-right:0.5px solid var(--rule);display:flex;flex-direction:column;gap:1rem;">
+      <p style="font-size:.78rem;color:var(--gray-light);line-height:1.6;font-style:italic;">"Quiero profundidad y confrontación en grupo."</p>
+      <div style="flex:1;">
+        <p style="font-size:1.15rem;font-weight:500;margin-bottom:.5rem;">El Juicio</p>
+        <p style="font-size:.85rem;color:var(--gray);line-height:1.8;">21 días de confrontación grupal con el personaje. Próximamente.</p>
+      </div>
+      <a href="https://wa.me/34634422827?text=Quiero%20apuntarme%20a%20la%20lista%20de%20El%20Juicio" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;">Lista de espera →</a>
+    </div>
+    <div style="padding:2.5rem 2rem;display:flex;flex-direction:column;gap:1rem;">
+      <p style="font-size:.78rem;color:var(--gray-light);line-height:1.6;font-style:italic;">"Estoy reconstruyendo mi vida desde cero."</p>
+      <div style="flex:1;">
+        <p style="font-size:1.15rem;font-weight:500;margin-bottom:.5rem;">La Segunda Vida</p>
+        <p style="font-size:.85rem;color:var(--gray);line-height:1.8;">Para cuando mejorar ya no es suficiente. Próximamente.</p>
+      </div>
+      <a href="https://wa.me/34634422827?text=Quiero%20apuntarme%20a%20la%20lista%20de%20La%20Segunda%20Vida" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;">Lista de espera →</a>
+    </div>
+  </div>
+</div>
+
+<!-- EL PERSONAJE QUE TE ESTÁ MATANDO — 97€ -->
+<div class="curso-block" id="curso">
+  <div class="cb-l">
+    <span class="tag">Curso digital · Disponible ahora</span>
+    <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;line-height:1.1;margin-bottom:.5rem;">El personaje que<br><em style="font-style:italic;color:var(--fire);">te está matando.</em></h2>
+    <p class="body">5 vídeos. No te explican nada nuevo. Te muestran lo que ya sabes pero no puedes ver. El mecanismo con el que el personaje lleva años protegiéndose a costa tuya.</p>
+    <p class="body">No es terapia. No es autoayuda. Es un corte preciso en lo que más te cuesta mirar.</p>
+    <div style="margin-top:1.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+      <span style="font-size:2.2rem;color:var(--fire);">97€</span>
+      <a href="https://wa.me/34634422827?text=Quiero%20acceder%20a%20El%20personaje%20que%20te%20está%20matando" class="btn-dark">Acceder al curso →</a>
+    </div>
+    <p style="font-size:.78rem;color:var(--gray-light);margin-top:.5rem;">Acceso inmediato. Sin suscripción. A tu ritmo.</p>
+  </div>
+  <div class="cb-r">
+    <p style="font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--fire);margin-bottom:1.5rem;">Los 5 vídeos</p>
+    <div style="border-top:0.5px solid var(--rule);">
+      <div class="video-item"><span class="vi-n">Vídeo 1</span><span class="vi-t">El personaje que llevas siendo</span></div><div class="video-item"><span class="vi-n">Vídeo 2</span><span class="vi-t">Para qué te sirve seguir igual</span></div><div class="video-item"><span class="vi-n">Vídeo 3</span><span class="vi-t">El mecanismo del autoengaño</span></div><div class="video-item"><span class="vi-n">Vídeo 4</span><span class="vi-t">Tu historia no manda</span></div><div class="video-item"><span class="vi-n">Vídeo 5</span><span class="vi-t">La decisión que ya no puedes no tomar</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- EL PUNTO DE INFLEXIÓN -->
+<div class="inflexion-header" id="inflexion">
+  <span class="tag-light">Mentoría individual intensiva</span>
+  <h2>El Punto de<br><em>Inflexión.</em></h2>
+  <p>5-6 semanas de proceso individual intensivo. Solo contigo. Para personas que ya no pueden seguir igual y están dispuestas a que algo cambie de verdad.</p>
+</div>
+
+<div class="modal-grid">
+  <div class="modal">
+    <span class="modal-tag">Esencial</span>
+    <h3 class="modal-h">El inicio del proceso</h3>
+    <ul class="modal-items">
+      <li>3 sesiones individuales de 90 min</li>
+      <li>5 semanas</li>
+      <li>Grupo privado de WhatsApp</li>
+      <li>Seguimiento por audio entre sesiones</li>
+      <li class="gift">+ El personaje que te está matando</li>
+    </ul>
+    <p class="modal-price">947€</p>
+    <p class="modal-note">Incluye llamada previa de 20 min</p>
+    <a href="https://wa.me/34634422827?text=Me%20interesa%20El%20Punto%20de%20Inflexión%20Esencial" class="modal-btn outline">Solicitar →</a>
+  </div>
+  <div class="modal best">
+    <span class="modal-tag">Intensivo <span class="modal-badge">Más elegido</span></span>
+    <h3 class="modal-h">El proceso completo</h3>
+    <ul class="modal-items">
+      <li>5 sesiones individuales de 90 min</li>
+      <li>6 semanas</li>
+      <li>WhatsApp con respuesta diaria L-J</li>
+      <li>Sesión de crisis si es necesario</li>
+      <li class="gift">+ El personaje que te está matando</li>
+    </ul>
+    <p class="modal-price">1.547€</p>
+    <p class="modal-note">Incluye llamada previa de 20 min</p>
+    <a href="https://wa.me/34634422827?text=Me%20interesa%20El%20Punto%20de%20Inflexión%20Intensivo" class="modal-btn solid">Solicitar →</a>
+  </div>
+  <div class="modal">
+    <span class="modal-tag">Transformación</span>
+    <h3 class="modal-h">El proceso más profundo</h3>
+    <ul class="modal-items">
+      <li>7 sesiones individuales de 90 min</li>
+      <li>6 semanas</li>
+      <li>WhatsApp con respuesta diaria L-J</li>
+      <li>Sesión de crisis incluida</li>
+      <li>Sesión de cierre a los 30 días</li>
+      <li>Plazas muy limitadas</li>
+      <li class="gift">+ El personaje que te está matando</li>
+    </ul>
+    <p class="modal-price">1.974€</p>
+    <p class="modal-note">Incluye llamada previa de 20 min</p>
+    <a href="https://wa.me/34634422827?text=Me%20interesa%20El%20Punto%20de%20Inflexión%20Transformación" class="modal-btn outline">Solicitar →</a>
+  </div>
+</div>
+
+<!-- EL JUICIO Y LA SEGUNDA VIDA -->
+<div class="proximos">
+  <div class="prox">
+    <span class="prox-tag">Grupo mixto · 21 días · Próximamente</span>
+    <h3 class="prox-h">El Juicio</h3>
+    <p class="prox-p">Se juzga al personaje, no a la persona. 21 días de confrontación real con el mecanismo que llevas construyendo toda tu vida. Formato grupal mixto.</p>
+    <a href="https://wa.me/34634422827?text=Quiero%20apuntarme%20a%20la%20lista%20de%20El%20Juicio" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;margin-top:auto;">Apuntarme a la lista →</a>
+  </div>
+  <div class="prox">
+    <span class="prox-tag">Programa grupal · Próximamente</span>
+    <h3 class="prox-h">La Segunda Vida</h3>
+    <p class="prox-p">Para quienes han llegado al punto donde mejorar ya no es suficiente. Un proceso de ruptura y reconstrucción para personas dispuestas a dejar de sostener lo que ya no les pertenece.</p>
+    <a href="https://wa.me/34634422827?text=Quiero%20apuntarme%20a%20la%20lista%20de%20La%20Segunda%20Vida" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;margin-top:auto;">Apuntarme a la lista →</a>
+  </div>
+</div>
+
+<div style="padding:var(--pv) var(--p);border-top:1px solid var(--rule);background:var(--bone2);">
+  <span class="sec-label">Preguntas frecuentes</span>
+  <div style="max-width:720px;">
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Cómo sé qué programa es el más adecuado para mí?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Cada programa está pensado para un momento distinto del proceso personal. Si no tienes claro cuál encaja mejor contigo, puedes ponerte en contacto conmigo y valoraremos juntos cuál puede aportarte más en función de tu situación actual.</div>
+    </div><div class="faq-item">
+      <div class="faq-q"><span>¿Los programas sustituyen a la terapia individual?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">No necesariamente. Algunas personas realizan únicamente un programa y otras lo combinan con sesiones individuales. Todo depende de tus objetivos y del tipo de acompañamiento que necesites en este momento.</div>
+    </div><div class="faq-item">
+      <div class="faq-q"><span>¿Qué diferencia hay entre un programa y un taller?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Un taller suele ser una experiencia puntual e intensiva. Un programa, en cambio, permite profundizar durante más tiempo, integrar los aprendizajes y acompañar el proceso de cambio de una manera más continuada.</div>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer>
+  <span class="footer-copy">© 2026 Sergio García · Tarragona</span>
+  <div class="footer-links">
+    <a href="#">Aviso legal</a>
+    <a href="#">Privacidad</a>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+<script>
+function ml_webform_success_43555796() {
+  var $ = ml_jQuery || jQuery;
+  $('.ml-subscribe-form-43555796 .row-success').show();
+  $('.ml-subscribe-form-43555796 .row-form').hide();
+}
+</script>
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+<script>
+fetch("https://assets.mailerlite.com/jsonp/1319169/forms/192508129650410538/takel");
+</script>
+<a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.362.694 4.566 1.885 6.42L4 29l7.77-1.84A11.93 11.93 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm6.982 17.02c-.29.816-1.44 1.5-1.98 1.58-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.68-.63-2.96-1.28-4.89-4.24-5.04-4.44-.15-.2-1.21-1.6-1.21-3.06 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.52.24.6.83 2.06.9 2.21.07.15.12.33.02.53-.09.2-.14.32-.28.5-.14.17-.29.38-.42.51-.14.14-.28.29-.12.57.15.27.68 1.12 1.46 1.82 1 .89 1.85 1.17 2.12 1.3.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.14.45.2.51.32.07.11.07.66-.22 1.48z"/>
+  </svg>
+</a>
+<style>
+.whatsapp-float{position:fixed;bottom:24px;right:24px;background-color:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.3);z-index:99999;transition:transform .2s ease;text-decoration:none;}
+.whatsapp-float:hover{transform:scale(1.08);}
+@media (max-width:480px){.whatsapp-float{width:52px;height:52px;bottom:16px;right:16px;}}
+</style>
+</body>
+</html>

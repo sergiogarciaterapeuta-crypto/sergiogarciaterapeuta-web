@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sergio García · Terapeuta en Tarragona</title>
+<meta name="description" content="Terapia individual y de pareja en Tarragona para crisis existenciales y patrones que se repiten. Un espacio para quienes sienten que entender ya no es suficiente.">
+<meta name="robots" content="index, follow">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --ink: #0D0C0B;
+  --bone: #EDECE6;
+  --bone2: #E4E1D9;
+  --fire: #8F3A1A;
+  --fire-dim: rgba(143,58,26,0.13);
+  --gray: #5A5850;
+  --gray-light: #A09C94;
+  --rule: rgba(13,12,11,0.1);
+  --rule-lt: rgba(13,12,11,0.055);
+  --p: clamp(1.4rem, 4vw, 3rem);
+  --pv: clamp(3rem, 7vw, 6rem);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bone);
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: .9rem var(--p);
+  background: var(--bone);
+  border-bottom: 1px solid var(--rule);
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 500; letter-spacing: .04em;
+  text-decoration: none; color: var(--ink);
+}
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a {
+  font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gray); text-decoration: none; transition: color .18s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+.nav-btn {
+  font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+  padding: .5rem 1.3rem; border: 1px solid var(--ink);
+  color: var(--ink); text-decoration: none;
+  transition: background .18s, color .18s;
+}
+.nav-btn:hover { background: var(--ink); color: var(--bone); }
+.nav-toggle{display:none;background:none;border:none;font-size:1.4rem;line-height:1;color:var(--ink);cursor:pointer;padding:.2rem .3rem;}
+
+/* TIPOGRAFÍA */
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
+
+/* UTILIDADES */
+.sec-label {
+  font-size: .68rem; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--fire);
+  margin-bottom: 1.5rem; display: block;
+}
+.sec-h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 500; line-height: 1.15;
+}
+.sec-head {
+  padding: var(--pv) var(--p) 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+.btn-dark {
+  display: inline-block;
+  background: var(--ink); color: var(--bone);
+  padding: .88rem 2rem;
+  font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  text-decoration: none; transition: opacity .18s;
+}
+.btn-dark:hover { opacity: .82; }
+.btn-fire {
+  display: inline-block;
+  background: var(--fire); color: white;
+  padding: .88rem 2rem;
+  font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  text-decoration: none; transition: opacity .18s;
+}
+.btn-fire:hover { opacity: .85; }
+.btn-outline {
+  display: inline-block;
+  border: 0.5px solid var(--ink); color: var(--ink);
+  padding: .75rem 1.8rem;
+  font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; transition: background .18s, color .18s;
+}
+.btn-outline:hover { background: var(--ink); color: var(--bone); }
+
+/* FOOTER */
+footer {
+  padding: 1.4rem var(--p);
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 0.5px solid var(--rule);
+}
+.footer-copy { font-size: .72rem; color: var(--gray-light); }
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a {
+  font-size: .7rem; color: var(--gray-light);
+  text-decoration: none; transition: color .18s;
+}
+.footer-links a:hover { color: var(--ink); }
+
+/* RESPONSIVE NAV */
+@media (max-width: 768px) {
+  nav { padding: .8rem var(--p); position:relative; }
+  .nav-toggle { display:flex; }
+  .nav-links { display: none; }
+  .nav-links.open { display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:var(--bone); padding:1.5rem var(--p) 1.8rem; gap:1.3rem; border-bottom:1px solid var(--rule); box-shadow:0 12px 24px rgba(0,0,0,.12); z-index:300; }
+  .nav-links.open a { font-size:.85rem; padding:.3rem 0; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+
+.hero { display:grid; grid-template-columns:1.15fr 0.85fr; min-height:calc(100vh - 52px); border-bottom:1px solid var(--rule); }
+.hero-l { display:flex; flex-direction:column; justify-content:space-between; padding:var(--pv) var(--p); border-right:1px solid var(--rule); }
+.hero-tag { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--fire); }
+.hero-h1 { font-size:clamp(1.5rem,2.95vw,2.67rem); font-weight:400; line-height:1.15; margin:1.5rem 0; }
+.hero-h1-line { display:block; margin-bottom:20px; }
+.hero-h1-line:last-child { margin-bottom:0; }
+.hero-h1 em { font-style:italic; color:var(--fire); }
+.hero-sub { font-size:1.12rem; color:var(--gray); line-height:1.85; max-width:380px; border-left:2px solid var(--fire); padding-left:1rem; margin-top:1.7rem; margin-bottom:2rem; }
+.hero-r { position:relative; overflow:hidden; background:#111; }
+.hero-r img { width:100%; height:100%; object-fit:cover; object-position:center top; opacity:.88; display:block; }
+.hero-stats { position:absolute; bottom:0; left:0; right:0; padding:1.8rem var(--p); background:linear-gradient(transparent,rgba(0,0,0,.72)); display:flex; gap:2.5rem; }
+.hs-n { font-size:1.6rem; color:rgba(255,255,255,.92); }
+.hs-l { font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.35); margin-top:.15rem; }
+
+.franja { background:var(--ink); padding:1rem var(--p); display:flex; gap:2rem; overflow:hidden; border-bottom:1px solid rgba(255,255,255,.04); }
+.franja span { font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.3); white-space:nowrap; }
+
+.concepto { padding:var(--pv) var(--p); border-bottom:1px solid var(--rule); }
+.concepto-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:2.5rem; }
+.c-item { padding:2.5rem 2.5rem 2.5rem 0; border-right:0.5px solid var(--rule); }
+.c-item:last-child { border-right:none; padding-right:0; padding-left:2.5rem; }
+.c-item:nth-child(2) { padding:2.5rem; }
+.c-num { font-size:3.5rem; font-weight:400; color:var(--fire-dim); line-height:1; margin-bottom:1.2rem; }
+.c-h { font-size:1.5rem; font-weight:500; line-height:1.25; margin-bottom:.8rem; }
+.c-p { font-size:.9rem; color:var(--gray); line-height:1.85; }
+
+.img-cita { height:55vh; min-height:340px; overflow:hidden; border-bottom:1px solid var(--rule); position:relative; }
+.img-cita img { width:100%; height:100%; object-fit:cover; object-position:center 30%; filter:brightness(.42); display:block; }
+.img-cita-txt { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:3rem var(--p); }
+.img-cita-txt blockquote { font-size:clamp(1.5rem,3vw,2.4rem); font-style:italic; font-weight:400; line-height:1.35; color:rgba(255,255,255,.92); max-width:680px; text-align:center; }
+
+.srv-preview { border-bottom:1px solid var(--rule); }
+.srv-grid { display:grid; grid-template-columns:repeat(4,1fr); }
+.srv { padding:2.2rem 1.8rem; border-right:0.5px solid var(--rule); display:flex; flex-direction:column; gap:.8rem; }
+.srv:last-child { border-right:none; }
+.srv-tag { font-size:.65rem; letter-spacing:.14em; text-transform:uppercase; color:var(--fire); }
+.srv-h { font-size:1.2rem; font-weight:500; line-height:1.3; }
+.srv-p { font-size:.88rem; color:var(--gray); line-height:1.8; flex:1; }
+.srv-a { font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink); text-decoration:none; border-bottom:0.5px solid var(--rule); padding-bottom:2px; align-self:flex-start; transition:color .18s,border-color .18s; }
+.srv-a:hover { color:var(--fire); border-color:var(--fire); }
+.srv.dark { background:var(--ink); }
+.srv.dark .srv-h { color:var(--bone); }
+.srv.dark .srv-p { color:rgba(255,255,255,.45); }
+.srv.dark .srv-a { color:rgba(255,255,255,.55); border-color:rgba(255,255,255,.15); }
+.srv.dark .srv-a:hover { color:#E8956A; border-color:#E8956A; }
+
+.foto-par { display:grid; grid-template-columns:1fr 1fr; height:45vh; min-height:280px; border-bottom:1px solid var(--rule); }
+.fp { overflow:hidden; }
+.fp img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s; }
+.fp:hover img { transform:scale(1.03); }
+.fp:first-child { border-right:0.5px solid var(--rule); }
+
+.prod-preview { display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--rule); }
+.pp { padding:var(--pv) var(--p); border-right:0.5px solid var(--rule); display:flex; flex-direction:column; gap:1rem; }
+.pp:last-child { border-right:none; }
+.pp-tag { font-size:.65rem; letter-spacing:.16em; text-transform:uppercase; color:var(--fire); }
+.pp-h { font-size:clamp(1.5rem,2.5vw,2.2rem); font-weight:500; line-height:1.15; }
+.pp-p { font-size:.92rem; color:var(--gray); line-height:1.85; flex:1; }
+.pp.dark { background:var(--ink); }
+.pp.dark .pp-h { color:var(--bone); }
+.pp.dark .pp-p { color:rgba(255,255,255,.45); }
+
+.test-home { padding:var(--pv) var(--p); border-bottom:1px solid var(--rule); }
+.test-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.test { padding:2rem; border:0.5px solid var(--rule); display:flex; flex-direction:column; gap:.8rem; }
+.test.dark { background:var(--ink); border-color:var(--ink); }
+.test-s { color:var(--fire); font-size:.85rem; letter-spacing:2px; }
+.test.dark .test-s { color:#E8956A; }
+.test-q { font-size:.88rem; color:var(--gray); line-height:1.85; flex:1; font-style:italic; }
+.test.dark .test-q { color:rgba(255,255,255,.55); }
+.test-by { font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--gray-light); }
+.test.dark .test-by { color:rgba(255,255,255,.28); }
+
+.contacto { display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--rule); }
+.ct-l { padding:var(--pv) var(--p); border-right:1px solid var(--rule); display:flex; flex-direction:column; justify-content:center; gap:1.5rem; }
+.ct-h { font-size:clamp(2rem,3.5vw,3rem); font-weight:500; line-height:1.15; }
+.ct-p { font-size:.95rem; color:var(--gray); line-height:1.85; max-width:380px; }
+.ct-r { padding:var(--pv) var(--p); background:var(--ink); display:flex; flex-direction:column; justify-content:center; gap:0; }
+.c-row { padding:1.1rem 0; border-bottom:0.5px solid rgba(255,255,255,.06); display:flex; justify-content:space-between; align-items:baseline; gap:2rem; }
+.c-row:last-child { border-bottom:none; }
+.c-lbl { font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.28); white-space:nowrap; }
+.c-val { font-size:.88rem; color:rgba(255,255,255,.62); text-align:right; }
+
+@media (max-width:900px) {
+  .concepto-grid { grid-template-columns:1fr; }
+  .c-item { border-right:none!important; border-bottom:0.5px solid var(--rule); padding:2rem 0!important; }
+  .c-item:last-child { border-bottom:none; }
+  .srv-grid { grid-template-columns:1fr 1fr; }
+  .srv:nth-child(2n) { border-right:none; }
+  .srv:nth-child(n+3) { border-top:0.5px solid var(--rule); }
+  .test-grid { grid-template-columns:1fr; }
+  .prod-preview { grid-template-columns:1fr; }
+  .pp { border-right:none!important; border-bottom:1px solid var(--rule); }
+}
+@media (max-width:768px) {
+  .hero { grid-template-columns:1fr; min-height:auto; }
+  .hero-l { border-right:none; border-bottom:1px solid var(--rule); order:1; }
+  .hero-r { height:65vw; min-height:250px; order:2; }
+  .hero-h1 { font-size:clamp(1.18rem,4.82vw,1.71rem); margin:1rem 0; }
+  .hero-h1-line { margin-bottom:12px; }
+  .btn-dark { display:block; text-align:center; }
+  .foto-par { height:40vw; }
+  .srv-grid { grid-template-columns:1fr; }
+  .srv { border-right:none; border-bottom:0.5px solid var(--rule); }
+  .srv:last-child { border-bottom:none; }
+  .contacto { grid-template-columns:1fr; }
+  .ct-l { border-right:none; border-bottom:1px solid var(--rule); }
+  .btn-dark { width:100%; text-align:center; }
+}
+
+.faq-item { border-top:0.5px solid var(--rule); }
+.faq-q { display:flex; justify-content:space-between; align-items:center; padding:.95rem 0; cursor:pointer; gap:1rem; }
+.faq-q span:first-child { font-size:.92rem; color:var(--ink); line-height:1.5; }
+.faq-toggle { font-size:1.1rem; color:var(--gray-light); flex-shrink:0; transition:transform .2s; }
+.faq-a { font-size:.88rem; color:var(--gray); line-height:1.85; padding-bottom:1rem; display:none; }
+.faq-item.open .faq-a { display:block; }
+.faq-item.open .faq-toggle { transform:rotate(45deg); color:var(--fire); }
+
+</style>
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1319169');
+</script>
+<!-- End MailerLite Universal -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y3E0GC5DX6');
+</script>
+<link rel="canonical" href="https://sergiogarciaterapeuta.es/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sergiogarciaterapeuta.es/">
+<meta property="og:title" content="Sergio García · Terapeuta Gestalt en Tarragona">
+<meta property="og:description" content="Terapia individual y de pareja en Tarragona. Un espacio para quienes sienten que entender ya no es suficiente y quieren dejar de repetir los mismos patrones.">
+<meta property="og:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sergio García · Terapeuta Gestalt en Tarragona">
+<meta name="twitter:description" content="Terapia individual y de pareja en Tarragona. Un espacio para quienes sienten que entender ya no es suficiente y quieren dejar de repetir los mismos patrones.">
+<meta name="twitter:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Sergio Garc\u00eda - Terapeuta Gestalt y Existencial",
+  "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg",
+  "url": "https://sergiogarciaterapeuta.es/",
+  "telephone": "+34634422827",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Tarragona",
+    "addressRegion": "Catalunya",
+    "addressCountry": "ES"
+  },
+  "sameAs": ["https://www.instagram.com/sergiogarciaterapeuta"],
+  "priceRange": "$$",
+  "founder": {
+    "@type": "Person",
+    "name": "Sergio Garc\u00eda"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
+  "name": "Sergio García",
+  "jobTitle": "Terapeuta",
+  "description": "Terapeuta Gestalt, sistémico y existencial en Tarragona, con más de 20 años de experiencia acompañando procesos de transformación personal.",
+  "url": "https://sergiogarciaterapeuta.es/",
+  "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg",
+  "telephone": "+34634422827",
+  "knowsAbout": ["crisis existencial", "Gestalt", "terapia sistémica", "terapia existencial", "terapia de pareja", "desarrollo personal", "acompañamiento terapéutico"],
+  "knowsLanguage": ["es"],
+  "sameAs": ["https://www.instagram.com/sergiogarciaterapeuta"],
+  "worksFor": {
+    "@type": "LocalBusiness",
+    "name": "Sergio García - Terapeuta Gestalt y Existencial"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es \"el personaje\" del que hablas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es la máscara de supervivencia que construimos de niños para salir adelante — y que, de adultos, sigue controlándonos aunque ya no la necesitemos. Trabajo con eso: contigo, no con una teoría."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Eres psicólogo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Soy terapeuta, no psicólogo — trabajo desde Gestalt, sistémica y existencial, con más de 20 años de experiencia en consulta en Tarragona y online."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "No sé por qué pedir ayuda, ¿hace falta tenerlo claro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No hace falta que sepas explicarlo. La terapia empieza donde termina la explicación: en la primera sesión no necesitas tener claro qué te pasa, solo necesitas venir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo reservo una primera sesión?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Puedes escribirme por WhatsApp o a través del formulario de contacto — te respondo yo directamente, no un equipo."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+
+<body>
+<nav>
+  <a href="index.html" class="logo active">Sergio García</a>
+  <div class="nav-links" onclick="if(event.target.tagName==='A'){this.classList.remove('open');var t=document.querySelector('.nav-toggle');t.setAttribute('aria-expanded','false');t.innerHTML='\u2630';}">
+    <a href="index.html" class="active">Inicio</a>
+    <a href="el-personaje.html">El personaje</a>
+    <a href="sobre-sergio.html">Sobre mí</a>
+    <a href="sesiones.html">Sesiones</a>
+    <a href="talleres-retiros.html">Talleres y retiros</a>
+    <a href="programas.html">Programas</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#contacto">Contacto</a>
+  </div>
+  <a href="https://wa.me/34634422827" class="nav-btn">Reservar sesión</a>
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="var m=document.querySelector('.nav-links');var open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);this.innerHTML=open?'\u2715':'\u2630';">☰</button>
+</nav>
+<main>
+
+<section class="hero">
+  <div class="hero-l">
+    <p class="hero-tag">Terapeuta en Tarragona · Online · Terapia individual y de pareja</p>
+    <h1 class="hero-h1"><span class="hero-h1-line">Hay personas que buscan respuestas.</span><span class="hero-h1-line">Otras descubren que entender nunca fue el problema.</span></h1>
+    <p class="hero-h1"><span class="hero-h1-line">El problema era seguir viviendo siempre de la <em>misma manera</em>.</span></p>
+    <div>
+      <p class="hero-sub">Si llegas aquí por ansiedad, una ruptura, un duelo o una crisis existencial, estás en el lugar adecuado. Y si además llevas años repitiendo la misma historia —la misma pareja, el mismo límite que no pones—, también.</p>
+      <a href="https://wa.me/34634422827" class="btn-dark">Pedir sesión →</a>
+    </div>
+  </div>
+  <div class="hero-r">
+    <img src="images/home-1-b51abf0f.jpg" alt="Sergio García en sesión" loading="eager">
+    <div class="hero-stats">
+      <div><p class="hs-n">+20</p><p class="hs-l">años de práctica</p></div>
+      <div><p class="hs-n">+2.000</p><p class="hs-l">personas acompañadas</p></div>
+      <div><p class="hs-n">100%</p><p class="hs-l">por recomendación</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section style="background:var(--bone2);padding:2.5rem var(--p);border-bottom:1px solid var(--rule);">
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center;">
+    <div style="padding:1.5rem;border-right:0.5px solid var(--rule);">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:500;color:var(--fire);line-height:1;">+20</p>
+      <p style="font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-light);margin-top:.5rem;">años acompañando procesos de transformación</p>
+    </div>
+    <div style="padding:1.5rem;border-right:0.5px solid var(--rule);">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:500;color:var(--fire);line-height:1;">+2.000</p>
+      <p style="font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-light);margin-top:.5rem;">personas acompañadas en sesiones individuales</p>
+    </div>
+    <div style="padding:1.5rem;border-right:0.5px solid var(--rule);">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:500;color:var(--fire);line-height:1;">+500</p>
+      <p style="font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-light);margin-top:.5rem;">personas en talleres y retiros</p>
+    </div>
+    <div style="padding:1.5rem;">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:500;color:var(--fire);line-height:1;">4ª</p>
+      <p style="font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-light);margin-top:.5rem;">promoción de formación activa</p>
+    </div>
+  </div>
+</section>
+<div class="franja">
+  <span>Terapia individual</span><span>·</span>
+  <span>Pareja</span><span>·</span>
+  <span>Talleres y retiros</span><span>·</span>
+  <span>El Punto de Inflexión</span><span>·</span>
+  <span>Tarragona y online</span>
+</div>
+
+
+<section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);">
+  <div style="max-width:820px;margin:0 auto;">
+    <span class="sec-label" style="display:block;margin-bottom:1.2rem;">Conóceme en vídeo</span>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:4px;box-shadow:0 8px 30px rgba(0,0,0,.25);">
+      <iframe src="https://www.youtube-nocookie.com/embed/vfybsvJxmY0" title="Vídeo de presentación · Sergio García" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="concepto">
+  <span class="sec-label">El mecanismo</span>
+  <div class="concepto-grid">
+    <div class="c-item">
+      <p class="c-num">01</p>
+      <h2 class="c-h">Todos construimos un personaje para sobrevivir.</h2>
+      <p class="c-p">La ansiedad, el bloqueo, la dependencia emocional. No son problemas distintos. Son el mismo personaje protegiéndose de maneras distintas.</p>
+      <a href="el-personaje.html" style="display:inline-block;margin-top:1.5rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;">Leer más →</a>
+    </div>
+    <div class="c-item">
+      <p class="c-num">02</p>
+      <h2 class="c-h">Quizá no eres tú quien decide.</h2>
+      <p class="c-p">Quizá es una forma de protegerte que construiste hace años y que hoy sigue intentando salvarte de peligros que ya no existen. A eso lo llamo "el personaje".</p>
+    </div>
+    <div class="c-item">
+      <p class="c-num">03</p>
+      <h2 class="c-h">No trabajamos el síntoma. Trabajamos al personaje.</h2>
+      <p class="c-p">Cuando ves quién está decidiendo por ti y para qué, cambia lo que miras. Y cuando cambia lo que miras, cambia lo que haces.</p>
+    </div>
+  </div>
+</section>
+
+<div class="img-cita">
+  <img src="images/home-2-c098241f.jpg" alt="Retiro junto al mar" loading="lazy">
+  <div class="img-cita-txt">
+    <blockquote>"No creo que estés bloqueado. Creo que llevas demasiado tiempo protegiendo una versión de ti que ya no existe."</blockquote>
+  </div>
+</div>
+
+<section class="srv-preview" id="servicios">
+  <div class="sec-head">
+    <span class="sec-label">Servicios</span>
+    <h2 class="sec-h2">Individual, pareja, grupal y para profesionales.</h2>
+  </div>
+  <div class="srv-grid">
+    <div class="srv">
+      <span class="srv-tag">Individual</span>
+      <h3 class="srv-h">Sesión individual</h3>
+      <p class="srv-p">Presencial en Tarragona u online con personas de todo el mundo en castellano. 60 minutos. Sin compromiso de continuidad.</p>
+      <a href="sesiones.html" class="srv-a">Ver más →</a>
+    </div>
+    <div class="srv">
+      <span class="srv-tag">Pareja</span>
+      <h3 class="srv-h">Terapia de pareja</h3>
+      <p class="srv-p">La pareja no es el problema. Es el espejo de lo que cada uno trae. Trabajo la dependencia, el abandono y los patrones relacionales.</p>
+      <a href="sesiones.html#pareja" class="srv-a">Ver más →</a>
+    </div>
+    <div class="srv dark">
+      <span class="srv-tag">Grupal</span>
+      <h3 class="srv-h">Talleres y retiros</h3>
+      <p class="srv-p">Talleres vivenciales de un día o fin de semana. Retiros de 4-5 días en entorno natural. El grupo hace lo que la sesión no puede.</p>
+      <a href="talleres-retiros.html" class="srv-a">Ver fechas →</a>
+    </div>
+    <div class="srv">
+      <span class="srv-tag">Profesionales</span>
+      <h3 class="srv-h">Supervisión · Grupos · Conferencias</h3>
+      <p class="srv-p">Grupos semanales, supervisión clínica para terapeutas y ponencias para empresas y universidades.</p>
+      <a href="sesiones.html#profesionales" class="srv-a">Consultar →</a>
+    </div>
+  </div>
+</section>
+
+<div class="foto-par" aria-hidden="true">
+  <div class="fp"><img src="images/home-3-2bfd2820.jpg" alt="Sergio García facilitando taller" loading="lazy"></div>
+  <div class="fp"><img src="images/home-4-6a2702ca.jpg" alt="Trabajo grupal en taller vivencial" loading="lazy"></div>
+</div>
+
+<section class="prod-preview" id="programas">
+  <div class="pp">
+    <span class="pp-tag">Curso digital · 97€</span>
+    <h3 class="pp-h">El personaje que te está matando</h3>
+    <p class="pp-p">5 vídeos. No te explican nada nuevo. Te muestran lo que ya sabes pero no puedes ver. La puerta de entrada si no estás listo para el trabajo individual.</p>
+    <a href="programas.html#curso" class="btn-outline" style="margin-top:.5rem;align-self:flex-start;">Ver el curso →</a>
+  </div>
+  <div class="pp dark">
+    <span class="pp-tag" style="color:#E8956A;">Mentoría intensiva · Individual</span>
+    <h3 class="pp-h" style="color:var(--bone);">El Punto de Inflexión</h3>
+    <p class="pp-p">5-6 semanas de proceso individual intensivo. Para personas que ya no pueden seguir igual. Tres modalidades desde 947€.</p>
+    <a href="programas.html#inflexion" class="btn-fire" style="margin-top:.5rem;align-self:flex-start;">Ver el programa →</a>
+  </div>
+</section>
+
+
+<!-- CASOS REALES -->
+<section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);">
+  <span class="sec-label">Casos reales</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;line-height:1.2;margin-bottom:.8rem;">Lo que ocurre cuando el trabajo es real.</h2>
+  <p style="font-size:.82rem;color:var(--gray-light);margin-bottom:3rem;font-style:italic;">Las historias están anonimizadas y algunos detalles se han modificado para proteger la identidad de las personas, manteniendo intacto el proceso terapéutico.</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;">
+
+    <div style="padding:2.5rem 2.5rem 2.5rem 0;border-right:0.5px solid var(--rule);">
+      <span style="font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fire);display:block;margin-bottom:1.2rem;">Dependencia emocional</span>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;line-height:1.3;margin-bottom:1rem;">12 años saltando de relación en relación.</h3>
+      <p style="font-size:.88rem;color:var(--gray);line-height:1.85;margin-bottom:1rem;">Sabía exactamente por qué elegía siempre el mismo tipo de pareja. Había leído libros, hecho terapia y entendía su patrón. Pero seguía repitiéndolo.</p>
+      <p style="font-size:.88rem;color:var(--gray);line-height:1.85;margin-bottom:1rem;">No trabajamos la relación. Trabajamos el personaje que necesitaba sentirse imprescindible para sentirse valioso.</p>
+      <p style="font-size:.9rem;color:var(--ink);line-height:1.8;border-left:2px solid var(--fire);padding-left:1rem;">Tres meses después había dejado de perseguir personas que no podían quererle como necesitaba. Y por primera vez estaba tranquilo estando solo.</p>
+    </div>
+
+    <div style="padding:2.5rem;">
+      <span style="font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fire);display:block;margin-bottom:1.2rem;">Crisis existencial</span>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;line-height:1.3;margin-bottom:1rem;">18 años trabajando en una profesión que odiaba.</h3>
+      <p style="font-size:.88rem;color:var(--gray);line-height:1.85;margin-bottom:1rem;">No tenía ansiedad. Tenía una vida que ya no podía sostener. Durante años creyó que necesitaba motivación.</p>
+      <p style="font-size:.88rem;color:var(--gray);line-height:1.85;margin-bottom:1rem;">Lo que necesitaba era dejar de obedecer una identidad construida para agradar.</p>
+      <p style="font-size:.9rem;color:var(--ink);line-height:1.8;border-left:2px solid var(--fire);padding-left:1rem;">Cuatro meses después había tomado decisiones que llevaba años aplazando. No porque desapareciera el miedo. Sino porque dejó de permitir que el miedo decidiera por él.</p>
+    </div>
+
+    <div style="padding:2.5rem 0 2.5rem 2.5rem;border-left:0.5px solid var(--rule);">
+      <span style="font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fire);display:block;margin-bottom:1.2rem;">Ansiedad</span>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;line-height:1.3;margin-bottom:1rem;">Ocho años intentando controlar la ansiedad.</h3>
+      <p style="font-size:.88rem;color:var(--gray);line-height:1.85;margin-bottom:1rem;">Había probado respiración, meditación, medicación y distintas terapias. Cada vez que la ansiedad desaparecía, terminaba volviendo.</p>
+      <p style="font-size:.88rem;color:var(--gray);line-height:1.85;margin-bottom:1rem;">No trabajamos para quitar la ansiedad. Trabajamos para descubrir qué estaba evitando cada vez que aparecía.</p>
+      <p style="font-size:.9rem;color:var(--ink);line-height:1.8;border-left:2px solid var(--fire);padding-left:1rem;">Tres meses después seguía teniendo miedo algunas veces. La diferencia es que dejó de vivir organizada alrededor del miedo.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="test-home">
+  <span class="sec-label">Lo que dicen</span>
+  <div class="test-grid">
+    <div class="test dark">
+      <p class="test-s">★★★★★</p>
+      <p class="test-q">"Una de las mejores inversiones de mi vida. Llegué pensando que necesitaba respuestas y descubrí que lo que necesitaba era dejar de repetir los mismos patrones de siempre."</p>
+      <p class="test-by">— Javier, 42 años</p>
+    </div>
+    <div class="test">
+      <p class="test-s">★★★★★</p>
+      <p class="test-q">"Había probado psicólogos, libros, cursos y vídeos. Entendía perfectamente lo que me pasaba, pero seguía actuando igual. Con Sergio dejé de acumular teoría y empecé a hacer cambios reales."</p>
+      <p class="test-by">— Laura, 36 años</p>
+    </div>
+    <div class="test">
+      <p class="test-s">★★★★★</p>
+      <p class="test-q">"Llegué por una ruptura de pareja y terminé entendiendo que el problema no era aquella relación, sino un patrón que llevaba repitiendo toda mi vida."</p>
+      <p class="test-by">— Agatha, 39 años</p>
+    </div>
+  </div>
+  <div class="test2-grid" style="margin-top:1.5rem;">
+    <div class="test">
+      <p class="test-s">★★★★★</p>
+      <p class="test-q">"Llegamos convencidos de que el problema era el otro. En pocas sesiones entendimos que ambos llevábamos años relacionándonos desde el mismo personaje. No fue una terapia para aprender técnicas de comunicación. Fue mucho más incómodo... y mucho más transformador."</p>
+      <p class="test-by">— Marta y David · Terapia de pareja</p>
+    </div>
+    <div class="test dark">
+      <p class="test-s" style="color:#E8956A;">★★★★★</p>
+      <p class="test-q" style="color:rgba(255,255,255,.6);">"He hecho muchos retiros y muchos cursos. En ninguno había sentido tanta verdad. No me llevé respuestas. Me llevé una decisión. Y eso cambió completamente la dirección de mi vida."</p>
+      <p class="test-by" style="color:rgba(255,255,255,.3);">— Carlos · Retiro de transformación</p>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- REELS INSTAGRAM -->
+<section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);background:var(--bone2);">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem;">
+    <div>
+      <span class="sec-label">Instagram</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:500;">Lo que digo cuando no estoy en consulta.</h2>
+    </div>
+    <a href="https://www.instagram.com/sergiogarciaterapeuta/" target="_blank" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;white-space:nowrap;">Ver @sergiogarciaterapeuta →</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Cf_wNm3IAQp/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;"></blockquote>
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CgrWpGrIVaA/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;"></blockquote>
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CjDblmroZav/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;"></blockquote>
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CnNM6u9qDNF/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;"></blockquote>
+  </div>
+</section>
+<script async src="//www.instagram.com/embed.js"></script>
+<section style="background:var(--ink);padding:var(--pv) var(--p);border-bottom:1px solid rgba(255,255,255,.06);">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+    <div>
+      <span style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#E8956A;margin-bottom:1.5rem;display:block;">Entrevista</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;color:var(--bone);line-height:1.2;margin-bottom:1.2rem;">Escúchame antes<br>de escribirme.</h2>
+      <p style="font-size:.95rem;color:rgba(255,255,255,.5);line-height:1.9;margin-bottom:2rem;">Si quieres entender cómo pienso y cómo trabajo antes de dar el paso, esta es la mejor forma de empezar.</p>
+      <a href="https://wa.me/34634422827" style="display:inline-block;background:var(--fire);color:white;padding:.88rem 2rem;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;">Escribir después →</a>
+    </div>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+      <iframe 
+        src="https://www.youtube.com/embed/eTRW0Vhalc4" 
+        title="Entrevista a Sergio García" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+        style="position:absolute;top:0;left:0;width:100%;height:100%;">
+      </iframe>
+    </div>
+  </div>
+</section>
+<section style="padding:var(--pv) var(--p);border-top:1px solid var(--rule);background:var(--bone2);">
+  <span class="sec-label">Preguntas frecuentes</span>
+  <div style="max-width:720px;">
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Qué es "el personaje" del que hablas?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Es la máscara de supervivencia que construimos de niños para salir adelante — y que, de adultos, sigue controlándonos aunque ya no la necesitemos. Trabajo con eso: contigo, no con una teoría.</div>
+    </div><div class="faq-item">
+      <div class="faq-q"><span>¿Eres psicólogo?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Soy terapeuta, no psicólogo — trabajo desde Gestalt, sistémica y existencial, con más de 20 años de experiencia en consulta en Tarragona y online.</div>
+    </div><div class="faq-item">
+      <div class="faq-q"><span>No sé por qué pedir ayuda, ¿hace falta tenerlo claro?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">No hace falta que sepas explicarlo. La terapia empieza donde termina la explicación: en la primera sesión no necesitas tener claro qué te pasa, solo necesitas venir.</div>
+    </div><div class="faq-item">
+      <div class="faq-q"><span>¿Cómo reservo una primera sesión?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Puedes escribirme por WhatsApp o a través del formulario de contacto — te respondo yo directamente, no un equipo.</div>
+    </div>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="ct-l">
+    <span class="sec-label">Contacto</span>
+    <h2 class="ct-h">Si algo de lo que has leído te resuena, escríbeme.</h2>
+    <p class="ct-p">No necesitas tenerlo todo claro. Solo necesitas notar que algo tiene que cambiar.</p>
+    <a href="https://wa.me/34634422827" class="btn-dark">Escribir por WhatsApp →</a>
+  </div>
+  <div class="ct-r">
+    <div class="c-row"><span class="c-lbl">Presencial</span><span class="c-val">Tarragona, Catalunya</span></div>
+    <div class="c-row"><span class="c-lbl">Online</span><span class="c-val">Todo el mundo en castellano</span></div>
+    <div class="c-row"><span class="c-lbl">Talleres y retiros</span><span class="c-val">Tarragona y Cataluña</span></div>
+    <div class="c-row"><span class="c-lbl">Contacto</span><span class="c-val">WhatsApp · L-V</span></div>
+    <div class="c-row"><span class="c-lbl">Instagram</span><span class="c-val">@sergiogarciaterapeuta</span></div>
+  </div>
+</section>
+
+<section style="padding:calc(var(--pv) * 1.3) var(--p); text-align:center; border-bottom:1px solid var(--rule);">
+  <div style="max-width:680px; margin:0 auto;">
+    <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:clamp(1.9rem,3.6vw,2.8rem); line-height:1.35; color:var(--ink); margin-bottom:1.8rem;">La terapia empieza donde termina la explicación.</p>
+    <p style="font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gray-light); margin-bottom:3rem;">— Sergio García</p>
+    <a href="https://wa.me/34634422827" class="btn-dark">¿Hablamos? →</a>
+  </div>
+</section>
+
+</main>
+<footer>
+  <span class="footer-copy">© 2026 Sergio García · Tarragona</span>
+  <div class="footer-links">
+    <a href="#">Aviso legal</a>
+    <a href="#">Privacidad</a>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+
+<a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.362.694 4.566 1.885 6.42L4 29l7.77-1.84A11.93 11.93 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm6.982 17.02c-.29.816-1.44 1.5-1.98 1.58-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.68-.63-2.96-1.28-4.89-4.24-5.04-4.44-.15-.2-1.21-1.6-1.21-3.06 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.52.24.6.83 2.06.9 2.21.07.15.12.33.02.53-.09.2-.14.32-.28.5-.14.17-.29.38-.42.51-.14.14-.28.29-.12.57.15.27.68 1.12 1.46 1.82 1 .89 1.85 1.17 2.12 1.3.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.14.45.2.51.32.07.11.07.66-.22 1.48z"/>
+  </svg>
+</a>
+<style>
+.whatsapp-float{position:fixed;bottom:24px;right:24px;background-color:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.3);z-index:99999;transition:transform .2s ease;text-decoration:none;}
+.whatsapp-float:hover{transform:scale(1.08);}
+@media (max-width:480px){.whatsapp-float{width:52px;height:52px;bottom:16px;right:16px;}}
+</style>
+</body>
+</html>

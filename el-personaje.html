@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El personaje · Sergio García</title>
+<meta name="description" content="El concepto central del trabajo de Sergio García. Construiste un personaje para sobrevivir. El problema es que ya no lo necesitas y sigue mandando.">
+<meta name="robots" content="index, follow">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --ink: #0D0C0B;
+  --bone: #EDECE6;
+  --bone2: #E4E1D9;
+  --fire: #8F3A1A;
+  --fire-dim: rgba(143,58,26,0.13);
+  --gray: #5A5850;
+  --gray-light: #A09C94;
+  --rule: rgba(13,12,11,0.1);
+  --rule-lt: rgba(13,12,11,0.055);
+  --p: clamp(1.4rem, 4vw, 3rem);
+  --pv: clamp(3rem, 7vw, 6rem);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bone);
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: .9rem var(--p);
+  background: var(--bone);
+  border-bottom: 1px solid var(--rule);
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 500; letter-spacing: .04em;
+  text-decoration: none; color: var(--ink);
+}
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a {
+  font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gray); text-decoration: none; transition: color .18s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+.nav-btn {
+  font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+  padding: .5rem 1.3rem; border: 1px solid var(--ink);
+  color: var(--ink); text-decoration: none;
+  transition: background .18s, color .18s;
+}
+.nav-btn:hover { background: var(--ink); color: var(--bone); }
+.nav-toggle{display:none;background:none;border:none;font-size:1.4rem;line-height:1;color:var(--ink);cursor:pointer;padding:.2rem .3rem;}
+
+/* TIPOGRAFÍA */
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
+
+/* UTILIDADES */
+.sec-label {
+  font-size: .68rem; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--fire);
+  margin-bottom: 1.5rem; display: block;
+}
+.sec-h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 500; line-height: 1.15;
+}
+.sec-head {
+  padding: var(--pv) var(--p) 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+.btn-dark {
+  display: inline-block;
+  background: var(--ink); color: var(--bone);
+  padding: .88rem 2rem;
+  font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  text-decoration: none; transition: opacity .18s;
+}
+.btn-dark:hover { opacity: .82; }
+.btn-fire {
+  display: inline-block;
+  background: var(--fire); color: white;
+  padding: .88rem 2rem;
+  font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  text-decoration: none; transition: opacity .18s;
+}
+.btn-fire:hover { opacity: .85; }
+.btn-outline {
+  display: inline-block;
+  border: 0.5px solid var(--ink); color: var(--ink);
+  padding: .75rem 1.8rem;
+  font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; transition: background .18s, color .18s;
+}
+.btn-outline:hover { background: var(--ink); color: var(--bone); }
+
+/* FOOTER */
+footer {
+  padding: 1.4rem var(--p);
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 0.5px solid var(--rule);
+}
+.footer-copy { font-size: .72rem; color: var(--gray-light); }
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a {
+  font-size: .7rem; color: var(--gray-light);
+  text-decoration: none; transition: color .18s;
+}
+.footer-links a:hover { color: var(--ink); }
+
+/* RESPONSIVE NAV */
+@media (max-width: 768px) {
+  nav { padding: .8rem var(--p); position:relative; }
+  .nav-toggle { display:flex; }
+  .nav-links { display: none; }
+  .nav-links.open { display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:var(--bone); padding:1.5rem var(--p) 1.8rem; gap:1.3rem; border-bottom:1px solid var(--rule); box-shadow:0 12px 24px rgba(0,0,0,.12); z-index:300; }
+  .nav-links.open a { font-size:.85rem; padding:.3rem 0; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+
+.page-hero { padding:var(--pv) var(--p); border-bottom:1px solid var(--rule); display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:end; }
+.page-hero-txt h1 { font-size:clamp(2.2rem,4vw,3.8rem); font-weight:500; line-height:1.08; margin-bottom:1.2rem; }
+.page-hero-txt h1 em { font-style:italic; color:var(--fire); }
+.page-hero-txt p { font-size:1rem; color:var(--gray); line-height:1.9; max-width:440px; }
+.page-hero-side { font-family:"Cormorant Garamond",serif; font-size:1.15rem; font-style:italic; color:var(--gray); line-height:1.65; border-left:2px solid var(--fire); padding-left:1.2rem; }
+
+.two-col { display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--rule); }
+.two-col > div { padding:var(--pv) var(--p); }
+.two-col > div:first-child { border-right:1px solid var(--rule); }
+
+.bloque { padding:var(--pv) var(--p); border-bottom:1px solid var(--rule); }
+.bloque-dark { padding:var(--pv) var(--p); border-bottom:1px solid rgba(255,255,255,.06); background:var(--ink); color:var(--bone); }
+
+.tres { display:grid; grid-template-columns:repeat(3,1fr); border-bottom:1px solid var(--rule); }
+.tres > div { padding:2.5rem 2rem; border-right:0.5px solid var(--rule); }
+.tres > div:last-child { border-right:none; }
+
+.cuatro { display:grid; grid-template-columns:repeat(2,1fr); }
+.cuatro > div { padding:2rem var(--p); border-right:0.5px solid var(--rule); border-bottom:0.5px solid var(--rule); }
+.cuatro > div:nth-child(2n) { border-right:none; }
+
+.img-full { height:50vh; min-height:300px; overflow:hidden; border-bottom:1px solid var(--rule); }
+.img-full img { width:100%; height:100%; object-fit:cover; display:block; }
+.img-full.dark img { filter:brightness(.45); }
+.img-full.overlay { position:relative; }
+.img-full.overlay .over { position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:3rem var(--p); }
+.img-full.overlay .over blockquote { font-size:clamp(1.4rem,2.8vw,2.2rem);font-style:italic;color:rgba(255,255,255,.92);text-align:center;max-width:640px;line-height:1.35; }
+
+h2.grande { font-size:clamp(1.8rem,3vw,2.6rem); font-weight:500; line-height:1.2; margin-bottom:1.2rem; }
+h3.medio { font-size:clamp(1.3rem,2vw,1.7rem); font-weight:500; line-height:1.25; margin-bottom:.8rem; }
+p.body { font-size:.95rem; color:var(--gray); line-height:1.9; }
+p.body + p.body { margin-top:1rem; }
+
+.tag { font-size:.65rem; letter-spacing:.16em; text-transform:uppercase; color:var(--fire); margin-bottom:1.2rem; display:block; }
+.tag-light { font-size:.65rem; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.35); margin-bottom:1.2rem; display:block; }
+
+.faq-item { border-top:0.5px solid var(--rule); }
+.faq-q { display:flex; justify-content:space-between; align-items:center; padding:.95rem 0; cursor:pointer; gap:1rem; }
+.faq-q span:first-child { font-size:.92rem; color:var(--ink); line-height:1.5; }
+.faq-toggle { font-size:1.1rem; color:var(--gray-light); flex-shrink:0; transition:transform .2s; }
+.faq-a { font-size:.88rem; color:var(--gray); line-height:1.85; padding-bottom:1rem; display:none; }
+.faq-item.open .faq-a { display:block; }
+.faq-item.open .faq-toggle { transform:rotate(45deg); color:var(--fire); }
+
+@media (max-width:768px) {
+  .page-hero { grid-template-columns:1fr; gap:1.5rem; }
+  .two-col { grid-template-columns:1fr; }
+  .two-col > div:first-child { border-right:none; border-bottom:1px solid var(--rule); }
+  .tres { grid-template-columns:1fr; }
+  .tres > div { border-right:none; border-bottom:0.5px solid var(--rule); }
+  .tres > div:last-child { border-bottom:none; }
+  .cuatro { grid-template-columns:1fr; }
+  .cuatro > div { border-right:none!important; }
+}
+
+</style>
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1319169');
+</script>
+<!-- End MailerLite Universal -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y3E0GC5DX6');
+</script>
+<link rel="canonical" href="https://sergiogarciaterapeuta.es/el-personaje.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sergiogarciaterapeuta.es/el-personaje.html">
+<meta property="og:title" content="El personaje que te está matando · Sergio García">
+<meta property="og:description" content="El concepto central del trabajo de Sergio García. Construiste un personaje para sobrevivir. El problema es que ya no lo necesitas y sigue mandando.">
+<meta property="og:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="El personaje que te está matando · Sergio García">
+<meta name="twitter:description" content="El concepto central del trabajo de Sergio García. Construiste un personaje para sobrevivir. El problema es que ya no lo necesitas y sigue mandando.">
+<meta name="twitter:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Sergio Garc\u00eda - Terapeuta Gestalt y Existencial",
+  "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg",
+  "url": "https://sergiogarciaterapeuta.es/",
+  "telephone": "+34634422827",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Tarragona",
+    "addressRegion": "Catalunya",
+    "addressCountry": "ES"
+  },
+  "sameAs": ["https://www.instagram.com/sergiogarciaterapeuta"],
+  "priceRange": "$$",
+  "founder": {
+    "@type": "Person",
+    "name": "Sergio Garc\u00eda"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
+  "name": "Sergio García",
+  "knowsAbout": ["crisis existencial", "Gestalt", "terapia sistémica", "terapia existencial", "terapia de pareja", "desarrollo personal", "acompañamiento terapéutico"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es la terapia Gestalt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La Gestalt trabaja en el presente, con lo que está ocurriendo aquí y ahora. No analiza el pasado indefinidamente: usa la conciencia, el cuerpo y el contacto real. No busca dar respuestas sino acompañar a la persona hasta la pregunta correcta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Esto es terapia psicológica?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es terapia humanista con base en la Gestalt y orientación existencial. No soy psicólogo clínico. Mi trabajo no consiste en diagnosticar ni en tratar trastornos. Consiste en acompañar procesos de transformación real."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Para quién es este trabajo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para personas que llevan tiempo entendiendo su problema y siguen viviendo el mismo patrón. Que intuyen que algo tiene que cambiar pero no saben qué. Que están dispuestas a mirar lo que normalmente evitan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo dura un proceso?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende. Hay personas que con pocas sesiones se desatascan. Otras necesitan un proceso más largo. No vendo paquetes cerrados. Lo definimos juntos según lo que aparezca."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+
+<body>
+<nav>
+  <a href="index.html" class="logo">Sergio García</a>
+  <div class="nav-links" onclick="if(event.target.tagName==='A'){this.classList.remove('open');var t=document.querySelector('.nav-toggle');t.setAttribute('aria-expanded','false');t.innerHTML='\u2630';}">
+    <a href="index.html">Inicio</a>
+    <a href="el-personaje.html" class="active">El personaje</a>
+    <a href="sobre-sergio.html">Sobre mí</a>
+    <a href="sesiones.html">Sesiones</a>
+    <a href="talleres-retiros.html">Talleres y retiros</a>
+    <a href="programas.html">Programas</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#contacto">Contacto</a>
+  </div>
+  <a href="https://wa.me/34634422827" class="nav-btn">Reservar sesión</a>
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="var m=document.querySelector('.nav-links');var open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);this.innerHTML=open?'\u2715':'\u2630';">☰</button>
+</nav>
+<main>
+
+<div class="page-hero">
+  <div class="page-hero-txt">
+    <span class="sec-label">El concepto central</span>
+    <h1>El <em>personaje</em><br>que llevas siendo.</h1>
+    <p>Construiste una máscara para sobrevivir. Funcionó. El problema es que ya no la necesitas y sigue mandando. Eso es el personaje.</p>
+  </div>
+  <p class="page-hero-side">"No eres el personaje. Pero llevas años siendo él. Y esa es exactamente la diferencia que importa."</p>
+</div>
+
+<div class="tres">
+  <div>
+    <span class="tag">01 — El origen</span>
+    <h3 class="medio">Lo construiste para sobrevivir.</h3>
+    <p class="body">En algún momento de tu vida — en la infancia, en una relación, en una crisis — aprendiste que siendo de una determinada manera las cosas iban mejor. Más aceptación, menos dolor, más control.</p>
+    <p class="body">Eso es el personaje: una estrategia de supervivencia que se convirtió en identidad.</p>
+  </div>
+  <div>
+    <span class="tag">02 — El problema</span>
+    <h3 class="medio">Ya no lo necesitas. Y sigue funcionando.</h3>
+    <p class="body">El personaje no distingue entre el pasado y el presente. Sigue respondiendo como si aquella situación que lo creó todavía existiera.</p>
+    <p class="body">Eso explica por qué repites patrones que ya no quieres. Por qué sabes lo que te pasa y sigues igual.</p>
+  </div>
+  <div>
+    <span class="tag">03 — El trabajo</span>
+    <h3 class="medio">No matarlo. Verlo.</h3>
+    <p class="body">No se trata de destruir el personaje. Se trata de verlo con claridad: quién es, para qué está ahí, qué protege.</p>
+    <p class="body">Cuando lo ves de verdad — no intelectualmente, sino en el cuerpo — algo cambia. No porque hayas decidido cambiarlo. Sino porque ya no puedes fingir que no lo sabías.</p>
+  </div>
+</div>
+
+<div class="img-full dark overlay">
+  <img src="images/personaje-1-3a67aef5.jpg" alt="Retiro terapéutico en montaña" loading="lazy">
+  <div class="over">
+    <blockquote>"Sabes demasiado. Y aun así sigues igual. Eso no es falta de información. Es el personaje haciendo su trabajo."</blockquote>
+  </div>
+</div>
+
+
+<section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);">
+  <div style="max-width:820px;margin:0 auto;">
+    <span class="sec-label" style="display:block;margin-bottom:1.2rem;">El personaje, explicado</span>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:4px;box-shadow:0 8px 30px rgba(0,0,0,.25);">
+      <iframe src="https://www.youtube-nocookie.com/embed/V50cy8Bns5o" title="El Personaje · Sergio García" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<div class="two-col">
+  <div>
+    <span class="sec-label">Cómo aparece</span>
+    <h2 class="grande">El personaje en la vida real.</h2>
+    <p class="body">No se presenta como personaje. Se presenta como tú.</p>
+    <p class="body">Aparece cuando procrastinas y te convences de que no es el momento. Cuando sabes que esa relación no te hace bien y te quedas. Cuando llevas años entendiendo tu bloqueo y sigues bloqueado.</p>
+    <p class="body">La ansiedad, la dependencia emocional, el miedo al cambio, el sabotaje interno — todos son formas distintas del mismo mecanismo.</p>
+  </div>
+  <div>
+    <span class="sec-label">Por qué no desaparece</span>
+    <h2 class="grande">Entender no es cambiar.</h2>
+    <p class="body">El error más frecuente es creer que entender el mecanismo lo deshace. Que si sabes por qué lo haces, dejarás de hacerlo.</p>
+    <p class="body">No funciona así. El personaje no opera en el nivel del entendimiento. Opera en el cuerpo, en los automatismos, en los patrones emocionales que se activaron antes de que pudieras pensar.</p>
+    <p class="body">Por eso el trabajo no es intelectual. Es experiencial. Tienes que ver al personaje en acción, en tiempo real, para que algo se mueva.</p>
+  </div>
+</div>
+
+<div class="bloque">
+  <span class="sec-label">Sergio García</span>
+  <div style="display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:start;">
+    <img src="images/personaje-2-5b546b50.jpg" alt="Sergio García" style="width:220px;display:block;filter:grayscale(12%);">
+    <div>
+      <h2 class="grande">Empecé a hacer esto porque me lo hicieron a mí.</h2>
+      <p class="body">A los 19 años tuve un proceso ansioso-depresivo. La medicina convencional me ofreció una receta. Yo busqué otra cosa. Por casualidad, en una boda, conocí a un terapeuta que me abrió una puerta. Y la crucé.</p>
+      <p class="body">Llevo más de 20 años acompañando a personas en crisis vitales, rupturas y momentos donde la vida que construyeron dejó de encajar. He acompañado a más de 2.000 personas.</p>
+      <p class="body">Soy directo. No soy agresivo. Prefiero una verdad incómoda a una mentira tranquilizadora. Mi trabajo no consiste en darte respuestas. Consiste en acompañarte hasta el punto donde dejas de necesitarlas.</p>
+      <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:.5rem;">
+        <span style="font-size:.72rem;letter-spacing:.04em;border:0.5px solid var(--rule);padding:.25rem .65rem;color:var(--gray);">Fritz Perls</span><span style="font-size:.72rem;letter-spacing:.04em;border:0.5px solid var(--rule);padding:.25rem .65rem;color:var(--gray);">Carl Jung</span><span style="font-size:.72rem;letter-spacing:.04em;border:0.5px solid var(--rule);padding:.25rem .65rem;color:var(--gray);">Alan Watts</span><span style="font-size:.72rem;letter-spacing:.04em;border:0.5px solid var(--rule);padding:.25rem .65rem;color:var(--gray);">Claudio Naranjo</span><span style="font-size:.72rem;letter-spacing:.04em;border:0.5px solid var(--rule);padding:.25rem .65rem;color:var(--gray);">Jodorowsky</span><span style="font-size:.72rem;letter-spacing:.04em;border:0.5px solid var(--rule);padding:.25rem .65rem;color:var(--gray);">Existencialismo</span><span style="font-size:.72rem;letter-spacing:.04em;border:0.5px solid var(--rule);padding:.25rem .65rem;color:var(--gray);">Filosofía oriental</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);background:var(--bone2);">
+  <span class="sec-label">Entrevista</span>
+  <h2 class="sec-h2" style="margin-bottom:2rem;">Escúchame hablar de esto.</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+      <iframe 
+        src="https://www.youtube.com/embed/eTRW0Vhalc4" 
+        title="Entrevista a Sergio García sobre el personaje" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+        style="position:absolute;top:0;left:0;width:100%;height:100%;">
+      </iframe>
+    </div>
+    <div>
+      <p style="font-size:1rem;color:var(--gray);line-height:1.9;margin-bottom:1.5rem;">Si hay algo que quieras entender antes de escribirme — cómo pienso, cómo trabajo, qué diferencia hay entre lo que hago y lo que hace otro terapeuta — esta entrevista es el mejor sitio para empezar.</p>
+      <a href="https://wa.me/34634422827" class="btn-dark">Escribir después de verlo →</a>
+    </div>
+  </div>
+</section>
+
+<div style="background:var(--ink);color:var(--bone);padding:var(--pv) var(--p);border-bottom:1px solid rgba(255,255,255,.06);">
+  <span style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--fire);margin-bottom:1.5rem;display:block;">Reconócete</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;line-height:1.2;margin-bottom:.8rem;color:var(--bone);">¿Cuál es tu personaje?</h2>
+  <p style="font-size:.95rem;color:rgba(255,255,255,.45);line-height:1.85;margin-bottom:3rem;max-width:560px;">Hay varios arquetipos que aparecen una y otra vez. Reconocer el tuyo no lo deshace. Pero es el primer paso para dejar de obedecerle sin saberlo.</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:0.5px solid rgba(255,255,255,.08);">
+    <div style="padding:2rem 2rem 2rem 0;border-right:0.5px solid rgba(255,255,255,.08);border-bottom:0.5px solid rgba(255,255,255,.08);">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--bone);margin-bottom:.8rem;">El complaciente</p>
+      <p style="font-size:.88rem;color:rgba(255,255,255,.45);line-height:1.85;">"Si no molesto, si hago lo que esperan, si no pido demasiado... entonces estaré a salvo." Lleva años diciendo que sí cuando quiere decir no. Y siente que nadie le ve de verdad.</p>
+    </div>
+    <div style="padding:2rem;border-right:0.5px solid rgba(255,255,255,.08);border-bottom:0.5px solid rgba(255,255,255,.08);">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--bone);margin-bottom:.8rem;">El fuerte</p>
+      <p style="font-size:.88rem;color:rgba(255,255,255,.45);line-height:1.85;">"Yo puedo solo. No necesito ayuda. Pedir es de débiles." Se ha construido una identidad de resistencia. El coste es que lleva años sin que nadie llegue de verdad a él.</p>
+    </div>
+    <div style="padding:2rem 0 2rem 2rem;border-bottom:0.5px solid rgba(255,255,255,.08);">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--bone);margin-bottom:.8rem;">El salvador</p>
+      <p style="font-size:.88rem;color:rgba(255,255,255,.45);line-height:1.85;">"Si les ayudo, si les cuido, si estoy ahí para todos... entonces soy valioso." Siempre pendiente de los demás. Y sin entender muy bien por qué se siente tan solo.</p>
+    </div>
+    <div style="padding:2rem 2rem 2rem 0;border-right:0.5px solid rgba(255,255,255,.08);">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--bone);margin-bottom:.8rem;">El independiente</p>
+      <p style="font-size:.88rem;color:rgba(255,255,255,.45);line-height:1.85;">"No necesito a nadie. Prefiero estar solo que depender." Huye del vínculo antes de que el vínculo le falle. Y se pregunta por qué sus relaciones nunca llegan a profundizar.</p>
+    </div>
+    <div style="padding:2rem;border-right:0.5px solid rgba(255,255,255,.08);">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--bone);margin-bottom:.8rem;">El perfecto</p>
+      <p style="font-size:.88rem;color:rgba(255,255,255,.45);line-height:1.85;">"Si lo hago perfectamente, si no me equivoco... entonces nadie podrá criticarme." Exigente consigo mismo hasta el agotamiento. Y profundamente insatisfecho sin saber por qué.</p>
+    </div>
+    <div style="padding:2rem 0 2rem 2rem;">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--bone);margin-bottom:.8rem;">El que entiende todo</p>
+      <p style="font-size:.88rem;color:rgba(255,255,255,.45);line-height:1.85;">"Lo entiendo. Sé de dónde viene." El entendimiento como control. Sabe exactamente por qué hace lo que hace. Y sigue haciéndolo igual.</p>
+    </div>
+  </div>
+  <div style="margin-top:2.5rem;padding:1.5rem;border:0.5px solid rgba(255,255,255,.1);max-width:600px;">
+    <p style="font-size:.95rem;color:rgba(255,255,255,.6);line-height:1.85;">¿Te reconoces en alguno? El trabajo no consiste en eliminarlos. Consiste en verlos.</p>
+    <a href="https://wa.me/34634422827" style="display:inline-block;margin-top:1.2rem;background:var(--fire);color:white;padding:.75rem 1.8rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;">Hablemos →</a>
+  </div>
+</div>
+
+<div style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);">
+  <span style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--fire);margin-bottom:1rem;display:block;">En la práctica</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;line-height:1.2;margin-bottom:.8rem;">El personaje en la vida real.</h2>
+  <p style="font-size:.82rem;color:var(--gray-light);margin-bottom:3rem;font-style:italic;">Las historias están anonimizadas y algunos detalles se han modificado para proteger la identidad de las personas, manteniendo intacto el proceso terapéutico.</p>
+  <div style="display:flex;flex-direction:column;gap:0;">
+    <div style="display:grid;grid-template-columns:180px 1fr;gap:3rem;padding:2.5rem 0;border-top:0.5px solid var(--rule);align-items:start;">
+      <div>
+        <span style="font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fire);display:block;margin-bottom:.5rem;">Caso 1</span>
+        <p style="font-size:.88rem;font-weight:500;color:var(--ink);">Dependencia emocional</p>
+      </div>
+      <div>
+        <p style="font-size:1rem;color:var(--ink);line-height:1.8;margin-bottom:1rem;font-family:'Cormorant Garamond',serif;font-style:italic;">12 años saltando de relación en relación. Sabía exactamente por qué elegía siempre el mismo tipo de pareja. Pero seguía repitiéndolo.</p>
+        <p style="font-size:.9rem;color:var(--gray);line-height:1.85;margin-bottom:1rem;">No trabajamos la relación. Trabajamos el personaje que necesitaba sentirse imprescindible para sentirse valioso.</p>
+        <p style="font-size:.9rem;color:var(--ink);line-height:1.8;border-left:2px solid var(--fire);padding-left:1rem;">Tres meses después había dejado de perseguir personas que no podían quererle como necesitaba. Y por primera vez estaba tranquilo estando solo.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:180px 1fr;gap:3rem;padding:2.5rem 0;border-top:0.5px solid var(--rule);align-items:start;">
+      <div>
+        <span style="font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fire);display:block;margin-bottom:.5rem;">Caso 2</span>
+        <p style="font-size:.88rem;font-weight:500;color:var(--ink);">Crisis existencial</p>
+      </div>
+      <div>
+        <p style="font-size:1rem;color:var(--ink);line-height:1.8;margin-bottom:1rem;font-family:'Cormorant Garamond',serif;font-style:italic;">18 años trabajando en una profesión que odiaba. No tenía ansiedad. Tenía una vida que ya no podía sostener.</p>
+        <p style="font-size:.9rem;color:var(--gray);line-height:1.85;margin-bottom:1rem;">Lo que necesitaba era dejar de obedecer una identidad construida para agradar.</p>
+        <p style="font-size:.9rem;color:var(--ink);line-height:1.8;border-left:2px solid var(--fire);padding-left:1rem;">Cuatro meses después había tomado decisiones que llevaba años aplazando. No porque desapareciera el miedo. Sino porque dejó de permitir que el miedo decidiera por él.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:180px 1fr;gap:3rem;padding:2.5rem 0;border-top:0.5px solid var(--rule);align-items:start;">
+      <div>
+        <span style="font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fire);display:block;margin-bottom:.5rem;">Caso 3</span>
+        <p style="font-size:.88rem;font-weight:500;color:var(--ink);">Ansiedad</p>
+      </div>
+      <div>
+        <p style="font-size:1rem;color:var(--ink);line-height:1.8;margin-bottom:1rem;font-family:'Cormorant Garamond',serif;font-style:italic;">Ocho años intentando controlar la ansiedad. Había probado respiración, meditación, medicación y distintas terapias.</p>
+        <p style="font-size:.9rem;color:var(--gray);line-height:1.85;margin-bottom:1rem;">No trabajamos para quitar la ansiedad. Trabajamos para descubrir qué estaba evitando cada vez que aparecía.</p>
+        <p style="font-size:.9rem;color:var(--ink);line-height:1.8;border-left:2px solid var(--fire);padding-left:1rem;">Tres meses después seguía teniendo miedo algunas veces. La diferencia es que dejó de vivir organizada alrededor del miedo.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);">
+  <span style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--fire);margin-bottom:1.5rem;display:block;">Vídeos</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;line-height:1.2;margin-bottom:2.5rem;">Sergio trabajando en talleres.</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+      <iframe src="https://www.youtube.com/embed/zxDJLXTU3S4?start=143" title="Sergio García en taller" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+    </div>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+      <iframe src="https://www.youtube.com/embed/QJX7bgNLf8o" title="Sergio García en taller" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+    </div>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+      <iframe src="https://www.youtube.com/embed/scNT4dt1Iac?start=4" title="Sergio García en taller" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+    </div>
+  </div>
+</div>
+<div class="bloque" style="background:var(--bone2);">
+  <span class="sec-label">Preguntas frecuentes</span>
+  <div style="max-width:720px;">
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Qué es la terapia Gestalt?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">La Gestalt trabaja en el presente, con lo que está ocurriendo aquí y ahora. No analiza el pasado indefinidamente: usa la conciencia, el cuerpo y el contacto real. No busca dar respuestas sino acompañar a la persona hasta la pregunta correcta.</div>
+    </div><div class="faq-item">
+      <div class="faq-q"><span>¿Esto es terapia psicológica?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Es terapia humanista con base en la Gestalt y orientación existencial. No soy psicólogo clínico. Mi trabajo no consiste en diagnosticar ni en tratar trastornos. Consiste en acompañar procesos de transformación real.</div>
+    </div><div class="faq-item">
+      <div class="faq-q"><span>¿Para quién es este trabajo?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Para personas que llevan tiempo entendiendo su problema y siguen viviendo el mismo patrón. Que intuyen que algo tiene que cambiar pero no saben qué. Que están dispuestas a mirar lo que normalmente evitan.</div>
+    </div><div class="faq-item">
+      <div class="faq-q"><span>¿Cuánto tiempo dura un proceso?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Depende. Hay personas que con pocas sesiones se desatascan. Otras necesitan un proceso más largo. No vendo paquetes cerrados. Lo definimos juntos según lo que aparezca.</div>
+    </div>
+  </div>
+</div>
+
+<div style="padding:var(--pv) var(--p);border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem;">
+  <div>
+    <h2 class="grande">¿Quieres ver si tiene sentido trabajar juntos?</h2>
+    <p class="body" style="margin-top:.5rem;">Una llamada de 15 minutos. Sin compromiso.</p>
+  </div>
+  <a href="https://wa.me/34634422827?text=Me%20interesa%20hablar%20contigo" class="btn-dark">Escribir por WhatsApp →</a>
+</div>
+
+</main>
+<footer>
+  <span class="footer-copy">© 2026 Sergio García · Tarragona</span>
+  <div class="footer-links">
+    <a href="#">Aviso legal</a>
+    <a href="#">Privacidad</a>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+<a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.362.694 4.566 1.885 6.42L4 29l7.77-1.84A11.93 11.93 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm6.982 17.02c-.29.816-1.44 1.5-1.98 1.58-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.68-.63-2.96-1.28-4.89-4.24-5.04-4.44-.15-.2-1.21-1.6-1.21-3.06 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.52.24.6.83 2.06.9 2.21.07.15.12.33.02.53-.09.2-.14.32-.28.5-.14.17-.29.38-.42.51-.14.14-.28.29-.12.57.15.27.68 1.12 1.46 1.82 1 .89 1.85 1.17 2.12 1.3.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.14.45.2.51.32.07.11.07.66-.22 1.48z"/>
+  </svg>
+</a>
+<style>
+.whatsapp-float{position:fixed;bottom:24px;right:24px;background-color:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.3);z-index:99999;transition:transform .2s ease;text-decoration:none;}
+.whatsapp-float:hover{transform:scale(1.08);}
+@media (max-width:480px){.whatsapp-float{width:52px;height:52px;bottom:16px;right:16px;}}
+</style>
+</body>
+</html>

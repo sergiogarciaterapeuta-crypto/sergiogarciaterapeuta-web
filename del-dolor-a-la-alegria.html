@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Del Dolor a la Alegría · Taller Vivencial · Sergio García</title>
+<meta name="description" content="Taller vivencial de un día en Tarragona. 1 de agosto. Un proceso profundo para dejar de huir de ti y empezar a vivir desde un lugar más auténtico. Sergio García, terapeuta Gestalt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0D0C0B;
+  --bone: #EDECE6;
+  --bone2: #E4E1D9;
+  --fire: #8F3A1A;
+  --fire-dim: rgba(143,58,26,0.13);
+  --gray: #5A5850;
+  --gray-light: #A09C94;
+  --rule: rgba(13,12,11,0.1);
+  --rule-lt: rgba(13,12,11,0.055);
+  --p: clamp(1.4rem, 4vw, 3rem);
+  --pv: clamp(3rem, 7vw, 6rem);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bone);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .9rem var(--p);
+  background: var(--bone);
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--ink);
+  letter-spacing: .01em;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+.nav-links a {
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gray);
+  text-decoration: none;
+  transition: color .18s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--ink); }
+.nav-btn {
+  font-size: .75rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .5rem 1.3rem;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+  transition: background .18s, color .18s;
+}
+.nav-btn:hover { background: var(--ink); color: var(--bone); }
+.nav-toggle{display:none;background:none;border:none;font-size:1.4rem;line-height:1;color:var(--ink);cursor:pointer;padding:.2rem .3rem;}
+
+/* HERO */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 90vh;
+}
+.hero-img {
+  overflow: hidden;
+  position: relative;
+}
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(0.6) brightness(0.85);
+}
+.hero-content {
+  padding: var(--pv) var(--p);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bone);
+}
+.eyebrow {
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--fire);
+  margin-bottom: 1.4rem;
+}
+.hero-content h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+  color: var(--ink);
+}
+.hero-content h1 em {
+  font-style: italic;
+  color: var(--fire);
+}
+.hero-sub {
+  font-size: 1rem;
+  color: var(--gray);
+  margin-bottom: 2rem;
+  max-width: 380px;
+  line-height: 1.65;
+}
+.hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  margin-bottom: 2.5rem;
+  font-size: .88rem;
+  color: var(--gray);
+}
+.hero-meta span::before {
+  content: '— ';
+  color: var(--fire);
+}
+.btn-fire {
+  display: inline-block;
+  background: var(--fire);
+  color: white;
+  text-decoration: none;
+  padding: .85rem 2rem;
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: background .2s;
+  align-self: flex-start;
+}
+.btn-fire:hover { background: #7a3017; }
+.btn-outline {
+  display: inline-block;
+  border: 0.5px solid var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+  padding: .85rem 2rem;
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: background .2s, color .2s;
+  align-self: flex-start;
+}
+.btn-outline:hover { background: var(--ink); color: var(--bone); }
+
+/* SECCIONES */
+section { padding: var(--pv) var(--p); }
+
+.section-label {
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--fire);
+  margin-bottom: 1rem;
+  display: block;
+}
+h2.grande {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+h2.grande em {
+  font-style: italic;
+}
+.body {
+  color: var(--gray);
+  line-height: 1.85;
+  max-width: 640px;
+}
+.body + .body { margin-top: 1rem; }
+
+hr.rule {
+  border: none;
+  border-top: 0.5px solid var(--rule);
+  margin: 0;
+}
+
+/* INTRO */
+.intro {
+  background: var(--bone);
+  border-bottom: 0.5px solid var(--rule);
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  padding: var(--pv) var(--p);
+}
+
+/* SPLIT */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 0.5px solid var(--rule);
+}
+.split-img {
+  overflow: hidden;
+  min-height: 480px;
+}
+.split-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.65) brightness(0.9);
+}
+.split-content {
+  padding: var(--pv) var(--p);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bone);
+}
+.split.reverse .split-img { order: 2; }
+.split.reverse .split-content { order: 1; }
+
+/* GRID CONTENIDO */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 0.5px solid var(--rule);
+}
+.grid-item {
+  padding: 2rem var(--p);
+  border-bottom: 0.5px solid var(--rule);
+  border-right: 0.5px solid var(--rule);
+}
+.grid-item:nth-child(even) { border-right: none; }
+.grid-item:nth-last-child(-n+2) { border-bottom: none; }
+.grid-item::before {
+  content: '✓';
+  color: var(--fire);
+  font-size: .8rem;
+  display: block;
+  margin-bottom: .6rem;
+}
+.grid-item p { color: var(--gray); font-size: .92rem; line-height: 1.65; }
+
+/* QUOTE */
+.quote-band {
+  background: var(--ink);
+  color: var(--bone);
+  padding: var(--pv) var(--p);
+  text-align: center;
+}
+.quote-band blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.45;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* TAGS */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-top: 1.8rem;
+}
+.tag {
+  padding: .45rem 1rem;
+  border: 0.5px solid var(--rule);
+  font-size: .75rem;
+  letter-spacing: .06em;
+  color: var(--gray);
+  text-transform: uppercase;
+}
+
+/* PARA QUIEN */
+.para-quien {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2.5rem;
+}
+.para-quien h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1.4rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.5px solid var(--rule);
+}
+.para-quien.si h3 { border-bottom-color: var(--fire); }
+.para-quien ul { list-style: none; display: flex; flex-direction: column; gap: .9rem; }
+.para-quien ul li { color: var(--gray); font-size: .92rem; line-height: 1.6; padding-left: 1.2rem; position: relative; }
+.si ul li::before { content: '—'; position: absolute; left: 0; color: var(--fire); }
+.no ul li::before { content: '×'; position: absolute; left: 0; color: var(--gray-light); }
+
+/* CTA FINAL */
+.cta-final {
+  background: var(--bone2);
+  text-align: center;
+  border-top: 0.5px solid var(--rule);
+}
+.precio {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: var(--ink);
+  display: block;
+  margin: 1.5rem 0 .4rem;
+}
+.precio-label {
+  font-size: .72rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--gray);
+  display: block;
+  margin-bottom: 2.2rem;
+}
+.btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem var(--p);
+  border-top: 0.5px solid var(--rule);
+  background: var(--bone);
+}
+.footer-copy { font-size: .78rem; color: var(--gray-light); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: .78rem; color: var(--gray-light); text-decoration: none; }
+.footer-links a:hover { color: var(--ink); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero, .split, .grid-2, .para-quien { grid-template-columns: 1fr; }
+  .hero-img { min-height: 55vw; }
+  .split.reverse .split-img { order: 0; }
+  .split.reverse .split-content { order: 0; }
+  .split-img { min-height: 60vw; }
+  .grid-item { border-right: none; }
+  .grid-item:nth-last-child(-n+2) { border-bottom: 0.5px solid var(--rule); }
+  .grid-item:last-child { border-bottom: none; }
+  .nav-toggle { display:flex; }
+  .nav-links { display: none; }
+  .nav-links.open { display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:var(--bone); padding:1.5rem var(--p) 1.8rem; gap:1.3rem; border-bottom:1px solid var(--rule); box-shadow:0 12px 24px rgba(0,0,0,.12); z-index:300; }
+  .nav-links.open a { font-size:.85rem; padding:.3rem 0; }
+  nav { gap: 1rem; position:relative; }
+  footer { flex-direction: column; gap: .8rem; text-align: center; }
+}
+
+.faq-item { border-top:0.5px solid var(--rule); }
+.faq-q { display:flex; justify-content:space-between; align-items:center; padding:.95rem 0; cursor:pointer; gap:1rem; }
+.faq-q span:first-child { font-size:.92rem; color:var(--ink); line-height:1.5; }
+.faq-toggle { font-size:1.1rem; color:var(--gray-light); flex-shrink:0; transition:transform .2s; }
+.faq-a { font-size:.88rem; color:var(--gray); line-height:1.85; padding-bottom:1rem; display:none; }
+.faq-item.open .faq-a { display:block; }
+.faq-item.open .faq-toggle { transform:rotate(45deg); color:var(--fire); }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y3E0GC5DX6');
+</script>
+<link rel="canonical" href="https://sergiogarciaterapeuta.es/del-dolor-a-la-alegria.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sergiogarciaterapeuta.es/del-dolor-a-la-alegria.html">
+<meta property="og:title" content="Del Dolor a la Alegría · Taller experiencial en Tarragona">
+<meta property="og:description" content="Taller experiencial de un día para transitar del dolor a la alegría, con Sergio García en Tarragona.">
+<meta property="og:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Del Dolor a la Alegría · Taller experiencial en Tarragona">
+<meta name="twitter:description" content="Taller experiencial de un día para transitar del dolor a la alegría, con Sergio García en Tarragona.">
+<meta name="twitter:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Sergio Garc\u00eda - Terapeuta Gestalt y Existencial",
+  "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg",
+  "url": "https://sergiogarciaterapeuta.es/",
+  "telephone": "+34634422827",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Tarragona",
+    "addressRegion": "Catalunya",
+    "addressCountry": "ES"
+  },
+  "sameAs": ["https://www.instagram.com/sergiogarciaterapeuta"],
+  "priceRange": "$$",
+  "founder": {
+    "@type": "Person",
+    "name": "Sergio Garc\u00eda"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
+  "name": "Sergio García",
+  "knowsAbout": ["crisis existencial", "Gestalt", "terapia sistémica", "terapia existencial", "terapia de pareja", "desarrollo personal", "acompañamiento terapéutico"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Este taller es adecuado aunque nunca haya hecho terapia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. No es necesario tener experiencia previa. El taller está diseñado para que cualquier persona pueda participar, independientemente del momento personal en el que se encuentre."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Tengo que compartir mi historia delante del grupo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Cada persona decide hasta dónde quiere implicarse. El respeto por el ritmo y los límites de cada participante forma parte de la filosofía del taller. Nadie está obligado a hablar ni a compartir nada que no desee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué puedo esperar de este taller?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No se trata de recibir más información, sino de vivir una experiencia que te permita comprender de una forma diferente aquello que estás viviendo. El objetivo es ayudarte a relacionarte con el dolor desde otro lugar y abrir la posibilidad de un cambio profundo y auténtico."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">Sergio García</a>
+  <div class="nav-links" onclick="if(event.target.tagName==='A'){this.classList.remove('open');var t=document.querySelector('.nav-toggle');t.setAttribute('aria-expanded','false');t.innerHTML='\u2630';}">
+    <a href="index.html">Inicio</a>
+    <a href="el-personaje.html">El personaje</a>
+    <a href="sobre-sergio.html">Sobre mí</a>
+    <a href="sesiones.html">Sesiones</a>
+    <a href="talleres-retiros.html" class="active">Talleres y retiros</a>
+    <a href="programas.html">Programas</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#contacto">Contacto</a>
+  </div>
+  <a href="https://wa.me/34634422827" class="nav-btn">Reservar sesión</a>
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="var m=document.querySelector('.nav-links');var open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);this.innerHTML=open?'\u2715':'\u2630';">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img">
+    <img src="images/dolor-alegria-1-0220d082.jpg" alt="Sergio García facilitando taller vivencial">
+  </div>
+  <div class="hero-content">
+    <span class="eyebrow">Taller vivencial · Tarragona · 1 de agosto</span>
+    <h1>Del dolor<br>a la <em>alegría</em></h1>
+    <p class="hero-sub">El viaje que comienza cuando dejas de huir de ti.</p>
+    <div class="hero-meta">
+      <span>1 de agosto · 10:00 – 19:00</span>
+      <span>Tarragona · Lugar por confirmar</span>
+      <span>Plazas limitadas</span>
+    </div>
+    <a href="#reserva" class="btn-fire">Quiero reservar mi plaza</a>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- INTRO -->
+<div class="intro">
+  <p class="body">Si has llegado hasta aquí, probablemente no sea porque tu vida vaya mal. Quizá tengas trabajo. Quizá incluso una pareja. Quizá sonrías más de lo que la gente imagina.</p>
+  <p class="body" style="margin-top:1rem;">Pero hay algo dentro de ti que lleva demasiado tiempo pidiendo atención. Un cansancio que no se quita descansando. Una tristeza que aparece cuando todo se queda en silencio.</p>
+  <p class="body" style="margin-top:1rem;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;color:var(--ink);">Porque hay heridas que no se resuelven pensando.<br>Solo se transforman cuando dejamos de huir de ellas.</p>
+</div>
+
+<hr class="rule">
+
+<!-- EL PERSONAJE -->
+<div class="split">
+  <div class="split-img">
+    <img src="images/dolor-alegria-2-d7d06e52.jpg" alt="Trabajo vivencial en grupo">
+  </div>
+  <div class="split-content">
+    <span class="section-label">El origen</span>
+    <h2 class="grande">El problema no es el dolor.<br><em>Es todo lo que haces para no sentirlo.</em></h2>
+    <p class="body">Desde pequeños aprendimos que sentir demasiado era peligroso. Así que empezamos a protegernos. Nos hicimos fuertes. Complacientes. Independientes. Perfectos. Cada uno construyó su personaje.</p>
+    <p class="body">Y funcionó — nos ayudó a sobrevivir. Pero también nos alejó de quienes realmente éramos. Y mantener ese personaje acaba siendo agotador.</p>
+    <p class="body" style="margin-top:1.2rem;">Este taller no pretende eliminar tu dolor. Pretende enseñarte a atravesarlo.</p>
+  </div>
+</div>
+
+<!-- QUÉ TRABAJAREMOS -->
+<section style="background:var(--bone2);border-top:0.5px solid var(--rule);">
+  <span class="section-label">Contenido</span>
+  <h2 class="grande" style="margin-bottom:2rem;">¿Qué trabajaremos?</h2>
+  <div class="grid-2">
+    <div class="grid-item"><p>El origen real de tu dolor — no el síntoma, no la historia: la raíz.</p></div>
+    <div class="grid-item"><p>Los mecanismos con los que llevas años protegiéndote sin darte cuenta.</p></div>
+    <div class="grid-item"><p>El miedo al rechazo, al abandono y a no ser suficiente.</p></div>
+    <div class="grid-item"><p>La ansiedad como intento de controlar lo que no puede controlarse.</p></div>
+    <div class="grid-item"><p>Las relaciones que repiten siempre el mismo patrón aunque cambien las personas.</p></div>
+    <div class="grid-item"><p>El personaje que construiste para sobrevivir — y cómo empezar a soltarlo.</p></div>
+    <div class="grid-item"><p>El poder transformador del Vacío Fértil.</p></div>
+    <div class="grid-item"><p>Cómo recuperar la energía que hoy gastas luchando contra ti.</p></div>
+  </div>
+</section>
+
+
+<section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);">
+  <div style="max-width:820px;margin:0 auto;">
+    <span class="sec-label" style="display:block;margin-bottom:1.2rem;">Antes de seguir leyendo, escúchame</span>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:4px;box-shadow:0 8px 30px rgba(0,0,0,.25);">
+      <iframe src="https://www.youtube-nocookie.com/embed/HlTiVJARFVE" title="Presentación del taller · Del Dolor a la Alegría" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- VACÍO FÉRTIL -->
+<div class="split reverse" style="border-top:0.5px solid var(--rule);">
+  <div class="split-img">
+    <img src="images/dolor-alegria-3-5aaebaeb.jpg" alt="Espacio de integración">
+  </div>
+  <div class="split-content">
+    <span class="section-label">Concepto clave</span>
+    <h2 class="grande">El Vacío <em>Fértil</em></h2>
+    <p class="body">En Gestalt existe un concepto precioso. Es ese instante en el que una versión de ti ya ha muerto... pero la nueva todavía no ha nacido.</p>
+    <p class="body">La mayoría de personas sienten miedo en ese lugar. Y vuelven corriendo a lo conocido. Aunque les haga sufrir.</p>
+    <p class="body">En este taller aprenderás a permanecer ahí. Porque es precisamente en ese espacio donde comienza la transformación real.</p>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div class="quote-band">
+  <blockquote>
+    "La alegría no aparece cuando consigues controlar la vida.<br>La alegría aparece cuando dejas de luchar contra ella."
+  </blockquote>
+</div>
+
+<!-- METODOLOGÍA -->
+<section style="border-top:0.5px solid var(--rule);">
+  <span class="section-label">Metodología</span>
+  <h2 class="grande">No vienes a escuchar.<br><em>Vienes a vivir una experiencia.</em></h2>
+  <p class="body">Durante ocho horas recorreremos un proceso cuidadosamente diseñado para acompañarte desde el lugar donde hoy estás hasta un espacio de mayor presencia, autenticidad y libertad.</p>
+  <div class="tags">
+    <span class="tag">Trabajo gestáltico</span>
+    <span class="tag">Dinámicas experienciales</span>
+    <span class="tag">Ejercicios corporales</span>
+    <span class="tag">Movimiento consciente</span>
+    <span class="tag">Meditación</span>
+    <span class="tag">Trabajo emocional</span>
+    <span class="tag">Ejercicios en pareja y grupo</span>
+    <span class="tag">Espacios de integración</span>
+  </div>
+  <p class="body" style="margin-top:1.6rem;font-size:.88rem;color:var(--gray-light);">No necesitas experiencia previa. Solo venir con la disposición de encontrarte.</p>
+</section>
+
+<!-- PARA QUIEN -->
+<section style="background:var(--bone2);border-top:0.5px solid var(--rule);">
+  <span class="section-label">Idoneidad</span>
+  <h2 class="grande">¿Es para ti?</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;">
+    <div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;margin-bottom:1.4rem;padding-bottom:1rem;border-bottom:0.5px solid var(--fire);">Este taller es para ti si…</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:.9rem;">
+        <li style="color:var(--gray);font-size:.92rem;line-height:1.6;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--fire);">—</span>Te sientes estancado y no sabes por qué.</li>
+        <li style="color:var(--gray);font-size:.92rem;line-height:1.6;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--fire);">—</span>Repites siempre las mismas historias en tus relaciones.</li>
+        <li style="color:var(--gray);font-size:.92rem;line-height:1.6;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--fire);">—</span>Hay una parte de ti que está cansada de sobrevivir.</li>
+        <li style="color:var(--gray);font-size:.92rem;line-height:1.6;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--fire);">—</span>Has perdido la ilusión.</li>
+        <li style="color:var(--gray);font-size:.92rem;line-height:1.6;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--fire);">—</span>Buscas una experiencia transformadora, no solo información.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;margin-bottom:1.4rem;padding-bottom:1rem;border-bottom:0.5px solid var(--rule);">No es para ti si…</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:.9rem;">
+        <li style="color:var(--gray);font-size:.92rem;line-height:1.6;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--gray-light);">×</span>Buscas fórmulas mágicas.</li>
+        <li style="color:var(--gray);font-size:.92rem;line-height:1.6;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--gray-light);">×</span>Esperas que alguien resuelva tu vida por ti.</li>
+        <li style="color:var(--gray);font-size:.92rem;line-height:1.6;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--gray-light);">×</span>No estás dispuesto a mirarte con honestidad.</li>
+        <li style="color:var(--gray);font-size:.92rem;line-height:1.6;padding-left:1.2rem;position:relative;"><span style="position:absolute;left:0;color:var(--gray-light);">×</span>Quieres seguir haciendo lo mismo esperando resultados diferentes.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERGIO -->
+<div class="split" style="border-top:0.5px solid var(--rule);">
+  <div class="split-img">
+    <img src="images/dolor-alegria-4-44cfabd5.jpg" alt="Dinámica grupal taller vivencial">
+  </div>
+  <div class="split-content">
+    <span class="section-label">El facilitador</span>
+    <h2 class="grande">Sergio <em>García</em></h2>
+    <p class="body">Terapeuta Gestalt y Humanista. Desde hace años acompaño a personas que sienten que entienden perfectamente lo que les ocurre... pero siguen sin conseguir cambiarlo.</p>
+    <p class="body">Mi forma de trabajar no consiste en darte respuestas. Consiste en crear el espacio para que aparezcan las tuyas.</p>
+    <p class="body">Creo profundamente que nadie necesita convertirse en otra persona. Solo dejar de sostener aquello que nunca fue.</p>
+  </div>
+</div>
+
+
+<section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);">
+  <div style="max-width:820px;margin:0 auto;">
+    <span class="sec-label" style="display:block;margin-bottom:1.2rem;">Lo que dicen quienes ya vinieron</span>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:4px;box-shadow:0 8px 30px rgba(0,0,0,.25);">
+      <iframe src="https://www.youtube-nocookie.com/embed/YukbqQRluo8" title="Testimonios · Del Dolor a la Alegría" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<div style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);background:var(--bone2);">
+  <span class="sec-label">Preguntas frecuentes</span>
+  <div style="max-width:720px;">
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Este taller es adecuado aunque nunca haya hecho terapia?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Sí. No es necesario tener experiencia previa. El taller está diseñado para que cualquier persona pueda participar, independientemente del momento personal en el que se encuentre.</div>
+    </div><div class="faq-item">
+      <div class="faq-q"><span>¿Tengo que compartir mi historia delante del grupo?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">No. Cada persona decide hasta dónde quiere implicarse. El respeto por el ritmo y los límites de cada participante forma parte de la filosofía del taller. Nadie está obligado a hablar ni a compartir nada que no desee.</div>
+    </div><div class="faq-item">
+      <div class="faq-q"><span>¿Qué puedo esperar de este taller?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">No se trata de recibir más información, sino de vivir una experiencia que te permita comprender de una forma diferente aquello que estás viviendo. El objetivo es ayudarte a relacionarte con el dolor desde otro lugar y abrir la posibilidad de un cambio profundo y auténtico.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="reserva">
+  <span class="section-label">Reserva tu plaza</span>
+  <h2 class="grande" style="max-width:600px;margin-left:auto;margin-right:auto;">Si algo dentro de ti<br>se ha movido al leer esto…<br><em>no lo ignores.</em></h2>
+  <p class="body" style="max-width:520px;margin:0 auto 1rem;text-align:center;">Quizá haya llegado el momento de dejar de escapar. Porque el viaje más importante no es el que te lleva a otro lugar. Es el que te devuelve a ti.</p>
+  <span class="precio">147€</span>
+  <span class="precio-label">Taller completo · 1 de agosto · Tarragona · Plazas limitadas</span>
+  <div class="btns">
+    <a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20quiero%20reservar%20mi%20plaza%20para%20el%20taller%20Del%20Dolor%20a%20la%20Alegr%C3%ADa" class="btn-fire">Reservar plaza por WhatsApp</a>
+    <a href="talleres-retiros.html" class="btn-outline">Ver todos los talleres</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-copy">© 2026 Sergio García · Tarragona</span>
+  <div class="footer-links">
+    <a href="#">Aviso legal</a>
+    <a href="#">Privacidad</a>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+
+<a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.362.694 4.566 1.885 6.42L4 29l7.77-1.84A11.93 11.93 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm6.982 17.02c-.29.816-1.44 1.5-1.98 1.58-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.68-.63-2.96-1.28-4.89-4.24-5.04-4.44-.15-.2-1.21-1.6-1.21-3.06 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.52.24.6.83 2.06.9 2.21.07.15.12.33.02.53-.09.2-.14.32-.28.5-.14.17-.29.38-.42.51-.14.14-.28.29-.12.57.15.27.68 1.12 1.46 1.82 1 .89 1.85 1.17 2.12 1.3.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.14.45.2.51.32.07.11.07.66-.22 1.48z"/>
+  </svg>
+</a>
+<style>
+.whatsapp-float{position:fixed;bottom:24px;right:24px;background-color:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.3);z-index:99999;transition:transform .2s ease;text-decoration:none;}
+.whatsapp-float:hover{transform:scale(1.08);}
+@media (max-width:480px){.whatsapp-float{width:52px;height:52px;bottom:16px;right:16px;}}
+</style>
+</body>
+</html>
