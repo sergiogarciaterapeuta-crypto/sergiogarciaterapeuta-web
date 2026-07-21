@@ -397,6 +397,17 @@ footer {
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-Y3E0GC5DX6');
+    gtag('config', 'AW-18318477742');
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href*="wa.me"]');
+    if (link) {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18318477742/J--eCPbZudIcEK6T955E',
+        'value': 1.0,
+        'currency': 'EUR'
+      });
+    }
+  });
 </script>
 <link rel="canonical" href="https://sergiogarciaterapeuta.es/del-dolor-a-la-alegria.html">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
