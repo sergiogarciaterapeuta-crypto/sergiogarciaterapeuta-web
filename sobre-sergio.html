@@ -36,6 +36,20 @@ body {
 }
 
 /* NAV */
+.top-bar {
+  display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+  gap: .3rem 1.2rem;
+  background: var(--ink); color: var(--bone);
+  padding: .5rem var(--p);
+  font-size: .72rem; letter-spacing: .06em;
+}
+.top-bar a {
+  color: var(--bone); text-decoration: none; white-space: nowrap;
+}
+.top-bar a:hover { color: var(--fire-dim); opacity: .85; }
+.top-bar .tb-sep { opacity: .4; }
+@media (max-width:480px){ .top-bar{ font-size:.68rem; padding:.45rem var(--p); } }
+
 nav {
   position: sticky; top: 0; z-index: 200;
   display: flex; justify-content: space-between; align-items: center;
@@ -314,6 +328,11 @@ p.body + p.body { margin-top:1rem; }
 
 
 <body>
+<div class="top-bar">
+  <a href="tel:+34634422827">📞 634 42 28 27</a>
+  <span class="tb-sep">·</span>
+  <a href="mailto:sergiogarciaterapeuta@gmail.com">✉️ sergiogarciaterapeuta@gmail.com</a>
+</div>
 <nav>
   <a href="index.html" class="logo">Sergio García</a>
   <div class="nav-links" onclick="if(event.target.tagName==='A'){this.classList.remove('open');var t=document.querySelector('.nav-toggle');t.setAttribute('aria-expanded','false');t.innerHTML='\u2630';}">
