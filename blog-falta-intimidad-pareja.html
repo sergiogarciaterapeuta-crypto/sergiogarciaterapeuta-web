@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog · Sergio García</title>
-<meta name="description" content="Vídeos y artículos sobre el personaje, las relaciones, la ansiedad y el trabajo terapéutico de Sergio García, terapeuta Gestalt y existencial en Tarragona.">
+<title>La falta de intimidad en la pareja no es el problema: es el síntoma · Sergio García</title>
+<meta name="description" content="La falta de intimidad en la pareja suele señalar un descuido emocional más profundo. Descubre por qué el sexo no arregla lo que rompe la desconexión diaria.">
 <meta name="robots" content="index, follow">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
@@ -35,7 +35,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* NAV */
 .top-bar {
   display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
   gap: .3rem 1.2rem;
@@ -84,14 +83,22 @@ h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
   text-transform: uppercase; color: var(--fire);
   margin-bottom: 1.5rem; display: block;
 }
-.btn-dark {
+.btn-fire {
   display: inline-block;
-  background: var(--ink); color: var(--bone);
+  background: var(--fire); color: white;
   padding: .88rem 2rem;
   font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
   text-decoration: none; transition: opacity .18s;
 }
-.btn-dark:hover { opacity: .82; }
+.btn-fire:hover { opacity: .85; }
+.btn-outline {
+  display: inline-block;
+  border: 0.5px solid var(--ink); color: var(--ink);
+  padding: .75rem 1.8rem;
+  font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; transition: background .18s, color .18s;
+}
+.btn-outline:hover { background: var(--ink); color: var(--bone); }
 
 footer {
   padding: 1.4rem var(--p);
@@ -115,75 +122,58 @@ footer {
   footer { flex-direction: column; gap: 1rem; text-align: center; }
 }
 
-/* BLOG HERO */
-.blog-hero {
-  padding: var(--pv) var(--p) 2.5rem;
+/* POST */
+.post-head {
+  padding: var(--pv) var(--p) 2rem;
   border-bottom: 1px solid var(--rule);
+  max-width: 780px;
 }
-.blog-hero h1 {
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  line-height: 1.1;
-  max-width: 700px;
+.post-head h1 {
+  font-size: clamp(2rem, 3.6vw, 2.8rem);
+  line-height: 1.15;
+  margin-top: 1rem;
 }
-.blog-hero p {
-  font-size: 1rem;
-  color: var(--gray);
-  line-height: 1.85;
-  max-width: 560px;
+.post-meta {
+  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--gray-light);
   margin-top: 1.2rem;
 }
-
-/* BLOG GRID */
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+.post-video {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem var(--p) 0;
 }
-.blog-card {
-  border-right: 0.5px solid var(--rule);
-  border-bottom: 0.5px solid var(--rule);
-  padding: 2.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  text-decoration: none;
-  color: var(--ink);
-  transition: background .18s;
-}
-.blog-card:hover { background: var(--bone2); }
-.blog-card:nth-child(3n) { border-right: none; }
-.card-thumb {
-  position: relative;
-  aspect-ratio: 16/9;
+.video-wrap {
+  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
   background: #111;
-  overflow: hidden;
 }
-.card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: .9; }
-.card-play {
-  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+.video-wrap iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
 }
-.card-play span {
-  width: 48px; height: 48px; border-radius: 50%;
-  background: var(--fire);
-  display: flex; align-items: center; justify-content: center;
+.post-body {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2.5rem var(--p) var(--pv);
 }
-.card-play svg { width: 16px; height: 16px; fill: white; margin-left: 2px; }
-.card-tag {
-  font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: var(--fire);
+.post-body p {
+  font-size: .98rem;
+  color: var(--gray);
+  line-height: 1.9;
+  margin-bottom: 1.3rem;
 }
-.card-h { font-size: 1.2rem; font-weight: 500; line-height: 1.3; }
-.card-p { font-size: .88rem; color: var(--gray); line-height: 1.8; flex: 1; }
-.card-date { font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-light); }
-
-@media (max-width: 900px) {
-  .blog-grid { grid-template-columns: 1fr 1fr; }
-  .blog-card:nth-child(3n) { border-right: 0.5px solid var(--rule); }
-  .blog-card:nth-child(2n) { border-right: none; }
+.post-body p.lead {
+  font-size: 1.05rem;
+  color: var(--ink);
+  border-left: 2px solid var(--fire);
+  padding-left: 1rem;
 }
-@media (max-width: 600px) {
-  .blog-grid { grid-template-columns: 1fr; }
-  .blog-card { border-right: none !important; }
+.post-cta {
+  background: var(--ink);
+  padding: var(--pv) var(--p);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 1.2rem;
 }
+.post-cta h2 { color: var(--bone); font-size: clamp(1.5rem,2.5vw,2rem); max-width: 560px; }
+.post-cta p { color: rgba(255,255,255,.5); font-size: .92rem; max-width: 520px; }
 </style>
 <!-- MailerLite Universal -->
 <script>
@@ -202,24 +192,26 @@ footer {
   gtag('js', new Date());
   gtag('config', 'G-Y3E0GC5DX6');
 </script>
-<link rel="canonical" href="https://sergiogarciaterapeuta.es/blog.html">
+<link rel="canonical" href="https://sergiogarciaterapeuta.es/blog-falta-intimidad-pareja.html">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sergiogarciaterapeuta.es/blog.html">
-<meta property="og:title" content="Blog · Sergio García">
-<meta property="og:description" content="Vídeos y artículos sobre el personaje, las relaciones, la ansiedad y el trabajo terapéutico de Sergio García.">
-<meta property="og:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sergiogarciaterapeuta.es/blog-falta-intimidad-pareja.html">
+<meta property="og:title" content="La falta de intimidad en la pareja no es el problema: es el síntoma">
+<meta property="og:description" content="La falta de intimidad en la pareja suele señalar un descuido emocional más profundo. Descubre por qué el sexo no arregla lo que rompe la desconexión diaria.">
+<meta property="og:image" content="https://img.youtube.com/vi/2z4_ie4l67k/hqdefault.jpg">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Blog · Sergio García">
-<meta name="twitter:description" content="Vídeos y artículos sobre el personaje, las relaciones, la ansiedad y el trabajo terapéutico de Sergio García.">
-<meta name="twitter:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg">
+<meta name="twitter:title" content="La falta de intimidad en la pareja no es el problema: es el síntoma">
+<meta name="twitter:description" content="La falta de intimidad en la pareja suele señalar un descuido emocional más profundo. Descubre por qué el sexo no arregla lo que rompe la desconexión diaria.">
+<meta name="twitter:image" content="https://img.youtube.com/vi/2z4_ie4l67k/hqdefault.jpg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Blog",
-  "name": "Blog · Sergio García",
-  "url": "https://sergiogarciaterapeuta.es/blog.html",
+  "@type": "VideoObject",
+  "name": "La falta de intimidad en la pareja no es el problema: es el síntoma",
+  "description": "La falta de intimidad en la pareja suele señalar un descuido emocional más profundo. Descubre por qué el sexo no arregla lo que rompe la desconexión diaria.",
+  "thumbnailUrl": "https://img.youtube.com/vi/2z4_ie4l67k/hqdefault.jpg",
+  "embedUrl": "https://www.youtube-nocookie.com/embed/2z4_ie4l67k",
   "publisher": {
     "@type": "Person",
     "name": "Sergio García"
@@ -250,47 +242,33 @@ footer {
 </nav>
 <main>
 
-<section class="blog-hero">
-  <span class="sec-label">Blog</span>
-  <h1>Vídeos y reflexiones sobre el personaje, las relaciones y la vida que sostienes.</h1>
-  <p>Cada semana comparto aquí los vídeos de mi canal, con una explicación en texto para que puedas profundizar en lo que de verdad importa.</p>
+<section class="post-head">
+  <span class="sec-label">Relaciones de pareja</span>
+  <h1>La falta de intimidad en la pareja no es el problema: es el síntoma</h1>
+  <p class="post-meta">Vídeo · Sergio García</p>
 </section>
 
-<section class="blog-grid">
+<section class="post-video">
+  <div class="video-wrap">
+    <iframe src="https://www.youtube-nocookie.com/embed/2z4_ie4l67k" title="La falta de intimidad en la pareja no es el problema: es el síntoma" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
 
-  <a href="blog-falta-intimidad-pareja.html" class="blog-card">
-    <div class="card-thumb">
-      <img src="https://img.youtube.com/vi/2z4_ie4l67k/hqdefault.jpg" alt="La falta de intimidad en la pareja no es el problema: es el síntoma">
-      <div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
-    </div>
-    <span class="card-tag">Relaciones de pareja</span>
-    <h2 class="card-h">La falta de intimidad en la pareja no es el problema</h2>
-    <p class="card-p">Cuando el sexo se enfría, casi nunca es la causa: suele ser el síntoma de una desconexión emocional más profunda.</p>
-    <span class="card-date">Vídeo</span>
-  </a>
+<section class="post-body">
+  <p class="lead">Cuando una pareja pierde la cercanía física, la reacción casi automática es pensar que el problema es "que ya no hay sexo". Pero la distancia en la cama casi nunca es la causa: suele ser el síntoma de algo que lleva tiempo enfriándose por dentro.</p>
 
-  <a href="blog-decisiones-impulsivas.html" class="blog-card">
-    <div class="card-thumb">
-      <img src="https://img.youtube.com/vi/wy94M0Cg3wE/hqdefault.jpg" alt="Por qué tus decisiones más importantes nunca fueron impulsivas">
-      <div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
-    </div>
-    <span class="card-tag">Crisis existencial</span>
-    <h2 class="card-h">Por qué tus decisiones más importantes nunca fueron impulsivas</h2>
-    <p class="card-p">Muchas crisis no son crisis: son el permiso que llevabas tiempo esperando para hacer lo que ya sabías.</p>
-    <span class="card-date">Vídeo</span>
-  </a>
+  <p>El cuerpo deja de acercarse cuando la persona ya no se siente vista, cuidada o escuchada en el día a día. Se acumulan pequeños descuidos — una conversación que no se tuvo, un gesto que no llegó — y sin darnos cuenta, dejamos de sentirnos en el mismo equipo. La intimidad física es, muchas veces, lo primero que refleja esa grieta.</p>
 
-  <a href="blog-autosabotaje-amoroso.html" class="blog-card">
-    <div class="card-thumb">
-      <img src="https://img.youtube.com/vi/Rtf_z6uaSK8/hqdefault.jpg" alt="Autosabotaje amoroso: por qué huyes de una relación sana">
-      <div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
-    </div>
-    <span class="card-tag">Relaciones de pareja</span>
-    <h2 class="card-h">Autosabotaje amoroso: por qué huyes de quien te trata bien</h2>
-    <p class="card-p">Muchas personas se alejan justo cuando encuentran a alguien sano. Descubre por qué tu temperatura emocional te hace huir del bien.</p>
-    <span class="card-date">Vídeo</span>
-  </a>
+  <p>Por eso intentar "arreglarlo" solo desde lo físico rara vez funciona: es tratar el síntoma sin tocar la raíz. Recuperar la complicidad pasa por el cuidado cotidiano y por una comunicación honesta — volver a hacerse presente para el otro, no solo compartir espacio.</p>
 
+  <a href="sesiones.html" class="btn-outline">Ver sesiones de pareja →</a>
+</section>
+
+<section class="post-cta">
+  <span class="sec-label" style="color:#E8956A;">¿Te sientes identificado?</span>
+  <h2>Si reconoces este patrón en ti, no tienes por qué resolverlo solo.</h2>
+  <p>En sesión individual trabajamos el personaje que sostiene este miedo, no solo la relación concreta que lo dispara.</p>
+  <a href="https://wa.me/34634422827" class="btn-fire">Escribir por WhatsApp →</a>
 </section>
 
 </main>

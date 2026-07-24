@@ -93,7 +93,7 @@
   </url>
   <url>
     <loc>https://sergiogarciaterapeuta.es/blog.html</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -102,5 +102,17 @@
     <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/blog-falta-intimidad-pareja.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/2z4_ie4l67k/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>La falta de intimidad en la pareja no es el problema: es el síntoma</video:title>
+      <video:description>La falta de intimidad en la pareja suele señalar un descuido emocional más profundo. Descubre por qué el sexo no arregla lo que rompe la desconexión diaria.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/2z4_ie4l67k</video:player_loc>
+    </video:video>
   </url>
 </urlset>
