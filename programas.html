@@ -36,6 +36,20 @@ body {
 }
 
 /* NAV */
+.top-bar {
+  display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+  gap: .3rem 1.2rem;
+  background: var(--ink); color: var(--bone);
+  padding: .5rem var(--p);
+  font-size: .72rem; letter-spacing: .06em;
+}
+.top-bar a {
+  color: var(--bone); text-decoration: none; white-space: nowrap;
+}
+.top-bar a:hover { color: var(--fire-dim); opacity: .85; }
+.top-bar .tb-sep { opacity: .4; }
+@media (max-width:480px){ .top-bar{ font-size:.68rem; padding:.45rem var(--p); } }
+
 nav {
   position: sticky; top: 0; z-index: 200;
   display: flex; justify-content: space-between; align-items: center;
@@ -61,6 +75,7 @@ nav {
   transition: background .18s, color .18s;
 }
 .nav-btn:hover { background: var(--ink); color: var(--bone); }
+.nav-toggle{display:none;background:none;border:none;font-size:1.4rem;line-height:1;color:var(--ink);cursor:pointer;padding:.2rem .3rem;}
 
 /* TIPOGRAFÍA */
 h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
@@ -120,8 +135,11 @@ footer {
 
 /* RESPONSIVE NAV */
 @media (max-width: 768px) {
-  nav { padding: .8rem var(--p); }
+  nav { padding: .8rem var(--p); position:relative; }
+  .nav-toggle { display:flex; }
   .nav-links { display: none; }
+  .nav-links.open { display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:var(--bone); padding:1.5rem var(--p) 1.8rem; gap:1.3rem; border-bottom:1px solid var(--rule); box-shadow:0 12px 24px rgba(0,0,0,.12); z-index:300; }
+  .nav-links.open a { font-size:.85rem; padding:.3rem 0; }
   footer { flex-direction: column; gap: 1rem; text-align: center; }
 }
 
@@ -208,6 +226,14 @@ p.body+p.body { margin-top:1rem; }
   .lead-form { flex-direction:column; }
 }
 
+.faq-item { border-top:0.5px solid var(--rule); }
+.faq-q { display:flex; justify-content:space-between; align-items:center; padding:.95rem 0; cursor:pointer; gap:1rem; }
+.faq-q span:first-child { font-size:.92rem; color:var(--ink); line-height:1.5; }
+.faq-toggle { font-size:1.1rem; color:var(--gray-light); flex-shrink:0; transition:transform .2s; }
+.faq-a { font-size:.88rem; color:var(--gray); line-height:1.85; padding-bottom:1rem; display:none; }
+.faq-item.open .faq-a { display:block; }
+.faq-item.open .faq-toggle { transform:rotate(45deg); color:var(--fire); }
+
 </style>
 <!-- MailerLite Universal -->
 <script>
@@ -218,19 +244,123 @@ p.body+p.body { margin-top:1rem; }
     ml('account', '1319169');
 </script>
 <!-- End MailerLite Universal -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y3E0GC5DX6');
+    gtag('config', 'AW-18318477742');
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href*="wa.me"]');
+    if (link) {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18318477742/J--eCPbZudIcEK6T955E',
+        'value': 1.0,
+        'currency': 'EUR'
+      });
+    }
+  });
+</script>
+<link rel="canonical" href="https://sergiogarciaterapeuta.es/programas.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sergiogarciaterapeuta.es/programas.html">
+<meta property="og:title" content="Programas y mentoría · El personaje que te está matando">
+<meta property="og:description" content="Curso, mentoría y programas grupales para dejar de sostener un personaje que ya no te sirve, con Sergio García.">
+<meta property="og:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Programas y mentoría · El personaje que te está matando">
+<meta name="twitter:description" content="Curso, mentoría y programas grupales para dejar de sostener un personaje que ya no te sirve, con Sergio García.">
+<meta name="twitter:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Sergio Garc\u00eda - Terapeuta Gestalt y Existencial",
+  "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg",
+  "url": "https://sergiogarciaterapeuta.es/",
+  "telephone": "+34634422827",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Tarragona",
+    "addressRegion": "Catalunya",
+    "addressCountry": "ES"
+  },
+  "sameAs": ["https://www.instagram.com/sergiogarciaterapeuta"],
+  "priceRange": "$$",
+  "founder": {
+    "@type": "Person",
+    "name": "Sergio Garc\u00eda"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
+  "name": "Sergio García",
+  "knowsAbout": ["crisis existencial", "Gestalt", "terapia sistémica", "terapia existencial", "terapia de pareja", "desarrollo personal", "acompañamiento terapéutico"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo sé qué programa es el más adecuado para mí?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cada programa está pensado para un momento distinto del proceso personal. Si no tienes claro cuál encaja mejor contigo, puedes ponerte en contacto conmigo y valoraremos juntos cuál puede aportarte más en función de tu situación actual."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los programas sustituyen a la terapia individual?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No necesariamente. Algunas personas realizan únicamente un programa y otras lo combinan con sesiones individuales. Todo depende de tus objetivos y del tipo de acompañamiento que necesites en este momento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué diferencia hay entre un programa y un taller?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un taller suele ser una experiencia puntual e intensiva. Un programa, en cambio, permite profundizar durante más tiempo, integrar los aprendizajes y acompañar el proceso de cambio de una manera más continuada."
+      }
+    }
+  ]
+}
+</script>
 </head>
+
+
 <body>
+<div class="top-bar">
+  <a href="tel:+34634422827">📞 634 42 28 27</a>
+  <span class="tb-sep">·</span>
+  <a href="mailto:sergiogarciaterapeuta@gmail.com">✉️ sergiogarciaterapeuta@gmail.com</a>
+</div>
 <nav>
   <a href="index.html" class="logo">Sergio García</a>
-  <div class="nav-links">
+  <div class="nav-links" onclick="if(event.target.tagName==='A'){this.classList.remove('open');var t=document.querySelector('.nav-toggle');t.setAttribute('aria-expanded','false');t.innerHTML='\u2630';}">
     <a href="index.html">Inicio</a>
     <a href="el-personaje.html">El personaje</a>
+    <a href="sobre-sergio.html">Sobre mí</a>
     <a href="sesiones.html">Sesiones</a>
     <a href="talleres-retiros.html">Talleres y retiros</a>
     <a href="programas.html" class="active">Programas</a>
+    <a href="blog.html">Blog</a>
     <a href="index.html#contacto">Contacto</a>
   </div>
   <a href="https://wa.me/34634422827" class="nav-btn">Reservar sesión</a>
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="var m=document.querySelector('.nav-links');var open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);this.innerHTML=open?'\u2715':'\u2630';">☰</button>
 </nav>
 <main>
 
@@ -241,10 +371,19 @@ p.body+p.body { margin-top:1rem; }
       <span class="tag-light">Gratuito · 7 días · 7 audios</span>
       <h2 class="lead-h">Deja de<br><em>entenderte.</em></h2>
       <p class="lead-p">7 audios. Uno al día. Cada uno desmonta una pieza del mecanismo con el que el personaje se mantiene en pie. No te explica nada nuevo. Te quita algo que ya no necesitas.</p>
-      <form onsubmit="handleLead(event)" class="lead-form">
-        <input type="email" id="lead-email" placeholder="tu@email.com" required class="lead-input">
-        <button type="submit" class="lead-submit">Acceder →</button>
-      </form>
+      <div id="mlb2-43555796" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-43555796">
+        <div class="row-form">
+          <form class="ml-block-form lead-form" action="https://assets.mailerlite.com/jsonp/1319169/forms/192508129650410538/subscribe" data-code="" method="post" target="_blank">
+            <input aria-label="email" aria-required="true" type="email" class="lead-input" name="fields[email]" placeholder="tu@email.com" autocomplete="email" required>
+            <button type="submit" class="lead-submit">Quiero acceder →</button>
+            <input type="hidden" name="ml-submit" value="1">
+            <input type="hidden" name="anticsrf" value="true">
+          </form>
+        </div>
+        <div class="row-success" style="display:none">
+          <p class="lead-p" style="margin-bottom:0;">✓ Recibido. Revisa tu email en las próximas 24h para el primer audio.</p>
+        </div>
+      </div>
       <p class="lead-nota">Gratuito. Sin spam. Puedes darte de baja cuando quieras.</p>
     </div>
     <div class="lead-dias">
@@ -396,6 +535,22 @@ p.body+p.body { margin-top:1rem; }
   </div>
 </div>
 
+<div style="padding:var(--pv) var(--p);border-top:1px solid var(--rule);background:var(--bone2);">
+  <span class="sec-label">Preguntas frecuentes</span>
+  <div style="max-width:720px;">
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Cómo sé qué programa es el más adecuado para mí?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Cada programa está pensado para un momento distinto del proceso personal. Si no tienes claro cuál encaja mejor contigo, puedes ponerte en contacto conmigo y valoraremos juntos cuál puede aportarte más en función de tu situación actual.</div>
+    </div><div class="faq-item">
+      <div class="faq-q"><span>¿Los programas sustituyen a la terapia individual?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">No necesariamente. Algunas personas realizan únicamente un programa y otras lo combinan con sesiones individuales. Todo depende de tus objetivos y del tipo de acompañamiento que necesites en este momento.</div>
+    </div><div class="faq-item">
+      <div class="faq-q"><span>¿Qué diferencia hay entre un programa y un taller?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Un taller suele ser una experiencia puntual e intensiva. Un programa, en cambio, permite profundizar durante más tiempo, integrar los aprendizajes y acompañar el proceso de cambio de una manera más continuada.</div>
+    </div>
+  </div>
+</div>
+
 </main>
 <footer>
   <span class="footer-copy">© 2026 Sergio García · Tarragona</span>
@@ -405,14 +560,35 @@ p.body+p.body { margin-top:1rem; }
   </div>
 </footer>
 <script>
-function handleLead(e) {
-  e.preventDefault();
-  const email = document.getElementById('lead-email').value;
-  e.target.innerHTML = '<p style="color:rgba(255,255,255,.7);font-size:.9rem;padding:.5rem 0;">✓ Recibido. Te llega el primer audio en las próximas 24h.</p>';
-  setTimeout(() => {
-    window.open('https://wa.me/34634422827?text=Nuevo%20suscriptor%20Deja%20de%20entenderte%3A%20' + encodeURIComponent(email), '_blank');
-  }, 800);
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+<script>
+function ml_webform_success_43555796() {
+  var $ = ml_jQuery || jQuery;
+  $('.ml-subscribe-form-43555796 .row-success').show();
+  $('.ml-subscribe-form-43555796 .row-form').hide();
 }
 </script>
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+<script>
+fetch("https://assets.mailerlite.com/jsonp/1319169/forms/192508129650410538/takel");
+</script>
+<a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.362.694 4.566 1.885 6.42L4 29l7.77-1.84A11.93 11.93 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm6.982 17.02c-.29.816-1.44 1.5-1.98 1.58-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.68-.63-2.96-1.28-4.89-4.24-5.04-4.44-.15-.2-1.21-1.6-1.21-3.06 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.52.24.6.83 2.06.9 2.21.07.15.12.33.02.53-.09.2-.14.32-.28.5-.14.17-.29.38-.42.51-.14.14-.28.29-.12.57.15.27.68 1.12 1.46 1.82 1 .89 1.85 1.17 2.12 1.3.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.14.45.2.51.32.07.11.07.66-.22 1.48z"/>
+  </svg>
+</a>
+<style>
+.whatsapp-float{position:fixed;bottom:24px;right:24px;background-color:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.3);z-index:99999;transition:transform .2s ease;text-decoration:none;}
+.whatsapp-float:hover{transform:scale(1.08);}
+@media (max-width:480px){.whatsapp-float{width:52px;height:52px;bottom:16px;right:16px;}}
+</style>
 </body>
 </html>
