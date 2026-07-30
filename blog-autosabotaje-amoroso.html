@@ -264,15 +264,108 @@ footer {
   </div>
 </footer>
 
-<a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
-  <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.362.694 4.566 1.885 6.42L4 29l7.77-1.84A11.93 11.93 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm6.982 17.02c-.29.816-1.44 1.5-1.98 1.58-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.68-.63-2.96-1.28-4.89-4.24-5.04-4.44-.15-.2-1.21-1.6-1.21-3.06 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.52.24.6.83 2.06.9 2.21.07.15.12.33.02.53-.09.2-.14.32-.28.5-.14.17-.29.38-.42.51-.14.14-.28.29-.12.57.15.27.68 1.12 1.46 1.82 1 .89 1.85 1.17 2.12 1.3.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.14.45.2.51.32.07.11.07.66-.22 1.48z"/>
-  </svg>
-</a>
+<div id="sg-widget">
+  <div id="sg-panel">
+    <div id="sg-panel-header">
+      Sergio García
+      <span>Terapeuta Gestalt · Tarragona</span>
+    </div>
+    <div id="sg-panel-body">
+      <div id="sg-msg-preview">
+        Hola 👋 ¿Tienes alguna pregunta? Escríbeme y te respondo lo antes posible.
+      </div>
+
+      <a id="sg-open-wa" href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener">
+        Escribir por WhatsApp
+      </a>
+
+      <button id="sg-fallback-link" type="button">¿No tienes WhatsApp? Escríbeme aquí</button>
+
+      <form id="sg-fallback-form">
+        <input type="text" name="nombre" placeholder="Tu nombre" required />
+        <input type="text" name="telefono" placeholder="Teléfono o email de contacto" required />
+        <textarea name="mensaje" placeholder="¿En qué puedo ayudarte?" required></textarea>
+        <button id="sg-fallback-submit" type="submit">Enviar mensaje</button>
+        <div id="sg-form-status"></div>
+      </form>
+    </div>
+  </div>
+
+  <button id="sg-bubble-btn" type="button" aria-label="Contactar">
+    <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.362.694 4.566 1.885 6.42L4 29l7.77-1.84A11.93 11.93 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm6.982 17.02c-.29.816-1.44 1.5-1.98 1.58-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.68-.63-2.96-1.28-4.89-4.24-5.04-4.44-.15-.2-1.21-1.6-1.21-3.06 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.52.24.6.83 2.06.9 2.21.07.15.12.33.02.53-.09.2-.14.32-.28.5-.14.17-.29.38-.42.51-.14.14-.28.29-.12.57.15.27.68 1.12 1.46 1.82 1 .89 1.85 1.17 2.12 1.3.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.82.86.27.14.45.2.51.32.07.11.07.66-.22 1.48z"/>
+    </svg>
+  </button>
+</div>
 <style>
-.whatsapp-float{position:fixed;bottom:24px;right:24px;background-color:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.3);z-index:99999;transition:transform .2s ease;text-decoration:none;}
-.whatsapp-float:hover{transform:scale(1.08);}
-@media (max-width:480px){.whatsapp-float{width:52px;height:52px;bottom:16px;right:16px;}}
+#sg-widget{position:fixed;bottom:24px;right:24px;z-index:99999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;}
+#sg-bubble-btn{width:60px;height:60px;border-radius:50%;background-color:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.3);border:none;cursor:pointer;transition:transform .2s ease;}
+#sg-bubble-btn:hover{transform:scale(1.08);}
+#sg-panel{display:none;position:absolute;bottom:74px;right:0;width:300px;max-width:calc(100vw - 32px);background:#fff;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,0.22);overflow:hidden;}
+#sg-panel.open{display:block;animation:sg-rise .2s ease;}
+@keyframes sg-rise{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+#sg-panel-header{background:#075E54;color:#fff;padding:14px 16px;font-size:15px;font-weight:600;}
+#sg-panel-header span{display:block;font-weight:400;font-size:12.5px;opacity:.85;margin-top:2px;}
+#sg-panel-body{padding:14px 16px 16px;}
+#sg-msg-preview{background:#F0F0F0;border-radius:10px;padding:10px 12px;font-size:13.5px;color:#333;margin-bottom:12px;line-height:1.4;}
+#sg-open-wa{display:block;width:100%;box-sizing:border-box;background:#25D366;color:#fff;text-align:center;padding:11px 0;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;}
+#sg-open-wa:hover{background:#1ebe5a;}
+#sg-fallback-link{display:block;width:100%;text-align:center;margin-top:10px;font-size:12.5px;color:#666;text-decoration:underline;cursor:pointer;background:none;border:none;}
+#sg-fallback-form{display:none;margin-top:12px;}
+#sg-fallback-form.open{display:block;}
+#sg-fallback-form input,#sg-fallback-form textarea{width:100%;box-sizing:border-box;border:1px solid #ddd;border-radius:7px;padding:8px 10px;font-size:13px;margin-bottom:8px;font-family:inherit;}
+#sg-fallback-form textarea{resize:vertical;min-height:60px;}
+#sg-fallback-submit{width:100%;background:#075E54;color:#fff;border:none;border-radius:7px;padding:9px 0;font-size:13.5px;font-weight:600;cursor:pointer;}
+#sg-fallback-submit:hover{background:#05463e;}
+#sg-form-status{font-size:12.5px;margin-top:8px;text-align:center;}
+#sg-form-status.ok{color:#1a8f4c;}
+#sg-form-status.err{color:#c0392b;}
+@media (max-width:480px){#sg-bubble-btn{width:52px;height:52px;}#sg-widget{bottom:16px;right:16px;}}
 </style>
+<script>
+(function () {
+  var bubbleBtn = document.getElementById('sg-bubble-btn');
+  var panel = document.getElementById('sg-panel');
+  var fallbackLink = document.getElementById('sg-fallback-link');
+  var fallbackForm = document.getElementById('sg-fallback-form');
+  var statusEl = document.getElementById('sg-form-status');
+
+  bubbleBtn.addEventListener('click', function () {
+    panel.classList.toggle('open');
+  });
+
+  fallbackLink.addEventListener('click', function () {
+    fallbackForm.classList.toggle('open');
+  });
+
+  fallbackForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var formData = new FormData(fallbackForm);
+    formData.append('form-name', 'contacto-widget');
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+      .then(function () {
+        statusEl.textContent = 'Mensaje enviado. Te contactaré en breve.';
+        statusEl.className = 'ok';
+        fallbackForm.reset();
+        if (window.gtag) {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-18318477742/J--eCPbZudIcEK6T955E',
+            'value': 1.0,
+            'currency': 'EUR'
+          });
+        }
+      })
+      .catch(function () {
+        statusEl.textContent = 'No se pudo enviar. Prueba a llamarme al 634 42 28 27.';
+        statusEl.className = 'err';
+      });
+  });
+})();
+</script>
 </body>
 </html>
