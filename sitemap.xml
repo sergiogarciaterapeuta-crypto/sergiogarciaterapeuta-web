@@ -93,9 +93,21 @@
   </url>
   <url>
     <loc>https://sergiogarciaterapeuta.es/blog.html</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/blog-no-eres-asi.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/f2F2xdW4zQI/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>No eres así: aprendiste a ser así</video:title>
+      <video:description>La desconfianza, la frialdad o la necesidad de control no siempre son tu personalidad: a veces son heridas que se quedaron después de que la herida original cerrara.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/f2F2xdW4zQI</video:player_loc>
+    </video:video>
   </url>
   <url>
     <loc>https://sergiogarciaterapeuta.es/blog-autosabotaje-amoroso.html</loc>
