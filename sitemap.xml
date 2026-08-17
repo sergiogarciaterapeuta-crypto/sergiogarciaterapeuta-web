@@ -127,4 +127,4 @@
       <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/2z4_ie4l67k</video:player_loc>
     </video:video>
   </url>
-</urlset>
+<url>    <loc>https://sergiogarciaterapeuta.es/blog-marcador-invisible.html</loc>    <lastmod>2026-08-17</lastmod>    <changefreq>monthly</changefreq>    <priority>0.6</priority>    <video:video>      <video:thumbnail_loc>https://img.youtube.com/vi/29NdOf8qxoQ/hqdefault.jpg</video:thumbnail_loc>      <video:title>El marcador invisible: cuando dar se convierte en cobrar</video:title>      <video:description>Llevar la cuenta de cada favor que haces es una forma silenciosa de esperar algo a cambio. Descubre por qué el registro de favores daña tus relaciones.</video:description>      <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/29NdOf8qxoQ</video:player_loc>    </video:video>  </url></urlset>
