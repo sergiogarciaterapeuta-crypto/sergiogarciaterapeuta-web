@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog · Sergio García</title>
-<meta name="description" content="Vídeos y artículos sobre el personaje, las relaciones, la ansiedad y el trabajo terapéutico de Sergio García, terapeuta Gestalt y existencial en Tarragona.">
+<title>La vida NO es fácil: la cruda realidad · Sergio García</title>
+<meta name="description" content="¿Es verdad que la vida no es fácil? Cuestionamos la idea de que todo debe ser sencillo y analizamos por qué esa presión frustra.">
 <meta name="robots" content="index, follow">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
@@ -35,7 +35,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* NAV */
 .top-bar {
   display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
   gap: .3rem 1.2rem;
@@ -84,14 +83,22 @@ h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
   text-transform: uppercase; color: var(--fire);
   margin-bottom: 1.5rem; display: block;
 }
-.btn-dark {
+.btn-fire {
   display: inline-block;
-  background: var(--ink); color: var(--bone);
+  background: var(--fire); color: white;
   padding: .88rem 2rem;
   font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
   text-decoration: none; transition: opacity .18s;
 }
-.btn-dark:hover { opacity: .82; }
+.btn-fire:hover { opacity: .85; }
+.btn-outline {
+  display: inline-block;
+  border: 0.5px solid var(--ink); color: var(--ink);
+  padding: .75rem 1.8rem;
+  font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; transition: background .18s, color .18s;
+}
+.btn-outline:hover { background: var(--ink); color: var(--bone); }
 
 footer {
   padding: 1.4rem var(--p);
@@ -115,75 +122,58 @@ footer {
   footer { flex-direction: column; gap: 1rem; text-align: center; }
 }
 
-/* BLOG HERO */
-.blog-hero {
-  padding: var(--pv) var(--p) 2.5rem;
+/* POST */
+.post-head {
+  padding: var(--pv) var(--p) 2rem;
   border-bottom: 1px solid var(--rule);
+  max-width: 780px;
 }
-.blog-hero h1 {
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  line-height: 1.1;
-  max-width: 700px;
+.post-head h1 {
+  font-size: clamp(2rem, 3.6vw, 2.8rem);
+  line-height: 1.15;
+  margin-top: 1rem;
 }
-.blog-hero p {
-  font-size: 1rem;
-  color: var(--gray);
-  line-height: 1.85;
-  max-width: 560px;
+.post-meta {
+  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--gray-light);
   margin-top: 1.2rem;
 }
-
-/* BLOG GRID */
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+.post-video {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem var(--p) 0;
 }
-.blog-card {
-  border-right: 0.5px solid var(--rule);
-  border-bottom: 0.5px solid var(--rule);
-  padding: 2.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  text-decoration: none;
-  color: var(--ink);
-  transition: background .18s;
-}
-.blog-card:hover { background: var(--bone2); }
-.blog-card:nth-child(3n) { border-right: none; }
-.card-thumb {
-  position: relative;
-  aspect-ratio: 16/9;
+.video-wrap {
+  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
   background: #111;
-  overflow: hidden;
 }
-.card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: .9; }
-.card-play {
-  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+.video-wrap iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
 }
-.card-play span {
-  width: 48px; height: 48px; border-radius: 50%;
-  background: var(--fire);
-  display: flex; align-items: center; justify-content: center;
+.post-body {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2.5rem var(--p) var(--pv);
 }
-.card-play svg { width: 16px; height: 16px; fill: white; margin-left: 2px; }
-.card-tag {
-  font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: var(--fire);
+.post-body p {
+  font-size: .98rem;
+  color: var(--gray);
+  line-height: 1.9;
+  margin-bottom: 1.3rem;
 }
-.card-h { font-size: 1.2rem; font-weight: 500; line-height: 1.3; }
-.card-p { font-size: .88rem; color: var(--gray); line-height: 1.8; flex: 1; }
-.card-date { font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-light); }
-
-@media (max-width: 900px) {
-  .blog-grid { grid-template-columns: 1fr 1fr; }
-  .blog-card:nth-child(3n) { border-right: 0.5px solid var(--rule); }
-  .blog-card:nth-child(2n) { border-right: none; }
+.post-body p.lead {
+  font-size: 1.05rem;
+  color: var(--ink);
+  border-left: 2px solid var(--fire);
+  padding-left: 1rem;
 }
-@media (max-width: 600px) {
-  .blog-grid { grid-template-columns: 1fr; }
-  .blog-card { border-right: none !important; }
+.post-cta {
+  background: var(--ink);
+  padding: var(--pv) var(--p);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 1.2rem;
 }
+.post-cta h2 { color: var(--bone); font-size: clamp(1.5rem,2.5vw,2rem); max-width: 560px; }
+.post-cta p { color: rgba(255,255,255,.5); font-size: .92rem; max-width: 520px; }
 </style>
 <!-- MailerLite Universal -->
 <script>
@@ -200,29 +190,40 @@ footer {
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-Y3E0GC5DX6');  gtag('config', 'AW-18318477742');
+  gtag('config', 'G-Y3E0GC5DX6'); gtag('config', 'AW-18318477742');
 </script>
-<link rel="canonical" href="https://sergiogarciaterapeuta.es/blog.html">
+<link rel="canonical" href="https://sergiogarciaterapeuta.es/blog-la-vida-no-es-facil-la-cruda-realidad-lxGOshgZEeo.html">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sergiogarciaterapeuta.es/blog.html">
-<meta property="og:title" content="Blog · Sergio García">
-<meta property="og:description" content="Vídeos y artículos sobre el personaje, las relaciones, la ansiedad y el trabajo terapéutico de Sergio García.">
-<meta property="og:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sergiogarciaterapeuta.es/blog-la-vida-no-es-facil-la-cruda-realidad-lxGOshgZEeo.html">
+<meta property="og:title" content="La vida NO es fácil: la cruda realidad">
+<meta property="og:description" content="¿Es verdad que la vida no es fácil? Cuestionamos la idea de que todo debe ser sencillo y analizamos por qué esa presión frustra.">
+<meta property="og:image" content="https://img.youtube.com/vi/lxGOshgZEeo/hqdefault.jpg">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Blog · Sergio García">
-<meta name="twitter:description" content="Vídeos y artículos sobre el personaje, las relaciones, la ansiedad y el trabajo terapéutico de Sergio García.">
-<meta name="twitter:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.jpg">
+<meta name="twitter:title" content="La vida NO es fácil: la cruda realidad">
+<meta name="twitter:description" content="¿Es verdad que la vida no es fácil? Cuestionamos la idea de que todo debe ser sencillo y analizamos por qué esa presión frustra.">
+<meta name="twitter:image" content="https://img.youtube.com/vi/lxGOshgZEeo/hqdefault.jpg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Blog",
-  "name": "Blog · Sergio García",
-  "url": "https://sergiogarciaterapeuta.es/blog.html",
-  "publisher": {
+  "@type": "BlogPosting",
+  "headline": "La vida NO es fácil: la cruda realidad",
+  "url": "https://sergiogarciaterapeuta.es/blog-la-vida-no-es-facil-la-cruda-realidad-lxGOshgZEeo.html",
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "author": {
     "@type": "Person",
     "name": "Sergio García"
+  },
+  "description": "¿Es verdad que la vida no es fácil? Cuestionamos la idea de que todo debe ser sencillo y analizamos por qué esa presión frustra.",
+  "video": {
+    "@type": "VideoObject",
+    "name": "La vida NO es fácil: la cruda realidad",
+    "description": "¿Es verdad que la vida no es fácil? Cuestionamos la idea de que todo debe ser sencillo y analizamos por qué esa presión frustra.\n\nMuchas veces escuchamos en redes sociales o de profesionales que debemos tomarnos las cosas con calma. Sin embargo, cuando la realidad es compleja, esta simplificación puede generar una profunda frustración existencial. Analizamos por qué intentar forzar esa sencillez a veces nos hace sentir más perdidos que acompañados.\n\nEste vídeo explora la tensión entre los consejos psicológicos y la experiencia humana real. Reflexionamos sobre la salud mental y la importancia de validar que, a veces, las cosas simplemente son difíciles, sin necesidad de buscar una solución rápida o una actitud forzada.",
+    "uploadDate": "2026-09-12T12:17:44+00:00",
+    "thumbnailUrl": "https://img.youtube.com/vi/lxGOshgZEeo/hqdefault.jpg",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/lxGOshgZEeo"
   }
 }
 </script>
@@ -250,60 +251,32 @@ footer {
 </nav>
 <main>
 
-<section class="blog-hero">
-  <span class="sec-label">Blog</span>
-  <h1>Vídeos y reflexiones sobre el personaje, las relaciones y la vida que sostienes.</h1>
-  <p>Cada semana comparto aquí los vídeos de mi canal, con una explicación en texto para que puedas profundizar en lo que de verdad importa.</p>
+<section class="post-head">
+  <span class="sec-label">Crisis existencial</span>
+  <h1>La vida NO es fácil: la cruda realidad</h1>
+  <p class="post-meta">Vídeo · Sergio García</p>
 </section>
 
-<section class="blog-grid">
-<a href="blog-la-vida-no-es-facil-la-cruda-realidad-lxGOshgZEeo.html" class="blog-card"><div class="card-thumb"><img src="https://img.youtube.com/vi/lxGOshgZEeo/hqdefault.jpg" alt="La vida NO es fácil: la cruda realidad"><div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div><span class="card-tag">Crisis existencial</span><h2 class="card-h">La vida NO es fácil: la cruda realidad</h2><p class="card-p">¿Es verdad que la vida no es fácil? Cuestionamos la idea de que todo debe ser sencillo y analizamos por qué esa presión frustra.</p><span class="card-date">Vídeo</span></a>
-<a href="blog-amor-o-ansiedad.html" class="blog-card"><div class="card-thumb"><img src="https://img.youtube.com/vi/pEFAD2R1ebY/hqdefault.jpg" alt="¿Y si eso que llamas amor fuera ansiedad?"><div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div><span class="card-tag">Relaciones de pareja</span><h2 class="card-h">¿Y si eso que llamas amor fuera ansiedad?</h2><p class="card-p">La diferencia entre amor, ansiedad y dependencia emocional no siempre es evidente desde dentro.</p><span class="card-date">Vídeo</span></a>
+<section class="post-video">
+  <div class="video-wrap">
+    <iframe src="https://www.youtube-nocookie.com/embed/lxGOshgZEeo" title="La vida NO es fácil: la cruda realidad" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
 
-  <a href="blog-marcador-invisible.html" class="blog-card"> <div class="card-thumb"> <img src="https://img.youtube.com/vi/29NdOf8qxoQ/hqdefault.jpg" alt="El marcador invisible: cuando dar se convierte en cobrar"> <div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div> </div> <span class="card-tag">Relaciones de pareja</span> <h2 class="card-h">El marcador invisible: cuando dar se convierte en cobrar</h2> <p class="card-p">Esperar reciprocidad en silencio no es generosidad: es una cuenta pendiente que tarde o temprano explota.</p> <span class="card-date">Vídeo</span> </a> <a href="blog-no-eres-asi.html" class="blog-card">
-    <div class="card-thumb">
-      <img src="https://img.youtube.com/vi/f2F2xdW4zQI/hqdefault.jpg" alt="No eres así: aprendiste a ser así">
-      <div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
-    </div>
-    <span class="card-tag">El personaje</span>
-    <h2 class="card-h">No eres así: aprendiste a ser así</h2>
-    <p class="card-p">La desconfianza, la frialdad o la necesidad de control pueden no ser rasgos de carácter, sino cicatrices de heridas antiguas.</p>
-    <span class="card-date">Vídeo</span>
-  </a>
+<section class="post-body">
+  <p class="lead">¿Es verdad que la vida no es fácil? Cuestionamos la idea de que todo debe ser sencillo y analizamos por qué esa presión frustra.</p>
 
-  <a href="blog-falta-intimidad-pareja.html" class="blog-card">
-    <div class="card-thumb">
-      <img src="https://img.youtube.com/vi/2z4_ie4l67k/hqdefault.jpg" alt="La falta de intimidad en la pareja no es el problema: es el síntoma">
-      <div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
-    </div>
-    <span class="card-tag">Relaciones de pareja</span>
-    <h2 class="card-h">La falta de intimidad en la pareja no es el problema</h2>
-    <p class="card-p">Cuando el sexo se enfría, casi nunca es la causa: suele ser el síntoma de una desconexión emocional más profunda.</p>
-    <span class="card-date">Vídeo</span>
-  </a>
+  <p>Muchas veces escuchamos en redes sociales o de profesionales que debemos tomarnos las cosas con calma. Sin embargo, cuando la realidad es compleja, esta simplificación puede generar una profunda frustración existencial. Analizamos por qué intentar forzar esa sencillez a veces nos hace sentir más perdidos que acompañados.</p>
 
-  <a href="blog-decisiones-impulsivas.html" class="blog-card">
-    <div class="card-thumb">
-      <img src="https://img.youtube.com/vi/wy94M0Cg3wE/hqdefault.jpg" alt="Por qué tus decisiones más importantes nunca fueron impulsivas">
-      <div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
-    </div>
-    <span class="card-tag">Crisis existencial</span>
-    <h2 class="card-h">Por qué tus decisiones más importantes nunca fueron impulsivas</h2>
-    <p class="card-p">Muchas crisis no son crisis: son el permiso que llevabas tiempo esperando para hacer lo que ya sabías.</p>
-    <span class="card-date">Vídeo</span>
-  </a>
+  <p>Este vídeo explora la tensión entre los consejos psicológicos y la experiencia humana real. Reflexionamos sobre la salud mental y la importancia de validar que, a veces, las cosas simplemente son difíciles, sin necesidad de buscar una solución rápida o una actitud forzada.</p>
+  <a href="sesiones.html" class="btn-outline">Ver sesiones →</a>
+</section>
 
-  <a href="blog-autosabotaje-amoroso.html" class="blog-card">
-    <div class="card-thumb">
-      <img src="https://img.youtube.com/vi/Rtf_z6uaSK8/hqdefault.jpg" alt="Autosabotaje amoroso: por qué huyes de una relación sana">
-      <div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
-    </div>
-    <span class="card-tag">Relaciones de pareja</span>
-    <h2 class="card-h">Autosabotaje amoroso: por qué huyes de quien te trata bien</h2>
-    <p class="card-p">Muchas personas se alejan justo cuando encuentran a alguien sano. Descubre por qué tu temperatura emocional te hace huir del bien.</p>
-    <span class="card-date">Vídeo</span>
-  </a>
-
+<section class="post-cta">
+  <span class="sec-label" style="color:#E8956A;">Contacto</span>
+  <h2>¿Quieres más información?</h2>
+  <p>Puedes contactar con Sergio García para consultar sobre las sesiones.</p>
+  <a href="https://wa.me/34634422827" class="btn-fire">Escribir por WhatsApp →</a>
 </section>
 
 </main>
