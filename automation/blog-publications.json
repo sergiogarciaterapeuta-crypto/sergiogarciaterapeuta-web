@@ -37,9 +37,13 @@
       "publishedAt": "2026-09-14",
       "isoWeek": "2026-W38",
       "linkedin": {
-        "status": "pending",
-        "text": "La vida NO es fácil: la cruda realidad\n\nA veces, la presión de que todo debería ser sencillo nos hace sentir más frustrados. En este vídeo reflexiono sobre la importancia de reconocer que la vida puede ser difícil, sin forzar una actitud positiva ni buscar soluciones rápidas.\n\nVídeo y reflexión en el blog:\nhttps://sergiogarciaterapeuta.es/blog-la-vida-no-es-facil-la-cruda-realidad-lxGOshgZEeo.html"
-      }
+        "status": "published",
+        "text": "La vida NO es fácil: la cruda realidad\n\nA veces, la presión de que todo debería ser sencillo nos hace sentir más frustrados. En este vídeo reflexiono sobre la importancia de reconocer que la vida puede ser difícil, sin forzar una actitud positiva ni buscar soluciones rápidas.\n\nVídeo y reflexión en el blog:\nhttps://sergiogarciaterapeuta.es/blog-la-vida-no-es-facil-la-cruda-realidad-lxGOshgZEeo.html",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7505522875639115778/",
+        "id": "urn:li:activity:7505522875639115778",
+        "publishedAt": "2026-09-15"
+      },
+      "deploymentVerifiedAt": "2026-09-15"
     }
   ]
 }
