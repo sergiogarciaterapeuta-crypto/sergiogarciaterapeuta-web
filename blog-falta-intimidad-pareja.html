@@ -192,6 +192,16 @@ footer {
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-Y3E0GC5DX6'); gtag('config', 'AW-18318477742');
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href*="wa.me"]');
+    if (link) {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18318477742/J--eCPbZudIcEK6T955E',
+        'value': 1.0,
+        'currency': 'EUR'
+      });
+    }
+  });
 </script>
 <link rel="canonical" href="https://sergiogarciaterapeuta.es/blog-falta-intimidad-pareja">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -371,7 +381,7 @@ footer {
         fallbackForm.reset();
         if (window.gtag) {
           gtag('event', 'conversion', {
-            'send_to': 'AW-18318477742/J--eCPbZudIcEK6T955E',
+            'send_to': 'AW-18318477742/F1MjCIrB-_ocEK6T955E',
             'value': 1.0,
             'currency': 'EUR'
           });
