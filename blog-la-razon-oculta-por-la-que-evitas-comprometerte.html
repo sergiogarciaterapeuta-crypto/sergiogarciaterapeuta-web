@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog · Sergio García</title>
-<meta name="description" content="Vídeos y artículos sobre el personaje, las relaciones, la ansiedad y el trabajo terapéutico de Sergio García, terapeuta Gestalt y existencial en Tarragona.">
+<title>La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad · Sergio García</title>
+<meta name="description" content="¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* NAV */
 .top-bar {
   display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
   gap: .3rem 1.2rem;
@@ -85,14 +84,22 @@ h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
   text-transform: uppercase; color: var(--fire);
   margin-bottom: 1.5rem; display: block;
 }
-.btn-dark {
+.btn-fire {
   display: inline-block;
-  background: var(--ink); color: var(--bone);
+  background: var(--fire); color: white;
   padding: .88rem 2rem;
   font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
   text-decoration: none; transition: opacity .18s;
 }
-.btn-dark:hover { opacity: .82; }
+.btn-fire:hover { opacity: .85; }
+.btn-outline {
+  display: inline-block;
+  border: 0.5px solid var(--ink); color: var(--ink);
+  padding: .75rem 1.8rem;
+  font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; transition: background .18s, color .18s;
+}
+.btn-outline:hover { background: var(--ink); color: var(--bone); }
 
 footer {
   padding: 1.4rem var(--p);
@@ -116,75 +123,58 @@ footer {
   footer { flex-direction: column; gap: 1rem; text-align: center; }
 }
 
-/* BLOG HERO */
-.blog-hero {
-  padding: var(--pv) var(--p) 2.5rem;
+/* POST */
+.post-head {
+  padding: var(--pv) var(--p) 2rem;
   border-bottom: 1px solid var(--rule);
+  max-width: 780px;
 }
-.blog-hero h1 {
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  line-height: 1.1;
-  max-width: 700px;
+.post-head h1 {
+  font-size: clamp(2rem, 3.6vw, 2.8rem);
+  line-height: 1.15;
+  margin-top: 1rem;
 }
-.blog-hero p {
-  font-size: 1rem;
-  color: var(--gray);
-  line-height: 1.85;
-  max-width: 560px;
+.post-meta {
+  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--gray-light);
   margin-top: 1.2rem;
 }
-
-/* BLOG GRID */
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+.post-video {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem var(--p) 0;
 }
-.blog-card {
-  border-right: 0.5px solid var(--rule);
-  border-bottom: 0.5px solid var(--rule);
-  padding: 2.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  text-decoration: none;
-  color: var(--ink);
-  transition: background .18s;
-}
-.blog-card:hover { background: var(--bone2); }
-.blog-card:nth-child(3n) { border-right: none; }
-.card-thumb {
-  position: relative;
-  aspect-ratio: 16/9;
+.video-wrap {
+  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
   background: #111;
-  overflow: hidden;
 }
-.card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: .9; }
-.card-play {
-  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+.video-wrap iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
 }
-.card-play span {
-  width: 48px; height: 48px; border-radius: 50%;
-  background: var(--fire);
-  display: flex; align-items: center; justify-content: center;
+.post-body {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2.5rem var(--p) var(--pv);
 }
-.card-play svg { width: 16px; height: 16px; fill: white; margin-left: 2px; }
-.card-tag {
-  font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: var(--fire);
+.post-body p {
+  font-size: .98rem;
+  color: var(--gray);
+  line-height: 1.9;
+  margin-bottom: 1.3rem;
 }
-.card-h { font-size: 1.2rem; font-weight: 500; line-height: 1.3; }
-.card-p { font-size: .88rem; color: var(--gray); line-height: 1.8; flex: 1; }
-.card-date { font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-light); }
-
-@media (max-width: 900px) {
-  .blog-grid { grid-template-columns: 1fr 1fr; }
-  .blog-card:nth-child(3n) { border-right: 0.5px solid var(--rule); }
-  .blog-card:nth-child(2n) { border-right: none; }
+.post-body p.lead {
+  font-size: 1.05rem;
+  color: var(--ink);
+  border-left: 2px solid var(--fire);
+  padding-left: 1rem;
 }
-@media (max-width: 600px) {
-  .blog-grid { grid-template-columns: 1fr; }
-  .blog-card { border-right: none !important; }
+.post-cta {
+  background: var(--ink);
+  padding: var(--pv) var(--p);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 1.2rem;
 }
+.post-cta h2 { color: var(--bone); font-size: clamp(1.5rem,2.5vw,2rem); max-width: 560px; }
+.post-cta p { color: rgba(255,255,255,.5); font-size: .92rem; max-width: 520px; }
 </style>
 <!-- MailerLite Universal -->
 <script>
@@ -201,7 +191,7 @@ footer {
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-Y3E0GC5DX6');  gtag('config', 'AW-18318477742');
+  gtag('config', 'G-Y3E0GC5DX6'); gtag('config', 'AW-18318477742');
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[href*="wa.me"]');
     if (link) {
@@ -213,30 +203,20 @@ footer {
     }
   });
 </script>
-<link rel="canonical" href="https://sergiogarciaterapeuta.es/blog">
+<link rel="canonical" href="https://sergiogarciaterapeuta.es/blog-la-razon-oculta-por-la-que-evitas-comprometerte">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sergiogarciaterapeuta.es/blog">
-<meta property="og:title" content="Blog · Sergio García">
-<meta property="og:description" content="Vídeos y artículos sobre el personaje, las relaciones, la ansiedad y el trabajo terapéutico de Sergio García.">
-<meta property="og:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sergiogarciaterapeuta.es/blog-la-razon-oculta-por-la-que-evitas-comprometerte">
+<meta property="og:title" content="La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad">
+<meta property="og:description" content="¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?">
+<meta property="og:image" content="https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Blog · Sergio García">
-<meta name="twitter:description" content="Vídeos y artículos sobre el personaje, las relaciones, la ansiedad y el trabajo terapéutico de Sergio García.">
-<meta name="twitter:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Blog",
-  "name": "Blog · Sergio García",
-  "url": "https://sergiogarciaterapeuta.es/blog",
-  "publisher": {
-    "@type": "Person",
-    "name": "Sergio García"
-  }
-}
-</script>
+<meta name="twitter:title" content="La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad">
+<meta name="twitter:description" content="¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?">
+<meta name="twitter:image" content="https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad","url":"https://sergiogarciaterapeuta.es/blog-la-razon-oculta-por-la-que-evitas-comprometerte","datePublished":"2026-09-28","dateModified":"2026-09-28","description":"¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?","image":"https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp","author":{"@type":"Person","name":"Sergio García","jobTitle":"Terapeuta Gestalt, humanista y existencial"},"video":{"@type":"VideoObject","name":"La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad","description":"¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?\n\nAnalizamos cómo el inconsciente bloquea el deseo sexual como mecanismo de defensa ante posibles daños emocionales.\n\nSi sientes que tu mente sabotea tus relaciones por miedo a una traición, este análisis te ayudará a entender tu propia barrera.","thumbnailUrl":"https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp","uploadDate":"2026-09-21T22:00:30+00:00","embedUrl":"https://www.youtube-nocookie.com/embed/LNSQKKffdNk"}}</script>
 </head>
 <body>
 <div class="top-bar">
@@ -261,63 +241,23 @@ footer {
 </nav>
 <main>
 
-<section class="blog-hero">
-  <span class="sec-label">Blog</span>
-  <h1>Vídeos y reflexiones sobre el personaje, las relaciones y la vida que sostienes.</h1>
-  <p>Cada semana comparto aquí los vídeos de mi canal, con una explicación en texto para que puedas profundizar en lo que de verdad importa.</p>
+<section class="post-head">
+  <span class="sec-label">Relaciones de pareja</span>
+  <h1>La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad</h1>
+  <p class="post-meta">Vídeo · Sergio García</p>
 </section>
 
-<section class="blog-grid">
-<a href="blog-la-razon-oculta-por-la-que-evitas-comprometerte" class="blog-card"><div class="card-thumb"><img src="https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp" alt="La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad" loading="lazy"><div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div><span class="card-tag">Relaciones de pareja</span><h2 class="card-h">La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad</h2><p class="card-p">¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?</p><span class="card-date">Vídeo</span></a>
-<a href="blog-por-que-no-sales-de-la-depresion-la-verdad-psicologica" class="blog-card"><div class="card-thumb"><img src="https://i.ytimg.com/vi_webp/cFDjVsCP7cs/hqdefault.webp" alt="¿Por qué no sales de la depresión? La verdad psicológica"><div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div><span class="card-tag">Reflexiones</span><h2 class="card-h">¿Por qué no sales de la depresión? La verdad psicológica</h2><p class="card-p">¿Es posible salir de la depresión? La clave podría estar en comprender qué ganas al mantenerte en ese estado.</p><span class="card-date">Vídeo</span></a>
-<a href="blog-la-vida-no-es-facil-la-cruda-realidad-lxgoshgzeeo" class="blog-card"><div class="card-thumb"><img src="https://img.youtube.com/vi/lxGOshgZEeo/hqdefault.jpg" alt="La vida NO es fácil: la cruda realidad"><div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div><span class="card-tag">Crisis existencial</span><h2 class="card-h">La vida NO es fácil: la cruda realidad</h2><p class="card-p">¿Es verdad que la vida no es fácil? Cuestionamos la idea de que todo debe ser sencillo y analizamos por qué esa presión frustra.</p><span class="card-date">Vídeo</span></a>
-<a href="blog-amor-o-ansiedad" class="blog-card"><div class="card-thumb"><img src="https://img.youtube.com/vi/pEFAD2R1ebY/hqdefault.jpg" alt="¿Y si eso que llamas amor fuera ansiedad?"><div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div><span class="card-tag">Relaciones de pareja</span><h2 class="card-h">¿Y si eso que llamas amor fuera ansiedad?</h2><p class="card-p">La diferencia entre amor, ansiedad y dependencia emocional no siempre es evidente desde dentro.</p><span class="card-date">Vídeo</span></a>
-
-  <a href="blog-marcador-invisible" class="blog-card"> <div class="card-thumb"> <img src="https://img.youtube.com/vi/29NdOf8qxoQ/hqdefault.jpg" alt="El marcador invisible: cuando dar se convierte en cobrar"> <div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div> </div> <span class="card-tag">Relaciones de pareja</span> <h2 class="card-h">El marcador invisible: cuando dar se convierte en cobrar</h2> <p class="card-p">Esperar reciprocidad en silencio no es generosidad: es una cuenta pendiente que tarde o temprano explota.</p> <span class="card-date">Vídeo</span> </a> <a href="blog-no-eres-asi" class="blog-card">
-    <div class="card-thumb">
-      <img src="https://img.youtube.com/vi/f2F2xdW4zQI/hqdefault.jpg" alt="No eres así: aprendiste a ser así">
-      <div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
-    </div>
-    <span class="card-tag">El personaje</span>
-    <h2 class="card-h">No eres así: aprendiste a ser así</h2>
-    <p class="card-p">La desconfianza, la frialdad o la necesidad de control pueden no ser rasgos de carácter, sino cicatrices de heridas antiguas.</p>
-    <span class="card-date">Vídeo</span>
-  </a>
-
-  <a href="blog-falta-intimidad-pareja" class="blog-card">
-    <div class="card-thumb">
-      <img src="https://img.youtube.com/vi/2z4_ie4l67k/hqdefault.jpg" alt="La falta de intimidad en la pareja no es el problema: es el síntoma">
-      <div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
-    </div>
-    <span class="card-tag">Relaciones de pareja</span>
-    <h2 class="card-h">La falta de intimidad en la pareja no es el problema</h2>
-    <p class="card-p">Cuando el sexo se enfría, casi nunca es la causa: suele ser el síntoma de una desconexión emocional más profunda.</p>
-    <span class="card-date">Vídeo</span>
-  </a>
-
-  <a href="blog-decisiones-impulsivas" class="blog-card">
-    <div class="card-thumb">
-      <img src="https://img.youtube.com/vi/wy94M0Cg3wE/hqdefault.jpg" alt="Por qué tus decisiones más importantes nunca fueron impulsivas">
-      <div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
-    </div>
-    <span class="card-tag">Crisis existencial</span>
-    <h2 class="card-h">Por qué tus decisiones más importantes nunca fueron impulsivas</h2>
-    <p class="card-p">Muchas crisis no son crisis: son el permiso que llevabas tiempo esperando para hacer lo que ya sabías.</p>
-    <span class="card-date">Vídeo</span>
-  </a>
-
-  <a href="blog-autosabotaje-amoroso" class="blog-card">
-    <div class="card-thumb">
-      <img src="https://img.youtube.com/vi/Rtf_z6uaSK8/hqdefault.jpg" alt="Autosabotaje amoroso: por qué huyes de una relación sana">
-      <div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
-    </div>
-    <span class="card-tag">Relaciones de pareja</span>
-    <h2 class="card-h">Autosabotaje amoroso: por qué huyes de quien te trata bien</h2>
-    <p class="card-p">Muchas personas se alejan justo cuando encuentran a alguien sano. Descubre por qué tu temperatura emocional te hace huir del bien.</p>
-    <span class="card-date">Vídeo</span>
-  </a>
-
+<section class="post-video">
+  <div class="video-wrap">
+    <div class="yt-facade" role="button" tabindex="0" aria-label="Reproducir: La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad" data-yt-id="LNSQKKffdNk" style="position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer;background:#000;"><img src="https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp" alt="La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85;"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;"><svg width="68" height="48" viewBox="0 0 68 48" aria-hidden="true"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.41 6.19C.13 13.05 0 24 0 24s.13 10.95 1.49 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.87 34.95 68 24 68 24s-.13-10.95-1.48-16.26z" fill="#ff0000"></path><path d="M45 24 27 14v20" fill="#fff"></path></svg></div><span style="position:absolute;bottom:8px;left:8px;background:rgba(0,0,0,.65);color:#fff;font-size:.7rem;padding:.2rem .55rem;border-radius:3px;letter-spacing:.02em;">▶ Reproducir vídeo</span></div>
+  </div>
 </section>
+
+<section class="post-body"><p class="lead">¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?</p>
+<p>Analizamos cómo el inconsciente bloquea el deseo sexual como mecanismo de defensa ante posibles daños emocionales.</p>
+<p>Si sientes que tu mente sabotea tus relaciones por miedo a una traición, este análisis te ayudará a entender tu propia barrera.</p><a href="sesiones" class="btn-outline">Ver sesiones individuales y de pareja →</a></section>
+
+<section class="post-cta"><span class="sec-label" style="color:#E8956A;">Contacto</span><h2>¿Quieres más información?</h2><p>Puedes consultar con Sergio García sobre las sesiones individuales y de pareja.</p><a href="https://wa.me/34634422827" class="btn-fire">Escribir por WhatsApp →</a></section>
 
 </main>
 <footer>
@@ -430,6 +370,23 @@ footer {
       });
   });
 })();
+</script>
+<script>
+document.querySelectorAll('.yt-facade').forEach(function(el){
+  function loadVideo(){
+    var id = el.getAttribute('data-yt-id');
+    var start = el.getAttribute('data-yt-start');
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1' + (start ? '&start=' + start : '');
+    iframe.title = el.getAttribute('aria-label') || 'Vídeo de YouTube';
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+    iframe.allowFullscreen = true;
+    iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+    el.replaceWith(iframe);
+  }
+  el.addEventListener('click', loadVideo);
+  el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); loadVideo(); } });
+});
 </script>
 </body>
 </html>
