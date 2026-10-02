@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad · Sergio García</title>
+<title>La razón oculta por la que evitas comprometerte · Sergio García</title>
 <meta name="description" content="¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -192,37 +192,82 @@ footer {
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-Y3E0GC5DX6'); gtag('config', 'AW-18318477742');
+  // Origen de la visita: "A" = anuncios (gclid/gbraid/wbraid o utm_medium=cpc), "W" = resto. Se guarda durante la sesión.
+  (function(){
+    try {
+      var q = new URLSearchParams(location.search);
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+    } catch (err) {}
+  })();
+  function sgCode() {
+    var p = location.pathname.replace(/\.html$/, '').replace(/^\//, '') || 'inicio';
+    var map = {'inicio':'GEN','sesiones':'SES','terapia-individual-tarragona':'IND','terapia-pareja-tarragona':'PAR','ruptura-crisis-pareja-tarragona':'PAR','dependencia-emocional-tarragona':'DEP','terapia-gestalt-tarragona':'GES','terapia-online':'ONL','crisis-existencial':'CRI','programas':'PRG','talleres-retiros':'TAL','del-dolor-a-la-alegria':'TAL','el-personaje':'PER','sobre-sergio':'SOB'};
+    var c = map[p] || (p.indexOf('blog') === 0 ? 'BLG' : 'WEB');
+    var s = 'W';
+    try { s = sessionStorage.getItem('sg_src') || 'W'; } catch (err) {}
+    return c + '-' + s;
+  }
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[href*="wa.me"]');
     if (link) {
+      var code = sgCode();
+      try {
+        var u = new URL(link.href);
+        if (u.href.indexOf('%5B' + code.split('-')[0]) === -1) {
+          var t = u.searchParams.get('text') || 'Hola Sergio, me gustaría más información';
+          link.href = 'https://wa.me' + u.pathname + '?text=' + encodeURIComponent(t + ' [' + code + ']');
+        }
+      } catch (err) {}
+      gtag('event', 'whatsapp_click', {
+        'cta': link.getAttribute('data-cta') || (link.textContent || '').trim().slice(0, 60),
+        'codigo': code,
+        'pagina': location.pathname
+      });
       gtag('event', 'conversion', {
         'send_to': 'AW-18318477742/J--eCPbZudIcEK6T955E',
         'value': 1.0,
         'currency': 'EUR'
       });
     }
-  });
+  }, true);
 </script>
 <link rel="canonical" href="https://sergiogarciaterapeuta.es/blog-la-razon-oculta-por-la-que-evitas-comprometerte">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://sergiogarciaterapeuta.es/blog-la-razon-oculta-por-la-que-evitas-comprometerte">
-<meta property="og:title" content="La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad">
+<meta property="og:title" content="La razón oculta por la que evitas comprometerte">
 <meta property="og:description" content="¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?">
 <meta property="og:image" content="https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad">
+<meta name="twitter:title" content="La razón oculta por la que evitas comprometerte">
 <meta name="twitter:description" content="¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?">
 <meta name="twitter:image" content="https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad","url":"https://sergiogarciaterapeuta.es/blog-la-razon-oculta-por-la-que-evitas-comprometerte","datePublished":"2026-09-28","dateModified":"2026-09-28","description":"¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?","image":"https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp","author":{"@type":"Person","name":"Sergio García","jobTitle":"Terapeuta Gestalt, humanista y existencial"},"video":{"@type":"VideoObject","name":"La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad","description":"¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?\n\nAnalizamos cómo el inconsciente bloquea el deseo sexual como mecanismo de defensa ante posibles daños emocionales.\n\nSi sientes que tu mente sabotea tus relaciones por miedo a una traición, este análisis te ayudará a entender tu propia barrera.","thumbnailUrl":"https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp","uploadDate":"2026-09-21T22:00:30+00:00","embedUrl":"https://www.youtube-nocookie.com/embed/LNSQKKffdNk"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"La razón oculta por la que evitas comprometerte","url":"https://sergiogarciaterapeuta.es/blog-la-razon-oculta-por-la-que-evitas-comprometerte","datePublished":"2026-09-28","dateModified":"2026-09-28","description":"¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?","image":"https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp","author":{"@type":"Person","name":"Sergio García","jobTitle":"Terapeuta Gestalt, humanista y existencial"},"video":{"@type":"VideoObject","name":"La razón oculta por la que evitas comprometerte","description":"¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?\n\nAnalizamos cómo el inconsciente bloquea el deseo sexual como mecanismo de defensa ante posibles daños emocionales.\n\nSi sientes que tu mente sabotea tus relaciones por miedo a una traición, este análisis te ayudará a entender tu propia barrera.","thumbnailUrl":"https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp","uploadDate":"2026-09-21T22:00:30+00:00","embedUrl":"https://www.youtube-nocookie.com/embed/LNSQKKffdNk"}}</script>
+<style id="sg-movil">
+/* Ajustes móvil (auditoría visual oct 2026) */
+@media (max-width:768px){
+  html{overflow-x:clip;}
+  img,video,iframe{max-width:100%;}
+  [style*="grid-template-columns"]{grid-template-columns:1fr !important;}
+  [style*="repeat(4,1fr)"],[style*="repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important;row-gap:1.6rem;}
+  [style*="grid-template-columns"] > div{border-right:none !important;}
+  [style*="grid-template-columns"] > div[style*="padding:2rem 2rem 2rem 0"],
+  [style*="grid-template-columns"] > div[style*="padding:2rem 0 2rem 2rem"]{padding:1.6rem 0 !important;}
+  [style*="grid-template-columns"] > div[style*="padding:2rem;"]{padding:1.6rem 0 !important;}
+  .franja{flex-wrap:wrap;justify-content:center;gap:.4rem 1rem;}
+  .sr-cta{white-space:normal;}
+  table{font-size:.8rem;}
+  table th,table td{padding:.5rem .35rem !important;}
+}
+</style>
 </head>
 <body>
 <div class="top-bar">
   <a href="tel:+34634422827">📞 634 42 28 27</a>
   <span class="tb-sep">·</span>
-  <a href="mailto:sergiogarciaterapeuta@gmail.com">✉️ sergiogarciaterapeuta@gmail.com</a>
+  <a href="mailto:sergio@sergiogarciaterapeuta.es">✉️ sergio@sergiogarciaterapeuta.es</a>
 </div>
 <nav>
   <a href="index.html" class="logo">Sergio García</a>
@@ -243,13 +288,13 @@ footer {
 
 <section class="post-head">
   <span class="sec-label">Relaciones de pareja</span>
-  <h1>La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad</h1>
+  <h1>La razón oculta por la que evitas comprometerte</h1>
   <p class="post-meta">Vídeo · Sergio García</p>
 </section>
 
 <section class="post-video">
   <div class="video-wrap">
-    <div class="yt-facade" role="button" tabindex="0" aria-label="Reproducir: La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad" data-yt-id="LNSQKKffdNk" style="position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer;background:#000;"><img src="https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp" alt="La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85;"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;"><svg width="68" height="48" viewBox="0 0 68 48" aria-hidden="true"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.41 6.19C.13 13.05 0 24 0 24s.13 10.95 1.49 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.87 34.95 68 24 68 24s-.13-10.95-1.48-16.26z" fill="#ff0000"></path><path d="M45 24 27 14v20" fill="#fff"></path></svg></div><span style="position:absolute;bottom:8px;left:8px;background:rgba(0,0,0,.65);color:#fff;font-size:.7rem;padding:.2rem .55rem;border-radius:3px;letter-spacing:.02em;">▶ Reproducir vídeo</span></div>
+    <div class="yt-facade" role="button" tabindex="0" aria-label="Reproducir: La razón oculta por la que evitas comprometerte" data-yt-id="LNSQKKffdNk" style="position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer;background:#000;"><img src="https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp" alt="La razón oculta por la que evitas comprometerte" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85;"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;"><svg width="68" height="48" viewBox="0 0 68 48" aria-hidden="true"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.41 6.19C.13 13.05 0 24 0 24s.13 10.95 1.49 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.87 34.95 68 24 68 24s-.13-10.95-1.48-16.26z" fill="#ff0000"></path><path d="M45 24 27 14v20" fill="#fff"></path></svg></div><span style="position:absolute;bottom:8px;left:8px;background:rgba(0,0,0,.65);color:#fff;font-size:.7rem;padding:.2rem .55rem;border-radius:3px;letter-spacing:.02em;">▶ Reproducir vídeo</span></div>
   </div>
 </section>
 
@@ -272,7 +317,7 @@ footer {
   <div id="sg-panel">
     <div id="sg-panel-header">
       Sergio García
-      <span>Terapeuta Gestalt · Tarragona</span>
+      <span>Terapeuta · Tarragona</span>
     </div>
     <div id="sg-panel-body">
       <div id="sg-msg-preview">
@@ -286,8 +331,8 @@ footer {
       <button id="sg-fallback-link" type="button">¿No tienes WhatsApp? Escríbeme aquí</button>
 
       <form id="sg-fallback-form">
-        <input type="text" name="nombre" placeholder="Tu nombre" required />
-        <input type="text" name="telefono" placeholder="Teléfono o email de contacto" required />
+        <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="name" required />
+        <input type="text" name="telefono" placeholder="Tu teléfono o email" autocomplete="tel" required />
         <textarea name="mensaje" placeholder="¿En qué puedo ayudarte?" required></textarea>
         <button id="sg-fallback-submit" type="submit">Enviar mensaje</button>
         <div id="sg-form-status"></div>
@@ -352,11 +397,13 @@ footer {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString()
     })
-      .then(function () {
+      .then(function (r) {
+        if (!r.ok) { throw new Error('envio'); }
         statusEl.textContent = 'Mensaje enviado. Te contactaré en breve.';
         statusEl.className = 'ok';
         fallbackForm.reset();
         if (window.gtag) {
+          gtag('event', 'generate_lead', { 'metodo': 'formulario', 'pagina': location.pathname });
           gtag('event', 'conversion', {
             'send_to': 'AW-18318477742/F1MjCIrB-_ocEK6T955E',
             'value': 1.0,

@@ -206,16 +206,44 @@ p.body+p.body { margin-top:1rem; }
   gtag('js', new Date());
   gtag('config', 'G-Y3E0GC5DX6');
     gtag('config', 'AW-18318477742');
+  // Origen de la visita: "A" = anuncios (gclid/gbraid/wbraid o utm_medium=cpc), "W" = resto. Se guarda durante la sesión.
+  (function(){
+    try {
+      var q = new URLSearchParams(location.search);
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+    } catch (err) {}
+  })();
+  function sgCode() {
+    var p = location.pathname.replace(/\.html$/, '').replace(/^\//, '') || 'inicio';
+    var map = {'inicio':'GEN','sesiones':'SES','terapia-individual-tarragona':'IND','terapia-pareja-tarragona':'PAR','ruptura-crisis-pareja-tarragona':'PAR','dependencia-emocional-tarragona':'DEP','terapia-gestalt-tarragona':'GES','terapia-online':'ONL','crisis-existencial':'CRI','programas':'PRG','talleres-retiros':'TAL','del-dolor-a-la-alegria':'TAL','el-personaje':'PER','sobre-sergio':'SOB'};
+    var c = map[p] || (p.indexOf('blog') === 0 ? 'BLG' : 'WEB');
+    var s = 'W';
+    try { s = sessionStorage.getItem('sg_src') || 'W'; } catch (err) {}
+    return c + '-' + s;
+  }
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[href*="wa.me"]');
     if (link) {
+      var code = sgCode();
+      try {
+        var u = new URL(link.href);
+        if (u.href.indexOf('%5B' + code.split('-')[0]) === -1) {
+          var t = u.searchParams.get('text') || 'Hola Sergio, me gustaría más información';
+          link.href = 'https://wa.me' + u.pathname + '?text=' + encodeURIComponent(t + ' [' + code + ']');
+        }
+      } catch (err) {}
+      gtag('event', 'whatsapp_click', {
+        'cta': link.getAttribute('data-cta') || (link.textContent || '').trim().slice(0, 60),
+        'codigo': code,
+        'pagina': location.pathname
+      });
       gtag('event', 'conversion', {
         'send_to': 'AW-18318477742/J--eCPbZudIcEK6T955E',
         'value': 1.0,
         'currency': 'EUR'
       });
     }
-  });
+  }, true);
 </script>
 
 <link rel="canonical" href="https://sergiogarciaterapeuta.es/terapia-online">
@@ -239,8 +267,10 @@ p.body+p.body { margin-top:1rem; }
   "image": "https://sergiogarciaterapeuta.es/images/sesiones-1-a46c4230.webp",
   "url": "https://sergiogarciaterapeuta.es/",
   "telephone": "+34634422827",
+  "email": "sergio@sergiogarciaterapeuta.es",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "C/ Méndez Núñez 21",
     "addressLocality": "Tarragona",
     "addressRegion": "Catalunya",
     "addressCountry": "ES"
@@ -249,7 +279,6 @@ p.body+p.body { margin-top:1rem; }
   "sameAs": [
     "https://www.instagram.com/sergiogarciaterapeuta"
   ],
-  "priceRange": "$$",
   "founder": {
     "@type": "Person",
     "name": "Sergio García"
@@ -329,6 +358,23 @@ p.body+p.body { margin-top:1rem; }
   ]
 }
 </script>
+<style id="sg-movil">
+/* Ajustes móvil (auditoría visual oct 2026) */
+@media (max-width:768px){
+  html{overflow-x:clip;}
+  img,video,iframe{max-width:100%;}
+  [style*="grid-template-columns"]{grid-template-columns:1fr !important;}
+  [style*="repeat(4,1fr)"],[style*="repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important;row-gap:1.6rem;}
+  [style*="grid-template-columns"] > div{border-right:none !important;}
+  [style*="grid-template-columns"] > div[style*="padding:2rem 2rem 2rem 0"],
+  [style*="grid-template-columns"] > div[style*="padding:2rem 0 2rem 2rem"]{padding:1.6rem 0 !important;}
+  [style*="grid-template-columns"] > div[style*="padding:2rem;"]{padding:1.6rem 0 !important;}
+  .franja{flex-wrap:wrap;justify-content:center;gap:.4rem 1rem;}
+  .sr-cta{white-space:normal;}
+  table{font-size:.8rem;}
+  table th,table td{padding:.5rem .35rem !important;}
+}
+</style>
 </head>
 
 
@@ -336,7 +382,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="top-bar">
   <a href="tel:+34634422827">📞 634 42 28 27</a>
   <span class="tb-sep">·</span>
-  <a href="mailto:sergiogarciaterapeuta@gmail.com">✉️ sergiogarciaterapeuta@gmail.com</a>
+  <a href="mailto:sergio@sergiogarciaterapeuta.es">✉️ sergio@sergiogarciaterapeuta.es</a>
 </div>
 <nav>
   <a href="index.html" class="logo">Sergio García</a>
@@ -404,7 +450,6 @@ p.body+p.body { margin-top:1rem; }
 <section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);">
   <span class="sec-label">Lo que dicen</span>
   <div style="max-width:720px;padding:2rem;border:0.5px solid var(--rule);display:flex;flex-direction:column;gap:.8rem;">
-    <p style="color:var(--fire);font-size:.85rem;letter-spacing:2px;">★★★★★</p>
     <p style="font-size:.9rem;color:var(--gray);line-height:1.85;font-style:italic;">"Lo que más me gustó fue que nunca intentó decirme lo que tenía que hacer. Me acompañó a descubrirlo por mí mismo. Hubo momentos duros, pero también una sensación de libertad que hacía años que no sentía."</p>
     <p style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-light);">— J Luis, 49 años · Sesión individual online</p>
   </div>
@@ -481,7 +526,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   <div id="sg-panel">
     <div id="sg-panel-header">
       Sergio García
-      <span>Terapeuta Gestalt · Tarragona</span>
+      <span>Terapeuta · Tarragona</span>
     </div>
     <div id="sg-panel-body">
       <div id="sg-msg-preview">
@@ -495,8 +540,8 @@ document.querySelectorAll('.faq-q').forEach(btn => {
       <button id="sg-fallback-link" type="button">¿No tienes WhatsApp? Escríbeme aquí</button>
 
       <form id="sg-fallback-form">
-        <input type="text" name="nombre" placeholder="Tu nombre" required />
-        <input type="text" name="telefono" placeholder="Teléfono o email de contacto" required />
+        <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="name" required />
+        <input type="text" name="telefono" placeholder="Tu teléfono o email" autocomplete="tel" required />
         <textarea name="mensaje" placeholder="¿En qué puedo ayudarte?" required></textarea>
         <button id="sg-fallback-submit" type="submit">Enviar mensaje</button>
         <div id="sg-form-status"></div>
@@ -561,11 +606,13 @@ document.querySelectorAll('.faq-q').forEach(btn => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString()
     })
-      .then(function () {
+      .then(function (r) {
+        if (!r.ok) { throw new Error('envio'); }
         statusEl.textContent = 'Mensaje enviado. Te contactaré en breve.';
         statusEl.className = 'ok';
         fallbackForm.reset();
         if (window.gtag) {
+          gtag('event', 'generate_lead', { 'metodo': 'formulario', 'pagina': location.pathname });
           gtag('event', 'conversion', {
             'send_to': 'AW-18318477742/F1MjCIrB-_ocEK6T955E',
             'value': 1.0,
