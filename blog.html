@@ -202,16 +202,44 @@ footer {
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-Y3E0GC5DX6');  gtag('config', 'AW-18318477742');
+  // Origen de la visita: "A" = anuncios (gclid/gbraid/wbraid o utm_medium=cpc), "W" = resto. Se guarda durante la sesión.
+  (function(){
+    try {
+      var q = new URLSearchParams(location.search);
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+    } catch (err) {}
+  })();
+  function sgCode() {
+    var p = location.pathname.replace(/\.html$/, '').replace(/^\//, '') || 'inicio';
+    var map = {'inicio':'GEN','sesiones':'SES','terapia-individual-tarragona':'IND','terapia-pareja-tarragona':'PAR','ruptura-crisis-pareja-tarragona':'PAR','dependencia-emocional-tarragona':'DEP','terapia-gestalt-tarragona':'GES','terapia-online':'ONL','crisis-existencial':'CRI','programas':'PRG','talleres-retiros':'TAL','del-dolor-a-la-alegria':'TAL','el-personaje':'PER','sobre-sergio':'SOB'};
+    var c = map[p] || (p.indexOf('blog') === 0 ? 'BLG' : 'WEB');
+    var s = 'W';
+    try { s = sessionStorage.getItem('sg_src') || 'W'; } catch (err) {}
+    return c + '-' + s;
+  }
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[href*="wa.me"]');
     if (link) {
+      var code = sgCode();
+      try {
+        var u = new URL(link.href);
+        if (u.href.indexOf('%5B' + code.split('-')[0]) === -1) {
+          var t = u.searchParams.get('text') || 'Hola Sergio, me gustaría más información';
+          link.href = 'https://wa.me' + u.pathname + '?text=' + encodeURIComponent(t + ' [' + code + ']');
+        }
+      } catch (err) {}
+      gtag('event', 'whatsapp_click', {
+        'cta': link.getAttribute('data-cta') || (link.textContent || '').trim().slice(0, 60),
+        'codigo': code,
+        'pagina': location.pathname
+      });
       gtag('event', 'conversion', {
         'send_to': 'AW-18318477742/J--eCPbZudIcEK6T955E',
         'value': 1.0,
         'currency': 'EUR'
       });
     }
-  });
+  }, true);
 </script>
 <link rel="canonical" href="https://sergiogarciaterapeuta.es/blog">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -242,7 +270,7 @@ footer {
 <div class="top-bar">
   <a href="tel:+34634422827">📞 634 42 28 27</a>
   <span class="tb-sep">·</span>
-  <a href="mailto:sergiogarciaterapeuta@gmail.com">✉️ sergiogarciaterapeuta@gmail.com</a>
+  <a href="mailto:sergio@sergiogarciaterapeuta.es">✉️ sergio@sergiogarciaterapeuta.es</a>
 </div>
 <nav>
   <a href="index.html" class="logo">Sergio García</a>
@@ -268,9 +296,9 @@ footer {
 </section>
 
 <section class="blog-grid">
-<a href="blog-la-razon-oculta-por-la-que-evitas-comprometerte" class="blog-card"><div class="card-thumb"><img src="https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp" alt="La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad" loading="lazy"><div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div><span class="card-tag">Relaciones de pareja</span><h2 class="card-h">La razón oculta por la que evitas comprometerte #relaciones #psicología #verdad</h2><p class="card-p">¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?</p><span class="card-date">Vídeo</span></a>
-<a href="blog-por-que-no-sales-de-la-depresion-la-verdad-psicologica" class="blog-card"><div class="card-thumb"><img src="https://i.ytimg.com/vi_webp/cFDjVsCP7cs/hqdefault.webp" alt="¿Por qué no sales de la depresión? La verdad psicológica"><div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div><span class="card-tag">Reflexiones</span><h2 class="card-h">¿Por qué no sales de la depresión? La verdad psicológica</h2><p class="card-p">¿Es posible salir de la depresión? La clave podría estar en comprender qué ganas al mantenerte en ese estado.</p><span class="card-date">Vídeo</span></a>
-<a href="blog-la-vida-no-es-facil-la-cruda-realidad-lxgoshgzeeo" class="blog-card"><div class="card-thumb"><img src="https://img.youtube.com/vi/lxGOshgZEeo/hqdefault.jpg" alt="La vida NO es fácil: la cruda realidad"><div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div><span class="card-tag">Crisis existencial</span><h2 class="card-h">La vida NO es fácil: la cruda realidad</h2><p class="card-p">¿Es verdad que la vida no es fácil? Cuestionamos la idea de que todo debe ser sencillo y analizamos por qué esa presión frustra.</p><span class="card-date">Vídeo</span></a>
+<a href="blog-la-razon-oculta-por-la-que-evitas-comprometerte" class="blog-card"><div class="card-thumb"><img src="https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp" alt="La razón oculta por la que evitas comprometerte" loading="lazy"><div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div><span class="card-tag">Relaciones de pareja</span><h2 class="card-h">La razón oculta por la que evitas comprometerte</h2><p class="card-p">¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?</p><span class="card-date">Vídeo</span></a>
+<a href="blog-por-que-no-sales-de-la-depresion" class="blog-card"><div class="card-thumb"><img src="https://i.ytimg.com/vi_webp/cFDjVsCP7cs/hqdefault.webp" alt="¿Por qué no sales de la depresión? Lo que el malestar protege"><div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div><span class="card-tag">Reflexiones</span><h2 class="card-h">¿Por qué no sales de la depresión? Lo que el malestar protege</h2><p class="card-p">Una reflexión sobre el estancamiento y la función que puede cumplir el malestar. No sustituye la atención médica.</p><span class="card-date">Vídeo</span></a>
+<a href="blog-la-vida-no-es-facil" class="blog-card"><div class="card-thumb"><img src="https://img.youtube.com/vi/lxGOshgZEeo/hqdefault.jpg" alt="La vida NO es fácil: la cruda realidad"><div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div><span class="card-tag">Crisis existencial</span><h2 class="card-h">La vida NO es fácil: la cruda realidad</h2><p class="card-p">¿Es verdad que la vida no es fácil? Cuestionamos la idea de que todo debe ser sencillo y analizamos por qué esa presión frustra.</p><span class="card-date">Vídeo</span></a>
 <a href="blog-amor-o-ansiedad" class="blog-card"><div class="card-thumb"><img src="https://img.youtube.com/vi/pEFAD2R1ebY/hqdefault.jpg" alt="¿Y si eso que llamas amor fuera ansiedad?"><div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div></div><span class="card-tag">Relaciones de pareja</span><h2 class="card-h">¿Y si eso que llamas amor fuera ansiedad?</h2><p class="card-p">La diferencia entre amor, ansiedad y dependencia emocional no siempre es evidente desde dentro.</p><span class="card-date">Vídeo</span></a>
 
   <a href="blog-marcador-invisible" class="blog-card"> <div class="card-thumb"> <img src="https://img.youtube.com/vi/29NdOf8qxoQ/hqdefault.jpg" alt="El marcador invisible: cuando dar se convierte en cobrar"> <div class="card-play"><span><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div> </div> <span class="card-tag">Relaciones de pareja</span> <h2 class="card-h">El marcador invisible: cuando dar se convierte en cobrar</h2> <p class="card-p">Esperar reciprocidad en silencio no es generosidad: es una cuenta pendiente que tarde o temprano explota.</p> <span class="card-date">Vídeo</span> </a> <a href="blog-no-eres-asi" class="blog-card">
@@ -412,11 +440,13 @@ footer {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString()
     })
-      .then(function () {
+      .then(function (r) {
+        if (!r.ok) { throw new Error('envio'); }
         statusEl.textContent = 'Mensaje enviado. Te contactaré en breve.';
         statusEl.className = 'ok';
         fallbackForm.reset();
         if (window.gtag) {
+          gtag('event', 'generate_lead', { 'metodo': 'formulario', 'pagina': location.pathname });
           gtag('event', 'conversion', {
             'send_to': 'AW-18318477742/F1MjCIrB-_ocEK6T955E',
             'value': 1.0,

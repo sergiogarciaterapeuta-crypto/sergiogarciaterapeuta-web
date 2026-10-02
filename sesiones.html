@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terapia Individual y de Pareja en Tarragona · Sergio García</title>
-<meta name="description" content="Terapia individual y de pareja en Tarragona con Sergio García, terapeuta Gestalt. Presencial en Tarragona u online en castellano. Sin protocolos, sin diagnósticos.">
+<title>Sesiones y formatos: individual, pareja, grupos y supervisión · Sergio García</title>
+<meta name="description" content="Todos los formatos de trabajo con Sergio García, terapeuta Gestalt: sesión individual (70 €), terapia de pareja, grupos semanales, supervisión clínica y conferencias. Tarragona y online.">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -205,28 +205,56 @@ p.body+p.body { margin-top:1rem; }
   gtag('js', new Date());
   gtag('config', 'G-Y3E0GC5DX6');
     gtag('config', 'AW-18318477742');
+  // Origen de la visita: "A" = anuncios (gclid/gbraid/wbraid o utm_medium=cpc), "W" = resto. Se guarda durante la sesión.
+  (function(){
+    try {
+      var q = new URLSearchParams(location.search);
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+    } catch (err) {}
+  })();
+  function sgCode() {
+    var p = location.pathname.replace(/\.html$/, '').replace(/^\//, '') || 'inicio';
+    var map = {'inicio':'GEN','sesiones':'SES','terapia-individual-tarragona':'IND','terapia-pareja-tarragona':'PAR','ruptura-crisis-pareja-tarragona':'PAR','dependencia-emocional-tarragona':'DEP','terapia-gestalt-tarragona':'GES','terapia-online':'ONL','crisis-existencial':'CRI','programas':'PRG','talleres-retiros':'TAL','del-dolor-a-la-alegria':'TAL','el-personaje':'PER','sobre-sergio':'SOB'};
+    var c = map[p] || (p.indexOf('blog') === 0 ? 'BLG' : 'WEB');
+    var s = 'W';
+    try { s = sessionStorage.getItem('sg_src') || 'W'; } catch (err) {}
+    return c + '-' + s;
+  }
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[href*="wa.me"]');
     if (link) {
+      var code = sgCode();
+      try {
+        var u = new URL(link.href);
+        if (u.href.indexOf('%5B' + code.split('-')[0]) === -1) {
+          var t = u.searchParams.get('text') || 'Hola Sergio, me gustaría más información';
+          link.href = 'https://wa.me' + u.pathname + '?text=' + encodeURIComponent(t + ' [' + code + ']');
+        }
+      } catch (err) {}
+      gtag('event', 'whatsapp_click', {
+        'cta': link.getAttribute('data-cta') || (link.textContent || '').trim().slice(0, 60),
+        'codigo': code,
+        'pagina': location.pathname
+      });
       gtag('event', 'conversion', {
         'send_to': 'AW-18318477742/J--eCPbZudIcEK6T955E',
         'value': 1.0,
         'currency': 'EUR'
       });
     }
-  });
+  }, true);
 </script>
 <link rel="canonical" href="https://sergiogarciaterapeuta.es/sesiones">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sergiogarciaterapeuta.es/sesiones">
-<meta property="og:title" content="Terapia individual y de pareja en Tarragona · Sergio García">
+<meta property="og:title" content="Sesiones y formatos · Sergio García, terapeuta Gestalt">
 <meta property="og:description" content="Sesiones de terapia individual, terapia de pareja y grupos de desarrollo con Sergio García, terapeuta Gestalt y existencial en Tarragona.">
 <meta property="og:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Terapia individual y de pareja en Tarragona · Sergio García">
+<meta name="twitter:title" content="Sesiones y formatos · Sergio García, terapeuta Gestalt">
 <meta name="twitter:description" content="Sesiones de terapia individual, terapia de pareja y grupos de desarrollo con Sergio García, terapeuta Gestalt y existencial en Tarragona.">
 <meta name="twitter:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp">
 <script type="application/ld+json">
@@ -237,8 +265,10 @@ p.body+p.body { margin-top:1rem; }
   "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
   "url": "https://sergiogarciaterapeuta.es/",
   "telephone": "+34634422827",
+  "email": "sergio@sergiogarciaterapeuta.es",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "C/ Méndez Núñez 21",
     "addressLocality": "Tarragona",
     "addressRegion": "Catalunya",
     "addressCountry": "ES"
@@ -285,7 +315,7 @@ p.body+p.body { margin-top:1rem; }
       "name": "¿Cuánto cuesta una sesión?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Escríbeme por WhatsApp y te lo cuento. No publico precios en la web porque depende del formato y el proceso que necesitas."
+        "text": "La sesión individual cuesta 70 € (60 minutos, presencial en Tarragona u online). Si venís en pareja o buscas otro formato, escríbeme y te digo el precio."
       }
     },
     {
@@ -341,7 +371,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="top-bar">
   <a href="tel:+34634422827">📞 634 42 28 27</a>
   <span class="tb-sep">·</span>
-  <a href="mailto:sergiogarciaterapeuta@gmail.com">✉️ sergiogarciaterapeuta@gmail.com</a>
+  <a href="mailto:sergio@sergiogarciaterapeuta.es">✉️ sergio@sergiogarciaterapeuta.es</a>
 </div>
 <nav>
   <a href="index.html" class="logo">Sergio García</a>
@@ -363,7 +393,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="page-hero">
   <div>
     <span class="sec-label">Sesiones</span>
-    <h1>Terapia individual y de <em>pareja</em><br>en Tarragona.</h1>
+    <h1>Sesiones: individual, <em>pareja</em>,<br>grupos y supervisión.</h1>
     <p>Terapia Gestalt individual y de pareja en Tarragona, presencial u online con personas de todo el mundo en castellano. Sin protocolos. Sin diagnósticos. Trabajo real desde el primer minuto.</p>
   </div>
   <p class="page-hero-side">"No hay formularios, no hay test, no hay protocolo. Nos sentamos y empezamos a trabajar."</p>
@@ -491,17 +521,28 @@ p.body+p.body { margin-top:1rem; }
   </div>
 </div>
 
+<!-- CADA FORMATO EN DETALLE -->
+<section style="padding:var(--pv) var(--p);border-top:1px solid var(--rule);background:var(--bone2);">
+  <span class="sec-label">Cada formato, en detalle</span>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;">
+    <a href="terapia-individual-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Terapia individual en Tarragona →</a>
+    <a href="terapia-pareja-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Terapia de pareja en Tarragona →</a>
+    <a href="terapia-online" class="btn-outline" style="text-align:center;padding:1.2rem;">Terapia online →</a>
+    <a href="crisis-existencial" class="btn-outline" style="text-align:center;padding:1.2rem;">Crisis existencial →</a>
+    <a href="dependencia-emocional-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Dependencia emocional →</a>
+    <a href="ruptura-crisis-pareja-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Ruptura y crisis de pareja →</a>
+  </div>
+</section>
+
 <!-- TESTIMONIOS -->
 <section style="padding:var(--pv) var(--p);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);">
   <span class="sec-label">Lo que dicen</span>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
     <div style="padding:2rem;background:var(--ink);display:flex;flex-direction:column;gap:.8rem;">
-      <p style="color:#E8956A;font-size:.85rem;letter-spacing:2px;">★★★★★</p>
       <p style="font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.85;flex:1;font-style:italic;">"Llegamos convencidos de que el problema era el otro. En pocas sesiones entendimos que ambos llevábamos años relacionándonos desde el mismo personaje. No fue una terapia para aprender técnicas de comunicación. Fue mucho más incómodo... y mucho más transformador."</p>
       <p style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.28);">— Marta y David · Terapia de pareja</p>
     </div>
     <div style="padding:2rem;border:0.5px solid var(--rule);display:flex;flex-direction:column;gap:.8rem;">
-      <p style="color:var(--fire);font-size:.85rem;letter-spacing:2px;">★★★★★</p>
       <p style="font-size:.9rem;color:var(--gray);line-height:1.85;flex:1;font-style:italic;">"Lo que más me gustó fue que nunca intentó decirme lo que tenía que hacer. Me acompañó a descubrirlo por mí mismo. Hubo momentos duros, pero también una sensación de libertad que hacía años que no sentía."</p>
       <p style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-light);">— J Luis, 49 años · Sesión individual</p>
     </div>
@@ -537,7 +578,7 @@ p.body+p.body { margin-top:1rem; }
     </div>
     <div class="faq-item">
       <div class="faq-q"><span>¿Cuánto cuesta una sesión?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a">Escríbeme por WhatsApp y te lo cuento. No publico precios en la web porque depende del formato y el proceso que necesitas.</div>
+      <div class="faq-a">La sesión individual cuesta 70 € (60 minutos, presencial en Tarragona u online). Si venís en pareja o buscas otro formato, escríbeme y te digo el precio.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q"><span>¿Cuándo hace falta ir a terapia de pareja?</span><span class="faq-toggle">+</span></div>
@@ -553,8 +594,6 @@ p.body+p.body { margin-top:1rem; }
     </div>
   </div>
 </div>
-
-<section class="bloque"><span class="sec-label">Del blog</span><h2 class="grande">¿Por qué no sales de la depresión? La verdad psicológica</h2><p class="body">Una reflexión en vídeo sobre las ganancias secundarias y la sensación de estancamiento.</p><a href="blog-por-que-no-sales-de-la-depresion-la-verdad-psicologica" class="btn-outline">Ver vídeo y descripción →</a></section>
 
 <section class="bloque"><span class="sec-label">Del blog</span><h2 class="grande">El miedo a la intimidad y al compromiso</h2><p class="body">¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja?</p><a href="blog-la-razon-oculta-por-la-que-evitas-comprometerte" class="btn-outline">Ver vídeo y descripción →</a></section>
 <!-- CTA FINAL -->
@@ -668,11 +707,13 @@ document.querySelectorAll('.faq-q').forEach(btn => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString()
     })
-      .then(function () {
+      .then(function (r) {
+        if (!r.ok) { throw new Error('envio'); }
         statusEl.textContent = 'Mensaje enviado. Te contactaré en breve.';
         statusEl.className = 'ok';
         fallbackForm.reset();
         if (window.gtag) {
+          gtag('event', 'generate_lead', { 'metodo': 'formulario', 'pagina': location.pathname });
           gtag('event', 'conversion', {
             'send_to': 'AW-18318477742/F1MjCIrB-_ocEK6T955E',
             'value': 1.0,

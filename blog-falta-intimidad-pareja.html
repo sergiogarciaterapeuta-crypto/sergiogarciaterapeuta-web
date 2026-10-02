@@ -192,16 +192,44 @@ footer {
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-Y3E0GC5DX6'); gtag('config', 'AW-18318477742');
+  // Origen de la visita: "A" = anuncios (gclid/gbraid/wbraid o utm_medium=cpc), "W" = resto. Se guarda durante la sesión.
+  (function(){
+    try {
+      var q = new URLSearchParams(location.search);
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+    } catch (err) {}
+  })();
+  function sgCode() {
+    var p = location.pathname.replace(/\.html$/, '').replace(/^\//, '') || 'inicio';
+    var map = {'inicio':'GEN','sesiones':'SES','terapia-individual-tarragona':'IND','terapia-pareja-tarragona':'PAR','ruptura-crisis-pareja-tarragona':'PAR','dependencia-emocional-tarragona':'DEP','terapia-gestalt-tarragona':'GES','terapia-online':'ONL','crisis-existencial':'CRI','programas':'PRG','talleres-retiros':'TAL','del-dolor-a-la-alegria':'TAL','el-personaje':'PER','sobre-sergio':'SOB'};
+    var c = map[p] || (p.indexOf('blog') === 0 ? 'BLG' : 'WEB');
+    var s = 'W';
+    try { s = sessionStorage.getItem('sg_src') || 'W'; } catch (err) {}
+    return c + '-' + s;
+  }
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[href*="wa.me"]');
     if (link) {
+      var code = sgCode();
+      try {
+        var u = new URL(link.href);
+        if (u.href.indexOf('%5B' + code.split('-')[0]) === -1) {
+          var t = u.searchParams.get('text') || 'Hola Sergio, me gustaría más información';
+          link.href = 'https://wa.me' + u.pathname + '?text=' + encodeURIComponent(t + ' [' + code + ']');
+        }
+      } catch (err) {}
+      gtag('event', 'whatsapp_click', {
+        'cta': link.getAttribute('data-cta') || (link.textContent || '').trim().slice(0, 60),
+        'codigo': code,
+        'pagina': location.pathname
+      });
       gtag('event', 'conversion', {
         'send_to': 'AW-18318477742/J--eCPbZudIcEK6T955E',
         'value': 1.0,
         'currency': 'EUR'
       });
     }
-  });
+  }, true);
 </script>
 <link rel="canonical" href="https://sergiogarciaterapeuta.es/blog-falta-intimidad-pareja">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -235,7 +263,7 @@ footer {
 <div class="top-bar">
   <a href="tel:+34634422827">📞 634 42 28 27</a>
   <span class="tb-sep">·</span>
-  <a href="mailto:sergiogarciaterapeuta@gmail.com">✉️ sergiogarciaterapeuta@gmail.com</a>
+  <a href="mailto:sergio@sergiogarciaterapeuta.es">✉️ sergio@sergiogarciaterapeuta.es</a>
 </div>
 <nav>
   <a href="index.html" class="logo">Sergio García</a>
@@ -376,11 +404,13 @@ footer {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString()
     })
-      .then(function () {
+      .then(function (r) {
+        if (!r.ok) { throw new Error('envio'); }
         statusEl.textContent = 'Mensaje enviado. Te contactaré en breve.';
         statusEl.className = 'ok';
         fallbackForm.reset();
         if (window.gtag) {
+          gtag('event', 'generate_lead', { 'metodo': 'formulario', 'pagina': location.pathname });
           gtag('event', 'conversion', {
             'send_to': 'AW-18318477742/F1MjCIrB-_ocEK6T955E',
             'value': 1.0,

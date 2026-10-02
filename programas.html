@@ -253,16 +253,44 @@ p.body+p.body { margin-top:1rem; }
   gtag('js', new Date());
   gtag('config', 'G-Y3E0GC5DX6');
     gtag('config', 'AW-18318477742');
+  // Origen de la visita: "A" = anuncios (gclid/gbraid/wbraid o utm_medium=cpc), "W" = resto. Se guarda durante la sesión.
+  (function(){
+    try {
+      var q = new URLSearchParams(location.search);
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+    } catch (err) {}
+  })();
+  function sgCode() {
+    var p = location.pathname.replace(/\.html$/, '').replace(/^\//, '') || 'inicio';
+    var map = {'inicio':'GEN','sesiones':'SES','terapia-individual-tarragona':'IND','terapia-pareja-tarragona':'PAR','ruptura-crisis-pareja-tarragona':'PAR','dependencia-emocional-tarragona':'DEP','terapia-gestalt-tarragona':'GES','terapia-online':'ONL','crisis-existencial':'CRI','programas':'PRG','talleres-retiros':'TAL','del-dolor-a-la-alegria':'TAL','el-personaje':'PER','sobre-sergio':'SOB'};
+    var c = map[p] || (p.indexOf('blog') === 0 ? 'BLG' : 'WEB');
+    var s = 'W';
+    try { s = sessionStorage.getItem('sg_src') || 'W'; } catch (err) {}
+    return c + '-' + s;
+  }
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[href*="wa.me"]');
     if (link) {
+      var code = sgCode();
+      try {
+        var u = new URL(link.href);
+        if (u.href.indexOf('%5B' + code.split('-')[0]) === -1) {
+          var t = u.searchParams.get('text') || 'Hola Sergio, me gustaría más información';
+          link.href = 'https://wa.me' + u.pathname + '?text=' + encodeURIComponent(t + ' [' + code + ']');
+        }
+      } catch (err) {}
+      gtag('event', 'whatsapp_click', {
+        'cta': link.getAttribute('data-cta') || (link.textContent || '').trim().slice(0, 60),
+        'codigo': code,
+        'pagina': location.pathname
+      });
       gtag('event', 'conversion', {
         'send_to': 'AW-18318477742/J--eCPbZudIcEK6T955E',
         'value': 1.0,
         'currency': 'EUR'
       });
     }
-  });
+  }, true);
 </script>
 <link rel="canonical" href="https://sergiogarciaterapeuta.es/programas">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -285,8 +313,10 @@ p.body+p.body { margin-top:1rem; }
   "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
   "url": "https://sergiogarciaterapeuta.es/",
   "telephone": "+34634422827",
+  "email": "sergio@sergiogarciaterapeuta.es",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "C/ Méndez Núñez 21",
     "addressLocality": "Tarragona",
     "addressRegion": "Catalunya",
     "addressCountry": "ES"
@@ -346,7 +376,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="top-bar">
   <a href="tel:+34634422827">📞 634 42 28 27</a>
   <span class="tb-sep">·</span>
-  <a href="mailto:sergiogarciaterapeuta@gmail.com">✉️ sergiogarciaterapeuta@gmail.com</a>
+  <a href="mailto:sergio@sergiogarciaterapeuta.es">✉️ sergio@sergiogarciaterapeuta.es</a>
 </div>
 <nav>
   <a href="index.html" class="logo">Sergio García</a>
@@ -477,6 +507,7 @@ p.body+p.body { margin-top:1rem; }
   <div class="modal">
     <span class="modal-tag">Esencial</span>
     <h3 class="modal-h">El inicio del proceso</h3>
+    <span class="modal-price">947€</span>
     <ul class="modal-items">
       <li>3 sesiones individuales de 90 min</li>
       <li>5 semanas</li>
@@ -490,6 +521,7 @@ p.body+p.body { margin-top:1rem; }
   <div class="modal best">
     <span class="modal-tag">Intensivo <span class="modal-badge">Más elegido</span></span>
     <h3 class="modal-h">El proceso completo</h3>
+    <span class="modal-price">1.547€</span>
     <ul class="modal-items">
       <li>5 sesiones individuales de 90 min</li>
       <li>6 semanas</li>
@@ -503,6 +535,7 @@ p.body+p.body { margin-top:1rem; }
   <div class="modal">
     <span class="modal-tag">Transformación</span>
     <h3 class="modal-h">El proceso más profundo</h3>
+    <span class="modal-price">1.974€</span>
     <ul class="modal-items">
       <li>7 sesiones individuales de 90 min</li>
       <li>6 semanas</li>
@@ -572,6 +605,7 @@ function ml_webform_success_43555796() {
   var $ = ml_jQuery || jQuery;
   $('.ml-subscribe-form-43555796 .row-success').show();
   $('.ml-subscribe-form-43555796 .row-form').hide();
+  if (window.gtag) { gtag('event', 'sign_up', { 'metodo': 'audios_deja_de_entenderte', 'pagina': location.pathname }); }
 }
 </script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
@@ -662,11 +696,13 @@ fetch("https://assets.mailerlite.com/jsonp/1319169/forms/192508129650410538/take
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString()
     })
-      .then(function () {
+      .then(function (r) {
+        if (!r.ok) { throw new Error('envio'); }
         statusEl.textContent = 'Mensaje enviado. Te contactaré en breve.';
         statusEl.className = 'ok';
         fallbackForm.reset();
         if (window.gtag) {
+          gtag('event', 'generate_lead', { 'metodo': 'formulario', 'pagina': location.pathname });
           gtag('event', 'conversion', {
             'send_to': 'AW-18318477742/F1MjCIrB-_ocEK6T955E',
             'value': 1.0,

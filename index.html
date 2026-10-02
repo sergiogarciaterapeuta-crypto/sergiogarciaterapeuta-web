@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sergio García · Terapeuta en Tarragona</title>
+<title>Terapeuta Gestalt en Tarragona y online · Sergio García</title>
 <meta name="description" content="Terapia individual y de pareja en Tarragona para crisis existenciales y patrones que se repiten. Un espacio para quienes sienten que entender ya no es suficiente.">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -281,16 +281,44 @@ footer {
   gtag('js', new Date());
   gtag('config', 'G-Y3E0GC5DX6');
   gtag('config', 'AW-18318477742');
+  // Origen de la visita: "A" = anuncios (gclid/gbraid/wbraid o utm_medium=cpc), "W" = resto. Se guarda durante la sesión.
+  (function(){
+    try {
+      var q = new URLSearchParams(location.search);
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+    } catch (err) {}
+  })();
+  function sgCode() {
+    var p = location.pathname.replace(/\.html$/, '').replace(/^\//, '') || 'inicio';
+    var map = {'inicio':'GEN','sesiones':'SES','terapia-individual-tarragona':'IND','terapia-pareja-tarragona':'PAR','ruptura-crisis-pareja-tarragona':'PAR','dependencia-emocional-tarragona':'DEP','terapia-gestalt-tarragona':'GES','terapia-online':'ONL','crisis-existencial':'CRI','programas':'PRG','talleres-retiros':'TAL','del-dolor-a-la-alegria':'TAL','el-personaje':'PER','sobre-sergio':'SOB'};
+    var c = map[p] || (p.indexOf('blog') === 0 ? 'BLG' : 'WEB');
+    var s = 'W';
+    try { s = sessionStorage.getItem('sg_src') || 'W'; } catch (err) {}
+    return c + '-' + s;
+  }
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[href*="wa.me"]');
     if (link) {
+      var code = sgCode();
+      try {
+        var u = new URL(link.href);
+        if (u.href.indexOf('%5B' + code.split('-')[0]) === -1) {
+          var t = u.searchParams.get('text') || 'Hola Sergio, me gustaría más información';
+          link.href = 'https://wa.me' + u.pathname + '?text=' + encodeURIComponent(t + ' [' + code + ']');
+        }
+      } catch (err) {}
+      gtag('event', 'whatsapp_click', {
+        'cta': link.getAttribute('data-cta') || (link.textContent || '').trim().slice(0, 60),
+        'codigo': code,
+        'pagina': location.pathname
+      });
       gtag('event', 'conversion', {
         'send_to': 'AW-18318477742/J--eCPbZudIcEK6T955E',
         'value': 1.0,
         'currency': 'EUR'
       });
     }
-  });
+  }, true);
 </script>
 <link rel="canonical" href="https://sergiogarciaterapeuta.es/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -313,8 +341,10 @@ footer {
   "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
   "url": "https://sergiogarciaterapeuta.es/",
   "telephone": "+34634422827",
+  "email": "sergio@sergiogarciaterapeuta.es",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "C/ Méndez Núñez 21",
     "addressLocality": "Tarragona",
     "addressRegion": "Catalunya",
     "addressCountry": "ES"
@@ -432,7 +462,7 @@ footer {
 <div class="top-bar">
   <a href="tel:+34634422827">📞 634 42 28 27</a>
   <span class="tb-sep">·</span>
-  <a href="mailto:sergiogarciaterapeuta@gmail.com">✉️ sergiogarciaterapeuta@gmail.com</a>
+  <a href="mailto:sergio@sergiogarciaterapeuta.es">✉️ sergio@sergiogarciaterapeuta.es</a>
 </div>
 <nav>
   <a href="index.html" class="logo active">Sergio García</a>
@@ -453,12 +483,13 @@ footer {
 
 <section class="hero">
   <div class="hero-l">
-    <p class="hero-tag">Terapeuta en Tarragona · Online · Terapia individual y de pareja</p>
-    <h1 class="hero-h1"><span class="hero-h1-line">Hay personas que buscan respuestas.</span><span class="hero-h1-line">Otras descubren que entender nunca fue el problema.</span></h1>
+    <h1 class="hero-tag" style="font-family:inherit;font-weight:500;margin:0;">Terapeuta Gestalt en Tarragona · Online · Terapia individual y de pareja</h1>
+    <p class="hero-h1" style="font-family:'Cormorant Garamond',serif;"><span class="hero-h1-line">Hay personas que buscan respuestas.</span><span class="hero-h1-line">Otras descubren que entender nunca fue el problema.</span></p>
     <p class="hero-h1"><span class="hero-h1-line">El problema era seguir viviendo siempre de la <em>misma manera</em>.</span></p>
     <div>
-      <p class="hero-sub">Si llegas aquí por ansiedad, una ruptura, un duelo o una crisis existencial, estás en el lugar adecuado. Y si además llevas años repitiendo la misma historia —la misma pareja, el mismo límite que no pones—, también.</p>
-      <a href="https://wa.me/34634422827" class="btn-dark">Reservar primera sesión →</a>
+      <p class="hero-sub">Si llegas aquí por ansiedad, una ruptura, un duelo o una <a href="crisis-existencial" style="color:var(--fire);">crisis existencial</a>, estás en el lugar adecuado. Y si además llevas años repitiendo la misma historia —la misma pareja, el mismo límite que no pones—, también.</p>
+      <a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20quiero%20reservar%20una%20primera%20sesi%C3%B3n" data-cta="hero_reservar" class="btn-dark">Reservar primera sesión →</a>
+      <p style="font-size:.78rem;color:var(--gray);margin-top:.8rem;">Sesión individual: 70 € · 60 min · presencial u online. Te respondo yo, no un equipo.</p>
     </div>
   </div>
   <div class="hero-r">
@@ -627,29 +658,24 @@ footer {
   <span class="sec-label">Lo que dicen</span>
   <div class="test-grid">
     <div class="test dark">
-      <p class="test-s">★★★★★</p>
       <p class="test-q">"Una de las mejores inversiones de mi vida. Llegué pensando que necesitaba respuestas y descubrí que lo que necesitaba era dejar de repetir los mismos patrones de siempre."</p>
       <p class="test-by">— Javier, 42 años</p>
     </div>
     <div class="test">
-      <p class="test-s">★★★★★</p>
       <p class="test-q">"Había probado psicólogos, libros, cursos y vídeos. Entendía perfectamente lo que me pasaba, pero seguía actuando igual. Con Sergio dejé de acumular teoría y empecé a hacer cambios reales."</p>
       <p class="test-by">— Laura, 36 años</p>
     </div>
     <div class="test">
-      <p class="test-s">★★★★★</p>
       <p class="test-q">"Llegué por una ruptura de pareja y terminé entendiendo que el problema no era aquella relación, sino un patrón que llevaba repitiendo toda mi vida."</p>
       <p class="test-by">— Agatha, 39 años</p>
     </div>
   </div>
   <div class="test2-grid" style="margin-top:1.5rem;">
     <div class="test">
-      <p class="test-s">★★★★★</p>
       <p class="test-q">"Llegamos convencidos de que el problema era el otro. En pocas sesiones entendimos que ambos llevábamos años relacionándonos desde el mismo personaje. No fue una terapia para aprender técnicas de comunicación. Fue mucho más incómodo... y mucho más transformador."</p>
       <p class="test-by">— Marta y David · Terapia de pareja</p>
     </div>
     <div class="test dark">
-      <p class="test-s" style="color:#E8956A;">★★★★★</p>
       <p class="test-q" style="color:rgba(255,255,255,.6);">"He hecho muchos retiros y muchos cursos. En ninguno había sentido tanta verdad. No me llevé respuestas. Me llevé una decisión. Y eso cambió completamente la dirección de mi vida."</p>
       <p class="test-by" style="color:rgba(255,255,255,.3);">— Carlos · Retiro de transformación</p>
     </div>
@@ -728,7 +754,7 @@ window.addEventListener('load', function(){
     <div class="c-row"><span class="c-lbl">Online</span><span class="c-val">Todo el mundo en castellano</span></div>
     <div class="c-row"><span class="c-lbl">Talleres y retiros</span><span class="c-val">Tarragona y Cataluña</span></div>
     <div class="c-row"><span class="c-lbl">Teléfono</span><span class="c-val"><a href="tel:+34634422827" style="color:inherit;text-decoration:none;">634 42 28 27</a></span></div>
-    <div class="c-row"><span class="c-lbl">Email</span><span class="c-val"><a href="mailto:sergiogarciaterapeuta@gmail.com" style="color:inherit;text-decoration:none;">sergiogarciaterapeuta@gmail.com</a></span></div>
+    <div class="c-row"><span class="c-lbl">Email</span><span class="c-val"><a href="mailto:sergio@sergiogarciaterapeuta.es" style="color:inherit;text-decoration:none;">sergio@sergiogarciaterapeuta.es</a></span></div>
     <div class="c-row"><span class="c-lbl">Contacto</span><span class="c-val">WhatsApp · L-V</span></div>
     <div class="c-row"><span class="c-lbl">Instagram</span><span class="c-val">@sergiogarciaterapeuta</span></div>
   </div>
@@ -845,11 +871,13 @@ document.querySelectorAll('.faq-q').forEach(btn => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString()
     })
-      .then(function () {
+      .then(function (r) {
+        if (!r.ok) { throw new Error('envio'); }
         statusEl.textContent = 'Mensaje enviado. Te contactaré en breve.';
         statusEl.className = 'ok';
         fallbackForm.reset();
         if (window.gtag) {
+          gtag('event', 'generate_lead', { 'metodo': 'formulario', 'pagina': location.pathname });
           gtag('event', 'conversion', {
             'send_to': 'AW-18318477742/F1MjCIrB-_ocEK6T955E',
             'value': 1.0,

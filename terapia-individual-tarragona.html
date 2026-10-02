@@ -206,16 +206,44 @@ p.body+p.body { margin-top:1rem; }
   gtag('js', new Date());
   gtag('config', 'G-Y3E0GC5DX6');
     gtag('config', 'AW-18318477742');
+  // Origen de la visita: "A" = anuncios (gclid/gbraid/wbraid o utm_medium=cpc), "W" = resto. Se guarda durante la sesión.
+  (function(){
+    try {
+      var q = new URLSearchParams(location.search);
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+    } catch (err) {}
+  })();
+  function sgCode() {
+    var p = location.pathname.replace(/\.html$/, '').replace(/^\//, '') || 'inicio';
+    var map = {'inicio':'GEN','sesiones':'SES','terapia-individual-tarragona':'IND','terapia-pareja-tarragona':'PAR','ruptura-crisis-pareja-tarragona':'PAR','dependencia-emocional-tarragona':'DEP','terapia-gestalt-tarragona':'GES','terapia-online':'ONL','crisis-existencial':'CRI','programas':'PRG','talleres-retiros':'TAL','del-dolor-a-la-alegria':'TAL','el-personaje':'PER','sobre-sergio':'SOB'};
+    var c = map[p] || (p.indexOf('blog') === 0 ? 'BLG' : 'WEB');
+    var s = 'W';
+    try { s = sessionStorage.getItem('sg_src') || 'W'; } catch (err) {}
+    return c + '-' + s;
+  }
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[href*="wa.me"]');
     if (link) {
+      var code = sgCode();
+      try {
+        var u = new URL(link.href);
+        if (u.href.indexOf('%5B' + code.split('-')[0]) === -1) {
+          var t = u.searchParams.get('text') || 'Hola Sergio, me gustaría más información';
+          link.href = 'https://wa.me' + u.pathname + '?text=' + encodeURIComponent(t + ' [' + code + ']');
+        }
+      } catch (err) {}
+      gtag('event', 'whatsapp_click', {
+        'cta': link.getAttribute('data-cta') || (link.textContent || '').trim().slice(0, 60),
+        'codigo': code,
+        'pagina': location.pathname
+      });
       gtag('event', 'conversion', {
         'send_to': 'AW-18318477742/J--eCPbZudIcEK6T955E',
         'value': 1.0,
         'currency': 'EUR'
       });
     }
-  });
+  }, true);
 </script>
 
 <link rel="canonical" href="https://sergiogarciaterapeuta.es/terapia-individual-tarragona">
@@ -239,8 +267,10 @@ p.body+p.body { margin-top:1rem; }
   "image": "https://sergiogarciaterapeuta.es/images/sesiones-1-a46c4230.webp",
   "url": "https://sergiogarciaterapeuta.es/",
   "telephone": "+34634422827",
+  "email": "sergio@sergiogarciaterapeuta.es",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "C/ Méndez Núñez 21",
     "addressLocality": "Tarragona",
     "addressRegion": "Catalunya",
     "addressCountry": "ES"
@@ -305,7 +335,7 @@ p.body+p.body { margin-top:1rem; }
       "name": "¿Cuánto cuesta una sesión individual?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Escríbeme por WhatsApp y te lo cuento. No publico precios en la web porque depende del formato y el proceso que necesitas."
+        "text": "70 € la sesión de 60 minutos, presencial en Tarragona u online. Sin bonos ni paquetes cerrados: pagas cada sesión."
       }
     },
     {
@@ -326,7 +356,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="top-bar">
   <a href="tel:+34634422827">📞 634 42 28 27</a>
   <span class="tb-sep">·</span>
-  <a href="mailto:sergiogarciaterapeuta@gmail.com">✉️ sergiogarciaterapeuta@gmail.com</a>
+  <a href="mailto:sergio@sergiogarciaterapeuta.es">✉️ sergio@sergiogarciaterapeuta.es</a>
 </div>
 <nav>
   <a href="index.html" class="logo">Sergio García</a>
@@ -377,15 +407,15 @@ p.body+p.body { margin-top:1rem; }
 <!-- CÓMO ES LA PRIMERA SESIÓN -->
 <div class="two-col">
   <div>
-    <span class="sec-label">Cómo es la primera sesión</span>
-    <h2 class="grande">Nada especial.<br>Empezamos a trabajar.</h2>
-    <p class="body">No hay formularios. No hay test. No hay protocolo de bienvenida. Nos sentamos, me cuentas qué te trae aquí, y yo escucho.</p>
-    <p class="body">Al final de la primera sesión decidimos juntos si tiene sentido seguir trabajando. Sin compromisos a largo plazo. Sin paquetes cerrados.</p>
-    <p class="body">El proceso lo defines tú.</p>
+    <span class="sec-label">Por qué la sesión individual</span>
+    <h2 class="grande">Entender lo que te pasa<br>no basta para dejar de repetirlo.</h2>
+    <p class="body">Probablemente ya sabes de dónde viene tu patrón. Lo has leído, lo has hablado, quizá lo has trabajado en otra terapia. Y aun así, cuando llega el momento, vuelves a hacer lo mismo.</p>
+    <p class="body">En la sesión individual no buscamos otra explicación. Miramos qué parte de ti está decidiendo en ese instante —lo que yo llamo <a href="el-personaje" style="color:var(--fire);">el personaje</a>— y qué intenta protegerte. Cuando eso se ve en el cuerpo y no solo en la cabeza, cambia lo que haces.</p>
+    <p class="body">La primera sesión ya es trabajo: me cuentas qué te trae, empezamos, y al final decidimos juntos si tiene sentido seguir. 70 € por sesión, sin paquetes cerrados.</p>
   </div>
   <div style="background:var(--ink);color:var(--bone);">
     <span class="sec-label" style="color:#E8956A;">Temas frecuentes en sesión individual</span>
-    <h2 class="grande" style="color:var(--bone);margin-bottom:1.5rem;">Lo que traen las personas que llegan aquí.</h2>
+    <h2 class="grande" style="color:var(--bone);margin-bottom:1.5rem;">Lo que traen quienes vienen a sesión individual.</h2>
     <div style="padding:.85rem 0;border-bottom:0.5px solid rgba(255,255,255,.06);font-size:.9rem;color:rgba(255,255,255,.6);">No sé qué hacer con mi vida</div><div style="padding:.85rem 0;border-bottom:0.5px solid rgba(255,255,255,.06);font-size:.9rem;color:rgba(255,255,255,.6);">Llevo años repitiendo el mismo patrón</div><div style="padding:.85rem 0;border-bottom:0.5px solid rgba(255,255,255,.06);font-size:.9rem;color:rgba(255,255,255,.6);">Entiendo lo que me pasa pero sigo igual</div><div style="padding:.85rem 0;border-bottom:0.5px solid rgba(255,255,255,.06);font-size:.9rem;color:rgba(255,255,255,.6);">Ansiedad que no desaparece</div><div style="padding:.85rem 0;border-bottom:0.5px solid rgba(255,255,255,.06);font-size:.9rem;color:rgba(255,255,255,.6);">Sensación de estar viviendo una vida equivocada</div><div style="padding:.85rem 0;font-size:.9rem;color:rgba(255,255,255,.6);">Bloqueo para tomar decisiones importantes</div>
   </div>
 </div>
@@ -394,7 +424,6 @@ p.body+p.body { margin-top:1rem; }
 <section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);">
   <span class="sec-label">Lo que dicen</span>
   <div style="max-width:720px;padding:2rem;border:0.5px solid var(--rule);display:flex;flex-direction:column;gap:.8rem;">
-    <p style="color:var(--fire);font-size:.85rem;letter-spacing:2px;">★★★★★</p>
     <p style="font-size:.9rem;color:var(--gray);line-height:1.85;font-style:italic;">"Lo que más me gustó fue que nunca intentó decirme lo que tenía que hacer. Me acompañó a descubrirlo por mí mismo. Hubo momentos duros, pero también una sensación de libertad que hacía años que no sentía."</p>
     <p style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-light);">— J Luis, 49 años · Sesión individual en Tarragona</p>
   </div>
@@ -407,6 +436,7 @@ p.body+p.body { margin-top:1rem; }
     <a href="terapia-pareja-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Terapia de pareja en Tarragona →</a>
     <a href="terapia-gestalt-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Qué es la terapia Gestalt →</a>
     <a href="dependencia-emocional-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Dependencia emocional →</a>
+    <a href="crisis-existencial" class="btn-outline" style="text-align:center;padding:1.2rem;">Crisis existencial →</a>
   </div>
 </section>
 
@@ -428,7 +458,7 @@ p.body+p.body { margin-top:1rem; }
     </div>
     <div class="faq-item">
       <div class="faq-q"><span>¿Cuánto cuesta una sesión individual?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a">Escríbeme por WhatsApp y te lo cuento. No publico precios en la web porque depende del formato y el proceso que necesitas.</div>
+      <div class="faq-a">70 € la sesión de 60 minutos, presencial en Tarragona u online. Sin bonos ni paquetes cerrados: pagas cada sesión.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q"><span>¿Es lo mismo que ir al psicólogo?</span><span class="faq-toggle">+</span></div>
@@ -548,11 +578,13 @@ document.querySelectorAll('.faq-q').forEach(btn => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString()
     })
-      .then(function () {
+      .then(function (r) {
+        if (!r.ok) { throw new Error('envio'); }
         statusEl.textContent = 'Mensaje enviado. Te contactaré en breve.';
         statusEl.className = 'ok';
         fallbackForm.reset();
         if (window.gtag) {
+          gtag('event', 'generate_lead', { 'metodo': 'formulario', 'pagina': location.pathname });
           gtag('event', 'conversion', {
             'send_to': 'AW-18318477742/F1MjCIrB-_ocEK6T955E',
             'value': 1.0,
