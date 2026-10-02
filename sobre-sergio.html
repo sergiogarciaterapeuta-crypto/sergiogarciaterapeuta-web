@@ -354,6 +354,23 @@ p.body + p.body { margin-top:1rem; }
   ]
 }
 </script>
+<style id="sg-movil">
+/* Ajustes móvil (auditoría visual oct 2026) */
+@media (max-width:768px){
+  html{overflow-x:clip;}
+  img,video,iframe{max-width:100%;}
+  [style*="grid-template-columns"]{grid-template-columns:1fr !important;}
+  [style*="repeat(4,1fr)"],[style*="repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important;row-gap:1.6rem;}
+  [style*="grid-template-columns"] > div{border-right:none !important;}
+  [style*="grid-template-columns"] > div[style*="padding:2rem 2rem 2rem 0"],
+  [style*="grid-template-columns"] > div[style*="padding:2rem 0 2rem 2rem"]{padding:1.6rem 0 !important;}
+  [style*="grid-template-columns"] > div[style*="padding:2rem;"]{padding:1.6rem 0 !important;}
+  .franja{flex-wrap:wrap;justify-content:center;gap:.4rem 1rem;}
+  .sr-cta{white-space:normal;}
+  table{font-size:.8rem;}
+  table th,table td{padding:.5rem .35rem !important;}
+}
+</style>
 </head>
 
 
@@ -501,7 +518,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   <div id="sg-panel">
     <div id="sg-panel-header">
       Sergio García
-      <span>Terapeuta Gestalt · Tarragona</span>
+      <span>Terapeuta · Tarragona</span>
     </div>
     <div id="sg-panel-body">
       <div id="sg-msg-preview">
@@ -515,8 +532,8 @@ document.querySelectorAll('.faq-q').forEach(btn => {
       <button id="sg-fallback-link" type="button">¿No tienes WhatsApp? Escríbeme aquí</button>
 
       <form id="sg-fallback-form">
-        <input type="text" name="nombre" placeholder="Tu nombre" required />
-        <input type="text" name="telefono" placeholder="Teléfono o email de contacto" required />
+        <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="name" required />
+        <input type="text" name="telefono" placeholder="Tu teléfono o email" autocomplete="tel" required />
         <textarea name="mensaje" placeholder="¿En qué puedo ayudarte?" required></textarea>
         <button id="sg-fallback-submit" type="submit">Enviar mensaje</button>
         <div id="sg-form-status"></div>
