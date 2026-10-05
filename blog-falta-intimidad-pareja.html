@@ -253,8 +253,7 @@ footer {
   "embedUrl": "https://www.youtube-nocookie.com/embed/2z4_ie4l67k",
   "uploadDate": "2026-07-24",
   "publisher": {
-    "@type": "Person",
-    "name": "Sergio García"
+    "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia"
   }
 }
 </script>
@@ -275,6 +274,150 @@ footer {
   table th,table td{padding:.5rem .35rem !important;}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://sergiogarciaterapeuta.es/#website",
+      "url": "https://sergiogarciaterapeuta.es/",
+      "name": "Sergio García · Terapeuta",
+      "inLanguage": "es",
+      "publisher": {
+        "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
+      "name": "Sergio García",
+      "jobTitle": "Terapeuta Gestalt y existencial",
+      "description": "Terapeuta Gestalt, sistémico y existencial en Tarragona, con más de 20 años acompañando procesos de transformación personal. Creador del enfoque «El personaje». No es psicólogo sanitario.",
+      "url": "https://sergiogarciaterapeuta.es/sobre-sergio",
+      "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
+      "email": "sergio@sergiogarciaterapeuta.es",
+      "telephone": "+34634422827",
+      "knowsAbout": [
+        "crisis existencial",
+        "dependencia emocional",
+        "terapia de pareja",
+        "terapia Gestalt",
+        "terapia existencial",
+        "terapia sistémica",
+        "El personaje"
+      ],
+      "knowsLanguage": [
+        "es"
+      ],
+      "worksFor": {
+        "@id": "https://sergiogarciaterapeuta.es/#consulta"
+      },
+      "sameAs": [
+        "https://www.instagram.com/sergiogarciaterapeuta",
+        "https://www.youtube.com/@SergioGarciaTerapeuta"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://sergiogarciaterapeuta.es/#consulta",
+      "name": "Sergio García · Terapeuta Gestalt y existencial",
+      "url": "https://sergiogarciaterapeuta.es/",
+      "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
+      "telephone": "+34634422827",
+      "email": "sergio@sergiogarciaterapeuta.es",
+      "founder": {
+        "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tarragona",
+        "addressRegion": "Cataluña",
+        "addressCountry": "ES"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Tarragona"
+        },
+        {
+          "@type": "City",
+          "name": "Reus"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Camp de Tarragona"
+        },
+        {
+          "@type": "Country",
+          "name": "España"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Terapia individual",
+              "url": "https://sergiogarciaterapeuta.es/terapia-individual-tarragona"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Terapia de pareja",
+              "url": "https://sergiogarciaterapeuta.es/terapia-pareja-tarragona"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Terapia Gestalt",
+              "url": "https://sergiogarciaterapeuta.es/terapia-gestalt-tarragona"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Terapia online",
+              "url": "https://sergiogarciaterapeuta.es/terapia-online"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Talleres y retiros",
+              "url": "https://sergiogarciaterapeuta.es/talleres-retiros"
+            }
+          }
+        ]
+      },
+      "sameAs": [
+        "https://www.instagram.com/sergiogarciaterapeuta",
+        "https://www.youtube.com/@SergioGarciaTerapeuta"
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* arreglo móvil: bloques con columnas fijas que desbordaban en pantallas pequeñas */
+@media (max-width:768px){
+  main [style*="grid-template-columns"]{grid-template-columns:1fr!important;gap:1rem!important;}
+  main div[style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:repeat(2,1fr)!important;gap:0!important;}
+  main div[style*="grid-template-columns:repeat(4,1fr)"] > div{border-right:none!important;}
+  main [style*="padding:2.5rem 0 2.5rem 2.5rem"],main [style*="padding:2rem 0 2rem 2rem"]{padding-left:0!important;border-left:none!important;}
+  .sr-cta,.btn-outline,.btn-dark,.btn-fire{white-space:normal!important;max-width:100%;}
+  .franja{flex-wrap:wrap;}
+}
+</style>
 </head>
 <body>
 <div class="top-bar">
@@ -283,16 +426,16 @@ footer {
   <a href="mailto:sergio@sergiogarciaterapeuta.es">✉️ sergio@sergiogarciaterapeuta.es</a>
 </div>
 <nav>
-  <a href="index.html" class="logo">Sergio García</a>
+  <a href="/" class="logo">Sergio García</a>
   <div class="nav-links" onclick="if(event.target.tagName==='A'){this.classList.remove('open');var t=document.querySelector('.nav-toggle');t.setAttribute('aria-expanded','false');t.innerHTML='\u2630';}">
-    <a href="index.html">Inicio</a>
-    <a href="el-personaje">El personaje</a>
-    <a href="sobre-sergio">Sobre mí</a>
-    <a href="sesiones">Sesiones</a>
-    <a href="talleres-retiros">Talleres y retiros</a>
-    <a href="programas">Programas</a>
-    <a href="blog" class="active">Blog</a>
-    <a href="index.html#contacto">Contacto</a>
+    <a href="/">Inicio</a>
+    <a href="/el-personaje">El personaje</a>
+    <a href="/sobre-sergio">Sobre mí</a>
+    <a href="/sesiones">Sesiones</a>
+    <a href="/talleres-retiros">Talleres y retiros</a>
+    <a href="/programas">Programas</a>
+    <a href="/blog" class="active">Blog</a>
+    <a href="/#contacto">Contacto</a>
   </div>
   <a href="https://wa.me/34634422827" class="nav-btn">Reservar sesión</a>
   <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="var m=document.querySelector('.nav-links');var open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);this.innerHTML=open?'\u2715':'\u2630';">☰</button>
@@ -302,7 +445,7 @@ footer {
 <section class="post-head">
   <span class="sec-label">Relaciones de pareja</span>
   <h1>La falta de intimidad en la pareja no es el problema: es el síntoma</h1>
-  <p class="post-meta">Vídeo · Sergio García</p>
+  <p class="post-meta">Vídeo · Por <a href="/sobre-sergio" style="color:inherit">Sergio García</a>, terapeuta Gestalt y existencial</p>
 </section>
 
 <section class="post-video">
@@ -318,7 +461,7 @@ footer {
 
   <p>Por eso intentar "arreglarlo" solo desde lo físico rara vez funciona: es tratar el síntoma sin tocar la raíz. Recuperar la complicidad pasa por el cuidado cotidiano y por una comunicación honesta — volver a hacerse presente para el otro, no solo compartir espacio.</p>
 
-  <a href="sesiones" class="btn-outline">Ver sesiones de pareja →</a>
+  <a href="/sesiones" class="btn-outline">Ver sesiones de pareja →</a>
 </section>
 
 <section class="post-cta">
@@ -329,11 +472,48 @@ footer {
 </section>
 
 </main>
+<nav class="footer-temas" aria-label="Temas y servicios">
+  <div>
+    <p class="footer-titulo">Terapia en Tarragona</p>
+    <ul>
+      <li><a href="/terapia-individual-tarragona">Terapia individual</a></li>
+      <li><a href="/terapia-pareja-tarragona">Terapia de pareja</a></li>
+      <li><a href="/terapia-gestalt-tarragona">Terapia Gestalt</a></li>
+      <li><a href="/terapia-online">Terapia online</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="footer-titulo">Lo que trae la gente</p>
+    <ul>
+      <li><a href="/crisis-existencial">Crisis existencial</a></li>
+      <li><a href="/dependencia-emocional-tarragona">Dependencia emocional</a></li>
+      <li><a href="/ruptura-crisis-pareja-tarragona">Ruptura y crisis de pareja</a></li>
+      <li><a href="/el-personaje">El personaje</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="footer-titulo">Sígueme</p>
+    <ul>
+      <li><a href="https://www.youtube.com/@SergioGarciaTerapeuta" rel="me">YouTube</a></li>
+      <li><a href="https://www.instagram.com/sergiogarciaterapeuta/" rel="me">Instagram</a></li>
+      <li><a href="/sobre-sergio">Sobre mí</a></li>
+    </ul>
+  </div>
+</nav>
+<style>
+.footer-temas{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;padding:2.8rem var(--p) 2.2rem;border-top:0.5px solid var(--rule);}
+.footer-temas .footer-titulo{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fire);margin:0 0 .8rem;}
+.footer-temas ul{list-style:none;margin:0;padding:0;}
+.footer-temas li{margin:.4rem 0;}
+.footer-temas a{font-size:.82rem;color:var(--gray);text-decoration:none;transition:color .18s;}
+.footer-temas a:hover{color:var(--ink);}
+@media (max-width:768px){.footer-temas{grid-template-columns:1fr;gap:1.6rem;}}
+</style>
 <footer>
   <span class="footer-copy">© 2026 Sergio García · Tarragona</span>
   <div class="footer-links">
-    <a href="aviso-legal">Aviso legal</a>
-    <a href="privacidad">Privacidad</a>
+    <a href="/aviso-legal">Aviso legal</a>
+    <a href="/privacidad">Privacidad</a>
   </div>
 </footer>
 
