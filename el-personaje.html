@@ -211,6 +211,23 @@ p.body + p.body { margin-top:1rem; }
 </script>
 <!-- End MailerLite Universal -->
 <!-- Google tag (gtag.js) -->
+<script id="sg-consent-default">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied', 'ad_user_data': 'denied',
+    'ad_personalization': 'denied', 'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  try {
+    if (localStorage.getItem('sg_consent_v1') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted', 'ad_user_data': 'granted',
+        'ad_personalization': 'granted', 'analytics_storage': 'granted'
+      });
+    }
+  } catch (e) {}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -520,7 +537,7 @@ p.body + p.body { margin-top:1rem; }
 <div class="page-hero">
   <div class="page-hero-txt">
     <span class="sec-label">El concepto central</span>
-    <h1>El <em>personaje</em><br>que llevas siendo.</h1>
+    <h1>El <em>personaje</em> <br>que llevas siendo.</h1>
     <p>Construiste una máscara para sobrevivir. Funcionó. El problema es que ya no la necesitas y sigue mandando. Eso es el personaje.</p>
     <p style="margin-top:1.2rem;padding:1rem 1.2rem;border-left:2px solid var(--fire);font-size:.95rem;line-height:1.75;"><strong>Qué es el personaje, en una frase:</strong> es la máscara de supervivencia que una persona construye en la infancia o en un momento crítico de su vida para ser aceptada o evitar el dolor, y que en la edad adulta sigue tomando decisiones por ella aunque ya no la necesite. Es el concepto central del trabajo terapéutico de Sergio García, terapeuta Gestalt en Tarragona.</p>
   </div>
@@ -788,6 +805,7 @@ p.body + p.body { margin-top:1rem; }
   <div class="footer-links">
     <a href="/aviso-legal">Aviso legal</a>
     <a href="/privacidad">Privacidad</a>
+    <a href="/privacidad#cookies" data-sg-cookies>Cookies</a>
   </div>
 </footer>
 <script>
@@ -922,5 +940,6 @@ document.querySelectorAll('.yt-facade').forEach(function(el){
   el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); loadVideo(); } });
 });
 </script>
+<script src="/consent.js" defer></script>
 </body>
 </html>

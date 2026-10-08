@@ -199,6 +199,23 @@ p.body+p.body { margin-top:1rem; }
 </script>
 <!-- End MailerLite Universal -->
 <!-- Google tag (gtag.js) -->
+<script id="sg-consent-default">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied', 'ad_user_data': 'denied',
+    'ad_personalization': 'denied', 'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  try {
+    if (localStorage.getItem('sg_consent_v1') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted', 'ad_user_data': 'granted',
+        'ad_personalization': 'granted', 'analytics_storage': 'granted'
+      });
+    }
+  } catch (e) {}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -498,7 +515,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="page-hero">
   <div>
     <span class="sec-label">Terapia Gestalt</span>
-    <h1>Terapia <em>Gestalt</em><br>en Tarragona.</h1>
+    <h1>Terapia <em>Gestalt</em> <br>en Tarragona.</h1>
     <p>Terapia Gestalt en Tarragona, presencial u online con personas de toda España y del mundo en castellano. Más de 20 años acompañando procesos de transformación real desde el aquí y ahora.</p>
   </div>
   <p class="page-hero-side">"No busco darte respuestas. Te acompaño hasta la pregunta correcta."</p>
@@ -512,7 +529,7 @@ p.body+p.body { margin-top:1rem; }
 <!-- QUÉ ES LA GESTALT -->
 <section class="bloque">
   <span class="sec-label">Qué es la terapia Gestalt</span>
-  <h2 class="grande">Trabajar con lo que está<br>pasando ahora mismo.</h2>
+  <h2 class="grande">Trabajar con lo que está <br>pasando ahora mismo.</h2>
   <p class="body" style="max-width:640px;">La Gestalt trabaja en el presente, con lo que está ocurriendo aquí y ahora. No analiza el pasado indefinidamente: usa la conciencia, el cuerpo y el contacto real. No busca dar respuestas sino acompañar a la persona hasta la pregunta correcta.</p>
   <div style="margin-top:2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:820px;">
     <div>
@@ -534,7 +551,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="two-col">
   <div>
     <span class="sec-label">Cómo trabajo</span>
-    <h2 class="grande">Terapeuta humanista,<br>con base en la Gestalt.</h2>
+    <h2 class="grande">Terapeuta humanista, <br>con base en la Gestalt.</h2>
     <p class="body">Soy terapeuta, no psicólogo. Trabajo desde la Gestalt, la terapia sistémica y la orientación existencial, con más de 20 años acompañando procesos individuales y de pareja en Tarragona y online.</p>
     <p class="body">No diagnostico ni trato trastornos clínicos. Mi trabajo consiste en acompañar procesos de transformación real: crisis vitales, patrones que se repiten, y el personaje que cada uno construyó para sobrevivir y que ya no hace falta.</p>
     <a href="/el-personaje" class="btn-outline" style="margin-top:1rem;display:inline-block;">Descubre qué es el personaje →</a>
@@ -644,6 +661,7 @@ p.body+p.body { margin-top:1rem; }
   <div class="footer-links">
     <a href="/aviso-legal">Aviso legal</a>
     <a href="/privacidad">Privacidad</a>
+    <a href="/privacidad#cookies" data-sg-cookies>Cookies</a>
   </div>
 </footer>
 <script>
@@ -761,5 +779,6 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 })();
 </script>
+<script src="/consent.js" defer></script>
 </body>
 </html>

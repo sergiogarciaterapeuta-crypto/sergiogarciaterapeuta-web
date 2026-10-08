@@ -274,6 +274,23 @@ footer {
 </script>
 <!-- End MailerLite Universal -->
 <!-- Google tag (gtag.js) -->
+<script id="sg-consent-default">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied', 'ad_user_data': 'denied',
+    'ad_personalization': 'denied', 'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  try {
+    if (localStorage.getItem('sg_consent_v1') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted', 'ad_user_data': 'granted',
+        'ad_personalization': 'granted', 'analytics_storage': 'granted'
+      });
+    }
+  } catch (e) {}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -832,7 +849,7 @@ window.addEventListener('load', function(){
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
     <div>
       <span style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#E8956A;margin-bottom:1.5rem;display:block;">Entrevista</span>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;color:var(--bone);line-height:1.2;margin-bottom:1.2rem;">Escúchame antes<br>de escribirme.</h2>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;color:var(--bone);line-height:1.2;margin-bottom:1.2rem;">Escúchame antes <br>de escribirme.</h2>
       <p style="font-size:.95rem;color:rgba(255,255,255,.5);line-height:1.9;margin-bottom:2rem;">Si quieres entender cómo pienso y cómo trabajo antes de dar el paso, esta es la mejor forma de empezar.</p>
       <a href="https://wa.me/34634422827" style="display:inline-block;background:var(--fire);color:white;padding:.88rem 2rem;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;">Escribir después →</a>
     </div>
@@ -929,6 +946,7 @@ window.addEventListener('load', function(){
   <div class="footer-links">
     <a href="/aviso-legal">Aviso legal</a>
     <a href="/privacidad">Privacidad</a>
+    <a href="/privacidad#cookies" data-sg-cookies>Cookies</a>
   </div>
 </footer>
 <script>
@@ -1070,5 +1088,6 @@ document.querySelectorAll('.yt-facade').forEach(function(el){
   el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); loadVideo(); } });
 });
 </script>
+<script src="/consent.js" defer></script>
 </body>
 </html>

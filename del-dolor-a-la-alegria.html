@@ -405,6 +405,23 @@ footer {
 .faq-item.open .faq-toggle { transform:rotate(45deg); color:var(--fire); }
 </style>
 <!-- Google tag (gtag.js) -->
+<script id="sg-consent-default">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied', 'ad_user_data': 'denied',
+    'ad_personalization': 'denied', 'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  try {
+    if (localStorage.getItem('sg_consent_v1') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted', 'ad_user_data': 'granted',
+        'ad_personalization': 'granted', 'analytics_storage': 'granted'
+      });
+    }
+  } catch (e) {}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -730,7 +747,7 @@ footer {
   </div>
   <div class="hero-content">
     <span class="eyebrow">Taller vivencial · Tarragona · Próxima edición por anunciar</span>
-    <h1>Del dolor<br>a la <em>alegría</em></h1>
+    <h1>Del dolor <br>a la <em>alegría</em></h1>
     <p class="hero-sub">El viaje que comienza cuando dejas de huir de ti.</p>
     <div class="hero-meta">
       <span>1 día · 10:00 – 20:00</span>
@@ -759,7 +776,7 @@ footer {
   </div>
   <div class="split-content">
     <span class="section-label">El origen</span>
-    <h2 class="grande">El problema no es el dolor.<br><em>Es todo lo que haces para no sentirlo.</em></h2>
+    <h2 class="grande">El problema no es el dolor. <br><em>Es todo lo que haces para no sentirlo.</em></h2>
     <p class="body">Desde pequeños aprendimos que sentir demasiado era peligroso. Así que empezamos a protegernos. Nos hicimos fuertes. Complacientes. Independientes. Perfectos. Cada uno construyó su personaje.</p>
     <p class="body">Y funcionó — nos ayudó a sobrevivir. Pero también nos alejó de quienes realmente éramos. Y mantener ese personaje acaba siendo agotador.</p>
     <p class="body" style="margin-top:1.2rem;">Este taller no pretende eliminar tu dolor. Pretende enseñarte a atravesarlo.</p>
@@ -816,7 +833,7 @@ footer {
 <!-- METODOLOGÍA -->
 <section style="border-top:0.5px solid var(--rule);">
   <span class="section-label">Metodología</span>
-  <h2 class="grande">No vienes a escuchar.<br><em>Vienes a vivir una experiencia.</em></h2>
+  <h2 class="grande">No vienes a escuchar. <br><em>Vienes a vivir una experiencia.</em></h2>
   <p class="body">Durante ocho horas recorreremos un proceso cuidadosamente diseñado para acompañarte desde el lugar donde hoy estás hasta un espacio de mayor presencia, autenticidad y libertad.</p>
   <div class="tags">
     <span class="tag">Trabajo gestáltico</span>
@@ -901,7 +918,7 @@ footer {
 <!-- CTA FINAL -->
 <section class="cta-final" id="reserva">
   <span class="section-label">Próxima edición</span>
-  <h2 class="grande" style="max-width:600px;margin-left:auto;margin-right:auto;">Si algo dentro de ti<br>se ha movido al leer esto…<br><em>no lo ignores.</em></h2>
+  <h2 class="grande" style="max-width:600px;margin-left:auto;margin-right:auto;">Si algo dentro de ti <br>se ha movido al leer esto… <br><em>no lo ignores.</em></h2>
   <p class="body" style="max-width:520px;margin:0 auto 1rem;text-align:center;">Quizá haya llegado el momento de dejar de escapar. Porque el viaje más importante no es el que te lleva a otro lugar. Es el que te devuelve a ti.</p>
   <span class="precio-label">Taller completo · Tarragona · Fecha de la próxima edición por anunciar · Escríbeme y te aviso</span>
   <div class="btns">
@@ -1066,5 +1083,15 @@ document.querySelectorAll('.yt-facade').forEach(function(el){
 <p style="padding:0 var(--p) 2rem;font-size:.72rem;color:var(--gray-light);">© 2026 Sergio García · Tarragona · <a href="/aviso-legal" style="color:inherit">Aviso legal</a> · <a href="/privacidad" style="color:inherit">Privacidad</a></p>
 1fr;gap:1.6rem;}}
 </style>
+<script src="/consent.js" defer></script>
+<footer style="text-align:center;padding:28px 16px 96px;font-size:13px;color:#666;border-top:1px solid #e5e5e5;margin-top:40px;">
+  <span>© 2026 Sergio García · Tarragona</span>
+  <span style="margin:0 8px;">·</span>
+  <a href="/aviso-legal" style="color:inherit;">Aviso legal</a>
+  <span style="margin:0 8px;">·</span>
+  <a href="/privacidad" style="color:inherit;">Privacidad</a>
+  <span style="margin:0 8px;">·</span>
+  <a href="/privacidad#cookies" data-sg-cookies style="color:inherit;">Cookies</a>
+</footer>
 </body>
 </html>

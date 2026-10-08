@@ -199,6 +199,23 @@ p.body+p.body { margin-top:1rem; }
 </script>
 <!-- End MailerLite Universal -->
 <!-- Google tag (gtag.js) -->
+<script id="sg-consent-default">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied', 'ad_user_data': 'denied',
+    'ad_personalization': 'denied', 'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  try {
+    if (localStorage.getItem('sg_consent_v1') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted', 'ad_user_data': 'granted',
+        'ad_personalization': 'granted', 'analytics_storage': 'granted'
+      });
+    }
+  } catch (e) {}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -506,7 +523,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="page-hero">
   <div>
     <span class="sec-label">Terapia online</span>
-    <h1>Terapia individual<br><em>online</em>, desde donde estés.</h1>
+    <h1>Terapia individual <br><em>online</em>, desde donde estés.</h1>
     <p>Sesiones de terapia individual por videollamada, en castellano, con personas de toda España y del mundo. 60 minutos para trabajar lo que de verdad está pasando. Sin protocolos. Sin diagnósticos.</p>
   </div>
   <p class="page-hero-side">"No hay formularios, no hay test, no hay protocolo. Nos sentamos y empezamos a trabajar, aunque sea a través de una pantalla."</p>
@@ -520,7 +537,7 @@ p.body+p.body { margin-top:1rem; }
 <!-- QUÉ ES -->
 <section class="bloque">
   <span class="sec-label">Cómo es la sesión online</span>
-  <h2 class="grande">La misma profundidad,<br>sin importar la distancia.</h2>
+  <h2 class="grande">La misma profundidad, <br>sin importar la distancia.</h2>
   <p class="body" style="max-width:640px;">60 minutos por videollamada, sin compromiso de continuidad. No hay un protocolo de bienvenida ni un cuestionario inicial: me cuentas qué te trae aquí y empezamos a trabajar desde el primer minuto, igual que en una sesión presencial.</p>
   <div style="margin-top:2rem;max-width:640px;padding:1.4rem 1.6rem;background:var(--bone2);">
     <p style="font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);margin-bottom:.8rem;">Terapia online: ideal si...</p>
@@ -536,7 +553,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="two-col">
   <div>
     <span class="sec-label">Cómo es la primera sesión</span>
-    <h2 class="grande">Nada especial.<br>Empezamos a trabajar.</h2>
+    <h2 class="grande">Nada especial. <br>Empezamos a trabajar.</h2>
     <p class="body">No hay formularios. No hay test. No hay protocolo de bienvenida. Nos conectamos, me cuentas qué te trae aquí, y yo escucho.</p>
     <p class="body">Al final de la primera sesión decidimos juntos si tiene sentido seguir trabajando. Sin compromisos a largo plazo. Sin paquetes cerrados.</p>
     <p class="body">El proceso lo defines tú, desde donde estés.</p>
@@ -649,6 +666,7 @@ p.body+p.body { margin-top:1rem; }
   <div class="footer-links">
     <a href="/aviso-legal">Aviso legal</a>
     <a href="/privacidad">Privacidad</a>
+    <a href="/privacidad#cookies" data-sg-cookies>Cookies</a>
   </div>
 </footer>
 <script>
@@ -766,5 +784,6 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 })();
 </script>
+<script src="/consent.js" defer></script>
 </body>
 </html>

@@ -198,6 +198,23 @@ p.body+p.body { margin-top:1rem; }
 </script>
 <!-- End MailerLite Universal -->
 <!-- Google tag (gtag.js) -->
+<script id="sg-consent-default">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied', 'ad_user_data': 'denied',
+    'ad_personalization': 'denied', 'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  try {
+    if (localStorage.getItem('sg_consent_v1') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted', 'ad_user_data': 'granted',
+        'ad_personalization': 'granted', 'analytics_storage': 'granted'
+      });
+    }
+  } catch (e) {}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -523,7 +540,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="page-hero">
   <div>
     <span class="sec-label">Sesiones</span>
-    <h1>Sesiones: individual, <em>pareja</em>,<br>grupos y supervisión.</h1>
+    <h1>Sesiones: individual, <em>pareja</em>, <br>grupos y supervisión.</h1>
     <p>Terapia Gestalt individual y de pareja en Tarragona, presencial u online con personas de todo el mundo en castellano. Sin protocolos. Sin diagnósticos. Trabajo real desde el primer minuto.</p>
   </div>
   <p class="page-hero-side">"No hay formularios, no hay test, no hay protocolo. Nos sentamos y empezamos a trabajar."</p>
@@ -639,7 +656,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="two-col">
   <div>
     <span class="sec-label">Cómo es la primera sesión</span>
-    <h2 class="grande">Nada especial.<br>Empezamos a trabajar.</h2>
+    <h2 class="grande">Nada especial. <br>Empezamos a trabajar.</h2>
     <p class="body">No hay formularios. No hay test. No hay protocolo de bienvenida. Nos sentamos, me cuentas qué te trae aquí, y yo escucho.</p>
     <p class="body">Al final de la primera sesión decidimos juntos si tiene sentido seguir trabajando. Sin compromisos a largo plazo. Sin paquetes cerrados.</p>
     <p class="body">El proceso lo defines tú.</p>
@@ -778,6 +795,7 @@ p.body+p.body { margin-top:1rem; }
   <div class="footer-links">
     <a href="/aviso-legal">Aviso legal</a>
     <a href="/privacidad">Privacidad</a>
+    <a href="/privacidad#cookies" data-sg-cookies>Cookies</a>
   </div>
 </footer>
 <script>
@@ -912,5 +930,6 @@ document.querySelectorAll('.yt-facade').forEach(function(el){
   el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); loadVideo(); } });
 });
 </script>
+<script src="/consent.js" defer></script>
 </body>
 </html>

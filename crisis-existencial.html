@@ -199,6 +199,23 @@ p.body+p.body { margin-top:1rem; }
 </script>
 <!-- End MailerLite Universal -->
 <!-- Google tag (gtag.js) -->
+<script id="sg-consent-default">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied', 'ad_user_data': 'denied',
+    'ad_personalization': 'denied', 'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  try {
+    if (localStorage.getItem('sg_consent_v1') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted', 'ad_user_data': 'granted',
+        'ad_personalization': 'granted', 'analytics_storage': 'granted'
+      });
+    }
+  } catch (e) {}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -520,7 +537,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="page-hero">
   <div>
     <span class="sec-label">Crisis existencial · Tarragona y online</span>
-    <h1>Crisis existencial:<br>cuando tu vida <em>ya no encaja</em>.</h1>
+    <h1>Crisis existencial: <br>cuando tu vida <em>ya no encaja</em>.</h1>
     <p><strong>Una crisis existencial</strong> es el momento en que lo que sostenía tu vida —tu trabajo, tu pareja, tu identidad, el sentido de lo que haces— deja de funcionar, aunque desde fuera todo parezca en orden. No es una enfermedad. Es una pregunta que ya no puedes seguir aplazando.</p>
     <a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20quiero%20una%20sesi%C3%B3n%20por%20una%20crisis%20existencial" data-cta="crisis_hero" class="btn-dark" style="margin-top:1.5rem;display:inline-block;">Reservar primera sesión →</a>
     <p style="font-size:.78rem;color:var(--gray);margin-top:.8rem;">Presencial en Tarragona u online. Te respondo yo, no un equipo.</p>
@@ -532,7 +549,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="two-col">
   <div>
     <span class="sec-label">Cómo reconocerla</span>
-    <h2 class="grande">Señales de que estás<br>en una crisis existencial.</h2>
+    <h2 class="grande">Señales de que estás <br>en una crisis existencial.</h2>
     <p class="body">No hace falta que se cumplan todas. Basta con que alguna lleve tiempo instalada y no se vaya.</p>
     <p class="body">Si te reconoces, no estás roto. Estás en un punto en el que la forma en la que has vivido hasta ahora ya no te sirve, y algo en ti lo sabe antes que tu cabeza.</p>
   </div>
@@ -684,6 +701,7 @@ p.body+p.body { margin-top:1rem; }
   <div class="footer-links">
     <a href="/aviso-legal">Aviso legal</a>
     <a href="/privacidad">Privacidad</a>
+    <a href="/privacidad#cookies" data-sg-cookies>Cookies</a>
   </div>
 </footer>
 <script>
@@ -801,5 +819,6 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 })();
 </script>
+<script src="/consent.js" defer></script>
 </body>
 </html>

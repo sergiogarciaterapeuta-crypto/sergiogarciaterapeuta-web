@@ -188,6 +188,23 @@ p.body+p.body { margin-top:1rem; }
 </script>
 <!-- End MailerLite Universal -->
 <!-- Google tag (gtag.js) -->
+<script id="sg-consent-default">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied', 'ad_user_data': 'denied',
+    'ad_personalization': 'denied', 'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  try {
+    if (localStorage.getItem('sg_consent_v1') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted', 'ad_user_data': 'granted',
+        'ad_personalization': 'granted', 'analytics_storage': 'granted'
+      });
+    }
+  } catch (e) {}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -479,7 +496,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="page-hero">
   <div>
     <span class="sec-label">Dependencia emocional</span>
-    <h1>Dependencia <em>emocional</em><br>en Tarragona.</h1>
+    <h1>Dependencia <em>emocional</em> <br>en Tarragona.</h1>
     <p>Terapia para la dependencia emocional en Tarragona, presencial u online con personas de todo el mundo. Trabajamos el miedo al abandono, la necesidad constante de aprobación y los vínculos que se sostienen desde la carencia y no desde la elección.</p>
   </div>
   <p class="page-hero-side">"No es que necesites demasiado amor. Es que llevas tiempo buscándolo en el sitio equivocado: fuera de ti."</p>
@@ -493,7 +510,7 @@ p.body+p.body { margin-top:1rem; }
 <!-- QUÉ ES -->
 <section class="bloque">
   <span class="sec-label">Cómo se trabaja la dependencia emocional</span>
-  <h2 class="grande">Buscar fuera lo que<br>falta dentro.</h2>
+  <h2 class="grande">Buscar fuera lo que <br>falta dentro.</h2>
   <p class="body" style="max-width:640px;"><strong>Terapia para la dependencia emocional en Tarragona y online:</strong> trabajo el miedo al abandono, la necesidad de aprobación constante y la dificultad para poner límites por miedo a perder al otro. Muchas veces se confunde con amor intenso, cuando en realidad es una forma de calmar una carencia antigua a través de otra persona. No se trata de dejar de necesitar a nadie — se trata de dejar de necesitar de forma que te haga daño.</p>
   <div style="margin-top:2rem;max-width:640px;padding:1.4rem 1.6rem;background:var(--bone2);">
     <p style="font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);margin-bottom:.8rem;">Terapia para dependencia emocional: puede ayudarte si...</p>
@@ -509,7 +526,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="two-col">
   <div>
     <span class="sec-label">Cómo es la primera sesión</span>
-    <h2 class="grande">Nada especial.<br>Empezamos a trabajar.</h2>
+    <h2 class="grande">Nada especial. <br>Empezamos a trabajar.</h2>
     <p class="body">No hay cuestionarios de apego ni tests de personalidad. Me cuentas qué te trae aquí, y desde el primer momento trabajamos sobre lo que de verdad está pasando, no sobre la teoría de lo que te pasa.</p>
     <p class="body">Al final de la primera sesión decidimos juntos si tiene sentido seguir. Sin compromisos a largo plazo. Sin paquetes cerrados.</p>
     <p class="body">El proceso lo defines tú.</p>
@@ -614,6 +631,7 @@ p.body+p.body { margin-top:1rem; }
   <div class="footer-links">
     <a href="/aviso-legal">Aviso legal</a>
     <a href="/privacidad">Privacidad</a>
+    <a href="/privacidad#cookies" data-sg-cookies>Cookies</a>
   </div>
 </footer>
 <script>
@@ -731,5 +749,6 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 })();
 </script>
+<script src="/consent.js" defer></script>
 </body>
 </html>

@@ -188,6 +188,23 @@ p.body+p.body { margin-top:1rem; }
 </script>
 <!-- End MailerLite Universal -->
 <!-- Google tag (gtag.js) -->
+<script id="sg-consent-default">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied', 'ad_user_data': 'denied',
+    'ad_personalization': 'denied', 'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  try {
+    if (localStorage.getItem('sg_consent_v1') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted', 'ad_user_data': 'granted',
+        'ad_personalization': 'granted', 'analytics_storage': 'granted'
+      });
+    }
+  } catch (e) {}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -487,7 +504,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="page-hero">
   <div>
     <span class="sec-label">Ruptura y crisis de pareja</span>
-    <h1>Ruptura y <em>crisis</em><br>de pareja en Tarragona.</h1>
+    <h1>Ruptura y <em>crisis</em> <br>de pareja en Tarragona.</h1>
     <p>Terapia para ruptura y crisis de pareja en Tarragona, presencial u online con personas de todo el mundo en castellano. Tanto si estáis intentando salvar la relación como si ya la estáis cerrando, trabajamos lo que hay debajo: qué se rompió, qué se repite y qué necesitas para seguir adelante.</p>
   </div>
   <p class="page-hero-side">"No toda ruptura hay que evitarla. Algunas hay que atravesarlas bien, para no arrastrarlas a la siguiente relación."</p>
@@ -501,7 +518,7 @@ p.body+p.body { margin-top:1rem; }
 <!-- QUÉ ES -->
 <section class="bloque">
   <span class="sec-label">Cómo se trabaja la ruptura o la crisis</span>
-  <h2 class="grande">Cerrar bien, o<br>reconstruir de verdad.</h2>
+  <h2 class="grande">Cerrar bien, o <br>reconstruir de verdad.</h2>
   <p class="body" style="max-width:640px;"><strong>Terapia para ruptura y crisis de pareja en Tarragona y online:</strong> no todas las crisis se resuelven salvando la relación, y no todas las rupturas se cierran solas con el tiempo. Trabajo tanto con parejas que quieren entender si hay algo que reconstruir como con personas que están atravesando el final de una relación y necesitan procesarlo sin arrastrarlo al siguiente vínculo.</p>
   <div style="margin-top:2rem;max-width:640px;padding:1.4rem 1.6rem;background:var(--bone2);">
     <p style="font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);margin-bottom:.8rem;">Terapia para ruptura y crisis de pareja: puede ayudarte si...</p>
@@ -517,7 +534,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="two-col">
   <div>
     <span class="sec-label">Cómo es la primera sesión</span>
-    <h2 class="grande">Nada especial.<br>Empezamos a trabajar.</h2>
+    <h2 class="grande">Nada especial. <br>Empezamos a trabajar.</h2>
     <p class="body">Ya vengas solo/a o en pareja, no hay guion prefijado. Me cuentas dónde estáis — en plena crisis, recién separados, o intentando entender qué pasó — y empezamos desde ahí.</p>
     <p class="body">Al final de la primera sesión decidimos juntos si tiene sentido seguir. Sin compromisos a largo plazo. Sin paquetes cerrados.</p>
     <p class="body">El proceso lo definís vosotros.</p>
@@ -626,6 +643,7 @@ p.body+p.body { margin-top:1rem; }
   <div class="footer-links">
     <a href="/aviso-legal">Aviso legal</a>
     <a href="/privacidad">Privacidad</a>
+    <a href="/privacidad#cookies" data-sg-cookies>Cookies</a>
   </div>
 </footer>
 <script>
@@ -743,5 +761,6 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 })();
 </script>
+<script src="/consent.js" defer></script>
 </body>
 </html>

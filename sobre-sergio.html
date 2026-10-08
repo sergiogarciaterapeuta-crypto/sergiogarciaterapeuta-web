@@ -232,6 +232,23 @@ p.body + p.body { margin-top:1rem; }
 </script>
 <!-- End MailerLite Universal -->
 <!-- Google tag (gtag.js) -->
+<script id="sg-consent-default">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied', 'ad_user_data': 'denied',
+    'ad_personalization': 'denied', 'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  try {
+    if (localStorage.getItem('sg_consent_v1') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted', 'ad_user_data': 'granted',
+        'ad_personalization': 'granted', 'analytics_storage': 'granted'
+      });
+    }
+  } catch (e) {}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -514,7 +531,7 @@ p.body + p.body { margin-top:1rem; }
 <div class="page-hero">
   <div class="page-hero-txt">
     <span class="sec-label">Sobre mí</span>
-    <h1>No llegué a la terapia<br>para <em>enseñar</em>.</h1>
+    <h1>No llegué a la terapia <br>para <em>enseñar</em>.</h1>
     <p>Llegué porque primero tuve que encontrarme a mí. Esta es la historia de cómo pasé de intentar arreglarme a intentar conocerme — y de cómo esa diferencia se convirtió en mi trabajo.</p>
   </div>
   <p class="page-hero-side">"No necesitas convertirte en alguien mejor. Necesitas dejar de ser quien aprendiste que debías ser."</p>
@@ -654,6 +671,7 @@ p.body + p.body { margin-top:1rem; }
   <div class="footer-links">
     <a href="/aviso-legal">Aviso legal</a>
     <a href="/privacidad">Privacidad</a>
+    <a href="/privacidad#cookies" data-sg-cookies>Cookies</a>
   </div>
 </footer>
 <script>
@@ -771,5 +789,6 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 })();
 </script>
+<script src="/consent.js" defer></script>
 </body>
 </html>

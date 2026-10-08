@@ -232,6 +232,23 @@ p.body + p.body { margin-top:1rem; }
 </script>
 <!-- End MailerLite Universal -->
 <!-- Google tag (gtag.js) -->
+<script id="sg-consent-default">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied', 'ad_user_data': 'denied',
+    'ad_personalization': 'denied', 'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  try {
+    if (localStorage.getItem('sg_consent_v1') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted', 'ad_user_data': 'granted',
+        'ad_personalization': 'granted', 'analytics_storage': 'granted'
+      });
+    }
+  } catch (e) {}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -504,7 +521,9 @@ p.body + p.body { margin-top:1rem; }
   <div class="bloque">
     <span class="sec-label">04 · Destinatarios</span>
     <h2>Destinatarios</h2>
-    <p>Tus datos no se cederán a terceros, salvo obligación legal. Podemos utilizar proveedores de servicios (alojamiento web, herramientas de mensajería o correo electrónico) que actúan como encargados del tratamiento, con las garantías exigidas por la normativa vigente.</p>
+    <p>Tus datos no se cederán a terceros, salvo obligación legal. Para prestar el servicio me apoyo en proveedores que actúan como encargados del tratamiento, con las garantías exigidas por la normativa vigente:</p>
+    <p>· Netlify, Inc. — alojamiento de la web y recepción del formulario de contacto.<br>· MailerLite (UAB MailerLite) — envío de emails a quienes se suscriben a mi lista.<br>· Google Ireland Ltd. — Google Analytics y Google Ads, solo si aceptas las cookies.<br>· WhatsApp (Meta Platforms Ireland Ltd.) — si decides escribirme por ese canal.</p>
+    <p>Algunos de estos proveedores pueden tratar datos fuera del Espacio Económico Europeo. En ese caso lo hacen bajo el Marco de Privacidad de Datos UE-EE. UU. o las cláusulas contractuales tipo aprobadas por la Comisión Europea.</p>
   </div>
 
   <div class="bloque">
@@ -526,10 +545,13 @@ p.body + p.body { margin-top:1rem; }
     <p>Los únicos datos que tratamos son los que tú mismo nos facilitas voluntariamente a través del formulario de contacto, WhatsApp o correo electrónico de este sitio web.</p>
   </div>
 
-  <div class="bloque">
+  <div class="bloque" id="cookies">
     <span class="sec-label">08 · Cookies</span>
     <h2>Cookies</h2>
-    <p>Este sitio web puede utilizar cookies técnicas necesarias para su correcto funcionamiento. No se utilizan cookies de publicidad ni de seguimiento de terceros sin tu consentimiento previo.</p>
+    <p>Esta web usa cookies propias necesarias para funcionar y, solo si las aceptas en el aviso que aparece al entrar, cookies de terceros de análisis y publicidad:</p>
+    <p>· Google Analytics (Google Ireland Ltd.) — para saber cuántas personas visitan la web y qué páginas leen. Cookies _ga y _ga_*, duración hasta 2 años.<br>· Google Ads (Google Ireland Ltd.) — para medir si mis anuncios traen contactos. Cookies _gcl_au y similares, duración hasta 90 días.</p>
+    <p>Si las rechazas, estas cookies no se instalan. Google puede recibir señales sin cookies y sin identificarte para estimar resultados de forma agregada.</p>
+    <p>Puedes cambiar tu elección cuando quieras: <a href="/privacidad#cookies" data-sg-cookies>configurar cookies</a>. También puedes borrarlas desde los ajustes de tu navegador.</p>
   </div>
 
 </main>
@@ -575,6 +597,7 @@ p.body + p.body { margin-top:1rem; }
   <div class="footer-links">
     <a href="/aviso-legal">Aviso legal</a>
     <a href="/privacidad">Privacidad</a>
+    <a href="/privacidad#cookies" data-sg-cookies>Cookies</a>
   </div>
 </footer></footer>
 <script>
@@ -692,5 +715,6 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 })();
 </script>
+<script src="/consent.js" defer></script>
 </body>
 </html>

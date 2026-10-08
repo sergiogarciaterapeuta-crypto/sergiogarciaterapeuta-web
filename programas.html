@@ -246,6 +246,23 @@ p.body+p.body { margin-top:1rem; }
 </script>
 <!-- End MailerLite Universal -->
 <!-- Google tag (gtag.js) -->
+<script id="sg-consent-default">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied', 'ad_user_data': 'denied',
+    'ad_personalization': 'denied', 'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  try {
+    if (localStorage.getItem('sg_consent_v1') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted', 'ad_user_data': 'granted',
+        'ad_personalization': 'granted', 'analytics_storage': 'granted'
+      });
+    }
+  } catch (e) {}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -530,7 +547,7 @@ p.body+p.body { margin-top:1rem; }
   <div class="lead-inner">
     <div>
       <span class="tag-light">Gratuito · 7 días · 7 audios</span>
-      <h2 class="lead-h">Deja de<br><em>entenderte.</em></h2>
+      <h2 class="lead-h">Deja de <br><em>entenderte.</em></h2>
       <p class="lead-p">7 audios. Uno al día. Cada uno desmonta una pieza del mecanismo con el que el personaje se mantiene en pie. No te explica nada nuevo. Te quita algo que ya no necesitas.</p>
       <div id="mlb2-43555796" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-43555796">
         <div class="row-form">
@@ -557,7 +574,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="page-hero">
   <div>
     <span class="sec-label">Programas</span>
-    <h1>Programas de <em>terapia y mentoría</em><br>en Tarragona.</h1>
+    <h1>Programas de <em>terapia y mentoría</em> <br>en Tarragona.</h1>
     <p>Para cuando una sesión no es suficiente. Cuatro formatos de terapia y mentoría en Tarragona: un curso digital de entrada, una mentoría individual intensiva, y dos programas grupales próximamente.</p>
   </div>
   <p class="page-hero-side">"El proceso no lo define el formato. Lo defines tú. El formato es solo el contenedor."</p>
@@ -609,7 +626,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="curso-block" id="curso">
   <div class="cb-l">
     <span class="tag">Curso digital · Disponible ahora</span>
-    <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;line-height:1.1;margin-bottom:.5rem;">El personaje que<br><em style="font-style:italic;color:var(--fire);">te está matando.</em></h2>
+    <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;line-height:1.1;margin-bottom:.5rem;">El personaje que <br><em style="font-style:italic;color:var(--fire);">te está matando.</em></h2>
     <p class="body">5 vídeos. No te explican nada nuevo. Te muestran lo que ya sabes pero no puedes ver. El mecanismo con el que el personaje lleva años protegiéndose a costa tuya.</p>
     <p class="body">No es terapia. No es autoayuda. Es un corte preciso en lo que más te cuesta mirar.</p>
     <div style="margin-top:1.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
@@ -628,7 +645,7 @@ p.body+p.body { margin-top:1rem; }
 <!-- EL PUNTO DE INFLEXIÓN -->
 <div class="inflexion-header" id="inflexion">
   <span class="tag-light">Mentoría individual intensiva</span>
-  <h2>El Punto de<br><em>Inflexión.</em></h2>
+  <h2>El Punto de <br><em>Inflexión.</em></h2>
   <p>5-6 semanas de proceso individual intensivo. Solo contigo. Para personas que ya no pueden seguir igual y están dispuestas a que algo cambie de verdad.</p>
 </div>
 
@@ -751,6 +768,7 @@ p.body+p.body { margin-top:1rem; }
   <div class="footer-links">
     <a href="/aviso-legal">Aviso legal</a>
     <a href="/privacidad">Privacidad</a>
+    <a href="/privacidad#cookies" data-sg-cookies>Cookies</a>
   </div>
 </footer>
 <script>
@@ -880,5 +898,6 @@ fetch("https://assets.mailerlite.com/jsonp/1319169/forms/192508129650410538/take
   });
 })();
 </script>
+<script src="/consent.js" defer></script>
 </body>
 </html>
