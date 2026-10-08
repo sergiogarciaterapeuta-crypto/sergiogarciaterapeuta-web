@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terapia Online Individual · Sergio García</title>
-<meta name="description" content="Terapia individual online con Sergio García, terapeuta Gestalt con más de 20 años de experiencia. Sesiones por videollamada en castellano, desde cualquier lugar de España.">
+<title>¿Por qué no sales de la depresión? Lo que el malestar protege · Sergio García</title>
+<meta name="description" content="Una reflexión desde la terapia Gestalt sobre el estancamiento: qué función puede cumplir el malestar. No sustituye la atención médica.">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* NAV */
 .top-bar {
   display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
   gap: .3rem 1.2rem;
@@ -78,31 +77,13 @@ nav {
 .nav-btn:hover { background: var(--ink); color: var(--bone); }
 .nav-toggle{display:none;background:none;border:none;font-size:1.4rem;line-height:1;color:var(--ink);cursor:pointer;padding:.2rem .3rem;}
 
-/* TIPOGRAFÍA */
 h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
 
-/* UTILIDADES */
 .sec-label {
   font-size: .68rem; letter-spacing: .18em;
   text-transform: uppercase; color: var(--fire);
   margin-bottom: 1.5rem; display: block;
 }
-.sec-h2 {
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-  font-weight: 500; line-height: 1.15;
-}
-.sec-head {
-  padding: var(--pv) var(--p) 2rem;
-  border-bottom: 1px solid var(--rule);
-}
-.btn-dark {
-  display: inline-block;
-  background: var(--ink); color: var(--bone);
-  padding: .88rem 2rem;
-  font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
-  text-decoration: none; transition: opacity .18s;
-}
-.btn-dark:hover { opacity: .82; }
 .btn-fire {
   display: inline-block;
   background: var(--fire); color: white;
@@ -120,7 +101,6 @@ h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
 }
 .btn-outline:hover { background: var(--ink); color: var(--bone); }
 
-/* FOOTER */
 footer {
   padding: 1.4rem var(--p);
   display: flex; justify-content: space-between; align-items: center;
@@ -134,7 +114,6 @@ footer {
 }
 .footer-links a:hover { color: var(--ink); }
 
-/* RESPONSIVE NAV */
 @media (max-width: 768px) {
   nav { padding: .8rem var(--p); position:relative; }
   .nav-toggle { display:flex; }
@@ -144,51 +123,59 @@ footer {
   footer { flex-direction: column; gap: 1rem; text-align: center; }
 }
 
-
-.page-hero { padding:var(--pv) var(--p); border-bottom:1px solid var(--rule); display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:end; }
-.page-hero h1 { font-size:clamp(2.2rem,4vw,3.8rem); font-weight:500; line-height:1.08; margin-bottom:1.2rem; }
-.page-hero h1 em { font-style:italic; color:var(--fire); }
-.page-hero p { font-size:1rem; color:var(--gray); line-height:1.9; }
-.page-hero-side { font-family:"Cormorant Garamond",serif; font-size:1.15rem; font-style:italic; color:var(--gray); line-height:1.65; border-left:2px solid var(--fire); padding-left:1.2rem; }
-.tag { font-size:.65rem; letter-spacing:.16em; text-transform:uppercase; color:var(--fire); margin-bottom:1.2rem; display:block; }
-h2.grande { font-size:clamp(1.8rem,3vw,2.6rem); font-weight:500; line-height:1.2; margin-bottom:1.2rem; }
-h3.medio { font-size:1.4rem; font-weight:500; line-height:1.3; margin-bottom:.8rem; }
-p.body { font-size:.95rem; color:var(--gray); line-height:1.9; }
-p.body+p.body { margin-top:1rem; }
-
-.two-col { display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--rule); }
-.two-col > div { padding:var(--pv) var(--p); }
-.two-col > div:first-child { border-right:1px solid var(--rule); }
-
-.bloque { padding:var(--pv) var(--p); border-bottom:1px solid var(--rule); }
-
-.srv-full { border-bottom:1px solid var(--rule); }
-.srv-row { display:grid; grid-template-columns:1fr 3fr auto; gap:2rem; padding:2.5rem var(--p); border-bottom:0.5px solid var(--rule); align-items:center; }
-.srv-row:last-child { border-bottom:none; }
-.srv-row:hover { background:var(--bone2); }
-.sr-tag { font-size:.65rem; letter-spacing:.14em; text-transform:uppercase; color:var(--fire); }
-.sr-h { font-size:1.3rem; font-weight:500; margin-bottom:.4rem; }
-.sr-p { font-size:.88rem; color:var(--gray); line-height:1.75; }
-.sr-cta { font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; white-space:nowrap; color:var(--ink); text-decoration:none; border-bottom:0.5px solid var(--rule); padding-bottom:2px; transition:color .18s,border-color .18s; }
-.sr-cta:hover { color:var(--fire); border-color:var(--fire); }
-
-.faq-item { border-top:0.5px solid var(--rule); }
-.faq-q { display:flex; justify-content:space-between; align-items:center; padding:.95rem 0; cursor:pointer; gap:1rem; }
-.faq-q span:first-child { font-size:.92rem; color:var(--ink); line-height:1.5; }
-.faq-toggle { font-size:1.1rem; color:var(--gray-light); flex-shrink:0; transition:transform .2s; }
-.faq-a { font-size:.88rem; color:var(--gray); line-height:1.85; padding-bottom:1rem; display:none; }
-.faq-item.open .faq-a { display:block; }
-.faq-item.open .faq-toggle { transform:rotate(45deg); color:var(--fire); }
-
-@media (max-width:768px) {
-  .page-hero { grid-template-columns:1fr; gap:1.5rem; }
-  .two-col { grid-template-columns:1fr; }
-  .two-col > div:first-child { border-right:none; border-bottom:1px solid var(--rule); }
-  .srv-row { grid-template-columns:1fr; gap:1rem; }
+/* POST */
+.post-head {
+  padding: var(--pv) var(--p) 2rem;
+  border-bottom: 1px solid var(--rule);
+  max-width: 780px;
 }
-
+.post-head h1 {
+  font-size: clamp(2rem, 3.6vw, 2.8rem);
+  line-height: 1.15;
+  margin-top: 1rem;
+}
+.post-meta {
+  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--gray-light);
+  margin-top: 1.2rem;
+}
+.post-video {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem var(--p) 0;
+}
+.video-wrap {
+  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+  background: #111;
+}
+.video-wrap iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
+}
+.post-body {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2.5rem var(--p) var(--pv);
+}
+.post-body p {
+  font-size: .98rem;
+  color: var(--gray);
+  line-height: 1.9;
+  margin-bottom: 1.3rem;
+}
+.post-body p.lead {
+  font-size: 1.05rem;
+  color: var(--ink);
+  border-left: 2px solid var(--fire);
+  padding-left: 1rem;
+}
+.post-cta {
+  background: var(--ink);
+  padding: var(--pv) var(--p);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 1.2rem;
+}
+.post-cta h2 { color: var(--bone); font-size: clamp(1.5rem,2.5vw,2rem); max-width: 560px; }
+.post-cta p { color: rgba(255,255,255,.5); font-size: .92rem; max-width: 520px; }
 </style>
-
 <!-- MailerLite Universal -->
 <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
@@ -221,8 +208,7 @@ p.body+p.body { margin-top:1rem; }
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-Y3E0GC5DX6');
-    gtag('config', 'AW-18318477742');
+  gtag('config', 'G-Y3E0GC5DX6'); gtag('config', 'AW-18318477742');
   // Origen de la visita: "A" = anuncios (gclid/gbraid/wbraid o utm_medium=cpc), "W" = resto. Se guarda durante la sesión.
   (function(){
     try {
@@ -262,20 +248,58 @@ p.body+p.body { margin-top:1rem; }
     }
   }, true);
 </script>
-
-<link rel="canonical" href="https://sergiogarciaterapeuta.es/terapia-online">
+<link rel="canonical" href="https://sergiogarciaterapeuta.es/blog-por-que-no-sales-de-la-depresion">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sergiogarciaterapeuta.es/terapia-online">
-<meta property="og:title" content="Terapia Online Individual · Sergio García">
-<meta property="og:description" content="Terapia individual online con Sergio García, terapeuta Gestalt con más de 20 años de experiencia. Sesiones por videollamada en castellano, desde cualquier lugar de España.">
-<meta property="og:image" content="https://sergiogarciaterapeuta.es/images/sesiones-1-a46c4230.webp">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sergiogarciaterapeuta.es/blog-por-que-no-sales-de-la-depresion">
+<meta property="og:title" content="¿Por qué no sales de la depresión? Lo que el malestar protege">
+<meta property="og:description" content="Una reflexión desde la terapia Gestalt sobre el estancamiento: qué función puede cumplir el malestar. No sustituye la atención médica.">
+<meta property="og:image" content="https://i.ytimg.com/vi_webp/cFDjVsCP7cs/hqdefault.webp">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Terapia Online Individual · Sergio García">
-<meta name="twitter:description" content="Terapia individual online con Sergio García, terapeuta Gestalt con más de 20 años de experiencia. Sesiones por videollamada en castellano, desde cualquier lugar de España.">
-<meta name="twitter:image" content="https://sergiogarciaterapeuta.es/images/sesiones-1-a46c4230.webp">
+<meta name="twitter:title" content="¿Por qué no sales de la depresión? Lo que el malestar protege">
+<meta name="twitter:description" content="Una reflexión desde la terapia Gestalt sobre el estancamiento: qué función puede cumplir el malestar. No sustituye la atención médica.">
+<meta name="twitter:image" content="https://i.ytimg.com/vi_webp/cFDjVsCP7cs/hqdefault.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "¿Por qué no sales de la depresión? Lo que el malestar protege",
+  "url": "https://sergiogarciaterapeuta.es/blog-por-que-no-sales-de-la-depresion",
+  "datePublished": "2026-09-27",
+  "dateModified": "2026-09-27",
+  "author": {
+    "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia"
+  },
+  "description": "Una reflexión desde la terapia Gestalt sobre el estancamiento: qué función puede cumplir el malestar. No sustituye la atención médica.",
+  "video": {
+    "@type": "VideoObject",
+    "name": "¿Por qué no sales de la depresión? Lo que el malestar protege",
+    "description": "Una reflexión desde la terapia Gestalt sobre el estancamiento: qué función puede cumplir el malestar. No sustituye la atención médica.\n\nMuchas personas atraviesan procesos depresivos sin entender completamente por qué se sienten estancadas. A menudo, el dolor es tan abrumador que nos impide ver las funciones que cumple el síntoma en nuestra vida cotidiana.\n\nNada de esto significa que estés así porque quieres. Significa que, a veces, el malestar también cumple una función: te protege de algo que todavía no te atreves a mirar. Verlo sin culparte es parte del camino, y casi nunca se hace solo.",
+    "uploadDate": "2026-09-15T22:00:14+00:00",
+    "thumbnailUrl": "https://i.ytimg.com/vi_webp/cFDjVsCP7cs/hqdefault.webp",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/cFDjVsCP7cs"
+  },
+  "image": "https://i.ytimg.com/vi_webp/cFDjVsCP7cs/hqdefault.webp"
+}
+</script>
+<style id="sg-movil">
+/* Ajustes móvil (auditoría visual oct 2026) */
+@media (max-width:768px){
+  html{overflow-x:clip;}
+  img,video,iframe{max-width:100%;}
+  [style*="grid-template-columns"]{grid-template-columns:1fr !important;}
+  [style*="repeat(4,1fr)"],[style*="repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important;row-gap:1.6rem;}
+  [style*="grid-template-columns"] > div{border-right:none !important;}
+  [style*="grid-template-columns"] > div[style*="padding:2rem 2rem 2rem 0"],
+  [style*="grid-template-columns"] > div[style*="padding:2rem 0 2rem 2rem"]{padding:1.6rem 0 !important;}
+  [style*="grid-template-columns"] > div[style*="padding:2rem;"]{padding:1.6rem 0 !important;}
+  .franja{flex-wrap:wrap;justify-content:center;gap:.4rem 1rem;}
+  .sr-cta{white-space:normal;}
+  table{font-size:.8rem;}
+  table th,table td{padding:.5rem .35rem !important;}
+}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -409,80 +433,6 @@ p.body+p.body { margin-top:1rem; }
   ]
 }
 </script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Necesito estar en Tarragona para hacer terapia online?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Trabajo con personas de toda España y del mundo en castellano por videollamada. Solo necesitas conexión a internet y un espacio privado durante la sesión."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿La terapia online funciona igual que la presencial?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí. Las sesiones online tienen la misma profundidad que las presenciales. La pantalla no es un obstáculo cuando el trabajo es real."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué necesito para la sesión online?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Un ordenador o móvil con cámara, conexión estable a internet, y un espacio donde puedas hablar con privacidad durante 60 minutos."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuántas sesiones necesito?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No lo sé hasta que nos veamos. Hay personas que con pocas sesiones se desatascan. Otras necesitan un proceso más largo. No vendo paquetes cerrados."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuánto cuesta una sesión online?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Escríbeme por WhatsApp y te lo cuento. No publico precios en la web porque depende del proceso que necesitas."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Es lo mismo que ir al psicólogo?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Soy terapeuta humanista con base en la Gestalt, con más de 20 años de experiencia acompañando procesos de transformación personal, crisis vitales e identidad."
-      }
-    }
-  ]
-}
-</script>
-<style id="sg-movil">
-/* Ajustes móvil (auditoría visual oct 2026) */
-@media (max-width:768px){
-  html{overflow-x:clip;}
-  img,video,iframe{max-width:100%;}
-  [style*="grid-template-columns"]{grid-template-columns:1fr !important;}
-  [style*="repeat(4,1fr)"],[style*="repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important;row-gap:1.6rem;}
-  [style*="grid-template-columns"] > div{border-right:none !important;}
-  [style*="grid-template-columns"] > div[style*="padding:2rem 2rem 2rem 0"],
-  [style*="grid-template-columns"] > div[style*="padding:2rem 0 2rem 2rem"]{padding:1.6rem 0 !important;}
-  [style*="grid-template-columns"] > div[style*="padding:2rem;"]{padding:1.6rem 0 !important;}
-  .franja{flex-wrap:wrap;justify-content:center;gap:.4rem 1rem;}
-  .sr-cta{white-space:normal;}
-  table{font-size:.8rem;}
-  table th,table td{padding:.5rem .35rem !important;}
-}
-</style>
 <style>
 /* arreglo móvil: bloques con columnas fijas que desbordaban en pantallas pequeñas */
 @media (max-width:768px){
@@ -495,8 +445,6 @@ p.body+p.body { margin-top:1rem; }
 }
 </style>
 </head>
-
-
 <body>
 <div class="top-bar">
   <a href="tel:+34634422827">📞 634 42 28 27</a>
@@ -509,10 +457,10 @@ p.body+p.body { margin-top:1rem; }
     <a href="/">Inicio</a>
     <a href="/el-personaje">El personaje</a>
     <a href="/sobre-sergio">Sobre mí</a>
-    <a href="/sesiones" class="active">Sesiones</a>
+    <a href="/sesiones">Sesiones</a>
     <a href="/talleres-retiros">Talleres y retiros</a>
     <a href="/programas">Programas</a>
-    <a href="/blog">Blog</a>
+    <a href="/blog" class="active">Blog</a>
     <a href="/#contacto">Contacto</a>
   </div>
   <a href="https://wa.me/34634422827" class="nav-btn">Reservar sesión</a>
@@ -520,108 +468,25 @@ p.body+p.body { margin-top:1rem; }
 </nav>
 <main>
 
-<div class="page-hero">
-  <div>
-    <span class="sec-label">Terapia online</span>
-    <h1>Terapia individual <br><em>online</em>, desde donde estés.</h1>
-    <p>Sesiones de terapia individual por videollamada, en castellano, con personas de toda España y del mundo. 60 minutos para trabajar lo que de verdad está pasando. Sin protocolos. Sin diagnósticos.</p>
-  </div>
-  <p class="page-hero-side">"No hay formularios, no hay test, no hay protocolo. Nos sentamos y empezamos a trabajar, aunque sea a través de una pantalla."</p>
-</div>
-
-<!-- FOTO -->
-<div style="height:420px;border-bottom:1px solid var(--rule);overflow:hidden;">
-  <img src="/images/sesiones-1-a46c4230.webp" alt="Sergio García en sesión de terapia individual online" style="width:100%;height:100%;object-fit:cover;display:block;">
-</div>
-
-<!-- QUÉ ES -->
-<section class="bloque">
-  <span class="sec-label">Cómo es la sesión online</span>
-  <h2 class="grande">La misma profundidad, <br>sin importar la distancia.</h2>
-  <p class="body" style="max-width:640px;">60 minutos por videollamada, sin compromiso de continuidad. No hay un protocolo de bienvenida ni un cuestionario inicial: me cuentas qué te trae aquí y empezamos a trabajar desde el primer minuto, igual que en una sesión presencial.</p>
-  <div style="margin-top:2rem;max-width:640px;padding:1.4rem 1.6rem;background:var(--bone2);">
-    <p style="font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);margin-bottom:.8rem;">Terapia online: ideal si...</p>
-    <p class="body">· No tienes un terapeuta de confianza cerca de donde vives</p>
-    <p class="body">· Viajas o cambias de ciudad y quieres continuidad en tu proceso</p>
-    <p class="body">· Prefieres la comodidad y privacidad de hacerlo desde casa</p>
-    <p class="body">· Vives fuera de España y quieres trabajar en castellano</p>
-  </div>
-  <a href="https://wa.me/34634422827?text=Quiero%20información%20sobre%20terapia%20online" class="btn-dark" style="margin-top:2rem;display:inline-block;">Pedir sesión online →</a>
+<section class="post-head">
+  <span class="sec-label">Reflexiones</span>
+  <h1>¿Por qué no sales de la depresión? Lo que el malestar protege</h1>
+  <p class="post-meta">Vídeo · Por <a href="/sobre-sergio" style="color:inherit">Sergio García</a>, terapeuta Gestalt y existencial</p>
 </section>
 
-<!-- CÓMO ES LA PRIMERA SESIÓN -->
-<div class="two-col">
-  <div>
-    <span class="sec-label">Cómo es la primera sesión</span>
-    <h2 class="grande">Nada especial. <br>Empezamos a trabajar.</h2>
-    <p class="body">No hay formularios. No hay test. No hay protocolo de bienvenida. Nos conectamos, me cuentas qué te trae aquí, y yo escucho.</p>
-    <p class="body">Al final de la primera sesión decidimos juntos si tiene sentido seguir trabajando. Sin compromisos a largo plazo. Sin paquetes cerrados.</p>
-    <p class="body">El proceso lo defines tú, desde donde estés.</p>
-  </div>
-  <div style="background:var(--ink);color:var(--bone);">
-    <span class="sec-label" style="color:#E8956A;">Lo que necesitas</span>
-    <h2 class="grande" style="color:var(--bone);margin-bottom:1.5rem;">Solo esto, nada más.</h2>
-    <div style="padding:.85rem 0;border-bottom:0.5px solid rgba(255,255,255,.06);font-size:.9rem;color:rgba(255,255,255,.6);">Un ordenador o móvil con cámara</div><div style="padding:.85rem 0;border-bottom:0.5px solid rgba(255,255,255,.06);font-size:.9rem;color:rgba(255,255,255,.6);">Conexión estable a internet</div><div style="padding:.85rem 0;border-bottom:0.5px solid rgba(255,255,255,.06);font-size:.9rem;color:rgba(255,255,255,.6);">Un espacio privado durante 60 minutos</div><div style="padding:.85rem 0;font-size:.9rem;color:rgba(255,255,255,.6);">Estar en cualquier lugar de España o del mundo</div>
-  </div>
-</div>
-
-<!-- TESTIMONIO -->
-<section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);">
-  <span class="sec-label">Lo que dicen</span>
-  <div style="max-width:720px;padding:2rem;border:0.5px solid var(--rule);display:flex;flex-direction:column;gap:.8rem;">
-    <p style="font-size:.9rem;color:var(--gray);line-height:1.85;font-style:italic;">"Lo que más me gustó fue que nunca intentó decirme lo que tenía que hacer. Me acompañó a descubrirlo por mí mismo. Hubo momentos duros, pero también una sensación de libertad que hacía años que no sentía."</p>
-    <p style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-light);">— J Luis, 49 años · Sesión individual online</p>
+<section class="post-video">
+  <div class="video-wrap">
+    <div class="yt-facade" role="button" tabindex="0" aria-label="Reproducir: ¿Por qué no sales de la depresión? Lo que el malestar protege" data-yt-id="cFDjVsCP7cs" style="position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer;background:#000;"><img src="https://i.ytimg.com/vi_webp/cFDjVsCP7cs/hqdefault.webp" alt="¿Por qué no sales de la depresión? Lo que el malestar protege" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85;"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;"><svg width="68" height="48" viewBox="0 0 68 48" aria-hidden="true"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.41 6.19C.13 13.05 0 24 0 24s.13 10.95 1.49 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.87 34.95 68 24 68 24s-.13-10.95-1.48-16.26z" fill="#ff0000"></path><path d="M45 24 27 14v20" fill="#fff"></path></svg></div><span style="position:absolute;bottom:8px;left:8px;background:rgba(0,0,0,.65);color:#fff;font-size:.7rem;padding:.2rem .55rem;border-radius:3px;letter-spacing:.02em;">▶ Reproducir vídeo</span></div>
   </div>
 </section>
 
-<!-- CROSS-LINKS -->
-<section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);background:var(--bone2);">
-  <span class="sec-label">También puede interesarte</span>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
-    <a href="/terapia-individual-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Terapia individual presencial en Tarragona →</a>
-    <a href="/terapia-gestalt-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Qué es la terapia Gestalt →</a>
-  </div>
-</section>
+<section class="post-body">
+<aside style="border-left:3px solid #C4602A;background:#FBF3EC;padding:1rem 1.2rem;margin:0 0 1.6rem;font-size:.95rem;line-height:1.6;"><strong>Antes de seguir.</strong> Si lo que vives es una depresión diagnosticada, o sospechas que puede serlo, este vídeo no sustituye la atención médica ni psicológica: habla con tu médico de cabecera, que puede valorarlo y derivarte. Como terapeuta Gestalt no diagnostico ni trato trastornos clínicos; puedo acompañar un proceso, pero no reemplazo ese tratamiento. Y si en algún momento piensas en hacerte daño, llama ahora al <strong>024</strong> (gratuito, 24 horas) o al <strong>112</strong>.</aside>
+<p class="lead">Una reflexión desde la terapia Gestalt sobre el estancamiento: qué función puede cumplir el malestar. No sustituye la atención médica.</p>
+<p>Muchas personas atraviesan procesos depresivos sin entender completamente por qué se sienten estancadas. A menudo, el dolor es tan abrumador que nos impide ver las funciones que cumple el síntoma en nuestra vida cotidiana.</p>
+<p>Nada de esto significa que estés así porque quieres. Significa que, a veces, el malestar también cumple una función: te protege de algo que todavía no te atreves a mirar. Verlo sin culparte es parte del camino, y casi nunca se hace solo.</p><a href="/sesiones" class="btn-outline">Ver sesiones →</a></section>
 
-<!-- PREGUNTAS FRECUENTES -->
-<div style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);">
-  <span class="sec-label">Preguntas frecuentes</span>
-  <div style="max-width:720px;">
-    <div class="faq-item">
-      <div class="faq-q"><span>¿Necesito estar en Tarragona para hacer terapia online?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a">No. Trabajo con personas de toda España y del mundo en castellano por videollamada. Solo necesitas conexión a internet y un espacio privado durante la sesión.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><span>¿La terapia online funciona igual que la presencial?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a">Sí. Las sesiones online tienen la misma profundidad que las presenciales. La pantalla no es un obstáculo cuando el trabajo es real.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><span>¿Qué necesito para la sesión online?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a">Un ordenador o móvil con cámara, conexión estable a internet, y un espacio donde puedas hablar con privacidad durante 60 minutos.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><span>¿Cuántas sesiones necesito?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a">No lo sé hasta que nos veamos. Hay personas que con pocas sesiones se desatascan. Otras necesitan un proceso más largo. No vendo paquetes cerrados.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><span>¿Cuánto cuesta una sesión online?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a">Escríbeme por WhatsApp y te lo cuento. No publico precios en la web porque depende del proceso que necesitas.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><span>¿Es lo mismo que ir al psicólogo?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a">Soy terapeuta humanista con base en la Gestalt, con más de 20 años de experiencia acompañando procesos de transformación personal, crisis vitales e identidad.</div>
-    </div>
-  </div>
-</div>
-
-<!-- CTA FINAL -->
-<div style="padding:var(--pv) var(--p);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem;">
-  <div>
-    <h2 class="grande">¿Empezamos?</h2>
-    <p class="body" style="margin-top:.5rem;">Una llamada de 15 minutos para ver si tiene sentido trabajar juntos. También puedes ver <a href="/sesiones" style="color:var(--fire);">el resto de sesiones y programas</a>.</p>
-  </div>
-  <a href="https://wa.me/34634422827?text=Quiero%20información%20sobre%20terapia%20online" class="btn-dark">Escribir por WhatsApp →</a>
-</div>
+<section class="post-cta"><span class="sec-label" style="color:#E8956A;">Contacto</span><h2>¿Quieres más información?</h2><p>Puedes contactar con Sergio García para consultar sobre las sesiones.</p><a href="https://wa.me/34634422827" class="btn-fire">Escribir por WhatsApp →</a></section>
 
 </main>
 <nav class="footer-temas" aria-label="Temas y servicios">
@@ -669,16 +534,7 @@ p.body+p.body { margin-top:1rem; }
     <a href="/privacidad#cookies" data-sg-cookies>Cookies</a>
   </div>
 </footer>
-<script>
-document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  });
-});
-</script>
+
 <div id="sg-widget">
   <div id="sg-panel">
     <div id="sg-panel-header">
@@ -783,6 +639,23 @@ document.querySelectorAll('.faq-q').forEach(btn => {
       });
   });
 })();
+</script>
+<script>
+document.querySelectorAll('.yt-facade').forEach(function(el){
+  function loadVideo(){
+    var id = el.getAttribute('data-yt-id');
+    var start = el.getAttribute('data-yt-start');
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1' + (start ? '&start=' + start : '');
+    iframe.title = el.getAttribute('aria-label') || 'Vídeo de YouTube';
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+    iframe.allowFullscreen = true;
+    iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+    el.replaceWith(iframe);
+  }
+  el.addEventListener('click', loadVideo);
+  el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); loadVideo(); } });
+});
 </script>
 <script src="/consent.js" defer></script>
 </body>

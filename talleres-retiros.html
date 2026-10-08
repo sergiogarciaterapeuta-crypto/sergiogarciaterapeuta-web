@@ -205,6 +205,23 @@ p.body+p.body { margin-top:1rem; }
 </script>
 <!-- End MailerLite Universal -->
 <!-- Google tag (gtag.js) -->
+<script id="sg-consent-default">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied', 'ad_user_data': 'denied',
+    'ad_personalization': 'denied', 'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  try {
+    if (localStorage.getItem('sg_consent_v1') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted', 'ad_user_data': 'granted',
+        'ad_personalization': 'granted', 'analytics_storage': 'granted'
+      });
+    }
+  } catch (e) {}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -212,16 +229,44 @@ p.body+p.body { margin-top:1rem; }
   gtag('js', new Date());
   gtag('config', 'G-Y3E0GC5DX6');
     gtag('config', 'AW-18318477742');
+  // Origen de la visita: "A" = anuncios (gclid/gbraid/wbraid o utm_medium=cpc), "W" = resto. Se guarda durante la sesión.
+  (function(){
+    try {
+      var q = new URLSearchParams(location.search);
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+    } catch (err) {}
+  })();
+  function sgCode() {
+    var p = location.pathname.replace(/\.html$/, '').replace(/^\//, '') || 'inicio';
+    var map = {'inicio':'GEN','sesiones':'SES','terapia-individual-tarragona':'IND','terapia-pareja-tarragona':'PAR','ruptura-crisis-pareja-tarragona':'PAR','dependencia-emocional-tarragona':'DEP','terapia-gestalt-tarragona':'GES','terapia-online':'ONL','crisis-existencial':'CRI','programas':'PRG','talleres-retiros':'TAL','del-dolor-a-la-alegria':'TAL','el-personaje':'PER','sobre-sergio':'SOB'};
+    var c = map[p] || (p.indexOf('blog') === 0 ? 'BLG' : 'WEB');
+    var s = 'W';
+    try { s = sessionStorage.getItem('sg_src') || 'W'; } catch (err) {}
+    return c + '-' + s;
+  }
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[href*="wa.me"]');
     if (link) {
+      var code = sgCode();
+      try {
+        var u = new URL(link.href);
+        if (u.href.indexOf('%5B' + code.split('-')[0]) === -1) {
+          var t = u.searchParams.get('text') || 'Hola Sergio, me gustaría más información';
+          link.href = 'https://wa.me' + u.pathname + '?text=' + encodeURIComponent(t + ' [' + code + ']');
+        }
+      } catch (err) {}
+      gtag('event', 'whatsapp_click', {
+        'cta': link.getAttribute('data-cta') || (link.textContent || '').trim().slice(0, 60),
+        'codigo': code,
+        'pagina': location.pathname
+      });
       gtag('event', 'conversion', {
         'send_to': 'AW-18318477742/J--eCPbZudIcEK6T955E',
         'value': 1.0,
         'currency': 'EUR'
       });
     }
-  });
+  }, true);
 </script>
 <link rel="canonical" href="https://sergiogarciaterapeuta.es/talleres-retiros">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -239,33 +284,137 @@ p.body+p.body { margin-top:1rem; }
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Sergio Garc\u00eda - Terapeuta Gestalt y Existencial",
-  "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
-  "url": "https://sergiogarciaterapeuta.es/",
-  "telephone": "+34634422827",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Tarragona",
-    "addressRegion": "Catalunya",
-    "addressCountry": "ES"
-  },
-  "sameAs": ["https://www.instagram.com/sergiogarciaterapeuta"],
-  "priceRange": "$$",
-  "founder": {
-    "@type": "Person",
-    "name": "Sergio Garc\u00eda"
-  }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://sergiogarciaterapeuta.es/#website",
+      "url": "https://sergiogarciaterapeuta.es/",
+      "name": "Sergio García · Terapeuta",
+      "inLanguage": "es",
+      "publisher": {
+        "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
+      "name": "Sergio García",
+      "jobTitle": "Terapeuta Gestalt y existencial",
+      "description": "Terapeuta Gestalt, sistémico y existencial en Tarragona, con más de 20 años acompañando procesos de transformación personal. Creador del enfoque «El personaje». No es psicólogo sanitario.",
+      "url": "https://sergiogarciaterapeuta.es/sobre-sergio",
+      "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
+      "email": "sergio@sergiogarciaterapeuta.es",
+      "telephone": "+34634422827",
+      "knowsAbout": [
+        "crisis existencial",
+        "dependencia emocional",
+        "terapia de pareja",
+        "terapia Gestalt",
+        "terapia existencial",
+        "terapia sistémica",
+        "El personaje"
+      ],
+      "knowsLanguage": [
+        "es"
+      ],
+      "worksFor": {
+        "@id": "https://sergiogarciaterapeuta.es/#consulta"
+      },
+      "sameAs": [
+        "https://www.instagram.com/sergiogarciaterapeuta",
+        "https://www.youtube.com/@SergioGarciaTerapeuta"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://sergiogarciaterapeuta.es/#consulta",
+      "name": "Sergio García · Terapeuta Gestalt y existencial",
+      "url": "https://sergiogarciaterapeuta.es/",
+      "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
+      "telephone": "+34634422827",
+      "email": "sergio@sergiogarciaterapeuta.es",
+      "founder": {
+        "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tarragona",
+        "addressRegion": "Cataluña",
+        "addressCountry": "ES"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Tarragona"
+        },
+        {
+          "@type": "City",
+          "name": "Reus"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Camp de Tarragona"
+        },
+        {
+          "@type": "Country",
+          "name": "España"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Terapia individual",
+              "url": "https://sergiogarciaterapeuta.es/terapia-individual-tarragona"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Terapia de pareja",
+              "url": "https://sergiogarciaterapeuta.es/terapia-pareja-tarragona"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Terapia Gestalt",
+              "url": "https://sergiogarciaterapeuta.es/terapia-gestalt-tarragona"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Terapia online",
+              "url": "https://sergiogarciaterapeuta.es/terapia-online"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Talleres y retiros",
+              "url": "https://sergiogarciaterapeuta.es/talleres-retiros"
+            }
+          }
+        ]
+      },
+      "sameAs": [
+        "https://www.instagram.com/sergiogarciaterapeuta",
+        "https://www.youtube.com/@SergioGarciaTerapeuta"
+      ]
+    }
+  ]
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
-  "name": "Sergio García",
-  "knowsAbout": ["crisis existencial", "Gestalt", "terapia sistémica", "terapia existencial", "terapia de pareja", "desarrollo personal", "acompañamiento terapéutico"]
-}
-</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -276,7 +425,7 @@ p.body+p.body { margin-top:1rem; }
       "name": "¿Cuándo son los próximos talleres?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "\"Del dolor a la alegría\" el 20 de septiembre de 2026, \"El personaje\" el 17-18 de octubre, y \"Crisis e identidad\" el 14-15 de noviembre. Todos presenciales en Tarragona."
+        "text": "Las próximas ediciones de \"Del dolor a la alegría\", \"El personaje que te está matando\" y \"Crisis e identidad\" están por anunciar. Son presenciales en Tarragona. Escríbeme por WhatsApp y te aviso en cuanto haya fecha."
       }
     },
     {
@@ -328,6 +477,34 @@ p.body+p.body { margin-top:1rem; }
   }
 }
 </script>
+<style id="sg-movil">
+/* Ajustes móvil (auditoría visual oct 2026) */
+@media (max-width:768px){
+  html{overflow-x:clip;}
+  img,video,iframe{max-width:100%;}
+  [style*="grid-template-columns"]{grid-template-columns:1fr !important;}
+  [style*="repeat(4,1fr)"],[style*="repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important;row-gap:1.6rem;}
+  [style*="grid-template-columns"] > div{border-right:none !important;}
+  [style*="grid-template-columns"] > div[style*="padding:2rem 2rem 2rem 0"],
+  [style*="grid-template-columns"] > div[style*="padding:2rem 0 2rem 2rem"]{padding:1.6rem 0 !important;}
+  [style*="grid-template-columns"] > div[style*="padding:2rem;"]{padding:1.6rem 0 !important;}
+  .franja{flex-wrap:wrap;justify-content:center;gap:.4rem 1rem;}
+  .sr-cta{white-space:normal;}
+  table{font-size:.8rem;}
+  table th,table td{padding:.5rem .35rem !important;}
+}
+</style>
+<style>
+/* arreglo móvil: bloques con columnas fijas que desbordaban en pantallas pequeñas */
+@media (max-width:768px){
+  main [style*="grid-template-columns"]{grid-template-columns:1fr!important;gap:1rem!important;}
+  main div[style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:repeat(2,1fr)!important;gap:0!important;}
+  main div[style*="grid-template-columns:repeat(4,1fr)"] > div{border-right:none!important;}
+  main [style*="padding:2.5rem 0 2.5rem 2.5rem"],main [style*="padding:2rem 0 2rem 2rem"]{padding-left:0!important;border-left:none!important;}
+  .sr-cta,.btn-outline,.btn-dark,.btn-fire{white-space:normal!important;max-width:100%;}
+  .franja{flex-wrap:wrap;}
+}
+</style>
 </head>
 
 
@@ -335,19 +512,19 @@ p.body+p.body { margin-top:1rem; }
 <div class="top-bar">
   <a href="tel:+34634422827">📞 634 42 28 27</a>
   <span class="tb-sep">·</span>
-  <a href="mailto:sergiogarciaterapeuta@gmail.com">✉️ sergiogarciaterapeuta@gmail.com</a>
+  <a href="mailto:sergio@sergiogarciaterapeuta.es">✉️ sergio@sergiogarciaterapeuta.es</a>
 </div>
 <nav>
-  <a href="index.html" class="logo">Sergio García</a>
+  <a href="/" class="logo">Sergio García</a>
   <div class="nav-links" onclick="if(event.target.tagName==='A'){this.classList.remove('open');var t=document.querySelector('.nav-toggle');t.setAttribute('aria-expanded','false');t.innerHTML='\u2630';}">
-    <a href="index.html">Inicio</a>
-    <a href="el-personaje">El personaje</a>
-    <a href="sobre-sergio">Sobre mí</a>
-    <a href="sesiones">Sesiones</a>
-    <a href="talleres-retiros" class="active">Talleres y retiros</a>
-    <a href="programas">Programas</a>
-    <a href="blog">Blog</a>
-    <a href="index.html#contacto">Contacto</a>
+    <a href="/">Inicio</a>
+    <a href="/el-personaje">El personaje</a>
+    <a href="/sobre-sergio">Sobre mí</a>
+    <a href="/sesiones">Sesiones</a>
+    <a href="/talleres-retiros" class="active">Talleres y retiros</a>
+    <a href="/programas">Programas</a>
+    <a href="/blog">Blog</a>
+    <a href="/#contacto">Contacto</a>
   </div>
   <a href="https://wa.me/34634422827" class="nav-btn">Reservar sesión</a>
   <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="var m=document.querySelector('.nav-links');var open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);this.innerHTML=open?'\u2715':'\u2630';">☰</button>
@@ -357,7 +534,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="page-hero">
   <div>
     <span class="sec-label">Talleres y retiros</span>
-    <h1>Talleres y retiros <em>terapéuticos</em><br>en Tarragona y Cataluña.</h1>
+    <h1>Talleres y retiros <em>terapéuticos</em> <br>en Tarragona y Cataluña.</h1>
     <p>El grupo hace lo que la sesión no puede. Talleres vivenciales de un día o fin de semana, y retiros terapéuticos de 4-5 días en entorno natural, en Tarragona y Cataluña. Grupos reducidos. Trabajo experiencial real.</p>
   </div>
   <p class="page-hero-side">"En el grupo aparecen cosas que en la sesión individual no tienen espacio. El grupo amplifica, confronta y sostiene de una manera distinta."</p>
@@ -375,45 +552,44 @@ p.body+p.body { margin-top:1rem; }
 
 <div class="tres">
   <div style="position:relative;background:var(--bone2);">
-    <span style="position:absolute;top:0;right:0;background:var(--fire);color:#fff;font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.4rem .8rem;">Próximo taller · 20 sept</span>
-    <span class="tag">Taller · 1 día · 20 septiembre 2026</span>
-    <h3 class="medio">Del dolor a la alegría</h3>
-    <p class="body">Un día de trabajo intensivo con las emociones como herramienta. Ejercicios experienciales, movimiento y trabajo corporal grupal. Para personas que quieren contactar con lo que normalmente evitan.</p>
-    <div class="tc-meta" style="margin-top:auto;">
-      <span>📍 Tarragona</span>
-      <span>🕐 10:00–20:00</span>
-      <span>👥 12 plazas · <strong style="color:var(--fire);">7 disponibles</strong></span>
-    </div>
-    <div style="display:flex;gap:1.5rem;align-self:flex-start;">
-      <a href="del-dolor-a-la-alegria" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:0.5px solid rgba(0,0,0,.2);padding-bottom:2px;">Más info →</a>
-      <a href="https://wa.me/34634422827?text=Quiero%20reservar%20plaza%20en%20Del%20dolor%20a%20la%20alegría%2020%20septiembre" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;">Reservar plaza →</a>
-    </div>
-  </div>
-  <div>
-    <span class="tag">Taller · Fin de semana · 17-18 octubre 2026</span>
+    <span style="position:absolute;top:0;right:0;background:var(--fire);color:#fff;font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.4rem .8rem;">Próximo taller · 17-18 oct</span>
+    <span class="tag">Taller · Fin de semana · Próxima edición</span>
     <h3 class="medio">El personaje que te está matando</h3>
     <p class="body">Versión presencial del trabajo sobre el personaje. Dos días para ver con claridad qué mecanismo lleva años tomando decisiones por ti. Ejercicios de confrontación grupal.</p>
     <div class="tc-meta" style="margin-top:auto;">
       <span>📍 Tarragona</span>
-      <span>👥 Máx. 10 personas · <strong style="color:var(--fire);">5 disponibles</strong></span>
+      <span>👥 Máx. 10 personas</span>
     </div>
-    <a href="https://wa.me/34634422827?text=Quiero%20reservar%20plaza%20en%20El%20personaje%2017-18%20octubre" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;">Reservar plaza →</a>
+    <a href="https://wa.me/34634422827?text=Quiero%20que%20me%20avises%20de%20la%20pr%C3%B3xima%20edici%C3%B3n%20de%20El%20personaje" data-cta="taller_personaje" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;">Avísame →</a>
   </div>
   <div>
-    <span class="tag">Taller · Fin de semana · 14-15 noviembre 2026</span>
+    <span class="tag">Taller · Fin de semana · Próxima edición</span>
     <h3 class="medio">Crisis e identidad</h3>
     <p class="body">Dos días para trabajar qué pasa cuando la vida que construiste ya no encaja. Para personas en transición o con sensación persistente de estar en el lugar equivocado.</p>
     <div class="tc-meta" style="margin-top:auto;">
       <span>📍 Tarragona</span>
       <span>👥 Grupo reducido</span>
     </div>
-    <a href="https://wa.me/34634422827?text=Quiero%20información%20sobre%20Crisis%20e%20identidad%2014-15%20noviembre" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;">Más información →</a>
+    <a href="https://wa.me/34634422827?text=Quiero%20que%20me%20avises%20de%20la%20pr%C3%B3xima%20edici%C3%B3n%20de%20Crisis%20e%20identidad" data-cta="taller_crisis" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;">Avísame →</a>
+  </div>
+  <div>
+    <span class="tag">Taller · 1 día · Próxima edición por anunciar</span>
+    <h3 class="medio">Del dolor a la alegría</h3>
+    <p class="body">Un día de trabajo intensivo con las emociones como herramienta. Ejercicios experienciales, movimiento y trabajo corporal grupal. Para personas que quieren contactar con lo que normalmente evitan. La última edición fue el 20 de septiembre de 2026.</p>
+    <div class="tc-meta" style="margin-top:auto;">
+      <span>📍 Tarragona</span>
+      <span>🕐 10:00–20:00</span>
+    </div>
+    <div style="display:flex;gap:1.5rem;align-self:flex-start;">
+      <a href="/del-dolor-a-la-alegria" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:0.5px solid rgba(0,0,0,.2);padding-bottom:2px;">Más info →</a>
+      <a href="https://wa.me/34634422827?text=Av%C3%ADsame%20de%20la%20pr%C3%B3xima%20edici%C3%B3n%20de%20Del%20dolor%20a%20la%20alegr%C3%ADa" data-cta="taller_dolor_aviso" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;">Avísame de la próxima →</a>
+    </div>
   </div>
 </div>
 
 <div class="taller-card">
   <div class="tc-img">
-    <img src="images/talleres-1-c098241f.webp" alt="Retiro terapéutico junto al mar" loading="lazy">
+    <img src="/images/talleres-1-c098241f.webp" alt="Retiro terapéutico junto al mar" loading="lazy">
   </div>
   <div class="tc-body">
     <span class="tc-tag">Retiro · 4-5 días</span>
@@ -431,7 +607,7 @@ p.body+p.body { margin-top:1rem; }
 
 <div class="taller-card" style="flex-direction:row-reverse;">
   <div class="tc-img" style="border-right:none;border-left:1px solid var(--rule);">
-    <img src="images/talleres-2-d387b141.webp" alt="Grupo en taller vivencial" loading="lazy">
+    <img src="/images/talleres-2-d387b141.webp" alt="Grupo en taller vivencial" loading="lazy">
   </div>
   <div class="tc-body">
     <span class="tc-tag">Grupal · Semanal · Tarragona</span>
@@ -482,22 +658,22 @@ p.body+p.body { margin-top:1rem; }
   </div>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:280px;">
     <div style="overflow:hidden;border-right:0.5px solid var(--rule);border-bottom:0.5px solid var(--rule);">
-      <img src="images/talleres-3-2bfd2820.webp" alt="Sergio García facilitando taller" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+      <img src="/images/talleres-3-2bfd2820.webp" alt="Sergio García facilitando taller" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
     </div>
     <div style="overflow:hidden;border-right:0.5px solid var(--rule);border-bottom:0.5px solid var(--rule);">
-      <img src="images/talleres-4-c88a0349.webp" alt="Ejercicio grupal" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+      <img src="/images/talleres-4-c88a0349.webp" alt="Ejercicio grupal" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
     </div>
     <div style="overflow:hidden;border-bottom:0.5px solid var(--rule);">
-      <img src="images/talleres-5-5ca50706.webp" alt="Trabajo somático" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+      <img src="/images/talleres-5-5ca50706.webp" alt="Trabajo somático" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
     </div>
     <div style="overflow:hidden;border-right:0.5px solid var(--rule);">
-      <img src="images/talleres-6-3a67aef5.webp" alt="Grupo con velas" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;">
+      <img src="/images/talleres-6-3a67aef5.webp" alt="Grupo con velas" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;">
     </div>
     <div style="overflow:hidden;border-right:0.5px solid var(--rule);">
-      <img src="images/talleres-7-2e04fb67.webp" alt="Trabajo corporal grupal" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+      <img src="/images/talleres-7-2e04fb67.webp" alt="Trabajo corporal grupal" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
     </div>
     <div style="overflow:hidden;">
-      <img src="images/talleres-8-6a2702ca.webp" alt="Retiro terapéutico grupal" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+      <img src="/images/talleres-8-6a2702ca.webp" alt="Retiro terapéutico grupal" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
     </div>
   </div>
 </section>
@@ -507,7 +683,7 @@ p.body+p.body { margin-top:1rem; }
   <div style="max-width:720px;">
     <div class="faq-item">
       <div class="faq-q"><span>¿Cuándo son los próximos talleres?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a">"Del dolor a la alegría" el 20 de septiembre de 2026, "El personaje" el 17-18 de octubre, y "Crisis e identidad" el 14-15 de noviembre. Todos presenciales en Tarragona.</div>
+      <div class="faq-a">Las próximas ediciones de "Del dolor a la alegría", "El personaje que te está matando" y "Crisis e identidad" están por anunciar. Son presenciales en Tarragona. Escríbeme por WhatsApp y te aviso en cuanto haya fecha.</div>
     </div><div class="faq-item">
       <div class="faq-q"><span>¿Cómo reservo plaza?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a">Escríbeme por WhatsApp indicando el taller que te interesa y te confirmo la reserva y los detalles prácticos.</div>
@@ -516,11 +692,49 @@ p.body+p.body { margin-top:1rem; }
 </div>
 
 </main>
+<nav class="footer-temas" aria-label="Temas y servicios">
+  <div>
+    <p class="footer-titulo">Terapia en Tarragona</p>
+    <ul>
+      <li><a href="/terapia-individual-tarragona">Terapia individual</a></li>
+      <li><a href="/terapia-pareja-tarragona">Terapia de pareja</a></li>
+      <li><a href="/terapia-gestalt-tarragona">Terapia Gestalt</a></li>
+      <li><a href="/terapia-online">Terapia online</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="footer-titulo">Lo que trae la gente</p>
+    <ul>
+      <li><a href="/crisis-existencial">Crisis existencial</a></li>
+      <li><a href="/dependencia-emocional-tarragona">Dependencia emocional</a></li>
+      <li><a href="/ruptura-crisis-pareja-tarragona">Ruptura y crisis de pareja</a></li>
+      <li><a href="/el-personaje">El personaje</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="footer-titulo">Sígueme</p>
+    <ul>
+      <li><a href="https://www.youtube.com/@SergioGarciaTerapeuta" rel="me">YouTube</a></li>
+      <li><a href="https://www.instagram.com/sergiogarciaterapeuta/" rel="me">Instagram</a></li>
+      <li><a href="/sobre-sergio">Sobre mí</a></li>
+    </ul>
+  </div>
+</nav>
+<style>
+.footer-temas{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;padding:2.8rem var(--p) 2.2rem;border-top:0.5px solid var(--rule);}
+.footer-temas .footer-titulo{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fire);margin:0 0 .8rem;}
+.footer-temas ul{list-style:none;margin:0;padding:0;}
+.footer-temas li{margin:.4rem 0;}
+.footer-temas a{font-size:.82rem;color:var(--gray);text-decoration:none;transition:color .18s;}
+.footer-temas a:hover{color:var(--ink);}
+@media (max-width:768px){.footer-temas{grid-template-columns:1fr;gap:1.6rem;}}
+</style>
 <footer>
   <span class="footer-copy">© 2026 Sergio García · Tarragona</span>
   <div class="footer-links">
-    <a href="aviso-legal">Aviso legal</a>
-    <a href="privacidad">Privacidad</a>
+    <a href="/aviso-legal">Aviso legal</a>
+    <a href="/privacidad">Privacidad</a>
+    <a href="/privacidad#cookies" data-sg-cookies>Cookies</a>
   </div>
 </footer>
 <script>
@@ -538,7 +752,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   <div id="sg-panel">
     <div id="sg-panel-header">
       Sergio García
-      <span>Terapeuta Gestalt · Tarragona</span>
+      <span>Terapeuta · Tarragona</span>
     </div>
     <div id="sg-panel-body">
       <div id="sg-msg-preview">
@@ -552,8 +766,8 @@ document.querySelectorAll('.faq-q').forEach(btn => {
       <button id="sg-fallback-link" type="button">¿No tienes WhatsApp? Escríbeme aquí</button>
 
       <form id="sg-fallback-form">
-        <input type="text" name="nombre" placeholder="Tu nombre" required />
-        <input type="text" name="telefono" placeholder="Teléfono o email de contacto" required />
+        <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="name" required />
+        <input type="text" name="telefono" placeholder="Tu teléfono o email" autocomplete="tel" required />
         <textarea name="mensaje" placeholder="¿En qué puedo ayudarte?" required></textarea>
         <button id="sg-fallback-submit" type="submit">Enviar mensaje</button>
         <div id="sg-form-status"></div>
@@ -618,11 +832,13 @@ document.querySelectorAll('.faq-q').forEach(btn => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString()
     })
-      .then(function () {
+      .then(function (r) {
+        if (!r.ok) { throw new Error('envio'); }
         statusEl.textContent = 'Mensaje enviado. Te contactaré en breve.';
         statusEl.className = 'ok';
         fallbackForm.reset();
         if (window.gtag) {
+          gtag('event', 'generate_lead', { 'metodo': 'formulario', 'pagina': location.pathname });
           gtag('event', 'conversion', {
             'send_to': 'AW-18318477742/F1MjCIrB-_ocEK6T955E',
             'value': 1.0,
@@ -654,5 +870,6 @@ document.querySelectorAll('.yt-facade').forEach(function(el){
   el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); loadVideo(); } });
 });
 </script>
+<script src="/consent.js" defer></script>
 </body>
 </html>

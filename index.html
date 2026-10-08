@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sergio García · Terapeuta en Tarragona</title>
+<title>Terapeuta Gestalt en Tarragona y online · Sergio García</title>
 <meta name="description" content="Terapia individual y de pareja en Tarragona para crisis existenciales y patrones que se repiten. Un espacio para quienes sienten que entender ya no es suficiente.">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -274,6 +274,23 @@ footer {
 </script>
 <!-- End MailerLite Universal -->
 <!-- Google tag (gtag.js) -->
+<script id="sg-consent-default">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied', 'ad_user_data': 'denied',
+    'ad_personalization': 'denied', 'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  try {
+    if (localStorage.getItem('sg_consent_v1') === 'granted') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted', 'ad_user_data': 'granted',
+        'ad_personalization': 'granted', 'analytics_storage': 'granted'
+      });
+    }
+  } catch (e) {}
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3E0GC5DX6"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -281,16 +298,44 @@ footer {
   gtag('js', new Date());
   gtag('config', 'G-Y3E0GC5DX6');
   gtag('config', 'AW-18318477742');
+  // Origen de la visita: "A" = anuncios (gclid/gbraid/wbraid o utm_medium=cpc), "W" = resto. Se guarda durante la sesión.
+  (function(){
+    try {
+      var q = new URLSearchParams(location.search);
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+    } catch (err) {}
+  })();
+  function sgCode() {
+    var p = location.pathname.replace(/\.html$/, '').replace(/^\//, '') || 'inicio';
+    var map = {'inicio':'GEN','sesiones':'SES','terapia-individual-tarragona':'IND','terapia-pareja-tarragona':'PAR','ruptura-crisis-pareja-tarragona':'PAR','dependencia-emocional-tarragona':'DEP','terapia-gestalt-tarragona':'GES','terapia-online':'ONL','crisis-existencial':'CRI','programas':'PRG','talleres-retiros':'TAL','del-dolor-a-la-alegria':'TAL','el-personaje':'PER','sobre-sergio':'SOB'};
+    var c = map[p] || (p.indexOf('blog') === 0 ? 'BLG' : 'WEB');
+    var s = 'W';
+    try { s = sessionStorage.getItem('sg_src') || 'W'; } catch (err) {}
+    return c + '-' + s;
+  }
   document.addEventListener('click', function(e) {
     var link = e.target.closest('a[href*="wa.me"]');
     if (link) {
+      var code = sgCode();
+      try {
+        var u = new URL(link.href);
+        if (u.href.indexOf('%5B' + code.split('-')[0]) === -1) {
+          var t = u.searchParams.get('text') || 'Hola Sergio, me gustaría más información';
+          link.href = 'https://wa.me' + u.pathname + '?text=' + encodeURIComponent(t + ' [' + code + ']');
+        }
+      } catch (err) {}
+      gtag('event', 'whatsapp_click', {
+        'cta': link.getAttribute('data-cta') || (link.textContent || '').trim().slice(0, 60),
+        'codigo': code,
+        'pagina': location.pathname
+      });
       gtag('event', 'conversion', {
         'send_to': 'AW-18318477742/J--eCPbZudIcEK6T955E',
         'value': 1.0,
         'currency': 'EUR'
       });
     }
-  });
+  }, true);
 </script>
 <link rel="canonical" href="https://sergiogarciaterapeuta.es/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -308,45 +353,137 @@ footer {
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Sergio Garc\u00eda - Terapeuta Gestalt y Existencial",
-  "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
-  "url": "https://sergiogarciaterapeuta.es/",
-  "telephone": "+34634422827",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Tarragona",
-    "addressRegion": "Catalunya",
-    "addressCountry": "ES"
-  },
-  "sameAs": ["https://www.instagram.com/sergiogarciaterapeuta"],
-  "priceRange": "$$",
-  "founder": {
-    "@type": "Person",
-    "name": "Sergio Garc\u00eda"
-  }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://sergiogarciaterapeuta.es/#website",
+      "url": "https://sergiogarciaterapeuta.es/",
+      "name": "Sergio García · Terapeuta",
+      "inLanguage": "es",
+      "publisher": {
+        "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
+      "name": "Sergio García",
+      "jobTitle": "Terapeuta Gestalt y existencial",
+      "description": "Terapeuta Gestalt, sistémico y existencial en Tarragona, con más de 20 años acompañando procesos de transformación personal. Creador del enfoque «El personaje». No es psicólogo sanitario.",
+      "url": "https://sergiogarciaterapeuta.es/sobre-sergio",
+      "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
+      "email": "sergio@sergiogarciaterapeuta.es",
+      "telephone": "+34634422827",
+      "knowsAbout": [
+        "crisis existencial",
+        "dependencia emocional",
+        "terapia de pareja",
+        "terapia Gestalt",
+        "terapia existencial",
+        "terapia sistémica",
+        "El personaje"
+      ],
+      "knowsLanguage": [
+        "es"
+      ],
+      "worksFor": {
+        "@id": "https://sergiogarciaterapeuta.es/#consulta"
+      },
+      "sameAs": [
+        "https://www.instagram.com/sergiogarciaterapeuta",
+        "https://www.youtube.com/@SergioGarciaTerapeuta"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://sergiogarciaterapeuta.es/#consulta",
+      "name": "Sergio García · Terapeuta Gestalt y existencial",
+      "url": "https://sergiogarciaterapeuta.es/",
+      "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
+      "telephone": "+34634422827",
+      "email": "sergio@sergiogarciaterapeuta.es",
+      "founder": {
+        "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tarragona",
+        "addressRegion": "Cataluña",
+        "addressCountry": "ES"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Tarragona"
+        },
+        {
+          "@type": "City",
+          "name": "Reus"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Camp de Tarragona"
+        },
+        {
+          "@type": "Country",
+          "name": "España"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Terapia individual",
+              "url": "https://sergiogarciaterapeuta.es/terapia-individual-tarragona"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Terapia de pareja",
+              "url": "https://sergiogarciaterapeuta.es/terapia-pareja-tarragona"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Terapia Gestalt",
+              "url": "https://sergiogarciaterapeuta.es/terapia-gestalt-tarragona"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Terapia online",
+              "url": "https://sergiogarciaterapeuta.es/terapia-online"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Talleres y retiros",
+              "url": "https://sergiogarciaterapeuta.es/talleres-retiros"
+            }
+          }
+        ]
+      },
+      "sameAs": [
+        "https://www.instagram.com/sergiogarciaterapeuta",
+        "https://www.youtube.com/@SergioGarciaTerapeuta"
+      ]
+    }
+  ]
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
-  "name": "Sergio García",
-  "jobTitle": "Terapeuta",
-  "description": "Terapeuta Gestalt, sistémico y existencial en Tarragona, con más de 20 años de experiencia acompañando procesos de transformación personal.",
-  "url": "https://sergiogarciaterapeuta.es/",
-  "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
-  "telephone": "+34634422827",
-  "knowsAbout": ["crisis existencial", "Gestalt", "terapia sistémica", "terapia existencial", "terapia de pareja", "desarrollo personal", "acompañamiento terapéutico"],
-  "knowsLanguage": ["es"],
-  "sameAs": ["https://www.instagram.com/sergiogarciaterapeuta"],
-  "worksFor": {
-    "@type": "LocalBusiness",
-    "name": "Sergio García - Terapeuta Gestalt y Existencial"
-  }
-}
-</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -425,6 +562,34 @@ footer {
   }
 }
 </script>
+<style id="sg-movil">
+/* Ajustes móvil (auditoría visual oct 2026) */
+@media (max-width:768px){
+  html{overflow-x:clip;}
+  img,video,iframe{max-width:100%;}
+  [style*="grid-template-columns"]{grid-template-columns:1fr !important;}
+  [style*="repeat(4,1fr)"],[style*="repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important;row-gap:1.6rem;}
+  [style*="grid-template-columns"] > div{border-right:none !important;}
+  [style*="grid-template-columns"] > div[style*="padding:2rem 2rem 2rem 0"],
+  [style*="grid-template-columns"] > div[style*="padding:2rem 0 2rem 2rem"]{padding:1.6rem 0 !important;}
+  [style*="grid-template-columns"] > div[style*="padding:2rem;"]{padding:1.6rem 0 !important;}
+  .franja{flex-wrap:wrap;justify-content:center;gap:.4rem 1rem;}
+  .sr-cta{white-space:normal;}
+  table{font-size:.8rem;}
+  table th,table td{padding:.5rem .35rem !important;}
+}
+</style>
+<style>
+/* arreglo móvil: bloques con columnas fijas que desbordaban en pantallas pequeñas */
+@media (max-width:768px){
+  main [style*="grid-template-columns"]{grid-template-columns:1fr!important;gap:1rem!important;}
+  main div[style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:repeat(2,1fr)!important;gap:0!important;}
+  main div[style*="grid-template-columns:repeat(4,1fr)"] > div{border-right:none!important;}
+  main [style*="padding:2.5rem 0 2.5rem 2.5rem"],main [style*="padding:2rem 0 2rem 2rem"]{padding-left:0!important;border-left:none!important;}
+  .sr-cta,.btn-outline,.btn-dark,.btn-fire{white-space:normal!important;max-width:100%;}
+  .franja{flex-wrap:wrap;}
+}
+</style>
 </head>
 
 
@@ -432,19 +597,19 @@ footer {
 <div class="top-bar">
   <a href="tel:+34634422827">📞 634 42 28 27</a>
   <span class="tb-sep">·</span>
-  <a href="mailto:sergiogarciaterapeuta@gmail.com">✉️ sergiogarciaterapeuta@gmail.com</a>
+  <a href="mailto:sergio@sergiogarciaterapeuta.es">✉️ sergio@sergiogarciaterapeuta.es</a>
 </div>
 <nav>
-  <a href="index.html" class="logo active">Sergio García</a>
+  <a href="/" class="logo active">Sergio García</a>
   <div class="nav-links" onclick="if(event.target.tagName==='A'){this.classList.remove('open');var t=document.querySelector('.nav-toggle');t.setAttribute('aria-expanded','false');t.innerHTML='\u2630';}">
-    <a href="index.html" class="active">Inicio</a>
-    <a href="el-personaje">El personaje</a>
-    <a href="sobre-sergio">Sobre mí</a>
-    <a href="sesiones">Sesiones</a>
-    <a href="talleres-retiros">Talleres y retiros</a>
-    <a href="programas">Programas</a>
-    <a href="blog">Blog</a>
-    <a href="index.html#contacto">Contacto</a>
+    <a href="/" class="active">Inicio</a>
+    <a href="/el-personaje">El personaje</a>
+    <a href="/sobre-sergio">Sobre mí</a>
+    <a href="/sesiones">Sesiones</a>
+    <a href="/talleres-retiros">Talleres y retiros</a>
+    <a href="/programas">Programas</a>
+    <a href="/blog">Blog</a>
+    <a href="/#contacto">Contacto</a>
   </div>
   <a href="https://wa.me/34634422827" class="nav-btn">Reservar sesión</a>
   <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="var m=document.querySelector('.nav-links');var open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);this.innerHTML=open?'\u2715':'\u2630';">☰</button>
@@ -453,16 +618,17 @@ footer {
 
 <section class="hero">
   <div class="hero-l">
-    <p class="hero-tag">Terapeuta en Tarragona · Online · Terapia individual y de pareja</p>
-    <h1 class="hero-h1"><span class="hero-h1-line">Hay personas que buscan respuestas.</span><span class="hero-h1-line">Otras descubren que entender nunca fue el problema.</span></h1>
+    <h1 class="hero-tag" style="font-family:inherit;font-weight:500;margin:0;">Terapeuta Gestalt en Tarragona · Online · Terapia individual y de pareja</h1>
+    <p class="hero-h1" style="font-family:'Cormorant Garamond',serif;"><span class="hero-h1-line">Hay personas que buscan respuestas.</span><span class="hero-h1-line">Otras descubren que entender nunca fue el problema.</span></p>
     <p class="hero-h1"><span class="hero-h1-line">El problema era seguir viviendo siempre de la <em>misma manera</em>.</span></p>
     <div>
-      <p class="hero-sub">Si llegas aquí por ansiedad, una ruptura, un duelo o una crisis existencial, estás en el lugar adecuado. Y si además llevas años repitiendo la misma historia —la misma pareja, el mismo límite que no pones—, también.</p>
-      <a href="https://wa.me/34634422827" class="btn-dark">Reservar primera sesión →</a>
+      <p class="hero-sub">Si llegas aquí por ansiedad, una ruptura, un duelo o una <a href="/crisis-existencial" style="color:var(--fire);">crisis existencial</a>, estás en el lugar adecuado. Y si además llevas años repitiendo la misma historia —la misma pareja, el mismo límite que no pones—, también.</p>
+      <a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20quiero%20reservar%20una%20primera%20sesi%C3%B3n" data-cta="hero_reservar" class="btn-dark">Reservar primera sesión →</a>
+      <p style="font-size:.78rem;color:var(--gray);margin-top:.8rem;">Presencial en Tarragona u online. Te respondo yo, no un equipo.</p>
     </div>
   </div>
   <div class="hero-r">
-    <img src="images/home-1-b51abf0f.webp" alt="Sergio García en sesión" loading="eager">
+    <img src="/images/home-1-b51abf0f.webp" alt="Sergio García en sesión" loading="eager">
   </div>
 </section>
 
@@ -512,7 +678,7 @@ footer {
       <p class="c-num">01</p>
       <h2 class="c-h">Todos construimos un personaje para sobrevivir.</h2>
       <p class="c-p">La ansiedad, el bloqueo o la dependencia emocional pueden parecer problemas distintos. Muchas veces comparten algo: un personaje intentando protegerte.</p>
-      <a href="el-personaje" style="display:inline-block;margin-top:1.5rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;">Leer más →</a>
+      <a href="/el-personaje" style="display:inline-block;margin-top:1.5rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;">Leer más →</a>
     </div>
     <div class="c-item">
       <p class="c-num">02</p>
@@ -528,7 +694,7 @@ footer {
 </section>
 
 <div class="img-cita">
-  <img src="images/home-2-c098241f.webp" alt="Retiro junto al mar" loading="lazy">
+  <img src="/images/home-2-c098241f.webp" alt="Retiro junto al mar" loading="lazy">
   <div class="img-cita-txt">
     <blockquote>"No creo que estés bloqueado. Creo que llevas demasiado tiempo protegiendo una versión de ti que ya no existe."</blockquote>
   </div>
@@ -543,47 +709,47 @@ footer {
     <div class="srv">
       <span class="srv-tag">Individual</span>
       <h3 class="srv-h">Sesión individual</h3>
-      <p class="srv-p">Presencial en Tarragona u online con personas de todo el mundo en castellano. 60 minutos. Sin compromiso de continuidad.</p>
-      <a href="sesiones" class="srv-a">Ver más →</a>
+      <p class="srv-p">Presencial en Tarragona u <a href="/terapia-online" style="color:inherit;text-decoration:underline;text-decoration-color:var(--fire-dim);text-underline-offset:3px">online</a> con personas de todo el mundo en castellano. 60 minutos. Sin compromiso de continuidad.</p>
+      <a href="/terapia-individual-tarragona" class="srv-a">Ver más →</a>
     </div>
     <div class="srv">
       <span class="srv-tag">Pareja</span>
       <h3 class="srv-h">Terapia de pareja</h3>
       <p class="srv-p">La pareja no es el problema. Es el espejo de lo que cada uno trae. Trabajo la dependencia, el abandono y los patrones relacionales.</p>
-      <a href="sesiones.html#pareja" class="srv-a">Ver más →</a>
+      <a href="/terapia-pareja-tarragona" class="srv-a">Ver más →</a>
     </div>
     <div class="srv dark">
       <span class="srv-tag">Grupal</span>
       <h3 class="srv-h">Talleres y retiros</h3>
       <p class="srv-p">Talleres vivenciales de un día o fin de semana. Retiros de 4-5 días en entorno natural. El grupo hace lo que la sesión no puede.</p>
-      <a href="talleres-retiros" class="srv-a">Ver fechas →</a>
+      <a href="/talleres-retiros" class="srv-a">Ver fechas →</a>
     </div>
     <div class="srv">
       <span class="srv-tag">Profesionales</span>
       <h3 class="srv-h">Supervisión · Grupos · Conferencias</h3>
       <p class="srv-p">Grupos semanales, supervisión clínica para terapeutas y ponencias para empresas y universidades.</p>
-      <a href="sesiones.html#profesionales" class="srv-a">Consultar →</a>
+      <a href="/sesiones#profesionales" class="srv-a">Consultar →</a>
     </div>
   </div>
 </section>
 
 <div class="foto-par" aria-hidden="true">
-  <div class="fp"><img src="images/home-3-2bfd2820.webp" alt="Sergio García facilitando taller" loading="lazy"></div>
-  <div class="fp"><img src="images/home-4-6a2702ca.webp" alt="Trabajo grupal en taller vivencial" loading="lazy"></div>
+  <div class="fp"><img src="/images/home-3-2bfd2820.webp" alt="Sergio García facilitando taller" loading="lazy"></div>
+  <div class="fp"><img src="/images/home-4-6a2702ca.webp" alt="Trabajo grupal en taller vivencial" loading="lazy"></div>
 </div>
 
 <section class="prod-preview" id="programas">
   <div class="pp">
-    <span class="pp-tag">Curso digital · 97€</span>
+    <span class="pp-tag">Curso digital</span>
     <h3 class="pp-h">El personaje que te está matando</h3>
     <p class="pp-p">5 vídeos. No te explican nada nuevo. Te muestran lo que ya sabes pero no puedes ver. La puerta de entrada si no estás listo para el trabajo individual.</p>
-    <a href="programas.html#curso" class="btn-outline" style="margin-top:.5rem;align-self:flex-start;">Ver el curso →</a>
+    <a href="/programas#curso" class="btn-outline" style="margin-top:.5rem;align-self:flex-start;">Ver el curso →</a>
   </div>
   <div class="pp dark">
     <span class="pp-tag" style="color:#E8956A;">Mentoría intensiva · Individual</span>
     <h3 class="pp-h" style="color:var(--bone);">El Punto de Inflexión</h3>
-    <p class="pp-p">5-6 semanas de proceso individual intensivo. Para personas que ya no pueden seguir igual. Tres modalidades desde 947€.</p>
-    <a href="programas.html#inflexion" class="btn-fire" style="margin-top:.5rem;align-self:flex-start;">Ver el programa →</a>
+    <p class="pp-p">5-6 semanas de proceso individual intensivo. Para personas que ya no pueden seguir igual. Tres modalidades, según la profundidad que necesites.</p>
+    <a href="/programas#inflexion" class="btn-fire" style="margin-top:.5rem;align-self:flex-start;">Ver el programa →</a>
   </div>
 </section>
 
@@ -627,29 +793,24 @@ footer {
   <span class="sec-label">Lo que dicen</span>
   <div class="test-grid">
     <div class="test dark">
-      <p class="test-s">★★★★★</p>
       <p class="test-q">"Una de las mejores inversiones de mi vida. Llegué pensando que necesitaba respuestas y descubrí que lo que necesitaba era dejar de repetir los mismos patrones de siempre."</p>
       <p class="test-by">— Javier, 42 años</p>
     </div>
     <div class="test">
-      <p class="test-s">★★★★★</p>
       <p class="test-q">"Había probado psicólogos, libros, cursos y vídeos. Entendía perfectamente lo que me pasaba, pero seguía actuando igual. Con Sergio dejé de acumular teoría y empecé a hacer cambios reales."</p>
       <p class="test-by">— Laura, 36 años</p>
     </div>
     <div class="test">
-      <p class="test-s">★★★★★</p>
       <p class="test-q">"Llegué por una ruptura de pareja y terminé entendiendo que el problema no era aquella relación, sino un patrón que llevaba repitiendo toda mi vida."</p>
       <p class="test-by">— Agatha, 39 años</p>
     </div>
   </div>
   <div class="test2-grid" style="margin-top:1.5rem;">
     <div class="test">
-      <p class="test-s">★★★★★</p>
       <p class="test-q">"Llegamos convencidos de que el problema era el otro. En pocas sesiones entendimos que ambos llevábamos años relacionándonos desde el mismo personaje. No fue una terapia para aprender técnicas de comunicación. Fue mucho más incómodo... y mucho más transformador."</p>
       <p class="test-by">— Marta y David · Terapia de pareja</p>
     </div>
     <div class="test dark">
-      <p class="test-s" style="color:#E8956A;">★★★★★</p>
       <p class="test-q" style="color:rgba(255,255,255,.6);">"He hecho muchos retiros y muchos cursos. En ninguno había sentido tanta verdad. No me llevé respuestas. Me llevé una decisión. Y eso cambió completamente la dirección de mi vida."</p>
       <p class="test-by" style="color:rgba(255,255,255,.3);">— Carlos · Retiro de transformación</p>
     </div>
@@ -688,7 +849,7 @@ window.addEventListener('load', function(){
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
     <div>
       <span style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#E8956A;margin-bottom:1.5rem;display:block;">Entrevista</span>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;color:var(--bone);line-height:1.2;margin-bottom:1.2rem;">Escúchame antes<br>de escribirme.</h2>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:500;color:var(--bone);line-height:1.2;margin-bottom:1.2rem;">Escúchame antes <br>de escribirme.</h2>
       <p style="font-size:.95rem;color:rgba(255,255,255,.5);line-height:1.9;margin-bottom:2rem;">Si quieres entender cómo pienso y cómo trabajo antes de dar el paso, esta es la mejor forma de empezar.</p>
       <a href="https://wa.me/34634422827" style="display:inline-block;background:var(--fire);color:white;padding:.88rem 2rem;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;">Escribir después →</a>
     </div>
@@ -728,7 +889,7 @@ window.addEventListener('load', function(){
     <div class="c-row"><span class="c-lbl">Online</span><span class="c-val">Todo el mundo en castellano</span></div>
     <div class="c-row"><span class="c-lbl">Talleres y retiros</span><span class="c-val">Tarragona y Cataluña</span></div>
     <div class="c-row"><span class="c-lbl">Teléfono</span><span class="c-val"><a href="tel:+34634422827" style="color:inherit;text-decoration:none;">634 42 28 27</a></span></div>
-    <div class="c-row"><span class="c-lbl">Email</span><span class="c-val"><a href="mailto:sergiogarciaterapeuta@gmail.com" style="color:inherit;text-decoration:none;">sergiogarciaterapeuta@gmail.com</a></span></div>
+    <div class="c-row"><span class="c-lbl">Email</span><span class="c-val"><a href="mailto:sergio@sergiogarciaterapeuta.es" style="color:inherit;text-decoration:none;">sergio@sergiogarciaterapeuta.es</a></span></div>
     <div class="c-row"><span class="c-lbl">Contacto</span><span class="c-val">WhatsApp · L-V</span></div>
     <div class="c-row"><span class="c-lbl">Instagram</span><span class="c-val">@sergiogarciaterapeuta</span></div>
   </div>
@@ -743,11 +904,49 @@ window.addEventListener('load', function(){
 </section>
 
 </main>
+<nav class="footer-temas" aria-label="Temas y servicios">
+  <div>
+    <p class="footer-titulo">Terapia en Tarragona</p>
+    <ul>
+      <li><a href="/terapia-individual-tarragona">Terapia individual</a></li>
+      <li><a href="/terapia-pareja-tarragona">Terapia de pareja</a></li>
+      <li><a href="/terapia-gestalt-tarragona">Terapia Gestalt</a></li>
+      <li><a href="/terapia-online">Terapia online</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="footer-titulo">Lo que trae la gente</p>
+    <ul>
+      <li><a href="/crisis-existencial">Crisis existencial</a></li>
+      <li><a href="/dependencia-emocional-tarragona">Dependencia emocional</a></li>
+      <li><a href="/ruptura-crisis-pareja-tarragona">Ruptura y crisis de pareja</a></li>
+      <li><a href="/el-personaje">El personaje</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="footer-titulo">Sígueme</p>
+    <ul>
+      <li><a href="https://www.youtube.com/@SergioGarciaTerapeuta" rel="me">YouTube</a></li>
+      <li><a href="https://www.instagram.com/sergiogarciaterapeuta/" rel="me">Instagram</a></li>
+      <li><a href="/sobre-sergio">Sobre mí</a></li>
+    </ul>
+  </div>
+</nav>
+<style>
+.footer-temas{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;padding:2.8rem var(--p) 2.2rem;border-top:0.5px solid var(--rule);}
+.footer-temas .footer-titulo{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fire);margin:0 0 .8rem;}
+.footer-temas ul{list-style:none;margin:0;padding:0;}
+.footer-temas li{margin:.4rem 0;}
+.footer-temas a{font-size:.82rem;color:var(--gray);text-decoration:none;transition:color .18s;}
+.footer-temas a:hover{color:var(--ink);}
+@media (max-width:768px){.footer-temas{grid-template-columns:1fr;gap:1.6rem;}}
+</style>
 <footer>
   <span class="footer-copy">© 2026 Sergio García · Tarragona</span>
   <div class="footer-links">
-    <a href="aviso-legal">Aviso legal</a>
-    <a href="privacidad">Privacidad</a>
+    <a href="/aviso-legal">Aviso legal</a>
+    <a href="/privacidad">Privacidad</a>
+    <a href="/privacidad#cookies" data-sg-cookies>Cookies</a>
   </div>
 </footer>
 <script>
@@ -765,7 +964,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   <div id="sg-panel">
     <div id="sg-panel-header">
       Sergio García
-      <span>Terapeuta Gestalt · Tarragona</span>
+      <span>Terapeuta · Tarragona</span>
     </div>
     <div id="sg-panel-body">
       <div id="sg-msg-preview">
@@ -779,8 +978,8 @@ document.querySelectorAll('.faq-q').forEach(btn => {
       <button id="sg-fallback-link" type="button">¿No tienes WhatsApp? Escríbeme aquí</button>
 
       <form id="sg-fallback-form">
-        <input type="text" name="nombre" placeholder="Tu nombre" required />
-        <input type="text" name="telefono" placeholder="Teléfono o email de contacto" required />
+        <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="name" required />
+        <input type="text" name="telefono" placeholder="Tu teléfono o email" autocomplete="tel" required />
         <textarea name="mensaje" placeholder="¿En qué puedo ayudarte?" required></textarea>
         <button id="sg-fallback-submit" type="submit">Enviar mensaje</button>
         <div id="sg-form-status"></div>
@@ -845,11 +1044,13 @@ document.querySelectorAll('.faq-q').forEach(btn => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString()
     })
-      .then(function () {
+      .then(function (r) {
+        if (!r.ok) { throw new Error('envio'); }
         statusEl.textContent = 'Mensaje enviado. Te contactaré en breve.';
         statusEl.className = 'ok';
         fallbackForm.reset();
         if (window.gtag) {
+          gtag('event', 'generate_lead', { 'metodo': 'formulario', 'pagina': location.pathname });
           gtag('event', 'conversion', {
             'send_to': 'AW-18318477742/F1MjCIrB-_ocEK6T955E',
             'value': 1.0,
@@ -887,5 +1088,6 @@ document.querySelectorAll('.yt-facade').forEach(function(el){
   el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); loadVideo(); } });
 });
 </script>
+<script src="/consent.js" defer></script>
 </body>
 </html>

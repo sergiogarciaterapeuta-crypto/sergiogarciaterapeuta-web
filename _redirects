@@ -1,3 +1,4 @@
+/index.html   /   301!
 /el-personaje.html   /el-personaje   301!
 /sobre-sergio.html   /sobre-sergio   301!
 /sesiones.html   /sesiones   301!
@@ -33,17 +34,13 @@
 /terapia-online   /terapia-online.html   200
 
 /blog-amor-o-ansiedad.html   /blog-amor-o-ansiedad   301!
-/blog-la-vida-no-es-facil-la-cruda-realidad-lxgoshgzeeo.html	/blog-la-vida-no-es-facil-la-cruda-realidad-lxgoshgzeeo	301!
 /dependencia-emocional-tarragona.html   /dependencia-emocional-tarragona   301!
 /ruptura-crisis-pareja-tarragona.html   /ruptura-crisis-pareja-tarragona   301!
 
 /blog-amor-o-ansiedad   /blog-amor-o-ansiedad.html   200
-/blog-la-vida-no-es-facil-la-cruda-realidad-lxgoshgzeeo	/blog-la-vida-no-es-facil-la-cruda-realidad-lxgoshgzeeo.html	200
 /dependencia-emocional-tarragona   /dependencia-emocional-tarragona.html   200
 /ruptura-crisis-pareja-tarragona   /ruptura-crisis-pareja-tarragona.html   200
 
-/blog-por-que-no-sales-de-la-depresion-la-verdad-psicologica.html   /blog-por-que-no-sales-de-la-depresion-la-verdad-psicologica   301!
-/blog-por-que-no-sales-de-la-depresion-la-verdad-psicologica   /blog-por-que-no-sales-de-la-depresion-la-verdad-psicologica.html   200
 
 /aviso-legal.html   /aviso-legal   301!
 /privacidad.html   /privacidad   301!
@@ -52,3 +49,17 @@
 
 /blog-la-razon-oculta-por-la-que-evitas-comprometerte.html /blog-la-razon-oculta-por-la-que-evitas-comprometerte 301!
 /blog-la-razon-oculta-por-la-que-evitas-comprometerte /blog-la-razon-oculta-por-la-que-evitas-comprometerte.html 200
+
+# Renombrados (auditoría oct 2026)
+/blog-por-que-no-sales-de-la-depresion.html   /blog-por-que-no-sales-de-la-depresion   301!
+/blog-por-que-no-sales-de-la-depresion   /blog-por-que-no-sales-de-la-depresion.html   200
+/blog-por-que-no-sales-de-la-depresion-la-verdad-psicologica   /blog-por-que-no-sales-de-la-depresion   301!
+/blog-por-que-no-sales-de-la-depresion-la-verdad-psicologica.html   /blog-por-que-no-sales-de-la-depresion   301!
+/blog-la-vida-no-es-facil.html   /blog-la-vida-no-es-facil   301!
+/blog-la-vida-no-es-facil   /blog-la-vida-no-es-facil.html   200
+/blog-la-vida-no-es-facil-la-cruda-realidad-lxgoshgzeeo   /blog-la-vida-no-es-facil   301!
+/blog-la-vida-no-es-facil-la-cruda-realidad-lxgoshgzeeo.html   /blog-la-vida-no-es-facil   301!
+/blog-la-vida-no-es-facil-la-cruda-realidad-lxGOshgZEeo.html   /blog-la-vida-no-es-facil   301!
+
+/crisis-existencial.html   /crisis-existencial   301!
+/crisis-existencial   /crisis-existencial.html   200
