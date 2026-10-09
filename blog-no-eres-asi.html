@@ -213,7 +213,7 @@ footer {
   (function(){
     try {
       var q = new URLSearchParams(location.search);
-      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) { sessionStorage.setItem('sg_src', 'A'); if (q.get('gclid')) sessionStorage.setItem('sg_gclid', q.get('gclid')); }
     } catch (err) {}
   })();
   function sgCode() {
@@ -322,8 +322,8 @@ footer {
       "@type": "Person",
       "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
       "name": "Sergio García",
-      "jobTitle": "Terapeuta Gestalt y existencial",
-      "description": "Terapeuta Gestalt, sistémico y existencial en Tarragona, con más de 20 años acompañando procesos de transformación personal. Creador del enfoque «El personaje». No es psicólogo sanitario.",
+      "jobTitle": "Terapeuta",
+      "description": "Terapeuta en Tarragona, con más de 20 años acompañando procesos de transformación personal. Creador del enfoque «El personaje». No es psicólogo sanitario.",
       "url": "https://sergiogarciaterapeuta.es/sobre-sergio",
       "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
       "email": "sergio@sergiogarciaterapeuta.es",
@@ -351,7 +351,7 @@ footer {
     {
       "@type": "ProfessionalService",
       "@id": "https://sergiogarciaterapeuta.es/#consulta",
-      "name": "Sergio García · Terapeuta Gestalt y existencial",
+      "name": "Sergio García · Terapeuta",
       "url": "https://sergiogarciaterapeuta.es/",
       "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
       "telephone": "+34634422827",
@@ -475,7 +475,7 @@ footer {
 <section class="post-head">
   <span class="sec-label">El personaje</span>
   <h1>No eres así: aprendiste a ser así</h1>
-  <p class="post-meta">Vídeo · Por <a href="/sobre-sergio" style="color:inherit">Sergio García</a>, terapeuta Gestalt y existencial</p>
+  <p class="post-meta">Vídeo · Por <a href="/sobre-sergio" style="color:inherit">Sergio García</a>, terapeuta</p>
 </section>
 
 <section class="post-video">
@@ -626,6 +626,9 @@ footer {
     e.preventDefault();
     var formData = new FormData(fallbackForm);
     formData.append('form-name', 'contacto-widget');
+    try { formData.append('gclid', sessionStorage.getItem('sg_gclid') || ''); } catch (err) { formData.append('gclid', ''); }
+    try { formData.append('origen', typeof sgCode === 'function' ? sgCode() : ''); } catch (err) {}
+    formData.append('pagina', location.pathname);
 
     fetch('/', {
       method: 'POST',

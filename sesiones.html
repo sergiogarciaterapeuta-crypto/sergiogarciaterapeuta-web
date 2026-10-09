@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terapia individual y de pareja en Tarragona · Sesiones</title>
-<meta name="description" content="Sesiones de terapia individual, de pareja, grupos y supervisión en Tarragona y online con Sergio García, terapeuta Gestalt. Escríbeme por WhatsApp.">
+<meta name="description" content="Sesiones de terapia individual, de pareja, grupos y supervisión en Tarragona y online con Sergio García, terapeuta. Escríbeme por WhatsApp.">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -226,7 +226,7 @@ p.body+p.body { margin-top:1rem; }
   (function(){
     try {
       var q = new URLSearchParams(location.search);
-      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) { sessionStorage.setItem('sg_src', 'A'); if (q.get('gclid')) sessionStorage.setItem('sg_gclid', q.get('gclid')); }
     } catch (err) {}
   })();
   function sgCode() {
@@ -266,13 +266,13 @@ p.body+p.body { margin-top:1rem; }
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sergiogarciaterapeuta.es/sesiones">
-<meta property="og:title" content="Sesiones y formatos · Sergio García, terapeuta Gestalt">
-<meta property="og:description" content="Sesiones de terapia individual, terapia de pareja y grupos de desarrollo con Sergio García, terapeuta Gestalt y existencial en Tarragona.">
+<meta property="og:title" content="Sesiones y formatos · Sergio García, terapeuta">
+<meta property="og:description" content="Sesiones de terapia individual, terapia de pareja y grupos de desarrollo con Sergio García, terapeuta en Tarragona.">
 <meta property="og:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sesiones y formatos · Sergio García, terapeuta Gestalt">
-<meta name="twitter:description" content="Sesiones de terapia individual, terapia de pareja y grupos de desarrollo con Sergio García, terapeuta Gestalt y existencial en Tarragona.">
+<meta name="twitter:title" content="Sesiones y formatos · Sergio García, terapeuta">
+<meta name="twitter:description" content="Sesiones de terapia individual, terapia de pareja y grupos de desarrollo con Sergio García, terapeuta en Tarragona.">
 <meta name="twitter:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp">
 <script type="application/ld+json">
 {
@@ -292,8 +292,8 @@ p.body+p.body { margin-top:1rem; }
       "@type": "Person",
       "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
       "name": "Sergio García",
-      "jobTitle": "Terapeuta Gestalt y existencial",
-      "description": "Terapeuta Gestalt, sistémico y existencial en Tarragona, con más de 20 años acompañando procesos de transformación personal. Creador del enfoque «El personaje». No es psicólogo sanitario.",
+      "jobTitle": "Terapeuta",
+      "description": "Terapeuta en Tarragona, con más de 20 años acompañando procesos de transformación personal. Creador del enfoque «El personaje». No es psicólogo sanitario.",
       "url": "https://sergiogarciaterapeuta.es/sobre-sergio",
       "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
       "email": "sergio@sergiogarciaterapeuta.es",
@@ -321,7 +321,7 @@ p.body+p.body { margin-top:1rem; }
     {
       "@type": "ProfessionalService",
       "@id": "https://sergiogarciaterapeuta.es/#consulta",
-      "name": "Sergio García · Terapeuta Gestalt y existencial",
+      "name": "Sergio García · Terapeuta",
       "url": "https://sergiogarciaterapeuta.es/",
       "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
       "telephone": "+34634422827",
@@ -458,7 +458,7 @@ p.body+p.body { margin-top:1rem; }
       "name": "¿Es lo mismo que ir al psicólogo?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No exactamente. Soy terapeuta humanista con base en la Gestalt. No diagnostico ni trato trastornos clínicos. Trabajo procesos de transformación personal, crisis vitales e identidad."
+        "text": "No exactamente. Soy terapeuta. No diagnostico ni trato trastornos clínicos. Trabajo procesos de transformación personal, crisis vitales e identidad."
       }
     }
   ]
@@ -475,7 +475,7 @@ p.body+p.body { margin-top:1rem; }
   "uploadDate": "2026-07-16",
   "publisher": {
     "@type": "Organization",
-    "name": "Sergio García - Terapeuta Gestalt y Existencial",
+    "name": "Sergio García - Terapeuta",
     "logo": {
       "@type": "ImageObject",
       "url": "https://sergiogarciaterapeuta.es/apple-touch-icon.png"
@@ -737,7 +737,7 @@ p.body+p.body { margin-top:1rem; }
     </div>
     <div class="faq-item">
       <div class="faq-q"><span>¿Es lo mismo que ir al psicólogo?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a">No exactamente. Soy terapeuta humanista con base en la Gestalt. No diagnostico ni trato trastornos clínicos. Trabajo procesos de transformación personal, crisis vitales e identidad.</div>
+      <div class="faq-a">No exactamente. Soy terapeuta. No diagnostico ni trato trastornos clínicos. Trabajo procesos de transformación personal, crisis vitales e identidad.</div>
     </div>
   </div>
 </div>
@@ -886,6 +886,9 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     e.preventDefault();
     var formData = new FormData(fallbackForm);
     formData.append('form-name', 'contacto-widget');
+    try { formData.append('gclid', sessionStorage.getItem('sg_gclid') || ''); } catch (err) { formData.append('gclid', ''); }
+    try { formData.append('origen', typeof sgCode === 'function' ? sgCode() : ''); } catch (err) {}
+    formData.append('pagina', location.pathname);
 
     fetch('/', {
       method: 'POST',

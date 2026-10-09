@@ -433,7 +433,7 @@ footer {
   (function(){
     try {
       var q = new URLSearchParams(location.search);
-      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) { sessionStorage.setItem('sg_src', 'A'); if (q.get('gclid')) sessionStorage.setItem('sg_gclid', q.get('gclid')); }
     } catch (err) {}
   })();
   function sgCode() {
@@ -499,8 +499,8 @@ footer {
       "@type": "Person",
       "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
       "name": "Sergio García",
-      "jobTitle": "Terapeuta Gestalt y existencial",
-      "description": "Terapeuta Gestalt, sistémico y existencial en Tarragona, con más de 20 años acompañando procesos de transformación personal. Creador del enfoque «El personaje». No es psicólogo sanitario.",
+      "jobTitle": "Terapeuta",
+      "description": "Terapeuta en Tarragona, con más de 20 años acompañando procesos de transformación personal. Creador del enfoque «El personaje». No es psicólogo sanitario.",
       "url": "https://sergiogarciaterapeuta.es/sobre-sergio",
       "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
       "email": "sergio@sergiogarciaterapeuta.es",
@@ -528,7 +528,7 @@ footer {
     {
       "@type": "ProfessionalService",
       "@id": "https://sergiogarciaterapeuta.es/#consulta",
-      "name": "Sergio García · Terapeuta Gestalt y existencial",
+      "name": "Sergio García · Terapeuta",
       "url": "https://sergiogarciaterapeuta.es/",
       "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
       "telephone": "+34634422827",
@@ -658,7 +658,7 @@ footer {
   "uploadDate": "2026-07-16",
   "publisher": {
     "@type": "Organization",
-    "name": "Sergio García - Terapeuta Gestalt y Existencial",
+    "name": "Sergio García - Terapeuta",
     "logo": {
       "@type": "ImageObject",
       "url": "https://sergiogarciaterapeuta.es/apple-touch-icon.png"
@@ -677,7 +677,7 @@ footer {
   "uploadDate": "2026-07-16",
   "publisher": {
     "@type": "Organization",
-    "name": "Sergio García - Terapeuta Gestalt y Existencial",
+    "name": "Sergio García - Terapeuta",
     "logo": {
       "@type": "ImageObject",
       "url": "https://sergiogarciaterapeuta.es/apple-touch-icon.png"
@@ -883,7 +883,7 @@ footer {
   <div class="split-content">
     <span class="section-label">El facilitador</span>
     <h2 class="grande">Sergio <em>García</em></h2>
-    <p class="body">Terapeuta Gestalt y Humanista. Desde hace años acompaño a personas que sienten que entienden perfectamente lo que les ocurre... pero siguen sin conseguir cambiarlo.</p>
+    <p class="body">Terapeuta. Desde hace años acompaño a personas que sienten que entienden perfectamente lo que les ocurre... pero siguen sin conseguir cambiarlo.</p>
     <p class="body">Mi forma de trabajar no consiste en darte respuestas. Consiste en crear el espacio para que aparezcan las tuyas.</p>
     <p class="body">Creo profundamente que nadie necesita convertirse en otra persona. Solo dejar de sostener aquello que nunca fue.</p>
   </div>
@@ -1000,6 +1000,9 @@ footer {
     e.preventDefault();
     var formData = new FormData(fallbackForm);
     formData.append('form-name', 'contacto-widget');
+    try { formData.append('gclid', sessionStorage.getItem('sg_gclid') || ''); } catch (err) { formData.append('gclid', ''); }
+    try { formData.append('origen', typeof sgCode === 'function' ? sgCode() : ''); } catch (err) {}
+    formData.append('pagina', location.pathname);
 
     fetch('/', {
       method: 'POST',

@@ -227,7 +227,7 @@ p.body+p.body { margin-top:1rem; }
   (function(){
     try {
       var q = new URLSearchParams(location.search);
-      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) { sessionStorage.setItem('sg_src', 'A'); if (q.get('gclid')) sessionStorage.setItem('sg_gclid', q.get('gclid')); }
     } catch (err) {}
   })();
   function sgCode() {
@@ -294,8 +294,8 @@ p.body+p.body { margin-top:1rem; }
       "@type": "Person",
       "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
       "name": "Sergio García",
-      "jobTitle": "Terapeuta Gestalt y existencial",
-      "description": "Terapeuta Gestalt, sistémico y existencial en Tarragona, con más de 20 años acompañando procesos de transformación personal. Creador del enfoque «El personaje». No es psicólogo sanitario.",
+      "jobTitle": "Terapeuta",
+      "description": "Terapeuta en Tarragona, con más de 20 años acompañando procesos de transformación personal. Creador del enfoque «El personaje». No es psicólogo sanitario.",
       "url": "https://sergiogarciaterapeuta.es/sobre-sergio",
       "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
       "email": "sergio@sergiogarciaterapeuta.es",
@@ -323,7 +323,7 @@ p.body+p.body { margin-top:1rem; }
     {
       "@type": "ProfessionalService",
       "@id": "https://sergiogarciaterapeuta.es/#consulta",
-      "name": "Sergio García · Terapeuta Gestalt y existencial",
+      "name": "Sergio García · Terapeuta",
       "url": "https://sergiogarciaterapeuta.es/",
       "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
       "telephone": "+34634422827",
@@ -428,7 +428,7 @@ p.body+p.body { margin-top:1rem; }
       "name": "¿Es lo mismo que ir al psicólogo?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Soy terapeuta humanista con base en la Gestalt y orientación existencial, con más de 20 años de experiencia acompañando procesos de transformación real."
+        "text": "Soy terapeuta, con más de 20 años de experiencia acompañando procesos de transformación real."
       }
     },
     {
@@ -523,7 +523,7 @@ p.body+p.body { margin-top:1rem; }
 
 <!-- FOTO -->
 <div style="height:420px;border-bottom:1px solid var(--rule);overflow:hidden;">
-  <img src="/images/sobre-sergio-intermedia.webp" alt="Sergio García, terapeuta Gestalt en Tarragona" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+  <img src="/images/sobre-sergio-intermedia.webp" alt="Sergio García, terapeuta en Tarragona" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
 </div>
 
 <!-- QUÉ ES LA GESTALT -->
@@ -551,7 +551,7 @@ p.body+p.body { margin-top:1rem; }
 <div class="two-col">
   <div>
     <span class="sec-label">Cómo trabajo</span>
-    <h2 class="grande">Terapeuta humanista, <br>con base en la Gestalt.</h2>
+    <h2 class="grande">Terapeuta, <br>no psicólogo.</h2>
     <p class="body">Soy terapeuta, no psicólogo. Trabajo desde la Gestalt, la terapia sistémica y la orientación existencial, con más de 20 años acompañando procesos individuales y de pareja en Tarragona y online.</p>
     <p class="body">No diagnostico ni trato trastornos clínicos. Mi trabajo consiste en acompañar procesos de transformación real: crisis vitales, patrones que se repiten, y el personaje que cada uno construyó para sobrevivir y que ya no hace falta.</p>
     <a href="/el-personaje" class="btn-outline" style="margin-top:1rem;display:inline-block;">Descubre qué es el personaje →</a>
@@ -592,7 +592,7 @@ p.body+p.body { margin-top:1rem; }
     </div>
     <div class="faq-item">
       <div class="faq-q"><span>¿Es lo mismo que ir al psicólogo?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a">Soy terapeuta humanista con base en la Gestalt y orientación existencial, con más de 20 años de experiencia acompañando procesos de transformación real.</div>
+      <div class="faq-a">Soy terapeuta, con más de 20 años de experiencia acompañando procesos de transformación real.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q"><span>¿La terapia Gestalt sirve para terapia individual y de pareja?</span><span class="faq-toggle">+</span></div>
@@ -752,6 +752,9 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     e.preventDefault();
     var formData = new FormData(fallbackForm);
     formData.append('form-name', 'contacto-widget');
+    try { formData.append('gclid', sessionStorage.getItem('sg_gclid') || ''); } catch (err) { formData.append('gclid', ''); }
+    try { formData.append('origen', typeof sgCode === 'function' ? sgCode() : ''); } catch (err) {}
+    formData.append('pagina', location.pathname);
 
     fetch('/', {
       method: 'POST',

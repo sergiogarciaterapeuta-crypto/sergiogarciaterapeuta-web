@@ -213,7 +213,7 @@ footer {
   (function(){
     try {
       var q = new URLSearchParams(location.search);
-      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) { sessionStorage.setItem('sg_src', 'A'); if (q.get('gclid')) sessionStorage.setItem('sg_gclid', q.get('gclid')); }
     } catch (err) {}
   })();
   function sgCode() {
@@ -318,8 +318,8 @@ footer {
       "@type": "Person",
       "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
       "name": "Sergio García",
-      "jobTitle": "Terapeuta Gestalt y existencial",
-      "description": "Terapeuta Gestalt, sistémico y existencial en Tarragona, con más de 20 años acompañando procesos de transformación personal. Creador del enfoque «El personaje». No es psicólogo sanitario.",
+      "jobTitle": "Terapeuta",
+      "description": "Terapeuta en Tarragona, con más de 20 años acompañando procesos de transformación personal. Creador del enfoque «El personaje». No es psicólogo sanitario.",
       "url": "https://sergiogarciaterapeuta.es/sobre-sergio",
       "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
       "email": "sergio@sergiogarciaterapeuta.es",
@@ -347,7 +347,7 @@ footer {
     {
       "@type": "ProfessionalService",
       "@id": "https://sergiogarciaterapeuta.es/#consulta",
-      "name": "Sergio García · Terapeuta Gestalt y existencial",
+      "name": "Sergio García · Terapeuta",
       "url": "https://sergiogarciaterapeuta.es/",
       "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
       "telephone": "+34634422827",
@@ -471,7 +471,7 @@ footer {
 <section class="post-head">
   <span class="sec-label">Reflexiones</span>
   <h1>¿Por qué no sales de la depresión? Lo que el malestar protege</h1>
-  <p class="post-meta">Vídeo · Por <a href="/sobre-sergio" style="color:inherit">Sergio García</a>, terapeuta Gestalt y existencial</p>
+  <p class="post-meta">Vídeo · Por <a href="/sobre-sergio" style="color:inherit">Sergio García</a>, terapeuta</p>
 </section>
 
 <section class="post-video">
@@ -481,7 +481,7 @@ footer {
 </section>
 
 <section class="post-body">
-<aside style="border-left:3px solid #C4602A;background:#FBF3EC;padding:1rem 1.2rem;margin:0 0 1.6rem;font-size:.95rem;line-height:1.6;"><strong>Antes de seguir.</strong> Si lo que vives es una depresión diagnosticada, o sospechas que puede serlo, este vídeo no sustituye la atención médica ni psicológica: habla con tu médico de cabecera, que puede valorarlo y derivarte. Como terapeuta Gestalt no diagnostico ni trato trastornos clínicos; puedo acompañar un proceso, pero no reemplazo ese tratamiento. Y si en algún momento piensas en hacerte daño, llama ahora al <strong>024</strong> (gratuito, 24 horas) o al <strong>112</strong>.</aside>
+<aside style="border-left:3px solid #C4602A;background:#FBF3EC;padding:1rem 1.2rem;margin:0 0 1.6rem;font-size:.95rem;line-height:1.6;"><strong>Antes de seguir.</strong> Si lo que vives es una depresión diagnosticada, o sospechas que puede serlo, este vídeo no sustituye la atención médica ni psicológica: habla con tu médico de cabecera, que puede valorarlo y derivarte. Como terapeuta no diagnostico ni trato trastornos clínicos; puedo acompañar un proceso, pero no reemplazo ese tratamiento. Y si en algún momento piensas en hacerte daño, llama ahora al <strong>024</strong> (gratuito, 24 horas) o al <strong>112</strong>.</aside>
 <p class="lead">Una reflexión desde la terapia Gestalt sobre el estancamiento: qué función puede cumplir el malestar. No sustituye la atención médica.</p>
 <p>Muchas personas atraviesan procesos depresivos sin entender completamente por qué se sienten estancadas. A menudo, el dolor es tan abrumador que nos impide ver las funciones que cumple el síntoma en nuestra vida cotidiana.</p>
 <p>Nada de esto significa que estés así porque quieres. Significa que, a veces, el malestar también cumple una función: te protege de algo que todavía no te atreves a mirar. Verlo sin culparte es parte del camino, y casi nunca se hace solo.</p><a href="/sesiones" class="btn-outline">Ver sesiones →</a></section>
@@ -613,6 +613,9 @@ footer {
     e.preventDefault();
     var formData = new FormData(fallbackForm);
     formData.append('form-name', 'contacto-widget');
+    try { formData.append('gclid', sessionStorage.getItem('sg_gclid') || ''); } catch (err) { formData.append('gclid', ''); }
+    try { formData.append('origen', typeof sgCode === 'function' ? sgCode() : ''); } catch (err) {}
+    formData.append('pagina', location.pathname);
 
     fetch('/', {
       method: 'POST',

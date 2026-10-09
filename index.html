@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terapeuta Gestalt en Tarragona y online · Sergio García</title>
+<title>Terapeuta en Tarragona y online · Sergio García</title>
 <meta name="description" content="Terapia individual y de pareja en Tarragona y online para crisis existenciales y patrones que se repiten. Para quien ya entiende, pero no cambia.">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -302,7 +302,7 @@ footer {
   (function(){
     try {
       var q = new URLSearchParams(location.search);
-      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) { sessionStorage.setItem('sg_src', 'A'); if (q.get('gclid')) sessionStorage.setItem('sg_gclid', q.get('gclid')); }
     } catch (err) {}
   })();
   function sgCode() {
@@ -342,12 +342,12 @@ footer {
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sergiogarciaterapeuta.es/">
-<meta property="og:title" content="Sergio García · Terapeuta Gestalt en Tarragona">
+<meta property="og:title" content="Sergio García · Terapeuta en Tarragona">
 <meta property="og:description" content="Terapia individual y de pareja en Tarragona. Un espacio para quienes sienten que entender ya no es suficiente y quieren dejar de repetir los mismos patrones.">
 <meta property="og:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sergio García · Terapeuta Gestalt en Tarragona">
+<meta name="twitter:title" content="Sergio García · Terapeuta en Tarragona">
 <meta name="twitter:description" content="Terapia individual y de pareja en Tarragona. Un espacio para quienes sienten que entender ya no es suficiente y quieren dejar de repetir los mismos patrones.">
 <meta name="twitter:image" content="https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp">
 <script type="application/ld+json">
@@ -368,8 +368,8 @@ footer {
       "@type": "Person",
       "@id": "https://sergiogarciaterapeuta.es/#sergio-garcia",
       "name": "Sergio García",
-      "jobTitle": "Terapeuta Gestalt y existencial",
-      "description": "Terapeuta Gestalt, sistémico y existencial en Tarragona, con más de 20 años acompañando procesos de transformación personal. Creador del enfoque «El personaje». No es psicólogo sanitario.",
+      "jobTitle": "Terapeuta",
+      "description": "Terapeuta en Tarragona, con más de 20 años acompañando procesos de transformación personal. Creador del enfoque «El personaje». No es psicólogo sanitario.",
       "url": "https://sergiogarciaterapeuta.es/sobre-sergio",
       "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
       "email": "sergio@sergiogarciaterapeuta.es",
@@ -397,7 +397,7 @@ footer {
     {
       "@type": "ProfessionalService",
       "@id": "https://sergiogarciaterapeuta.es/#consulta",
-      "name": "Sergio García · Terapeuta Gestalt y existencial",
+      "name": "Sergio García · Terapeuta",
       "url": "https://sergiogarciaterapeuta.es/",
       "image": "https://sergiogarciaterapeuta.es/images/sobre-sergio-hero.webp",
       "telephone": "+34634422827",
@@ -535,7 +535,7 @@ footer {
   "uploadDate": "2026-07-16",
   "publisher": {
     "@type": "Organization",
-    "name": "Sergio García - Terapeuta Gestalt y Existencial",
+    "name": "Sergio García - Terapeuta",
     "logo": {
       "@type": "ImageObject",
       "url": "https://sergiogarciaterapeuta.es/apple-touch-icon.png"
@@ -554,7 +554,7 @@ footer {
   "uploadDate": "2026-07-16",
   "publisher": {
     "@type": "Organization",
-    "name": "Sergio García - Terapeuta Gestalt y Existencial",
+    "name": "Sergio García - Terapeuta",
     "logo": {
       "@type": "ImageObject",
       "url": "https://sergiogarciaterapeuta.es/apple-touch-icon.png"
@@ -618,7 +618,7 @@ footer {
 
 <section class="hero">
   <div class="hero-l">
-    <h1 class="hero-tag" style="font-family:inherit;font-weight:500;margin:0;">Terapeuta Gestalt en Tarragona · Online · Terapia individual y de pareja</h1>
+    <h1 class="hero-tag" style="font-family:inherit;font-weight:500;margin:0;">Terapeuta en Tarragona · Online · Terapia individual y de pareja</h1>
     <p class="hero-h1" style="font-family:'Cormorant Garamond',serif;"><span class="hero-h1-line">Hay personas que buscan respuestas.</span><span class="hero-h1-line">Otras descubren que entender nunca fue el problema.</span></p>
     <p class="hero-h1"><span class="hero-h1-line">El problema era seguir viviendo siempre de la <em>misma manera</em>.</span></p>
     <div>
@@ -1038,6 +1038,9 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     e.preventDefault();
     var formData = new FormData(fallbackForm);
     formData.append('form-name', 'contacto-widget');
+    try { formData.append('gclid', sessionStorage.getItem('sg_gclid') || ''); } catch (err) { formData.append('gclid', ''); }
+    try { formData.append('origen', typeof sgCode === 'function' ? sgCode() : ''); } catch (err) {}
+    formData.append('pagina', location.pathname);
 
     fetch('/', {
       method: 'POST',
@@ -1070,6 +1073,9 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   <input type="text" name="telefono" />
   <input type="email" name="email" />
   <textarea name="mensaje"></textarea>
+  <input type="hidden" name="gclid" />
+  <input type="hidden" name="origen" />
+  <input type="hidden" name="pagina" />
 </form>
 <script>
 document.querySelectorAll('.yt-facade').forEach(function(el){
