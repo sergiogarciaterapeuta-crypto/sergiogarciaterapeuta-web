@@ -433,7 +433,7 @@ footer {
   (function(){
     try {
       var q = new URLSearchParams(location.search);
-      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) sessionStorage.setItem('sg_src', 'A');
+      if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) { sessionStorage.setItem('sg_src', 'A'); if (q.get('gclid')) sessionStorage.setItem('sg_gclid', q.get('gclid')); }
     } catch (err) {}
   })();
   function sgCode() {
@@ -1000,6 +1000,9 @@ footer {
     e.preventDefault();
     var formData = new FormData(fallbackForm);
     formData.append('form-name', 'contacto-widget');
+    try { formData.append('gclid', sessionStorage.getItem('sg_gclid') || ''); } catch (err) { formData.append('gclid', ''); }
+    try { formData.append('origen', typeof sgCode === 'function' ? sgCode() : ''); } catch (err) {}
+    formData.append('pagina', location.pathname);
 
     fetch('/', {
       method: 'POST',
