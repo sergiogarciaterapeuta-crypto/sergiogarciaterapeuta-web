@@ -194,6 +194,7 @@ footer {
     'ad_personalization': 'denied', 'analytics_storage': 'denied',
     'wait_for_update': 500
   });
+  gtag('set', 'url_passthrough', true);
   try {
     if (localStorage.getItem('sg_consent_v1') === 'granted') {
       gtag('consent', 'update', {
