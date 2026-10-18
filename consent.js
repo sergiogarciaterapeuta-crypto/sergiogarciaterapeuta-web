@@ -15,7 +15,10 @@
     '#sg-cc p{margin:0 0 10px}#sg-cc a{color:inherit;text-decoration:underline}' +
     '#sg-cc .sg-cc-btns{display:flex;gap:10px;flex-wrap:wrap}' +
     '#sg-cc button{flex:1 1 120px;padding:9px 12px;border-radius:7px;font:600 14px/1 inherit;font-family:inherit;cursor:pointer;border:1px solid #222;background:#fff;color:#222}' +
-    '#sg-cc button.sg-cc-ok{background:#222;color:#fff}';
+    '#sg-cc button.sg-cc-ok{background:#222;color:#fff}' +
+    /* Mientras el aviso está abierto, el botón de WhatsApp sube por encima para que nunca quede tapado */
+    'html.sg-cc-open #sg-widget{bottom:calc(var(--sg-cc-h,160px) + 24px)!important;transition:bottom .2s}' +
+    '@media (max-width:480px){#sg-cc{left:8px;right:8px;bottom:8px;padding:10px 12px;font-size:12.5px}#sg-cc p{margin:0 0 8px}#sg-cc button{padding:8px 10px;font-size:13px}}';
 
   function show() {
     if (document.getElementById('sg-cc')) return;
@@ -29,8 +32,12 @@
       '<div class="sg-cc-btns"><button type="button" class="sg-cc-no">Rechazar</button>' +
       '<button type="button" class="sg-cc-ok">Aceptar</button></div>';
     document.body.appendChild(box);
-    box.querySelector('.sg-cc-ok').addEventListener('click', function () { save('granted'); apply('granted'); box.remove(); });
-    box.querySelector('.sg-cc-no').addEventListener('click', function () { save('denied'); apply('denied'); box.remove(); });
+    var root = document.documentElement;
+    function fit() { root.style.setProperty('--sg-cc-h', box.offsetHeight + 'px'); }
+    root.classList.add('sg-cc-open'); fit(); window.addEventListener('resize', fit);
+    function close() { root.classList.remove('sg-cc-open'); window.removeEventListener('resize', fit); box.remove(); }
+    box.querySelector('.sg-cc-ok').addEventListener('click', function () { save('granted'); apply('granted'); close(); });
+    box.querySelector('.sg-cc-no').addEventListener('click', function () { save('denied'); apply('denied'); close(); });
   }
 
   // Permite reabrir el aviso desde un enlace "Configurar cookies"
