@@ -76,7 +76,10 @@ nav {
   transition: background .18s, color .18s;
 }
 .nav-btn:hover { background: var(--ink); color: var(--bone); }
+.nav-btn{ white-space:nowrap; }
+@media (max-width:1319px){ .nav-btn .nb-long{ display:none; } }
 .nav-toggle{display:none;background:none;border:none;font-size:1.4rem;line-height:1;color:var(--ink);cursor:pointer;padding:.2rem .3rem;}
+@media (min-width:769px) and (max-width:1200px){ .nav-toggle{ display:flex; } .nav-links{ display:none; } .nav-links.open{ display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:var(--bone); padding:1.5rem var(--p) 1.8rem; gap:1.3rem; border-bottom:1px solid var(--rule); box-shadow:0 12px 24px rgba(0,0,0,.12); z-index:300; } .nav-links.open a{ font-size:.85rem; padding:.3rem 0; } }
 
 /* TIPOGRAFÍA */
 h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
@@ -497,7 +500,7 @@ p.body+p.body { margin-top:1rem; }
     <a href="/blog">Blog</a>
     <a href="/#contacto">Contacto</a>
   </div>
-  <a href="https://wa.me/34634422827" class="nav-btn">Reservar sesión</a>
+  <a href="https://wa.me/34634422827" class="nav-btn" data-cta="nav_whatsapp"><span class="nb-long">Escríbeme por </span>WhatsApp</a>
   <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="var m=document.querySelector('.nav-links');var open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);this.innerHTML=open?'\u2715':'\u2630';">☰</button>
 </nav>
 <main>
