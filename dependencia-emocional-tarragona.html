@@ -216,19 +216,21 @@ p.body+p.body { margin-top:1rem; }
   gtag('js', new Date());
   gtag('config', 'G-Y3E0GC5DX6');
     gtag('config', 'AW-18318477742');
-  // Origen de la visita: "A" = anuncios (gclid/gbraid/wbraid o utm_medium=cpc), "W" = resto. Se guarda durante la sesión.
+  // Origen de la visita: "A" = anuncios (gclid/gbraid/wbraid o utm_medium=cpc), "W" = resto. Si el enlace del anuncio trae sgc (p. ej. sgc=psi), el código lleva ese origen: IND-PSI. Se guarda durante la sesión.
   (function(){
     try {
       var q = new URLSearchParams(location.search);
       if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) { sessionStorage.setItem('sg_src', 'A'); if (q.get('gclid')) sessionStorage.setItem('sg_gclid', q.get('gclid')); }
+      var sgc = (q.get('sgc') || '').toLowerCase();
+      if (/^[a-z0-9]{2,6}$/.test(sgc)) { sessionStorage.setItem('sg_src', 'A'); sessionStorage.setItem('sg_sgc', sgc); }
     } catch (err) {}
   })();
   function sgCode() {
     var p = location.pathname.replace(/\.html$/, '').replace(/^\//, '') || 'inicio';
-    var map = {'inicio':'GEN','sesiones':'SES','terapia-individual-tarragona':'IND','terapia-pareja-tarragona':'PAR','ruptura-crisis-pareja-tarragona':'PAR','dependencia-emocional-tarragona':'DEP','terapia-gestalt-tarragona':'GES','terapia-online':'ONL','crisis-existencial':'CRI','programas':'PRG','talleres-retiros':'TAL','del-dolor-a-la-alegria':'TAL','el-personaje':'PER','sobre-sergio':'SOB'};
+    var map = {'inicio':'GEN','sesiones':'SES','terapia-individual-tarragona':'IND','terapia-pareja-tarragona':'PAR','ruptura-crisis-pareja-tarragona':'RUP','dependencia-emocional-tarragona':'DEP','terapia-gestalt-tarragona':'GES','terapia-online':'ONL','crisis-existencial':'CRI','programas':'PRG','talleres-retiros':'TAL','del-dolor-a-la-alegria':'TAL','el-personaje':'PER','sobre-sergio':'SOB'};
     var c = map[p] || (p.indexOf('blog') === 0 ? 'BLG' : 'WEB');
     var s = 'W';
-    try { s = sessionStorage.getItem('sg_src') || 'W'; } catch (err) {}
+    try { s = sessionStorage.getItem('sg_src') || 'W'; var g = sessionStorage.getItem('sg_sgc'); if (g) s = g.toUpperCase(); } catch (err) {}
     return c + '-' + s;
   }
   document.addEventListener('click', function(e) {
@@ -418,10 +420,34 @@ p.body+p.body { margin-top:1rem; }
     },
     {
       "@type": "Question",
+      "name": "¿Cómo sé si tengo dependencia emocional?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si te cuesta estar solo/a, antepones siempre lo que necesita el otro o te aterra que te dejen aunque la relación te haga daño, merece la pena mirarlo. No hace falta ponerle nombre ni tener un diagnóstico para venir."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "¿Se puede trabajar la dependencia emocional sin pareja actual?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Sí, y de hecho es un buen momento para hacerlo. El patrón no depende de tener pareja: aparece igual en la familia, en el trabajo o en la amistad. Trabajarlo en terapia individual es habitual."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo es la primera sesión?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Me cuentas qué te trae y empezamos a trabajar, sin cuestionarios ni test. Son 60 minutos, y al final decidimos juntos si tiene sentido seguir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Dónde es la consulta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En Tarragona ciudad. Te paso la dirección exacta cuando reservamos la primera sesión. Si vives lejos o prefieres no desplazarte, la sesión puede ser online, por videollamada."
       }
     },
     {
@@ -438,6 +464,14 @@ p.body+p.body { margin-top:1rem; }
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Escríbeme por WhatsApp y te lo cuento. No publico precios en la web porque depende del formato y el proceso que necesites."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Quién te atiende?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yo, Sergio García. Soy terapeuta y llevo más de 20 años acompañando procesos personales, crisis vitales y parejas."
       }
     }
   ]
@@ -501,7 +535,8 @@ p.body+p.body { margin-top:1rem; }
   <div>
     <span class="sec-label">Dependencia emocional</span>
     <h1>Dependencia <em>emocional</em> <br>en Tarragona.</h1>
-    <p>Terapia para la dependencia emocional en Tarragona, presencial u online con personas de todo el mundo. Trabajamos el miedo al abandono, la necesidad constante de aprobación y los vínculos que se sostienen desde la carencia y no desde la elección.</p>
+    <p>Para cuando el miedo a que te dejen pesa más que lo que te hace daño, necesitas la aprobación del otro para estar bien o repites el mismo patrón con distintas personas. Sesiones de 60 minutos con Sergio García, terapeuta, presenciales en Tarragona u online.</p>
+    <p style="font-size:.78rem;letter-spacing:.06em;color:var(--fire);margin-top:.8rem;">+20 años de experiencia · +2.000 personas acompañadas · Sin paquetes cerrados</p>
     <a href="https://wa.me/34634422827?text=Quiero%20informaci%C3%B3n%20sobre%20dependencia%20emocional" data-cta="dependencia_hero" class="btn-dark" style="margin-top:1.4rem;display:inline-block;">Escríbeme por WhatsApp →</a>
     <p style="font-size:.8rem;line-height:1.6;color:var(--gray);margin-top:.7rem;">Te respondo hoy. Te digo precio y horarios, sin compromiso.</p>
   </div>
@@ -510,32 +545,31 @@ p.body+p.body { margin-top:1rem; }
 
 <!-- FOTO -->
 <div style="height:420px;border-bottom:1px solid var(--rule);overflow:hidden;">
-  <img src="/images/sesiones-2-afc2eb82.webp" alt="Sergio García en sesión de terapia para dependencia emocional en Tarragona" style="width:100%;height:100%;object-fit:cover;display:block;">
+  <img src="/images/home-1-b51abf0f.webp" alt="Sergio García en una sesión individual en Tarragona" style="width:100%;height:100%;object-fit:cover;display:block;">
 </div>
 
-<!-- QUÉ ES -->
+<!-- CÓMO SABER -->
 <section class="bloque">
-  <span class="sec-label">Cómo se trabaja la dependencia emocional</span>
-  <h2 class="grande">Buscar fuera lo que <br>falta dentro.</h2>
-  <p class="body" style="max-width:640px;"><strong>Terapia para la dependencia emocional en Tarragona y online:</strong> trabajo el miedo al abandono, la necesidad de aprobación constante y la dificultad para poner límites por miedo a perder al otro. Muchas veces se confunde con amor intenso, cuando en realidad es una forma de calmar una carencia antigua a través de otra persona. No se trata de dejar de necesitar a nadie — se trata de dejar de necesitar de forma que te haga daño.</p>
+  <span class="sec-label">Cómo saber si es tu caso</span>
+  <h2 class="grande">¿Cómo sé si tengo <br>dependencia emocional?</h2>
+  <p class="body" style="max-width:640px;"><strong>Si tu bienestar depende de lo que haga o deje de hacer otra persona, merece la pena mirarlo.</strong> No hace falta ponerle nombre ni tener un diagnóstico para venir.</p>
   <div style="margin-top:2rem;max-width:640px;padding:1.4rem 1.6rem;background:var(--bone2);">
-    <p style="font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);margin-bottom:.8rem;">Terapia para dependencia emocional: puede ayudarte si...</p>
+    <p style="font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);margin-bottom:.8rem;">Puede ayudarte si...</p>
     <p class="body">· Te cuesta estar solo/a sin sentir angustia</p>
     <p class="body">· Antepones lo que necesita el otro a lo que necesitas tú</p>
     <p class="body">· Te aterra que te dejen aunque la relación te haga sufrir</p>
     <p class="body">· Repites el mismo patrón de apego con distintas personas</p>
   </div>
-  <a href="https://wa.me/34634422827?text=Quiero%20información%20sobre%20terapia%20para%20la%20dependencia%20emocional" class="btn-dark" style="margin-top:2rem;display:inline-block;">Pedir sesión →</a>
+  <p class="body" style="max-width:640px;margin-top:1.6rem;">Muchas veces se confunde con amor intenso, cuando en realidad es una forma de calmar una carencia antigua a través de otra persona. No se trata de dejar de necesitar a nadie: se trata de dejar de necesitar de una forma que te hace daño.</p>
 </section>
 
-<!-- CÓMO ES LA PRIMERA SESIÓN -->
+<!-- POR QUÉ CUESTA -->
 <div class="two-col">
   <div>
-    <span class="sec-label">Cómo es la primera sesión</span>
-    <h2 class="grande">Nada especial. <br>Empezamos a trabajar.</h2>
-    <p class="body">No hay cuestionarios de apego ni tests de personalidad. Me cuentas qué te trae aquí, y desde el primer momento trabajamos sobre lo que de verdad está pasando, no sobre la teoría de lo que te pasa.</p>
-    <p class="body">Al final de la primera sesión decidimos juntos si tiene sentido seguir. Sin compromisos a largo plazo. Sin paquetes cerrados.</p>
-    <p class="body">El proceso lo defines tú.</p>
+    <span class="sec-label">Por qué cuesta tanto</span>
+    <h2 class="grande">¿Por qué no puedo dejarlo <br>aunque me haga daño?</h2>
+    <p class="body"><strong>Porque no estás eligiendo solo con la cabeza.</strong> Lo que te ata suele ser una carencia antigua que la relación calma a ratos. Por eso soltar se vive como una amenaza y no como un alivio, aunque sepas que te hace daño.</p>
+    <p class="body">En sesión no te voy a decir lo que tienes que hacer. Miramos qué parte de ti se agarra y qué intenta proteger, para que puedas decidir desde ti y no desde el miedo.</p>
   </div>
   <div style="background:var(--ink);color:var(--bone);">
     <span class="sec-label" style="color:#E8956A;">Temas frecuentes en dependencia emocional</span>
@@ -543,6 +577,19 @@ p.body+p.body { margin-top:1rem; }
     <div style="padding:.85rem 0;border-bottom:0.5px solid rgba(255,255,255,.06);font-size:.9rem;color:rgba(255,255,255,.6);">Miedo al abandono</div><div style="padding:.85rem 0;border-bottom:0.5px solid rgba(255,255,255,.06);font-size:.9rem;color:rgba(255,255,255,.6);">Necesidad constante de aprobación</div><div style="padding:.85rem 0;border-bottom:0.5px solid rgba(255,255,255,.06);font-size:.9rem;color:rgba(255,255,255,.6);">Dificultad para poner límites</div><div style="padding:.85rem 0;border-bottom:0.5px solid rgba(255,255,255,.06);font-size:.9rem;color:rgba(255,255,255,.6);">Repetir el mismo patrón de pareja</div><div style="padding:.85rem 0;border-bottom:0.5px solid rgba(255,255,255,.06);font-size:.9rem;color:rgba(255,255,255,.6);">Confundir intensidad con amor</div><div style="padding:.85rem 0;font-size:.9rem;color:rgba(255,255,255,.6);">Angustia al estar solo/a</div>
   </div>
 </div>
+
+<!-- PRIMERA SESIÓN / SIN PAREJA -->
+<section class="bloque">
+  <span class="sec-label">Dudas antes de empezar</span>
+  <h2 class="grande">¿Cómo es la primera <br>sesión?</h2>
+  <p class="body" style="max-width:640px;"><strong>Me cuentas qué te trae y empezamos a trabajar.</strong> No hay cuestionarios de apego ni test de personalidad. Son 60 minutos, en Tarragona o por videollamada, y al final decidimos juntos si tiene sentido seguir. Sin paquetes cerrados.</p>
+  <h2 class="grande" style="margin-top:3rem;">¿Y si ahora <br>no tengo pareja?</h2>
+  <p class="body" style="max-width:640px;"><strong>Es un buen momento para trabajarlo.</strong> El patrón no depende de tener pareja: aparece también en la familia, en el trabajo o en la amistad.</p>
+  <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+    <a href="https://wa.me/34634422827?text=Quiero%20informaci%C3%B3n%20sobre%20dependencia%20emocional" data-cta="dependencia_medio" class="btn-dark">Pedir sesión →</a>
+    <button type="button" onclick="var p=document.getElementById('sg-panel'),f=document.getElementById('sg-fallback-form');if(p){p.classList.add('open');}if(f){f.classList.add('open');var i=f.querySelector('input');if(i)i.focus();}" style="background:none;border:none;color:var(--ink);text-decoration:underline;cursor:pointer;font:inherit;font-size:.85rem;">¿Prefieres que te escriba yo? Déjame tu teléfono</button>
+  </div>
+</section>
 
 <!-- TESTIMONIO -->
 <section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);">
@@ -559,6 +606,8 @@ p.body+p.body { margin-top:1rem; }
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
     <a href="/terapia-individual-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Terapia individual en Tarragona →</a>
     <a href="/terapia-pareja-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Terapia de pareja en Tarragona →</a>
+    <a href="/ruptura-crisis-pareja-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Ruptura o crisis de pareja →</a>
+    <a href="/crisis-existencial" class="btn-outline" style="text-align:center;padding:1.2rem;">Crisis existencial →</a>
   </div>
 </section>
 
@@ -571,8 +620,20 @@ p.body+p.body { margin-top:1rem; }
       <div class="faq-a">Es la necesidad de la aprobación, la presencia o la validación de otra persona para sentirte bien contigo mismo. Muchas veces se disfraza de amor intenso, cuando en realidad es miedo al abandono.</div>
     </div>
     <div class="faq-item">
+      <div class="faq-q"><span>¿Cómo sé si tengo dependencia emocional?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Si te cuesta estar solo/a, antepones siempre lo que necesita el otro o te aterra que te dejen aunque la relación te haga daño, merece la pena mirarlo. No hace falta ponerle nombre ni tener un diagnóstico para venir.</div>
+    </div>
+    <div class="faq-item">
       <div class="faq-q"><span>¿Se puede trabajar la dependencia emocional sin pareja actual?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a">Sí, y de hecho es un buen momento para hacerlo. El patrón no depende de tener pareja: aparece igual en la familia, en el trabajo o en la amistad. Trabajarlo en terapia individual es habitual.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Cómo es la primera sesión?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Me cuentas qué te trae y empezamos a trabajar, sin cuestionarios ni test. Son 60 minutos, y al final decidimos juntos si tiene sentido seguir.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Dónde es la consulta?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">En Tarragona ciudad. Te paso la dirección exacta cuando reservamos la primera sesión. Si vives lejos o prefieres no desplazarte, la sesión puede ser online, por videollamada.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q"><span>¿Haces sesiones online?</span><span class="faq-toggle">+</span></div>
@@ -581,6 +642,10 @@ p.body+p.body { margin-top:1rem; }
     <div class="faq-item">
       <div class="faq-q"><span>¿Cuánto cuesta una sesión?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a">Escríbeme por WhatsApp y te lo cuento. No publico precios en la web porque depende del formato y el proceso que necesites.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span>¿Quién te atiende?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Yo, Sergio García. Soy terapeuta y llevo más de 20 años acompañando procesos personales, crisis vitales y parejas.</div>
     </div>
   </div>
 </div>
@@ -591,7 +656,7 @@ p.body+p.body { margin-top:1rem; }
     <h2 class="grande">¿Empezamos?</h2>
     <p class="body" style="margin-top:.5rem;">Una llamada de 15 minutos para ver si tiene sentido trabajar juntos. También puedes ver <a href="/sesiones" style="color:var(--fire);">el resto de sesiones y programas</a>.</p>
   </div>
-  <a href="https://wa.me/34634422827?text=Quiero%20información%20sobre%20dependencia%20emocional" class="btn-dark">Escribir por WhatsApp →</a>
+  <a href="https://wa.me/34634422827?text=Quiero%20informaci%C3%B3n%20sobre%20dependencia%20emocional" data-cta="dependencia_final" class="btn-dark">Escribir por WhatsApp →</a>
 </div>
 
 </main>
