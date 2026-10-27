@@ -239,19 +239,21 @@ p.body + p.body { margin-top:1rem; }
   gtag('js', new Date());
   gtag('config', 'G-Y3E0GC5DX6');
    gtag('config', 'AW-18318477742');
-  // Origen de la visita: "A" = anuncios (gclid/gbraid/wbraid o utm_medium=cpc), "W" = resto. Se guarda durante la sesión.
+  // Origen de la visita: "A" = anuncios (gclid/gbraid/wbraid o utm_medium=cpc), "W" = resto. Si el enlace del anuncio trae sgc (p. ej. sgc=psi), el código lleva ese origen: IND-PSI. Se guarda durante la sesión.
   (function(){
     try {
       var q = new URLSearchParams(location.search);
       if (q.get('gclid') || q.get('gbraid') || q.get('wbraid') || /cpc|paid/i.test(q.get('utm_medium') || '')) { sessionStorage.setItem('sg_src', 'A'); if (q.get('gclid')) sessionStorage.setItem('sg_gclid', q.get('gclid')); }
+      var sgc = (q.get('sgc') || '').toLowerCase();
+      if (/^[a-z0-9]{2,6}$/.test(sgc)) { sessionStorage.setItem('sg_src', 'A'); sessionStorage.setItem('sg_sgc', sgc); }
     } catch (err) {}
   })();
   function sgCode() {
     var p = location.pathname.replace(/\.html$/, '').replace(/^\//, '') || 'inicio';
-    var map = {'inicio':'GEN','sesiones':'SES','terapia-individual-tarragona':'IND','terapia-pareja-tarragona':'PAR','ruptura-crisis-pareja-tarragona':'PAR','dependencia-emocional-tarragona':'DEP','terapia-gestalt-tarragona':'GES','terapia-online':'ONL','crisis-existencial':'CRI','programas':'PRG','talleres-retiros':'TAL','del-dolor-a-la-alegria':'TAL','el-personaje':'PER','sobre-sergio':'SOB'};
+    var map = {'inicio':'GEN','sesiones':'SES','terapia-individual-tarragona':'IND','terapia-pareja-tarragona':'PAR','ruptura-crisis-pareja-tarragona':'RUP','dependencia-emocional-tarragona':'DEP','terapia-gestalt-tarragona':'GES','terapia-online':'ONL','crisis-existencial':'CRI','programas':'PRG','talleres-retiros':'TAL','del-dolor-a-la-alegria':'TAL','el-personaje':'PER','sobre-sergio':'SOB'};
     var c = map[p] || (p.indexOf('blog') === 0 ? 'BLG' : 'WEB');
     var s = 'W';
-    try { s = sessionStorage.getItem('sg_src') || 'W'; } catch (err) {}
+    try { s = sessionStorage.getItem('sg_src') || 'W'; var g = sessionStorage.getItem('sg_sgc'); if (g) s = g.toUpperCase(); } catch (err) {}
     return c + '-' + s;
   }
   document.addEventListener('click', function(e) {
