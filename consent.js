@@ -28,7 +28,7 @@
     var box = document.createElement('div');
     box.id = 'sg-cc'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-label', 'Aviso de cookies');
     box.innerHTML =
-      '<p>Uso cookies de Google para medir la web y mis anuncios. Solo si aceptas. <a href="/privacidad#cookies">Más información</a>.</p>' +
+      '<p>Uso cookies de Google para medir la web y mis anuncios. Solo si aceptas. <a href="/privacidad#cookies">Más información sobre las cookies</a>.</p>' +
       '<div class="sg-cc-btns"><button type="button" class="sg-cc-no">Rechazar</button>' +
       '<button type="button" class="sg-cc-ok">Aceptar</button></div>';
     document.body.appendChild(box);
