@@ -511,6 +511,19 @@ p.body+p.body { margin-top:1rem; }
   .franja{flex-wrap:wrap;}
 }
 </style>
+<style id="sg-ig">
+.ig-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;}
+.ig-card{margin:0;display:flex;flex-direction:column;gap:.6rem;}
+.ig-facade{position:relative;aspect-ratio:9/16;border-radius:4px;overflow:hidden;cursor:pointer;background:#000;box-shadow:0 8px 30px rgba(0,0,0,.18);}
+.ig-facade img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.ig-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;padding-left:4px;box-sizing:border-box;}
+.ig-card figcaption{font-size:.8rem;line-height:1.45;color:var(--gray);}
+.ig-modal{position:fixed;inset:0;background:rgba(10,10,10,.82);z-index:100000;display:flex;align-items:center;justify-content:center;padding:16px;}
+.ig-modal-box{position:relative;width:min(400px,100%);height:min(760px,calc(100vh - 32px));background:#fff;border-radius:8px;overflow:hidden;}
+.ig-modal-box iframe{width:100%;height:100%;border:0;display:block;}
+.ig-modal-close{position:absolute;top:6px;right:8px;z-index:2;width:36px;height:36px;border:0;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;font-size:1.4rem;line-height:36px;cursor:pointer;padding:0;}
+@media (max-width:768px){.ig-grid{grid-template-columns:1fr 1fr;}}
+</style>
 </head>
 
 
@@ -608,6 +621,48 @@ p.body+p.body { margin-top:1rem; }
       <p style="font-size:.9rem;color:var(--gray);line-height:1.85;flex:1;font-style:italic;">"Lo que más me gustó fue que nunca intentó decirme lo que tenía que hacer. Me acompañó a descubrirlo por mí mismo. Hubo momentos duros, pero también una sensación de libertad que hacía años que no sentía."</p>
       <p style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-light);">— J Luis, 49 años · Sesión individual</p>
     </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);">
+  <span class="sec-label">En Instagram</span>
+  <div class="ig-grid">
+    <figure class="ig-card">
+      <div class="ig-facade" role="button" tabindex="0" data-ig-id="Cf_wNm3IAQp" aria-label="Ver en Instagram: ¿Por qué nos enamoramos de las personas que nos enamoramos?">
+        <img src="/images/ig-cf_wnm3iaqp.webp" alt="¿Por qué nos enamoramos de las personas que nos enamoramos?" loading="lazy" width="360" height="640">
+        <span class="ig-play" aria-hidden="true">▶</span>
+      </div>
+      <figcaption>¿Por qué nos enamoramos de las personas que nos enamoramos?</figcaption>
+    </figure>
+    <figure class="ig-card">
+      <div class="ig-facade" role="button" tabindex="0" data-ig-id="Cg4XE7Go9hp" aria-label="Ver en Instagram: Mi pareja no tiene sentimientos">
+        <img src="/images/ig-cg4xe7go9hp.webp" alt="Mi pareja no tiene sentimientos" loading="lazy" width="360" height="640">
+        <span class="ig-play" aria-hidden="true">▶</span>
+      </div>
+      <figcaption>Mi pareja no tiene sentimientos</figcaption>
+    </figure>
+    <figure class="ig-card">
+      <div class="ig-facade" role="button" tabindex="0" data-ig-id="ChEecLGIc46" aria-label="Ver en Instagram: ¿Y por qué no nos enamoramos y solo nos gustan?">
+        <img src="/images/ig-cheeclgic46.webp" alt="¿Y por qué no nos enamoramos y solo nos gustan?" loading="lazy" width="360" height="640">
+        <span class="ig-play" aria-hidden="true">▶</span>
+      </div>
+      <figcaption>¿Y por qué no nos enamoramos y solo nos gustan?</figcaption>
+    </figure>
+    <figure class="ig-card">
+      <div class="ig-facade" role="button" tabindex="0" data-ig-id="ClML4QxDTQb" aria-label="Ver en Instagram: Cuando dejas de amar a tu pareja">
+        <img src="/images/ig-clml4qxdtqb.webp" alt="Cuando dejas de amar a tu pareja" loading="lazy" width="360" height="640">
+        <span class="ig-play" aria-hidden="true">▶</span>
+      </div>
+      <figcaption>Cuando dejas de amar a tu pareja</figcaption>
+    </figure>
+    <figure class="ig-card">
+      <div class="ig-facade" role="button" tabindex="0" data-ig-id="ChumwhxIquJ" aria-label="Ver en Instagram: Tengo poco sexo con mi pareja y siempre la busco yo">
+        <img src="/images/ig-chumwhxiquj.webp" alt="Tengo poco sexo con mi pareja y siempre la busco yo" loading="lazy" width="360" height="640">
+        <span class="ig-play" aria-hidden="true">▶</span>
+      </div>
+      <figcaption>Tengo poco sexo con mi pareja y siempre la busco yo</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -849,6 +904,38 @@ document.querySelectorAll('.yt-facade').forEach(function(el){
   el.addEventListener('click', loadVideo);
   el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); loadVideo(); } });
 });
+</script>
+<script>
+(function(){
+  function openIg(id, title){
+    var ov = document.createElement('div');
+    ov.className = 'ig-modal';
+    ov.setAttribute('role', 'dialog');
+    ov.setAttribute('aria-modal', 'true');
+    ov.setAttribute('aria-label', title);
+    var box = document.createElement('div');
+    box.className = 'ig-modal-box';
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'ig-modal-close'; btn.setAttribute('aria-label', 'Cerrar'); btn.textContent = '×';
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.instagram.com/reel/' + id + '/embed/';
+    iframe.title = title;
+    iframe.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture; web-share');
+    iframe.setAttribute('allowfullscreen', '');
+    box.appendChild(btn); box.appendChild(iframe); ov.appendChild(box);
+    function close(){ ov.remove(); document.removeEventListener('keydown', onKey); }
+    function onKey(e){ if (e.key === 'Escape') close(); }
+    ov.addEventListener('click', function(e){ if (e.target === ov || e.target === btn) close(); });
+    document.addEventListener('keydown', onKey);
+    document.body.appendChild(ov);
+    btn.focus();
+  }
+  document.querySelectorAll('.ig-facade').forEach(function(el){
+    function go(){ openIg(el.getAttribute('data-ig-id'), el.getAttribute('aria-label')); }
+    el.addEventListener('click', go);
+    el.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+  });
+})();
 </script>
 <script src="/consent.js" defer></script>
 <script src="/wa-desktop.js" defer></script>
