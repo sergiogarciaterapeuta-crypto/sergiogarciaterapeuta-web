@@ -514,7 +514,7 @@ p.body+p.body { margin-top:1rem; }
 <style id="sg-ig">
 .ig-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;}
 .ig-card{margin:0;display:flex;flex-direction:column;gap:.6rem;}
-.ig-facade{position:relative;aspect-ratio:9/16;border-radius:4px;overflow:hidden;cursor:pointer;background:#000;box-shadow:0 8px 30px rgba(0,0,0,.18);}
+.ig-facade{display:block;position:relative;aspect-ratio:9/16;border-radius:4px;overflow:hidden;cursor:pointer;background:#000;box-shadow:0 8px 30px rgba(0,0,0,.18);}
 .ig-facade img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
 .ig-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;padding-left:4px;box-sizing:border-box;}
 .ig-card figcaption{font-size:.8rem;line-height:1.45;color:var(--gray);}
@@ -657,10 +657,10 @@ p.body+p.body { margin-top:1rem; }
       <figcaption>Cuando dejas de amar a tu pareja</figcaption>
     </figure>
     <figure class="ig-card">
-      <div class="ig-facade" role="button" tabindex="0" data-ig-id="ChumwhxIquJ" aria-label="Ver en Instagram: Tengo poco sexo con mi pareja y siempre la busco yo">
+      <a class="ig-facade" href="https://www.instagram.com/reel/ChumwhxIquJ/" target="_blank" rel="noopener" aria-label="Ver en Instagram: Tengo poco sexo con mi pareja y siempre la busco yo">
         <img src="/images/ig-chumwhxiquj.webp" alt="Tengo poco sexo con mi pareja y siempre la busco yo" loading="lazy" width="360" height="640">
         <span class="ig-play" aria-hidden="true">▶</span>
-      </div>
+      </a>
       <figcaption>Tengo poco sexo con mi pareja y siempre la busco yo</figcaption>
     </figure>
   </div>
@@ -930,7 +930,7 @@ document.querySelectorAll('.yt-facade').forEach(function(el){
     document.body.appendChild(ov);
     btn.focus();
   }
-  document.querySelectorAll('.ig-facade').forEach(function(el){
+  document.querySelectorAll('div.ig-facade').forEach(function(el){
     function go(){ openIg(el.getAttribute('data-ig-id'), el.getAttribute('aria-label')); }
     el.addEventListener('click', go);
     el.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
