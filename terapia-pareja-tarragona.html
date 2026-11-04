@@ -19,7 +19,7 @@
   --fire: #8F3A1A;
   --fire-dim: rgba(143,58,26,0.13);
   --gray: #5A5850;
-  --gray-light: #A09C94;
+  --gray-light: #6B675F;
   --rule: rgba(13,12,11,0.1);
   --rule-lt: rgba(13,12,11,0.055);
   --p: clamp(1.4rem, 4vw, 3rem);
@@ -102,7 +102,7 @@ h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
   display: inline-block;
   background: var(--ink); color: var(--bone);
   padding: .88rem 2rem;
-  font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  font-size: .8125rem; letter-spacing: .12em; text-transform: uppercase;
   text-decoration: none; transition: opacity .18s;
 }
 .btn-dark:hover { opacity: .82; }
@@ -555,16 +555,11 @@ p.body+p.body { margin-top:1rem; }
     <span class="sec-label">Terapia de pareja</span>
     <h1>Terapia de <em>pareja</em> <br>en Tarragona.</h1>
     <p>Para parejas que discuten siempre por lo mismo, que han perdido la conexión o que no saben si seguir. Sesiones presenciales en Tarragona u online, en castellano, con Sergio García, terapeuta.</p>
-    <p style="font-size:.78rem;letter-spacing:.06em;color:var(--fire);margin-top:.8rem;">+20 años de experiencia · +2.000 personas acompañadas · Sin paquetes cerrados</p>
+    <p style="font-size:.875rem;letter-spacing:.04em;color:var(--fire);margin-top:.8rem;">+20 años de experiencia · +2.000 personas acompañadas · Sin paquetes cerrados</p>
     <a href="https://wa.me/34634422827?text=Quiero%20informaci%C3%B3n%20sobre%20terapia%20de%20pareja" data-cta="pareja_hero" class="btn-dark" style="margin-top:1.4rem;display:inline-block;">Escríbeme por WhatsApp →</a>
-    <p style="font-size:.8rem;line-height:1.6;color:var(--gray);margin-top:.7rem;">Te respondo hoy. Te digo precio y horarios, sin compromiso.</p>
+    <p style="font-size:.875rem;line-height:1.6;color:var(--gray);margin-top:.7rem;">Te respondo hoy. Te digo precio y horarios, sin compromiso.</p>
   </div>
   <p class="page-hero-side">"La pareja no es el problema. Es el espejo de lo que cada uno trae."</p>
-</div>
-
-<!-- FOTO -->
-<div style="height:420px;border-bottom:1px solid var(--rule);overflow:hidden;">
-  <img src="/images/sesiones-2-afc2eb82.webp" alt="Sergio García en sesión de terapia de pareja en Tarragona" style="width:100%;height:100%;object-fit:cover;display:block;">
 </div>
 
 <!-- VÍDEO -->
@@ -574,8 +569,14 @@ p.body+p.body { margin-top:1rem; }
     <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:4px;box-shadow:0 8px 30px rgba(0,0,0,.25);">
       <div class="yt-facade" role="button" tabindex="0" aria-label="Reproducir: Vídeo de sesiones · Sergio García" data-yt-id="L867OuFRchI" style="position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer;background:#000;"><img src="https://i.ytimg.com/vi/L867OuFRchI/hqdefault.jpg" alt="Vídeo de sesiones · Sergio García" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85;"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;"><svg width="68" height="48" viewBox="0 0 68 48" aria-hidden="true"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.41 6.19C.13 13.05 0 24 0 24s.13 10.95 1.49 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.87 34.95 68 24 68 24s-.13-10.95-1.48-16.26z" fill="#ff0000"></path><path d="M45 24 27 14v20" fill="#fff"></path></svg></div><span style="position:absolute;bottom:8px;left:8px;background:rgba(0,0,0,.65);color:#fff;font-size:.7rem;padding:.2rem .55rem;border-radius:3px;letter-spacing:.02em;">▶ Reproducir vídeo</span></div>
     </div>
+    <a href="https://wa.me/34634422827?text=Quiero%20informaci%C3%B3n%20sobre%20terapia%20de%20pareja" data-cta="pareja_video" class="btn-dark" style="margin-top:1.6rem;">Escríbeme por WhatsApp →</a>
   </div>
 </section>
+
+<!-- FOTO -->
+<div style="height:420px;border-bottom:1px solid var(--rule);overflow:hidden;">
+  <img src="/images/sesiones-2-afc2eb82.webp" alt="Sergio García en sesión de terapia de pareja en Tarragona" style="width:100%;height:100%;object-fit:cover;display:block;">
+</div>
 
 <!-- CUÁNDO -->
 <section class="bloque">
@@ -615,13 +616,14 @@ p.body+p.body { margin-top:1rem; }
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
     <div style="padding:2rem;background:var(--ink);display:flex;flex-direction:column;gap:.8rem;">
       <p style="font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.85;flex:1;font-style:italic;">"Llegamos convencidos de que el problema era el otro. En pocas sesiones entendimos que ambos llevábamos años relacionándonos desde el mismo personaje. No fue una terapia para aprender técnicas de comunicación. Fue mucho más incómodo... y mucho más transformador."</p>
-      <p style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.28);">— Marta y David · Terapia de pareja</p>
+      <p style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);">— Marta y David · Terapia de pareja</p>
     </div>
     <div style="padding:2rem;border:0.5px solid var(--rule);display:flex;flex-direction:column;gap:.8rem;">
       <p style="font-size:.9rem;color:var(--gray);line-height:1.85;flex:1;font-style:italic;">"Lo que más me gustó fue que nunca intentó decirme lo que tenía que hacer. Me acompañó a descubrirlo por mí mismo. Hubo momentos duros, pero también una sensación de libertad que hacía años que no sentía."</p>
       <p style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-light);">— J Luis, 49 años · Sesión individual</p>
     </div>
   </div>
+  <div style="margin-top:2rem;"><a href="https://wa.me/34634422827?text=Quiero%20informaci%C3%B3n%20sobre%20terapia%20de%20pareja" data-cta="pareja_testimonios" class="btn-dark">Escríbeme por WhatsApp →</a></div>
 </section>
 
 <!-- INSTAGRAM -->
@@ -679,15 +681,6 @@ p.body+p.body { margin-top:1rem; }
   </div>
 </section>
 
-<!-- CROSS-LINKS -->
-<section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);background:var(--bone2);">
-  <span class="sec-label">También puede interesarte</span>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;">
-    <a href="/terapia-individual-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Terapia individual en Tarragona →</a>
-    <a href="/terapia-gestalt-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Qué es la terapia Gestalt →</a><a href="/ruptura-crisis-pareja-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Ruptura o crisis de pareja →</a><a href="/dependencia-emocional-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Dependencia emocional →</a>
-  </div>
-</section>
-
 <!-- PREGUNTAS FRECUENTES -->
 <div style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);">
   <span class="sec-label">Preguntas frecuentes</span>
@@ -723,6 +716,15 @@ p.body+p.body { margin-top:1rem; }
   </div>
   <a href="https://wa.me/34634422827?text=Quiero%20informaci%C3%B3n%20sobre%20terapia%20de%20pareja" data-cta="pareja_final" class="btn-dark">Escribir por WhatsApp →</a>
 </div>
+
+<!-- CROSS-LINKS -->
+<section style="padding:var(--pv) var(--p);border-bottom:1px solid var(--rule);background:var(--bone2);">
+  <span class="sec-label">También puede interesarte</span>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;">
+    <a href="/terapia-individual-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Terapia individual en Tarragona →</a>
+    <a href="/terapia-gestalt-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Qué es la terapia Gestalt →</a><a href="/ruptura-crisis-pareja-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Ruptura o crisis de pareja →</a><a href="/dependencia-emocional-tarragona" class="btn-outline" style="text-align:center;padding:1.2rem;">Dependencia emocional →</a>
+  </div>
+</section>
 
 </main>
 <nav class="footer-temas" aria-label="Temas y servicios">

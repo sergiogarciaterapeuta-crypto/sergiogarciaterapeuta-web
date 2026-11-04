@@ -10,15 +10,18 @@
   function save(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
   function apply(v) { if (typeof window.gtag === 'function') window.gtag('consent', 'update', v === 'granted' ? GRANTED : DENIED); }
 
-  var css = '#sg-cc{position:fixed;left:12px;right:12px;bottom:12px;z-index:2147483000;max-width:560px;margin:0 auto;background:#fff;color:#222;' +
-    'border:1px solid #ddd;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.15);padding:12px 14px;font:13px/1.45 inherit;font-family:inherit}' +
-    '#sg-cc p{margin:0 0 10px}#sg-cc a{color:inherit;text-decoration:underline}' +
-    '#sg-cc .sg-cc-btns{display:flex;gap:10px;flex-wrap:wrap}' +
-    '#sg-cc button{flex:1 1 120px;padding:9px 12px;border-radius:7px;font:600 14px/1 inherit;font-family:inherit;cursor:pointer;border:1px solid #222;background:#fff;color:#222}' +
+  /* Franja baja y estrecha: en el móvil no tapa el botón principal de la página (antes era una tarjeta de ~106 px) */
+  var css = '#sg-cc{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;background:#fff;color:#222;' +
+    'border-top:1px solid #ddd;box-shadow:0 -2px 10px rgba(0,0,0,.08);padding:8px 12px;font-size:12px;line-height:1.4;font-family:inherit;' +
+    'display:flex;align-items:center;gap:10px}' +
+    '#sg-cc p{margin:0;flex:1 1 auto}#sg-cc a{color:inherit;text-decoration:underline}' +
+    '#sg-cc .sg-cc-btns{display:flex;gap:6px;flex:0 0 auto}' +
+    '#sg-cc button{padding:8px 12px;border-radius:6px;font-weight:600;font-size:13px;line-height:1;font-family:inherit;cursor:pointer;border:1px solid #222;background:#fff;color:#222}' +
     '#sg-cc button.sg-cc-ok{background:#222;color:#fff}' +
     /* Mientras el aviso está abierto, el botón de WhatsApp sube por encima para que nunca quede tapado */
-    'html.sg-cc-open #sg-widget{bottom:calc(var(--sg-cc-h,160px) + 24px)!important;transition:bottom .2s}' +
-    '@media (max-width:480px){#sg-cc{left:8px;right:8px;bottom:8px;padding:10px 12px;font-size:12.5px}#sg-cc p{margin:0 0 8px}#sg-cc button{padding:8px 10px;font-size:13px}}';
+    'html.sg-cc-open #sg-widget{bottom:calc(var(--sg-cc-h,64px) + 16px)!important;transition:bottom .2s}' +
+    '@media (min-width:768px){#sg-cc{justify-content:center;padding:10px 16px;font-size:13px}#sg-cc p{flex:0 1 auto;max-width:640px}}' +
+    '@media (max-width:480px){#sg-cc{padding:8px 10px;font-size:11px;gap:8px}#sg-cc button{padding:8px 9px;font-size:12px}}';
 
   function show() {
     if (document.getElementById('sg-cc')) return;
