@@ -251,6 +251,14 @@ footer {
         'value': 1.0,
         'currency': 'EUR'
       });
+      // Clic en WhatsApp tras al menos 15 s en esta página: objetivo propio de la PMax (acción secundaria en la cuenta)
+      if (window.performance && performance.now() >= 15000) {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18318477742/mBdwCPHmx7MdEK6T955E',
+          'value': 1.0,
+          'currency': 'EUR'
+        });
+      }
     }
   }, true);
 </script>
