@@ -94,8 +94,13 @@
       "publishedAt": "2026-11-16",
       "isoWeek": "2026-W47",
       "linkedin": {
-        "status": "pending"
-      }
+        "status": "published",
+        "text": "¿Cuidas porque quieres o para merecer que te cuiden?\n\nMuchas personas dan sin parar a su pareja, su familia o sus amigos, y luego sienten resentimiento, cansancio y esa sensación de que nadie les devuelve lo que ponen.\n\nNo se trata de dejar de cuidar, sino de darte cuenta de qué necesitas cada vez que das y de aprender a pedir sin sentir que debes pagar antes.\n\nhttps://sergiogarciaterapeuta.es/blog-cuidar-para-merecer-que-te-cuiden",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7528018453627035648/",
+        "id": "urn:li:activity:7528018453627035648",
+        "publishedAt": "2026-11-16"
+      },
+      "deploymentVerifiedAt": "2026-11-16"
     }
   ]
 }
