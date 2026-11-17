@@ -233,7 +233,7 @@ footer {
   })();
   function sgCode() {
     var p = location.pathname.replace(/\.html$/, '').replace(/^\//, '') || 'inicio';
-    var map = {'inicio':'GEN','sesiones':'SES','terapia-individual-tarragona':'IND','terapia-pareja-tarragona':'PAR','ruptura-crisis-pareja-tarragona':'RUP','dependencia-emocional-tarragona':'DEP','terapia-gestalt-tarragona':'GES','terapia-online':'ONL','crisis-existencial':'CRI','programas':'PRG','talleres-retiros':'TAL','del-dolor-a-la-alegria':'TAL','el-personaje':'PER','sobre-sergio':'SOB'};
+    var map = {'inicio':'GEN','sesiones':'SES','terapia-individual-tarragona':'IND','terapia-pareja-tarragona':'PAR','ruptura-crisis-pareja-tarragona':'RUP','dependencia-emocional-tarragona':'DEP','terapia-gestalt-tarragona':'GES','terapia-online':'ONL','crisis-existencial':'CRI','programas':'PRG','talleres-retiros':'TAL','del-dolor-a-la-alegria':'TAL','el-personaje':'PER','sobre-sergio':'SOB','ansiedad-tarragona':'ANS','terapia-reus-salou-cambrils':'REU','ca/terapia-parella-tarragona':'PCA','ca/terapia-individual-tarragona':'ICA','formacion-empresas':'EMP'};
     var c = map[p] || (p.indexOf('blog') === 0 ? 'BLG' : 'WEB');
     var s = 'W';
     try { s = sessionStorage.getItem('sg_src') || 'W'; var g = sessionStorage.getItem('sg_sgc'); if (g) s = g.toUpperCase(); } catch (err) {}
@@ -530,12 +530,14 @@ footer {
       <li><a href="/terapia-pareja-tarragona">Terapia de pareja</a></li>
       <li><a href="/terapia-gestalt-tarragona">Terapia Gestalt</a></li>
       <li><a href="/terapia-online">Terapia online</a></li>
+      <li><a href="/terapia-reus-salou-cambrils">Reus, Salou y Cambrils</a></li>
     </ul>
   </div>
   <div>
     <p class="footer-titulo">Lo que trae la gente</p>
     <ul>
       <li><a href="/crisis-existencial">Crisis existencial</a></li>
+      <li><a href="/ansiedad-tarragona">Ansiedad</a></li>
       <li><a href="/dependencia-emocional-tarragona">Dependencia emocional</a></li>
       <li><a href="/ruptura-crisis-pareja-tarragona">Ruptura y crisis de pareja</a></li>
       <li><a href="/el-personaje">El personaje</a></li>
@@ -546,7 +548,9 @@ footer {
     <ul>
       <li><a href="https://www.youtube.com/@SergioGarciaTerapeuta" rel="me">YouTube</a></li>
       <li><a href="https://www.instagram.com/sergiogarciaterapeuta/" rel="me">Instagram</a></li>
+      <li><a href="https://www.linkedin.com/in/sergiogarciaterapeuta/" rel="me">LinkedIn</a></li>
       <li><a href="/sobre-sergio">Sobre mí</a></li>
+      <li><a href="/formacion-empresas">Formación para empresas</a></li>
     </ul>
   </div>
 </nav>
