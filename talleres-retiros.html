@@ -19,7 +19,7 @@
   --fire: #8F3A1A;
   --fire-dim: rgba(143,58,26,0.13);
   --gray: #5A5850;
-  --gray-light: #A09C94;
+  --gray-light: #66625A;
   --rule: rgba(13,12,11,0.1);
   --rule-lt: rgba(13,12,11,0.055);
   --p: clamp(1.4rem, 4vw, 3rem);
@@ -430,7 +430,7 @@ p.body+p.body { margin-top:1rem; }
       "name": "¿Cuándo son los próximos talleres?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "El próximo taller es \"Crisis e identidad\", el 14 y 15 de noviembre de 2026. Las próximas ediciones de \"Del dolor a la alegría\" y \"El personaje que te está matando\" están por anunciar. Son presenciales en Tarragona. Escríbeme por WhatsApp y te aviso en cuanto haya fecha."
+        "text": "Las próximas ediciones de \"Crisis e identidad\", \"Del dolor a la alegría\" y \"El personaje que te está matando\" están por anunciar. Son presenciales en Tarragona. Escríbeme por WhatsApp y te aviso en cuanto haya fecha."
       }
     },
     {
@@ -512,10 +512,13 @@ p.body+p.body { margin-top:1rem; }
 </style>
 <style id="sg-m1">@media (max-width:768px){.top-bar a[href^="mailto"],.top-bar .tb-sep{display:none}}</style>
 <style id="sg-m2">.hero-face{display:none}@media (max-width:768px){.page-hero{padding-top:1.4rem}.page-hero .sec-label{display:none}.hero-face{display:flex;align-items:center;gap:.8rem;margin:0 0 .8rem;font-size:.82rem;line-height:1.35;color:var(--gray);letter-spacing:.02em}.hero-face img{width:56px;height:56px;border-radius:50%;object-fit:cover;display:block}}</style>
+<meta name="theme-color" content="#EDECE6">
+<style id="sg-a11y">a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid #8F3A1A;outline-offset:3px}.skip-link{position:absolute;left:-9999px;top:0;z-index:10000;background:#0D0C0B;color:#EDECE6;padding:.6rem 1rem;font-size:.85rem;text-decoration:none}.skip-link:focus{left:1rem;top:1rem}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}</style>
 </head>
 
 
 <body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 <div class="top-bar">
   <a href="tel:+34634422827">📞 634 42 28 27</a>
   <span class="tb-sep">·</span>
@@ -536,7 +539,7 @@ p.body+p.body { margin-top:1rem; }
   <a href="https://wa.me/34634422827" class="nav-btn" data-cta="nav_whatsapp"><span class="nb-long">Escríbeme por </span>WhatsApp</a>
   <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="var m=document.querySelector('.nav-links');var open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);this.innerHTML=open?'\u2715':'\u2630';">☰</button>
 </nav>
-<main>
+<main id="contenido">
 
 <div class="page-hero">
   <div>
@@ -570,8 +573,7 @@ p.body+p.body { margin-top:1rem; }
     <a href="https://wa.me/34634422827?text=Quiero%20que%20me%20avises%20de%20la%20pr%C3%B3xima%20edici%C3%B3n%20de%20El%20personaje" data-cta="taller_personaje" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;">Avísame →</a>
   </div>
   <div style="position:relative;">
-    <span style="position:absolute;top:0;right:0;background:var(--fire);color:#fff;font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.4rem .8rem;">Próximo taller · 14-15 nov</span>
-    <span class="tag">Taller · Fin de semana · 14 y 15 de noviembre</span>
+    <span class="tag">Taller · Fin de semana · Próxima edición por anunciar</span>
     <h3 class="medio">Crisis e identidad</h3>
     <p class="body">Dos días para trabajar qué pasa cuando la vida que construiste ya no encaja. Para personas en transición o con sensación persistente de estar en el lugar equivocado.</p>
     <div class="tc-meta" style="margin-top:auto;">
@@ -697,7 +699,7 @@ p.body+p.body { margin-top:1rem; }
   <div style="max-width:720px;">
     <div class="faq-item">
       <div class="faq-q"><span>¿Cuándo son los próximos talleres?</span><span class="faq-toggle">+</span></div>
-      <div class="faq-a">El próximo taller es "Crisis e identidad", el 14 y 15 de noviembre de 2026. Las próximas ediciones de "Del dolor a la alegría" y "El personaje que te está matando" están por anunciar. Son presenciales en Tarragona. Escríbeme por WhatsApp y te aviso en cuanto haya fecha.</div>
+      <div class="faq-a">Las próximas ediciones de "Crisis e identidad", "Del dolor a la alegría" y "El personaje que te está matando" están por anunciar. Son presenciales en Tarragona. Escríbeme por WhatsApp y te aviso en cuanto haya fecha.</div>
     </div><div class="faq-item">
       <div class="faq-q"><span>¿Cómo reservo plaza?</span><span class="faq-toggle">+</span></div>
       <div class="faq-a">Escríbeme por WhatsApp indicando el taller que te interesa y te confirmo la reserva y los detalles prácticos.</div>
