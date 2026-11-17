@@ -28,9 +28,13 @@
     if (!document.getElementById('sg-cc-css')) {
       var st = document.createElement('style'); st.id = 'sg-cc-css'; st.textContent = css; document.head.appendChild(st);
     }
+    var ca = (document.documentElement.lang || '').toLowerCase().indexOf('ca') === 0;
     var box = document.createElement('div');
-    box.id = 'sg-cc'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-label', 'Aviso de cookies');
-    box.innerHTML =
+    box.id = 'sg-cc'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-label', ca ? 'Avís de galetes' : 'Aviso de cookies');
+    box.innerHTML = ca ?
+      '<p>Faig servir galetes de Google per mesurar la web i els meus anuncis. Només si acceptes. <a href="/privacidad#cookies">Més informació sobre les galetes</a>.</p>' +
+      '<div class="sg-cc-btns"><button type="button" class="sg-cc-no">Rebutja</button>' +
+      '<button type="button" class="sg-cc-ok">Accepta</button></div>' :
       '<p>Uso cookies de Google para medir la web y mis anuncios. Solo si aceptas. <a href="/privacidad#cookies">Más información sobre las cookies</a>.</p>' +
       '<div class="sg-cc-btns"><button type="button" class="sg-cc-no">Rechazar</button>' +
       '<button type="button" class="sg-cc-ok">Aceptar</button></div>';
