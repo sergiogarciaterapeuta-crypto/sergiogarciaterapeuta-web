@@ -1,3 +1,9 @@
+# Dominio .com (17 nov 2026): todo lo que entre por la .com va a la misma página de la .es
+https://sergiogarciaterapeuta.com/* https://sergiogarciaterapeuta.es/:splat 301!
+http://sergiogarciaterapeuta.com/* https://sergiogarciaterapeuta.es/:splat 301!
+https://www.sergiogarciaterapeuta.com/* https://sergiogarciaterapeuta.es/:splat 301!
+http://www.sergiogarciaterapeuta.com/* https://sergiogarciaterapeuta.es/:splat 301!
+
 /index.html   /   301!
 /el-personaje.html   /el-personaje   301!
 /sobre-sergio.html   /sobre-sergio   301!

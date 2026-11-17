@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Temporal (17 nov 2026): direcciones antiguas que Google aún tiene indexadas y que ya redirigen a la buena.
+     Sirve para que Google las vuelva a visitar, vea la redirección y las quite. Borrar a mediados de diciembre. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://sergiogarciaterapeuta.es/programas.html</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://sergiogarciaterapeuta.es/terapia-pareja-tarragona.html</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://sergiogarciaterapeuta.es/terapia-individual-tarragona.html</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://sergiogarciaterapeuta.es/terapia-gestalt-tarragona.html</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://sergiogarciaterapeuta.es/blog-decisiones-impulsivas.html</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://sergiogarciaterapeuta.es/blog-marcador-invisible.html</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://sergiogarciaterapeuta.es/blog-no-eres-asi.html</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://sergiogarciaterapeuta.es/del-dolor-a-la-alegria.html</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://sergiogarciaterapeuta.es/blog-por-que-no-sales-de-la-depresion-la-verdad-psicologica</loc><lastmod>2026-11-17</lastmod></url>
+  <url><loc>https://sergiogarciaterapeuta.es/blog-la-vida-no-es-facil-la-cruda-realidad-lxgoshgzeeo</loc><lastmod>2026-11-17</lastmod></url>
+</urlset>

@@ -1,0 +1,37 @@
+# Avisa a Bing (y al resto de buscadores con IndexNow) de las páginas que cambian
+# cada vez que se publica la web (push a main). No toca la web ni Netlify.
+name: Avisar a Bing (IndexNow)
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Esperar a que Netlify termine de publicar
+        run: sleep 90
+      - name: Enviar las páginas nuevas o cambiadas
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          KEY=483201546adafb1a2a721571b90c716f
+          HOST=sergiogarciaterapeuta.es
+          if git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then FROM="$BEFORE"; else FROM="${AFTER}~1"; fi
+          FILES=$(git diff --name-only --diff-filter=AM "$FROM" "$AFTER" -- '*.html' | grep -v -E '^(google.*|404)\.html$' || true)
+          URLS=""
+          for f in $FILES; do
+            p="${f%.html}"
+            if [ "$p" = "index" ]; then u="https://$HOST/"; else u="https://$HOST/$p"; fi
+            URLS="$URLS\"$u\","
+          done
+          if [ -z "$URLS" ]; then echo "No hay páginas cambiadas"; exit 0; fi
+          BODY="{\"host\":\"$HOST\",\"key\":\"$KEY\",\"keyLocation\":\"https://$HOST/$KEY.txt\",\"urlList\":[${URLS%,}]}"
+          echo "$BODY"
+          curl -sS -w "\nIndexNow: HTTP %{http_code}\n" -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" -d "$BODY"
