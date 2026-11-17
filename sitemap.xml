@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://sergiogarciaterapeuta.es/</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-      <video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/eTRW0Vhalc4/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Eres el ser más invalidado del planeta...</video:title>
       <video:description>Sergio García habla sobre la invalidación emocional y cómo el personaje que construimos de niños nos aleja de lo que realmente sentimos.</video:description>
@@ -18,43 +17,43 @@
       <video:description>Sergio García se presenta y explica su forma de entender la terapia Gestalt, sistémica y existencial en Tarragona.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/vfybsvJxmY0</video:player_loc>
     </video:video>
-</url>
+  </url>
   <url>
     <loc>https://sergiogarciaterapeuta.es/el-personaje</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-      <video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/V50cy8Bns5o/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Personaje</video:title>
       <video:description>Sergio García explica qué es "el personaje": la máscara de supervivencia que construimos de niños y que de adultos sigue controlándonos.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/V50cy8Bns5o</video:player_loc>
     </video:video>
-</url>
+  </url>
   <url>
     <loc>https://sergiogarciaterapeuta.es/sesiones</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-      <video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/L867OuFRchI/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Sesiones Individuales y Pareja</video:title>
       <video:description>Sergio García explica cómo son las sesiones individuales y de pareja, y qué esperar del proceso terapéutico.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/L867OuFRchI</video:player_loc>
     </video:video>
-</url>
+  </url>
   <url>
     <loc>https://sergiogarciaterapeuta.es/programas</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sergiogarciaterapeuta.es/talleres-retiros</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-      <video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/HlTiVJARFVE/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Taller del Dolor a la Alegría</video:title>
       <video:description>Sergio García presenta el taller "Del dolor a la alegría", un espacio de trabajo terapéutico intensivo.</video:description>
@@ -66,13 +65,13 @@
       <video:description>Testimonios y experiencias de participantes en los retiros terapéuticos guiados por Sergio García.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/YukbqQRluo8</video:player_loc>
     </video:video>
-</url>
+  </url>
   <url>
     <loc>https://sergiogarciaterapeuta.es/del-dolor-a-la-alegria</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-      <video:video>
+    <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/HlTiVJARFVE/hqdefault.jpg</video:thumbnail_loc>
       <video:title>Taller del Dolor a la Alegría</video:title>
       <video:description>Sergio García presenta el taller "Del dolor a la alegría", un espacio de trabajo terapéutico intensivo.</video:description>
@@ -84,7 +83,7 @@
       <video:description>Testimonios y experiencias de participantes en los retiros terapéuticos guiados por Sergio García.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/YukbqQRluo8</video:player_loc>
     </video:video>
-</url>
+  </url>
   <url>
     <loc>https://sergiogarciaterapeuta.es/sobre-sergio</loc>
     <lastmod>2026-11-15</lastmod>
@@ -93,13 +92,13 @@
   </url>
   <url>
     <loc>https://sergiogarciaterapeuta.es/blog</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sergiogarciaterapeuta.es/blog-no-eres-asi</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <video:video>
@@ -111,13 +110,13 @@
   </url>
   <url>
     <loc>https://sergiogarciaterapeuta.es/blog-autosabotaje-amoroso</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://sergiogarciaterapeuta.es/blog-falta-intimidad-pareja</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <video:video>
@@ -127,16 +126,161 @@
       <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/2z4_ie4l67k</video:player_loc>
     </video:video>
   </url>
-<url>    <loc>https://sergiogarciaterapeuta.es/blog-marcador-invisible</loc>    <lastmod>2026-08-17</lastmod>    <changefreq>monthly</changefreq>    <priority>0.6</priority>    <video:video>      <video:thumbnail_loc>https://img.youtube.com/vi/29NdOf8qxoQ/hqdefault.jpg</video:thumbnail_loc>      <video:title>El marcador invisible: cuando dar se convierte en cobrar</video:title>      <video:description>Llevar la cuenta de cada favor que haces es una forma silenciosa de esperar algo a cambio. Descubre por qué el registro de favores daña tus relaciones.</video:description>      <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/29NdOf8qxoQ</video:player_loc>    </video:video>  </url>  <url>    <loc>https://sergiogarciaterapeuta.es/terapia-individual-tarragona</loc>    <lastmod>2026-10-02</lastmod>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>  <url>    <loc>https://sergiogarciaterapeuta.es/terapia-pareja-tarragona</loc>    <lastmod>2026-11-04</lastmod>    <changefreq>monthly</changefreq>    <priority>0.8</priority>    <video:video>      <video:thumbnail_loc>https://i.ytimg.com/vi/L867OuFRchI/hqdefault.jpg</video:thumbnail_loc>      <video:title>Sesiones Individuales y Pareja</video:title>      <video:description>Sergio García explica cómo son las sesiones individuales y de pareja, y qué esperar del proceso terapéutico.</video:description>      <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/L867OuFRchI</video:player_loc>    </video:video>  </url>  <url>    <loc>https://sergiogarciaterapeuta.es/terapia-gestalt-tarragona</loc>    <lastmod>2026-10-02</lastmod>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url>  <url>    <loc>https://sergiogarciaterapeuta.es/blog-decisiones-impulsivas</loc>    <lastmod>2026-08-22</lastmod>    <changefreq>monthly</changefreq>    <priority>0.6</priority>  </url>  <url>    <loc>https://sergiogarciaterapeuta.es/terapia-online</loc>    <lastmod>2026-10-02</lastmod>    <changefreq>monthly</changefreq>    <priority>0.8</priority>  </url><url><loc>https://sergiogarciaterapeuta.es/blog-la-vida-no-es-facil</loc><lastmod>2026-10-02</lastmod><changefreq>monthly</changefreq><priority>0.6</priority><video:video><video:thumbnail_loc>https://img.youtube.com/vi/lxGOshgZEeo/hqdefault.jpg</video:thumbnail_loc><video:title>La vida NO es fácil: la cruda realidad</video:title><video:description>¿Es verdad que la vida no es fácil? Cuestionamos la idea de que todo debe ser sencillo y analizamos por qué esa presión frustra.</video:description><video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/lxGOshgZEeo</video:player_loc></video:video></url><url><loc>https://sergiogarciaterapeuta.es/blog-amor-o-ansiedad</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.6</priority><video:video><video:thumbnail_loc>https://img.youtube.com/vi/pEFAD2R1ebY/hqdefault.jpg</video:thumbnail_loc><video:title>¿Y si eso que llamas amor fuera ansiedad?</video:title><video:description>La diferencia entre amor, ansiedad y dependencia emocional no siempre es evidente desde dentro.</video:description><video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/pEFAD2R1ebY</video:player_loc></video:video></url><url><loc>https://sergiogarciaterapeuta.es/dependencia-emocional-tarragona</loc><lastmod>2026-10-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url><loc>https://sergiogarciaterapeuta.es/ruptura-crisis-pareja-tarragona</loc><lastmod>2026-10-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url><loc>https://sergiogarciaterapeuta.es/blog-por-que-no-sales-de-la-depresion</loc><lastmod>2026-10-02</lastmod><changefreq>monthly</changefreq><priority>0.6</priority><video:video><video:thumbnail_loc>https://i.ytimg.com/vi_webp/cFDjVsCP7cs/hqdefault.webp</video:thumbnail_loc><video:title>¿Por qué no sales de la depresión? Lo que el malestar protege</video:title><video:description>¿Es posible salir de la depresión? La clave podría estar en comprender qué ganas al mantenerte en ese estado.</video:description><video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/cFDjVsCP7cs</video:player_loc><video:publication_date>2026-09-15T22:00:14+00:00</video:publication_date></video:video></url>
-<url><loc>https://sergiogarciaterapeuta.es/aviso-legal</loc><lastmod>2026-09-27</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url><url><loc>https://sergiogarciaterapeuta.es/privacidad</loc><lastmod>2026-09-27</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url><url><loc>https://sergiogarciaterapeuta.es/blog-la-razon-oculta-por-la-que-evitas-comprometerte</loc><lastmod>2026-10-02</lastmod><video:video><video:thumbnail_loc>https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp</video:thumbnail_loc><video:title>La razón oculta por la que evitas comprometerte</video:title><video:description>¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja? Analizamos cómo el inconsciente bloquea el deseo sexual como mecanismo de defensa ante posibles daños emocionales. Si sientes que tu mente sabotea tus relaciones por miedo a una traición, este análisis te ayudará a entender tu propia barrera.</video:description><video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/LNSQKKffdNk</video:player_loc></video:video></url>  <url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/blog-marcador-invisible</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/29NdOf8qxoQ/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>El marcador invisible: cuando dar se convierte en cobrar</video:title>
+      <video:description>Llevar la cuenta de cada favor que haces es una forma silenciosa de esperar algo a cambio. Descubre por qué el registro de favores daña tus relaciones.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/29NdOf8qxoQ</video:player_loc>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/terapia-individual-tarragona</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/terapia-pareja-tarragona</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/L867OuFRchI/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Sesiones Individuales y Pareja</video:title>
+      <video:description>Sergio García explica cómo son las sesiones individuales y de pareja, y qué esperar del proceso terapéutico.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/L867OuFRchI</video:player_loc>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/terapia-gestalt-tarragona</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/blog-decisiones-impulsivas</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/terapia-online</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/blog-la-vida-no-es-facil</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/lxGOshgZEeo/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>La vida NO es fácil: la cruda realidad</video:title>
+      <video:description>¿Es verdad que la vida no es fácil? Cuestionamos la idea de que todo debe ser sencillo y analizamos por qué esa presión frustra.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/lxGOshgZEeo</video:player_loc>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/blog-amor-o-ansiedad</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://img.youtube.com/vi/pEFAD2R1ebY/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>¿Y si eso que llamas amor fuera ansiedad?</video:title>
+      <video:description>La diferencia entre amor, ansiedad y dependencia emocional no siempre es evidente desde dentro.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/pEFAD2R1ebY</video:player_loc>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/dependencia-emocional-tarragona</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/ruptura-crisis-pareja-tarragona</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/blog-por-que-no-sales-de-la-depresion</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi_webp/cFDjVsCP7cs/hqdefault.webp</video:thumbnail_loc>
+      <video:title>¿Por qué no sales de la depresión? Lo que el malestar protege</video:title>
+      <video:description>¿Es posible salir de la depresión? La clave podría estar en comprender qué ganas al mantenerte en ese estado.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/cFDjVsCP7cs</video:player_loc>
+      <video:publication_date>2026-09-15T22:00:14+00:00</video:publication_date>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/aviso-legal</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/privacidad</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/blog-la-razon-oculta-por-la-que-evitas-comprometerte</loc>
+    <lastmod>2026-11-17</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi_webp/LNSQKKffdNk/hqdefault.webp</video:thumbnail_loc>
+      <video:title>La razón oculta por la que evitas comprometerte</video:title>
+      <video:description>¿Por qué el miedo a la intimidad te impide conectar profundamente con tu pareja? Analizamos cómo el inconsciente bloquea el deseo sexual como mecanismo de defensa ante posibles daños emocionales. Si sientes que tu mente sabotea tus relaciones por miedo a una traición, este análisis te ayudará a entender tu propia barrera.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/LNSQKKffdNk</video:player_loc>
+    </video:video>
+  </url>
+  <url>
     <loc>https://sergiogarciaterapeuta.es/crisis-existencial</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-<url><loc>https://sergiogarciaterapeuta.es/blog-cuidar-para-merecer-que-te-cuiden</loc><lastmod>2026-11-16</lastmod><video:video><video:thumbnail_loc>https://i.ytimg.com/vi_webp/7ixqNZv296k/hqdefault.webp</video:thumbnail_loc><video:title>¿Cuidas porque quieres o para merecer que te cuiden?</video:title><video:description>Das sin parar y luego llegan el cansancio y el resentimiento. Por qué te cuesta pedir y qué hay detrás de necesitar ser imprescindible.</video:description><video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/7ixqNZv296k</video:player_loc></video:video></url>
-<url><loc>https://sergiogarciaterapeuta.es/blog-sentirte-pequeno-con-una-persona</loc><lastmod>2026-11-15</lastmod><video:video><video:thumbnail_loc>https://i.ytimg.com/vi_webp/suR8-ts2YuI/hqdefault.webp</video:thumbnail_loc><video:title>Sentirte pequeño con una persona: ¿por qué te pasa?</video:title><video:description>Con el resto del mundo te desenvuelves bien, pero delante de una persona concreta vuelves a callarte y a dar la razón. Por qué te haces pequeño con ciertas personas y cómo recuperar tu lugar sin gritar ni ganar una discusión.</video:description><video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/suR8-ts2YuI</video:player_loc></video:video></url>
-<url><loc>https://sergiogarciaterapeuta.es/blog-comparar-todo-con-lo-que-perdiste</loc><lastmod>2026-11-15</lastmod><video:video><video:thumbnail_loc>https://i.ytimg.com/vi_webp/hXkLtNb6OLY/hqdefault.webp</video:thumbnail_loc><video:title>Comparar todo con lo que perdiste: por qué nada te llena</video:title><video:description>Si comparas a tu pareja, tu trabajo o tu vida actual con algo que perdiste, este vídeo es para ti. Hablamos de por qué comparar con el pasado te impide disfrutar del presente, y de cómo una ruptura, una pérdida o una etapa no cerrada pueden seguir ocupando el centro de tu atención sin que te des cuenta. Desde la terapia Gestalt, lo que no se termina de sentir ni de despedir queda como asunto inconcluso. Eso explica por qué te cuesta superar una ruptura, por qué idealizas a tu ex o tu pasado, y por qué las nuevas relaciones, trabajos o lugares parecen no estar a la altura antes de empezar. Verás qué es el duelo pendiente, cómo funciona la figura y el fondo en tu mente, y por qué no se trata de olvidar sino de completar y cerrar ciclos. Una reflexión directa sobre apego, pérdida, soltar el pasado y aprender a ver lo nuevo tal cual es.</video:description><video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/hXkLtNb6OLY</video:player_loc></video:video></url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/blog-cuidar-para-merecer-que-te-cuiden</loc>
+    <lastmod>2026-11-17</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi_webp/7ixqNZv296k/hqdefault.webp</video:thumbnail_loc>
+      <video:title>¿Cuidas porque quieres o para merecer que te cuiden?</video:title>
+      <video:description>Das sin parar y luego llegan el cansancio y el resentimiento. Por qué te cuesta pedir y qué hay detrás de necesitar ser imprescindible.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/7ixqNZv296k</video:player_loc>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/blog-sentirte-pequeno-con-una-persona</loc>
+    <lastmod>2026-11-17</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi_webp/suR8-ts2YuI/hqdefault.webp</video:thumbnail_loc>
+      <video:title>Sentirte pequeño con una persona: ¿por qué te pasa?</video:title>
+      <video:description>Con el resto del mundo te desenvuelves bien, pero delante de una persona concreta vuelves a callarte y a dar la razón. Por qué te haces pequeño con ciertas personas y cómo recuperar tu lugar sin gritar ni ganar una discusión.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/suR8-ts2YuI</video:player_loc>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://sergiogarciaterapeuta.es/blog-comparar-todo-con-lo-que-perdiste</loc>
+    <lastmod>2026-11-17</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi_webp/hXkLtNb6OLY/hqdefault.webp</video:thumbnail_loc>
+      <video:title>Comparar todo con lo que perdiste: por qué nada te llena</video:title>
+      <video:description>Si comparas a tu pareja, tu trabajo o tu vida actual con algo que perdiste, este vídeo es para ti. Hablamos de por qué comparar con el pasado te impide disfrutar del presente, y de cómo una ruptura, una pérdida o una etapa no cerrada pueden seguir ocupando el centro de tu atención sin que te des cuenta. Desde la terapia Gestalt, lo que no se termina de sentir ni de despedir queda como asunto inconcluso. Eso explica por qué te cuesta superar una ruptura, por qué idealizas a tu ex o tu pasado, y por qué las nuevas relaciones, trabajos o lugares parecen no estar a la altura antes de empezar. Verás qué es el duelo pendiente, cómo funciona la figura y el fondo en tu mente, y por qué no se trata de olvidar sino de completar y cerrar ciclos. Una reflexión directa sobre apego, pérdida, soltar el pasado y aprender a ver lo nuevo tal cual es.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube-nocookie.com/embed/hXkLtNb6OLY</video:player_loc>
+    </video:video>
+  </url>
   <url>
     <loc>https://sergiogarciaterapeuta.es/formacion-empresas</loc>
     <lastmod>2026-11-17</lastmod>
