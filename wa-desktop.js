@@ -189,9 +189,14 @@
       if (!r.ok) throw new Error('envio');
       setStatus('Mensaje enviado. Te escribo en breve.', 'ok');
       form.reset();
-      track('generate_lead', { metodo: 'formulario_ordenador', pagina: location.pathname });
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', { send_to: FORM_CONVERSION, value: 1.0, currency: 'EUR' });
+      // En la página de empresas (código EMP) es un contacto de empresa: evento propio y sin conversión de Google Ads (18 nov 2026).
+      if (code().indexOf('EMP-') === 0) {
+        track('lead_empresa', { metodo: 'formulario_ordenador', pagina: location.pathname });
+      } else {
+        track('generate_lead', { metodo: 'formulario_ordenador', pagina: location.pathname });
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'conversion', { send_to: FORM_CONVERSION, value: 1.0, currency: 'EUR' });
+        }
       }
     }).catch(function () {
       setStatus('No se ha podido enviar. Prueba con el código o el enlace de WhatsApp.', 'err');
