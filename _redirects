@@ -88,3 +88,4 @@ http://www.sergiogarciaterapeuta.com/* https://sergiogarciaterapeuta.es/:splat 3
 /ca/terapia-parella-tarragona /ca/terapia-parella-tarragona.html 200
 /ca/terapia-individual-tarragona.html /ca/terapia-individual-tarragona 301!
 /ca/terapia-individual-tarragona /ca/terapia-individual-tarragona.html 200
+/automation/* /404.html 404!
