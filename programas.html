@@ -315,6 +315,8 @@ p.body+p.body { margin-top:1rem; }
         'codigo': code,
         'pagina': location.pathname
       });
+      // Curso y listas de espera (19 nov 2026): cuentan en Analytics, no como conversión de Google Ads.
+      if (link.hasAttribute('data-sg-sinads')) return;
       gtag('event', 'conversion', {
         'send_to': 'AW-18318477742/J--eCPbZudIcEK6T955E',
         'value': 1.0,
@@ -634,7 +636,7 @@ p.body+p.body { margin-top:1rem; }
         <p style="font-size:1.15rem;font-weight:500;margin-bottom:.5rem;">El Juicio</p>
         <p style="font-size:.85rem;color:var(--gray);line-height:1.8;">21 días de confrontación grupal con el personaje. Próximamente.</p>
       </div>
-      <a href="https://wa.me/34634422827?text=Quiero%20apuntarme%20a%20la%20lista%20de%20El%20Juicio" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;">Lista de espera →</a>
+      <a data-sg-sinads href="https://wa.me/34634422827?text=Quiero%20apuntarme%20a%20la%20lista%20de%20El%20Juicio" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;">Lista de espera →</a>
     </div>
     <div style="padding:2.5rem 2rem;display:flex;flex-direction:column;gap:1rem;">
       <p style="font-size:.78rem;color:var(--gray-light);line-height:1.6;font-style:italic;">"Estoy reconstruyendo mi vida desde cero."</p>
@@ -642,7 +644,7 @@ p.body+p.body { margin-top:1rem; }
         <p style="font-size:1.15rem;font-weight:500;margin-bottom:.5rem;">La Segunda Vida</p>
         <p style="font-size:.85rem;color:var(--gray);line-height:1.8;">Para cuando mejorar ya no es suficiente. Próximamente.</p>
       </div>
-      <a href="https://wa.me/34634422827?text=Quiero%20apuntarme%20a%20la%20lista%20de%20La%20Segunda%20Vida" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;">Lista de espera →</a>
+      <a data-sg-sinads href="https://wa.me/34634422827?text=Quiero%20apuntarme%20a%20la%20lista%20de%20La%20Segunda%20Vida" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;">Lista de espera →</a>
     </div>
   </div>
 </div>
@@ -655,9 +657,9 @@ p.body+p.body { margin-top:1rem; }
     <p class="body">5 vídeos. No te explican nada nuevo. Te muestran lo que ya sabes pero no puedes ver. El mecanismo con el que el personaje lleva años protegiéndose a costa tuya.</p>
     <p class="body">No es terapia. No es autoayuda. Es un corte preciso en lo que más te cuesta mirar.</p>
     <div style="margin-top:1.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
-      <a href="https://wa.me/34634422827?text=Quiero%20acceder%20a%20El%20personaje%20que%20te%20está%20matando" class="btn-dark">Acceder al curso →</a>
+      <a data-sg-sinads href="https://wa.me/34634422827?text=Quiero%20acceder%20a%20El%20personaje%20que%20te%20está%20matando" class="btn-dark">Acceder al curso →</a>
     </div>
-    <p style="font-size:.78rem;color:var(--gray-light);margin-top:.5rem;">Acceso inmediato. Sin suscripción. A tu ritmo.</p>
+    <p style="font-size:.78rem;color:var(--gray-light);margin-top:.5rem;">Escríbeme y te cuento cómo acceder.</p>
   </div>
   <div class="cb-r">
     <p style="font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--fire);margin-bottom:1.5rem;">Los 5 vídeos</p>
@@ -689,7 +691,7 @@ p.body+p.body { margin-top:1rem; }
     <a href="https://wa.me/34634422827?text=Me%20interesa%20El%20Punto%20de%20Inflexión%20Esencial" class="modal-btn outline">Solicitar llamada previa →</a>
   </div>
   <div class="modal best">
-    <span class="modal-tag">Intensivo <span class="modal-badge">Más elegido</span></span>
+    <span class="modal-tag">Intensivo</span>
     <h3 class="modal-h">El proceso completo</h3>
     <ul class="modal-items">
       <li>5 sesiones individuales de 90 min</li>
@@ -724,13 +726,13 @@ p.body+p.body { margin-top:1rem; }
     <span class="prox-tag">Grupo mixto · 21 días · Próximamente</span>
     <h3 class="prox-h">El Juicio</h3>
     <p class="prox-p">Se juzga al personaje, no a la persona. 21 días de confrontación real con el mecanismo que llevas construyendo toda tu vida. Formato grupal mixto.</p>
-    <a href="https://wa.me/34634422827?text=Quiero%20apuntarme%20a%20la%20lista%20de%20El%20Juicio" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;margin-top:auto;">Apuntarme a la lista →</a>
+    <a data-sg-sinads href="https://wa.me/34634422827?text=Quiero%20apuntarme%20a%20la%20lista%20de%20El%20Juicio" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;margin-top:auto;">Apuntarme a la lista →</a>
   </div>
   <div class="prox">
     <span class="prox-tag">Programa grupal · Próximamente</span>
     <h3 class="prox-h">La Segunda Vida</h3>
     <p class="prox-p">Para quienes han llegado al punto donde mejorar ya no es suficiente. Un proceso de ruptura y reconstrucción para personas dispuestas a dejar de sostener lo que ya no les pertenece.</p>
-    <a href="https://wa.me/34634422827?text=Quiero%20apuntarme%20a%20la%20lista%20de%20La%20Segunda%20Vida" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;margin-top:auto;">Apuntarme a la lista →</a>
+    <a data-sg-sinads href="https://wa.me/34634422827?text=Quiero%20apuntarme%20a%20la%20lista%20de%20La%20Segunda%20Vida" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;align-self:flex-start;margin-top:auto;">Apuntarme a la lista →</a>
   </div>
 </div>
 

@@ -9,7 +9,7 @@
   var MQ = window.matchMedia ? window.matchMedia('(hover: hover) and (pointer: fine)') : null;
   var DEFAULT_TEXT = 'Hola Sergio, me gustaría más información';
   var FORM_CONVERSION = 'AW-18318477742/F1MjCIrB-_ocEK6T955E';
-  var root, box, qrBox, openLink, form, statusEl, lastFocus, qrLoading;
+  var root, box, qrBox, openLink, form, statusEl, lastFocus, qrLoading, sinAds = false;
 
   function isDesktop() { return !!(MQ && MQ.matches) && window.innerWidth >= 768; }
 
@@ -134,6 +134,9 @@
     build();
     var url = waUrl(link.getAttribute('href'));
     openLink.setAttribute('href', url);
+    // Curso y listas de espera (19 nov 2026): sin conversiones de Google Ads, tampoco desde esta ventana.
+    sinAds = link.hasAttribute('data-sg-sinads');
+    if (sinAds) openLink.setAttribute('data-sg-sinads', ''); else openLink.removeAttribute('data-sg-sinads');
     setStatus('', '');
     qrBox.innerHTML = 'Cargando código…';
     loadQr().then(function (qrcode) {
@@ -190,7 +193,9 @@
       setStatus('Mensaje enviado. Te escribo en breve.', 'ok');
       form.reset();
       // En la página de empresas (código EMP) es un contacto de empresa: evento propio y sin conversión de Google Ads (18 nov 2026).
-      if (code().indexOf('EMP-') === 0) {
+      if (sinAds) {
+        track('interes_producto', { metodo: 'formulario_ordenador', pagina: location.pathname });
+      } else if (code().indexOf('EMP-') === 0) {
         track('lead_empresa', { metodo: 'formulario_ordenador', pagina: location.pathname });
       } else {
         track('generate_lead', { metodo: 'formulario_ordenador', pagina: location.pathname });
