@@ -23,6 +23,9 @@
 @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/cormorant-garamond-latin-400-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
 @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(/fonts/cormorant-garamond-latin-ext-500-italic.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
 @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(/fonts/cormorant-garamond-latin-500-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+
+img{height:auto;}
+
 </style>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -745,6 +748,7 @@ footer {
 <style id="sg-m1">@media (max-width:768px){.top-bar a[href^="mailto"],.top-bar .tb-sep{display:none}}</style>
 <meta name="theme-color" content="#EDECE6">
 <style id="sg-a11y">a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid #8F3A1A;outline-offset:3px}.skip-link{position:absolute;left:-9999px;top:0;z-index:10000;background:#0D0C0B;color:#EDECE6;padding:.6rem 1rem;font-size:.85rem;text-decoration:none}.skip-link:focus{left:1rem;top:1rem}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}</style>
+<style id="sg-nav-empresas">@media (min-width:1201px) and (max-width:1500px){ .nav-links{ gap:1.1rem !important; } }</style>
 </head>
 
 
@@ -765,6 +769,7 @@ footer {
     <a href="/sesiones">Sesiones</a>
     <a href="/talleres-retiros" class="active">Talleres y retiros</a>
     <a href="/programas">Programas</a>
+    <a href="/formacion-empresas">Empresas</a>
     <a href="/blog">Blog</a>
     <a href="/#contacto">Contacto</a>
   </div>
@@ -775,7 +780,7 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-img">
-    <img src="/images/dolor-alegria-1-0220d082.webp" alt="Sergio García facilitando taller vivencial">
+    <img width="1600" height="777" src="/images/dolor-alegria-1-0220d082.webp" alt="Sergio García facilitando taller vivencial">
   </div>
   <div class="hero-content">
     <span class="eyebrow">Taller vivencial · Tarragona · Próxima edición por anunciar</span>
@@ -804,7 +809,7 @@ footer {
 <!-- EL PERSONAJE -->
 <div class="split">
   <div class="split-img">
-    <img src="/images/dolor-alegria-2-d7d06e52.webp" alt="Trabajo vivencial en grupo">
+    <img width="1200" height="1600" src="/images/dolor-alegria-2-d7d06e52.webp" alt="Trabajo vivencial en grupo">
   </div>
   <div class="split-content">
     <span class="section-label">El origen</span>
@@ -844,7 +849,7 @@ footer {
 <!-- VACÍO FÉRTIL -->
 <div class="split reverse" style="border-top:0.5px solid var(--rule);">
   <div class="split-img">
-    <img src="/images/dolor-alegria-3-5aaebaeb.webp" alt="Espacio de integración">
+    <img width="1200" height="2309" src="/images/dolor-alegria-3-5aaebaeb.webp" alt="Espacio de integración">
   </div>
   <div class="split-content">
     <span class="section-label">Concepto clave</span>
@@ -910,7 +915,7 @@ footer {
 <!-- SERGIO -->
 <div class="split" style="border-top:0.5px solid var(--rule);">
   <div class="split-img">
-    <img src="/images/dolor-alegria-4-44cfabd5.webp" alt="Dinámica grupal taller vivencial">
+    <img width="300" height="269" src="/images/dolor-alegria-4-44cfabd5.webp" alt="Dinámica grupal taller vivencial">
   </div>
   <div class="split-content">
     <span class="section-label">El facilitador</span>
@@ -1135,5 +1140,23 @@ document.querySelectorAll('.yt-facade').forEach(function(el){
   <span style="margin:0 8px;">·</span>
   <a href="/privacidad#cookies" data-sg-cookies style="color:inherit;">Cookies</a>
 </footer>
+<script>
+/* Preguntas frecuentes accesibles con teclado y lector de pantalla (19 nov 2026) */
+(function(){
+  var qs = document.querySelectorAll('.faq-q');
+  if (!qs.length) return;
+  var st = document.createElement('style');
+  st.textContent = '.faq-q:focus-visible{outline:2px solid #8F3A1A;outline-offset:3px;}';
+  document.head.appendChild(st);
+  function sync(){ qs.forEach(function(x){ var it = x.closest('.faq-item'); x.setAttribute('aria-expanded', it && it.classList.contains('open') ? 'true' : 'false'); }); }
+  qs.forEach(function(q){
+    q.setAttribute('role', 'button');
+    q.setAttribute('tabindex', '0');
+    q.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); q.click(); } });
+    q.addEventListener('click', function(){ setTimeout(sync, 0); });
+  });
+  sync();
+})();
+</script>
 </body>
 </html>

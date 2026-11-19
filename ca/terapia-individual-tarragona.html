@@ -24,6 +24,9 @@
 @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/cormorant-garamond-latin-400-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
 @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(/fonts/cormorant-garamond-latin-ext-500-italic.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
 @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(/fonts/cormorant-garamond-latin-500-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+
+img{height:auto;}
+
 </style>
 <style>
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -531,6 +534,7 @@ p.body+p.body { margin-top:1rem; }
 <meta name="theme-color" content="#EDECE6">
 <style id="sg-a11y">a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid #8F3A1A;outline-offset:3px}.skip-link{position:absolute;left:-9999px;top:0;z-index:10000;background:#0D0C0B;color:#EDECE6;padding:.6rem 1rem;font-size:.85rem;text-decoration:none}.skip-link:focus{left:1rem;top:1rem}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}</style>
 <style id="sg-footer-wrap">.footer-links{flex-wrap:wrap;justify-content:center;row-gap:.6rem}</style>
+<style id="sg-nav-empresas">@media (min-width:1201px) and (max-width:1500px){ .nav-links{ gap:1.1rem !important; } }</style>
 </head>
 
 
@@ -551,6 +555,7 @@ p.body+p.body { margin-top:1rem; }
     <a href="/sesiones" class="active">Sesiones</a>
     <a href="/talleres-retiros">Tallers i recessos</a>
     <a href="/programas">Programes</a>
+    <a href="/formacion-empresas">Empreses</a>
     <a href="/blog">Blog</a>
     <a href="/#contacto">Contacte</a>
   </div>
@@ -566,7 +571,7 @@ p.body+p.body { margin-top:1rem; }
     <h1>Teràpia individual <br>a <em>Tarragona</em>.</h1>
     <p>Per quan fa temps que dones voltes al mateix, una crisi t'ha desubicat o entens què et passa però continues igual. Sessions de 60 minuts amb Sergio García, terapeuta, presencials a Tarragona o en línia, en català o castellà.</p>
     <p style="font-size:.78rem;letter-spacing:.06em;color:var(--fire);margin-top:.8rem;">+20 anys d'experiència · +2.000 persones acompanyades · Sense paquets tancats</p>
-    <a href="https://wa.me/34634422827?text=Vull%20demanar%20una%20sessi%C3%B3%20individual" data-cta="ca_individual_hero" class="btn-dark" style="margin-top:1.4rem;display:inline-block;">Escriu-me per WhatsApp →</a>
+    <a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20t%27escric%20des%20de%20la%20teva%20web." data-cta="ca_individual_hero" class="btn-dark" style="margin-top:1.4rem;display:inline-block;">Escriu-me per WhatsApp →</a>
     <p style="font-size:.8rem;line-height:1.6;color:var(--gray);margin-top:.7rem;">Et responc avui. Et dic preu i horaris, sense compromís.</p>
   </div>
   <p class="page-hero-side">"No hi ha formularis, no hi ha tests, no hi ha protocol. Ens asseiem i comencem a treballar."</p>
@@ -574,7 +579,7 @@ p.body+p.body { margin-top:1rem; }
 
 <!-- FOTO -->
 <div style="height:420px;border-bottom:1px solid var(--rule);overflow:hidden;">
-  <img src="/images/sesiones-1-a46c4230.webp" alt="Sergio García en una sessió de teràpia individual a Tarragona" style="width:100%;height:100%;object-fit:cover;display:block;">
+  <img width="1400" height="1050" src="/images/sesiones-1-a46c4230.webp" alt="Sergio García en una sessió de teràpia individual a Tarragona" style="width:100%;height:100%;object-fit:cover;display:block;">
 </div>
 
 <!-- CUÁNDO -->
@@ -616,7 +621,7 @@ p.body+p.body { margin-top:1rem; }
   <h2 class="grande" style="margin-top:3rem;">On és <br>la consulta?</h2>
   <p class="body" style="max-width:640px;"><strong>A Tarragona ciutat.</strong> Et passo l'adreça exacta quan reservem la primera sessió. Si vius lluny o prefereixes no desplaçar-te, la sessió pot ser en línia, per videotrucada.</p>
   <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
-    <a href="https://wa.me/34634422827?text=Vull%20demanar%20una%20sessi%C3%B3%20individual" data-cta="ca_individual_medio" class="btn-dark">Escriu-me per WhatsApp →</a>
+    <a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20t%27escric%20des%20de%20la%20teva%20web." data-cta="ca_individual_medio" class="btn-dark">Escriu-me per WhatsApp →</a>
     <button type="button" onclick="var p=document.getElementById('sg-panel'),f=document.getElementById('sg-fallback-form');if(p){p.classList.add('open');}if(f){f.classList.add('open');var i=f.querySelector('input');if(i)i.focus();}" style="background:none;border:none;color:var(--ink);text-decoration:underline;cursor:pointer;font:inherit;font-size:.85rem;">Prefereixes que t'escrigui jo? Deixa'm el teu telèfon</button>
   </div>
 </section>
@@ -682,7 +687,7 @@ p.body+p.body { margin-top:1rem; }
     <h2 class="grande">Comencem?</h2>
     <p class="body" style="margin-top:.5rem;">Et responc avui. Et dic preu i horaris, sense compromís. També pots veure <a href="/sesiones" style="color:var(--fire);">la resta de sessions i programes</a> (en castellà).</p>
   </div>
-  <a href="https://wa.me/34634422827?text=Vull%20demanar%20una%20sessi%C3%B3%20individual" data-cta="ca_individual_final" class="btn-dark">Escriu-me per WhatsApp →</a>
+  <a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20t%27escric%20des%20de%20la%20teva%20web." data-cta="ca_individual_final" class="btn-dark">Escriu-me per WhatsApp →</a>
 </div>
 
 </main>
@@ -858,5 +863,23 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 </script>
 <script src="/consent.js" defer></script>
 <script src="/wa-desktop.js" defer></script>
+<script>
+/* Preguntas frecuentes accesibles con teclado y lector de pantalla (19 nov 2026) */
+(function(){
+  var qs = document.querySelectorAll('.faq-q');
+  if (!qs.length) return;
+  var st = document.createElement('style');
+  st.textContent = '.faq-q:focus-visible{outline:2px solid #8F3A1A;outline-offset:3px;}';
+  document.head.appendChild(st);
+  function sync(){ qs.forEach(function(x){ var it = x.closest('.faq-item'); x.setAttribute('aria-expanded', it && it.classList.contains('open') ? 'true' : 'false'); }); }
+  qs.forEach(function(q){
+    q.setAttribute('role', 'button');
+    q.setAttribute('tabindex', '0');
+    q.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); q.click(); } });
+    q.addEventListener('click', function(){ setTimeout(sync, 0); });
+  });
+  sync();
+})();
+</script>
 </body>
 </html>
