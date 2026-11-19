@@ -225,6 +225,8 @@ p.body+p.body { margin-top:1rem; }
 .lead-input:focus { border-color:rgba(143,58,26,.7); }
 .lead-submit { background:var(--fire); color:white; border:none; padding:.82rem 1.5rem; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; cursor:pointer; font-family:inherit; white-space:nowrap; }
 .lead-submit:hover { opacity:.85; }
+.lead-eo { min-height:52px; }
+.lead-eo [data-form] , .lead-eo form { max-width:100%; }
 .lead-nota { font-size:.72rem; color:rgba(255,255,255,.2); margin-top:.8rem; }
 .lead-dias { border-top:0.5px solid rgba(255,255,255,.08); }
 .ld { display:grid; grid-template-columns:60px 1fr; gap:1rem; padding:.9rem 0; border-bottom:0.5px solid rgba(255,255,255,.06); align-items:baseline; }
@@ -568,6 +570,24 @@ p.body+p.body { margin-top:1rem; }
   <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="var m=document.querySelector('.nav-links');var open=m.classList.toggle('open');this.setAttribute('aria-expanded',open);this.innerHTML=open?'\u2715':'\u2630';">☰</button>
 </nav>
 <main id="contenido">
+
+<!-- LEAD MAGNET: DEJA DE ENTENDERTE -->
+<div class="lead-block" id="deja-de-entenderte">
+  <div class="lead-inner">
+    <div>
+      <span class="tag-light">Gratuito · 7 días · 7 audios</span>
+      <h2 class="lead-h">Deja de <br><em>entenderte.</em></h2>
+      <p class="lead-p">7 audios. Uno al día. Cada uno desmonta una pieza del mecanismo con el que el personaje se mantiene en pie. No te explica nada nuevo. Te quita algo que ya no necesitas.</p>
+      <div class="lead-eo">
+        <script async src="https://eomail5.com/form/a1ec2f3c-deb1-11f1-a127-35df21e09514.js" data-form="a1ec2f3c-deb1-11f1-a127-35df21e09514"></script>
+      </div>
+      <p class="lead-nota">Gratis. 7 audios, uno al día. Después te llegará mi carta mensual. Puedes darte de baja cuando quieras.</p>
+    </div>
+    <div class="lead-dias">
+      <div class="ld"><span class="ld-n">Día 1</span><span class="ld-t">Esto no es para ayudarte</span></div><div class="ld"><span class="ld-n">Día 2</span><span class="ld-t">Entender no es cambiar</span></div><div class="ld"><span class="ld-n">Día 3</span><span class="ld-t">Te entiendes para no perder el control</span></div><div class="ld"><span class="ld-n">Día 4</span><span class="ld-t">Tu historia no manda</span></div><div class="ld"><span class="ld-n">Día 5</span><span class="ld-t">No hagas nada con esto</span></div><div class="ld"><span class="ld-n">Día 6</span><span class="ld-t">Sigues igual porque quieres</span></div><div class="ld"><span class="ld-n">Día 7</span><span class="ld-t">Ahora ya no puedes fingir</span></div>
+    </div>
+  </div>
+</div>
 
 <!-- HERO -->
 <div class="page-hero">
