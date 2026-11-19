@@ -24,6 +24,15 @@
 @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/cormorant-garamond-latin-400-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
 @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(/fonts/cormorant-garamond-latin-ext-500-italic.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
 @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(/fonts/cormorant-garamond-latin-500-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+.ig-home{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.ig-home .instagram-media{min-width:0!important;}
+.ig-home iframe{min-width:0!important;max-width:100%!important;}
+.ig-home-link{display:block;padding:2.5rem 1rem;text-align:center;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;}
+@media (max-width:1000px){.ig-home{grid-template-columns:1fr 1fr;}}
+@media (max-width:600px){.ig-home{grid-template-columns:1fr;}}
+
+img{height:auto;}
+
 </style>
 <style>
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -616,6 +625,7 @@ footer {
 <meta name="theme-color" content="#EDECE6">
 <style id="sg-a11y">a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid #8F3A1A;outline-offset:3px}.skip-link{position:absolute;left:-9999px;top:0;z-index:10000;background:#0D0C0B;color:#EDECE6;padding:.6rem 1rem;font-size:.85rem;text-decoration:none}.skip-link:focus{left:1rem;top:1rem}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}</style>
 <style id="sg-footer-wrap">.footer-links{flex-wrap:wrap;justify-content:center;row-gap:.6rem}</style>
+<style id="sg-nav-empresas">@media (min-width:1201px) and (max-width:1500px){ .nav-links{ gap:1.1rem !important; } }</style>
 </head>
 
 
@@ -635,6 +645,7 @@ footer {
     <a href="/sesiones">Sesiones</a>
     <a href="/talleres-retiros">Talleres y retiros</a>
     <a href="/programas">Programas</a>
+    <a href="/formacion-empresas">Empresas</a>
     <a href="/blog">Blog</a>
     <a href="/#contacto">Contacto</a>
   </div>
@@ -656,7 +667,7 @@ footer {
     </div>
   </div>
   <div class="hero-r">
-    <img src="/images/home-1-b51abf0f.webp" alt="Sergio García en sesión" loading="eager">
+    <img width="1402" height="1122" src="/images/home-1-b51abf0f.webp" alt="Sergio García en sesión" loading="eager">
   </div>
 </section>
 
@@ -700,33 +711,33 @@ footer {
       <span class="srv-tag">Individual</span>
       <h3 class="srv-h">Sesión individual</h3>
       <p class="srv-p">Presencial en Tarragona u <a href="/terapia-online" style="color:inherit;text-decoration:underline;text-decoration-color:var(--fire-dim);text-underline-offset:3px">online</a> con personas de todo el mundo en castellano o catalán. 60 minutos. Sin compromiso de continuidad.</p>
-      <a href="/terapia-individual-tarragona" class="srv-a">Ver más →</a>
+      <a href="/terapia-individual-tarragona" class="srv-a">Ver sesión individual →</a>
     </div>
     <div class="srv">
       <span class="srv-tag">Pareja</span>
       <h3 class="srv-h">Terapia de pareja</h3>
       <p class="srv-p">La pareja no es el problema. Es el espejo de lo que cada uno trae. Trabajo la dependencia, el abandono y los patrones relacionales.</p>
-      <a href="/terapia-pareja-tarragona" class="srv-a">Ver más →</a>
+      <a href="/terapia-pareja-tarragona" class="srv-a">Ver terapia de pareja →</a>
     </div>
     <div class="srv dark">
       <span class="srv-tag">Grupal</span>
       <h3 class="srv-h">Talleres y retiros</h3>
       <p class="srv-p">Talleres vivenciales de un día o fin de semana. Retiros de 4-5 días en entorno natural. El grupo hace lo que la sesión no puede.</p>
-      <a href="/talleres-retiros" class="srv-a">Ver fechas →</a>
+      <a href="/talleres-retiros" class="srv-a">Ver talleres y retiros →</a>
     </div>
     <div class="srv">
       <span class="srv-tag">Profesionales</span>
       <h3 class="srv-h">Supervisión · Grupos · Conferencias</h3>
       <p class="srv-p">Grupos semanales, supervisión terapéutica para terapeutas y ponencias para empresas y universidades.</p>
-      <a href="/sesiones#profesionales" class="srv-a">Consultar →</a>
+      <a href="/sesiones#profesionales" class="srv-a">Ver grupos y supervisión →</a>
     </div>
   </div>
 </section>
 <section style="padding:2.2rem var(--p);text-align:center;border-bottom:1px solid var(--rule);"><a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20te%20escribo%20desde%20tu%20web." data-cta="home_servicios" class="btn-dark">Escríbeme por WhatsApp →</a></section>
 
 <div class="foto-par" aria-hidden="true">
-  <div class="fp"><img src="/images/home-3-2bfd2820.webp" alt="Sergio García facilitando taller" loading="lazy"></div>
-  <div class="fp"><img src="/images/home-4-6a2702ca.webp" alt="Trabajo grupal en taller vivencial" loading="lazy"></div>
+  <div class="fp"><img width="1400" height="679" src="/images/home-3-2bfd2820.webp" alt="Sergio García facilitando taller" loading="lazy"></div>
+  <div class="fp"><img width="1400" height="1050" src="/images/home-4-6a2702ca.webp" alt="Trabajo grupal en taller vivencial" loading="lazy"></div>
 </div>
 
 <!-- CASOS REALES -->
@@ -828,7 +839,7 @@ footer {
 <section style="padding:2.2rem var(--p);text-align:center;border-bottom:1px solid var(--rule);"><a href="https://wa.me/34634422827?text=Hola%20Sergio%2C%20te%20escribo%20desde%20tu%20web." data-cta="home_personaje" class="btn-dark">Escríbeme por WhatsApp →</a></section>
 
 <div class="img-cita">
-  <img src="/images/home-2-c098241f.webp" alt="Retiro junto al mar" loading="lazy">
+  <img width="1400" height="1050" src="/images/home-2-c098241f.webp" alt="Retiro junto al mar" loading="lazy">
   <div class="img-cita-txt">
     <blockquote>"No creo que estés bloqueado. Creo que llevas demasiado tiempo protegiendo una versión de ti que ya no existe."</blockquote>
   </div>
@@ -859,22 +870,28 @@ footer {
     </div>
     <a href="https://www.instagram.com/sergiogarciaterapeuta/" target="_blank" rel="noopener" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fire);text-decoration:none;border-bottom:0.5px solid var(--fire-dim);padding-bottom:2px;white-space:nowrap;">Ver @sergiogarciaterapeuta →</a>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;">
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Cf_wNm3IAQp/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CgrWpGrIVaA/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CjDblmroZav/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CnNM6u9qDNF/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;"></blockquote>
+  <div class="ig-home">
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Cf_wNm3IAQp/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;"><a href="https://www.instagram.com/reel/Cf_wNm3IAQp/" target="_blank" rel="noopener" class="ig-home-link">Ver en Instagram →</a></blockquote>
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CgrWpGrIVaA/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;"><a href="https://www.instagram.com/reel/CgrWpGrIVaA/" target="_blank" rel="noopener" class="ig-home-link">Ver en Instagram →</a></blockquote>
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CjDblmroZav/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;"><a href="https://www.instagram.com/reel/CjDblmroZav/" target="_blank" rel="noopener" class="ig-home-link">Ver en Instagram →</a></blockquote>
+    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CnNM6u9qDNF/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:100%;padding:0;width:100%;"><a href="https://www.instagram.com/reel/CnNM6u9qDNF/" target="_blank" rel="noopener" class="ig-home-link">Ver en Instagram →</a></blockquote>
   </div>
 </section>
 <script>
-window.addEventListener('load', function(){
-  setTimeout(function(){
+/* Instagram solo se carga si la persona acepta las cookies (19 nov 2026). Si no, se ven los enlaces «Ver en Instagram». */
+(function(){
+  var loaded = false;
+  function loadIg(){
+    if (loaded) return; loaded = true;
     var s = document.createElement('script');
     s.async = true;
-    s.src = '//www.instagram.com/embed.js';
+    s.src = 'https://www.instagram.com/embed.js';
     document.body.appendChild(s);
-  }, 1500);
-});
+  }
+  function granted(){ try { return localStorage.getItem('sg_consent_v1') === 'granted'; } catch (e) { return false; } }
+  window.addEventListener('sg-consent', function(e){ if (e.detail === 'granted') loadIg(); });
+  window.addEventListener('load', function(){ if (granted()) setTimeout(loadIg, 1500); });
+})();
 </script>
 <section style="background:var(--ink);padding:var(--pv) var(--p);border-bottom:1px solid rgba(255,255,255,.06);">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
@@ -1134,5 +1151,23 @@ document.querySelectorAll('.yt-facade').forEach(function(el){
 </script>
 <script src="/consent.js" defer></script>
 <script src="/wa-desktop.js" defer></script>
+<script>
+/* Preguntas frecuentes accesibles con teclado y lector de pantalla (19 nov 2026) */
+(function(){
+  var qs = document.querySelectorAll('.faq-q');
+  if (!qs.length) return;
+  var st = document.createElement('style');
+  st.textContent = '.faq-q:focus-visible{outline:2px solid #8F3A1A;outline-offset:3px;}';
+  document.head.appendChild(st);
+  function sync(){ qs.forEach(function(x){ var it = x.closest('.faq-item'); x.setAttribute('aria-expanded', it && it.classList.contains('open') ? 'true' : 'false'); }); }
+  qs.forEach(function(q){
+    q.setAttribute('role', 'button');
+    q.setAttribute('tabindex', '0');
+    q.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); q.click(); } });
+    q.addEventListener('click', function(){ setTimeout(sync, 0); });
+  });
+  sync();
+})();
+</script>
 </body>
 </html>

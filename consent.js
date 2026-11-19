@@ -8,7 +8,7 @@
 
   function read() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
   function save(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
-  function apply(v) { if (typeof window.gtag === 'function') window.gtag('consent', 'update', v === 'granted' ? GRANTED : DENIED); }
+  function apply(v) { if (typeof window.gtag === 'function') window.gtag('consent', 'update', v === 'granted' ? GRANTED : DENIED); try { window.dispatchEvent(new CustomEvent('sg-consent', { detail: v })); } catch (e) {} }
 
   /* Franja baja y estrecha: en el móvil no tapa el botón principal de la página (antes era una tarjeta de ~106 px) */
   var css = '#sg-cc{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;background:#fff;color:#222;' +
