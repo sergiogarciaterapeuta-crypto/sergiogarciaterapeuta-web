@@ -72,6 +72,8 @@ http://www.sergiogarciaterapeuta.com/* https://sergiogarciaterapeuta.es/:splat 3
 /crisis-existencial.html   /crisis-existencial   301!
 /crisis-existencial   /crisis-existencial.html   200
 
+/blog-entender-al-otro-y-desaparecer.html /blog-entender-al-otro-y-desaparecer 301!
+/blog-entender-al-otro-y-desaparecer /blog-entender-al-otro-y-desaparecer.html 200
 /blog-cuidar-para-merecer-que-te-cuiden.html /blog-cuidar-para-merecer-que-te-cuiden 301!
 /blog-cuidar-para-merecer-que-te-cuiden /blog-cuidar-para-merecer-que-te-cuiden.html 200
 /blog-sentirte-pequeno-con-una-persona.html /blog-sentirte-pequeno-con-una-persona 301!

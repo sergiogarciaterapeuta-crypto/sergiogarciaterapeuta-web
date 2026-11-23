@@ -103,6 +103,15 @@
         "publishedAt": "2026-11-16"
       },
       "deploymentVerifiedAt": "2026-11-16"
+    },
+    {
+      "videoId": "lTXEYkKzlyQ",
+      "path": "blog-entender-al-otro-y-desaparecer.html",
+      "publishedAt": "2026-11-23",
+      "isoWeek": "2026-W48",
+      "linkedin": {
+        "status": "pending"
+      }
     }
   ]
 }
