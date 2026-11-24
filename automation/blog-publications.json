@@ -107,11 +107,16 @@
     {
       "videoId": "lTXEYkKzlyQ",
       "path": "blog-entender-al-otro-y-desaparecer.html",
-      "publishedAt": "2026-11-23",
+      "publishedAt": "2026-11-24",
       "isoWeek": "2026-W48",
       "linkedin": {
-        "status": "pending"
-      }
+        "status": "published",
+        "text": "Por qué siempre entiendes al otro y tú desapareces\n\nSiempre entiendes por qué el otro te hizo daño. Y acabas pidiéndole perdón tú.\n\nEntender al otro no es el problema. El problema es que entiendes antes de sentir. Antes de que te duela, ya has encontrado por qué no debería dolerte.\n\nComprender no te obliga a callar. Puedes entender a alguien y, aun así, decirle que no.\n\nhttps://sergiogarciaterapeuta.es/blog-entender-al-otro-y-desaparecer",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7530972628753281025/",
+        "id": "urn:li:activity:7530972628753281025",
+        "publishedAt": "2026-11-24"
+      },
+      "deploymentVerifiedAt": "2026-11-24"
     }
   ]
 }
