@@ -528,13 +528,14 @@ p.body+p.body { margin-top:1rem; }
 <style id="sg-a11y">a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid #8F3A1A;outline-offset:3px}.skip-link{position:absolute;left:-9999px;top:0;z-index:10000;background:#0D0C0B;color:#EDECE6;padding:.6rem 1rem;font-size:.85rem;text-decoration:none}.skip-link:focus{left:1rem;top:1rem}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}</style>
 <style id="sg-footer-wrap">.footer-links{flex-wrap:wrap;justify-content:center;row-gap:.6rem}</style>
 <style id="sg-nav-empresas">@media (min-width:1201px) and (max-width:1500px){ .nav-links{ gap:1.1rem !important; } }</style>
+<style id="sg-tel">.top-bar .tb-tel{font-size:.8rem;letter-spacing:.04em}.top-bar .tb-tel strong{font-weight:600;color:#fff}.sg-tel-cta{display:inline-block;margin:.7rem 0 0 .2rem;font-size:.95rem;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--fire);padding-bottom:1px}.sg-tel-cta strong{white-space:nowrap}.sg-tel-cta:hover{color:var(--fire)}@media (max-width:768px){.sg-tel-cta{display:block;text-align:center;margin:.9rem 0 0;border:1px solid var(--ink);border-bottom-color:var(--ink);padding:.85rem 1rem;font-size:1rem}}</style>
 </head>
 
 
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 <div class="top-bar">
-  <a href="tel:+34634422827">📞 634 42 28 27</a>
+  <a href="tel:+34634422827" class="tb-tel" data-cta="topbar_llamar">📞 Llama para pedir cita: <strong>634 42 28 27</strong></a>
   <span class="tb-sep">·</span>
   <a href="mailto:sergio@sergiogarciaterapeuta.es">✉️ sergio@sergiogarciaterapeuta.es</a>
 </div>
@@ -564,6 +565,7 @@ p.body+p.body { margin-top:1rem; }
     <p>Para cuando el miedo a que te dejen pesa más que lo que te hace daño, necesitas la aprobación del otro para estar bien o repites el mismo patrón con distintas personas. Sesiones de 60 minutos con Sergio García, terapeuta, presenciales en Tarragona u online.</p>
     <p style="font-size:.78rem;letter-spacing:.06em;color:var(--fire);margin-top:.8rem;">+20 años de experiencia · +2.000 personas acompañadas · Sin paquetes cerrados</p>
     <a href="https://wa.me/34634422827?text=Quiero%20informaci%C3%B3n%20sobre%20dependencia%20emocional" data-cta="dependencia_hero" class="btn-dark" style="margin-top:1.4rem;display:inline-block;">Escríbeme por WhatsApp →</a>
+    <br><a href="tel:+34634422827" class="sg-tel-cta" data-cta="hero_llamar">📞 O llámame para pedir cita: <strong>634 42 28 27</strong></a>
     <p style="font-size:.8rem;line-height:1.6;color:var(--gray);margin-top:.7rem;">Te respondo hoy. Te digo precio y horarios, sin compromiso.</p>
   </div>
   <p class="page-hero-side">"No es que necesites demasiado amor. Es que llevas tiempo buscándolo en el sitio equivocado: fuera de ti."</p>
@@ -877,5 +879,6 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   sync();
 })();
 </script>
+<script id="sg-tel-js">document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"]');if(a&&window.gtag){gtag("event","llamada_click",{"cta":a.getAttribute("data-cta")||"tel","pagina":location.pathname});}},true);</script>
 </body>
 </html>
