@@ -898,6 +898,6 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   sync();
 })();
 </script>
-<script id="sg-tel-js">document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"]');if(a&&window.gtag){gtag("event","llamada_click",{"cta":a.getAttribute("data-cta")||"tel","pagina":location.pathname});}},true);</script>
+<script id="sg-tel-js">document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href^="tel:"]');if(a&&window.gtag){gtag("event","llamada_click",{"cta":a.getAttribute("data-cta")||"tel","pagina":location.pathname});if(!/formacion-empresas/.test(location.pathname)){gtag("event","conversion",{"send_to":"AW-18318477742/EjdjCIaim8AdEK6T955E"});}}},true);</script>
 </body>
 </html>
